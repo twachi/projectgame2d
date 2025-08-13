@@ -9,6 +9,8 @@
    
 ** ชื่อเกม ตะลุยเมืองฝุ่นผี   - Ghost Dust City **
 
+ธีม หรือ แนวเกม : ความลี้ลับ ความน่ากลัว และ ปัญหาสิ่งแวดล้อม
+
 This starter kit includes all the essential mechanics for your 2d platformer game. Using this kit,
 you will be able to make your own 2d platformer in no time.
 
