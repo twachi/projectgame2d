@@ -7,7 +7,8 @@
 3. นางสาว   xxxxx    รหัส
 4. นางสาว   xxxxx    รหัส
    
-** ชื่อเกม ตะลุยเมืองฝุ่นผี   - Ghost Dust City **
+## ชื่อเกม ตะลุยเมืองฝุ่นผี 
+## Ghost Dust City 
 
 This starter kit includes all the essential mechanics for your 2d platformer game. Using this kit,
 you will be able to make your own 2d platformer in no time.
