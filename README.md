@@ -12,9 +12,9 @@
 
 ธีม หรือ แนวเกม : ความลี้ลับ ความน่ากลัว และ ปัญหาสิ่งแวดล้อม
 
-ทดลองเล่น 
-https://twachi.github.io/projectgame2d/
-
+## ทดลองเล่น 
+* https://twachi.github.io/projectgame2d/
+* https://twachi.github.io/projectgame2d/webgame/game1.html
 
 ## เนื้อเรื่องย่อ:  
 
