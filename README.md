@@ -5,7 +5,7 @@
 1. นาย  xxxxx    รหัส
 2. นาย   xxxxx    รหัส
 3. นางสาว   xxxxx    รหัส
- 
+4. abc 
 
 ## ชื่อเกม ตะลุยเมืองผี 
 ## Ghost Dust City 

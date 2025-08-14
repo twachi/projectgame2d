@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://c1j1k04ax722v" path="res://Scripts/GameUI.gd" id="6_66mfc"]
 [ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="7_j7jun"]
 [ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="8_gwcy2"]
-[ext_resource type="Texture2D" uid="uid://nsbc6qmgjqr" path="res://Assets/Spritesheet/11-Jump Sword/Jump Sword 01.png" id="10_5vjlm"]
+[ext_resource type="Texture2D" uid="uid://dywa8qhwi8yl2" path="res://Assets/Spritesheet/11-Jump Sword/Jump Sword 01.png" id="10_5vjlm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gs0qk"]
 texture = ExtResource("5_wqbaa")
@@ -53,7 +53,7 @@ next_scene = ExtResource("2_0ac5u")
 
 [node name="Player" parent="." instance=ExtResource("2_pay8t")]
 z_index = 1
-position = Vector2(150, 318)
+position = Vector2(159, 222)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(16, 36)
@@ -139,6 +139,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_66mfc")
+metadata/_edit_lock_ = true
 
 [node name="Score" type="Control" parent="UserInterface/GameUI"]
 unique_name_in_owner = true
@@ -149,20 +150,20 @@ offset_bottom = 40.0
 [node name="ScoreTexture" type="TextureRect" parent="UserInterface/GameUI/Score"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 116.0
-offset_bottom = 116.0
+offset_left = -9.0
+offset_top = 14.0
+offset_right = 91.0
+offset_bottom = 114.0
 texture = ExtResource("7_j7jun")
 stretch_mode = 4
 
 [node name="ScoreLabel" type="Label" parent="UserInterface/GameUI/Score"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 104.0
-offset_top = 42.0
-offset_right = 148.0
-offset_bottom = 84.0
+offset_left = 84.0
+offset_top = 43.0
+offset_right = 129.0
+offset_bottom = 85.0
 theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
