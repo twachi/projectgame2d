@@ -15,6 +15,7 @@
 ## ทดลองเล่น 
 * https://twachi.github.io/projectgame2d/
 * https://twachi.github.io/projectgame2d/webgame/game1.html
+* https://twachi.github.io/projectgame2d/webgame/game2.html
 
 ## เนื้อเรื่องย่อ:  
 
