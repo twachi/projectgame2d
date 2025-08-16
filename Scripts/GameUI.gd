@@ -26,8 +26,8 @@ func update_audio():
 func _process(_delta):
 	# Set the score label text to the score variable in game maanger script
 	score_label.text = "x %d" % GameManager.score
-	smoke_label.text = "x %d" % GameManager.smoke_level
-	hp_label.text  = "x %.2f" % GameManager.player_hp
+	smoke_label.text = "%.2f %%" % GameManager.smoke_level
+	hp_label.text  = "%.2f %%" % GameManager.player_hp
 	water_label.text = "x %d" % GameManager.water
 	fire_label.text = "x %d" % GameManager.fire_count
 	m1label.text = str(GameManager.masks[1])

@@ -1594,6 +1594,7 @@ polygon = PackedVector2Array(175.003, 4.4131, 186.638, 5.61669, 191.854, 18.0538
 uv = PackedVector2Array(175.003, 4.4131, 186.638, 5.61669, 191.854, 18.0538, 192.656, 29.2874, 200.68, 32.4969, 200.279, 47.7424, 179.416, 46.5388, 171.794, 34.5029)
 
 [node name="Chest1" type="Polygon2D" parent="Part/Body"]
+visible = false
 position = Vector2(9.53674e-07, 0)
 offset = Vector2(-107, -104)
 texture = ExtResource("1_7gvjb")
@@ -1601,7 +1602,6 @@ polygon = PackedVector2Array(89.9991, 54.9375, 79.3437, 59.2966, 79.828, 83.9978
 uv = PackedVector2Array(89.9991, 54.9375, 79.3437, 59.2966, 79.828, 83.9978, 76.922, 102.403, 82.2497, 114.996, 99.2016, 116.933, 118.091, 121.292, 124.387, 115.48, 130.199, 101.918, 124.872, 82.5448, 131.168, 61.7183, 125.356, 53.9688)
 
 [node name="Chest2" type="Polygon2D" parent="Part/Body"]
-visible = false
 position = Vector2(-51, 0)
 rotation = -0.0267145
 offset = Vector2(-107, -104)
