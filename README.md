@@ -2,49 +2,46 @@
 วิชา Computer Game Development ปี 2025
 
 **สมาชิกในกลุ่ม**
-1. นาย  xxxxx    รหัส
-2. นาย   xxxxx    รหัส
-3. นางสาว   xxxxx    รหัส
-4. abc 
+1. วชิราวุธ ธรรมวิเศษ
 
 ## ชื่อเกม ตะลุยเมืองผี 
 ## Ghost Dust City 
+![Ghost Dust City Logo](https://twachi.github.io/projectgame2d/screen.jpg)
 
 ธีม หรือ แนวเกม : ความลี้ลับ ความน่ากลัว และ ปัญหาสิ่งแวดล้อม
 
-## ทดลองเล่น 
-* https://twachi.github.io/projectgame2d/
-* https://twachi.github.io/projectgame2d/webgame/game1.html
-* https://twachi.github.io/projectgame2d/webgame/game2.html
-
 ## เนื้อเรื่องย่อ:  
 
-ในกรุงเทพมหานคร เมืองหลวงที่เต็มไปด้วยตึกระฟ้า ถนนหนทาง และผู้คน แต่ถูกปกคลุมไปด้วยหมอกควันพิษหนาแน่น ผู้คนต่างป่วยเป็นโรคทางเดินหายใจ ปอปลา เด็กหนุ่มผู้มีจิตใจดี และ กล้าหาญ ได้สูญเสียคุณยายจากโรคมะเร็งปอด เขาเสียใจและโกรธแค้น วิญญาณของคุณยายจึงปรากฏตัวขึ้น เธอขอให้ปอช่วยหยุดยั้งปีศาจมลพิษที่ต้องการปกคลุมกรุงเทพด้วยหมอกควันพิษ  ปอปลา จึงตัดสินใจออกเดินทางผจญภัย เพื่อช่วยให้ดวงวิญญาณของคุณยายไปสู่สุขคติ
-ปอปลาเดินทางไปยังวัดอรุณ สถานที่ศักดิ์สิทธิ์ริมแม่น้ำเจ้าพระยา เขาขอพรจากพญายักษ์วัดแจ้ง และ ปอปลาได้รับพลังและของวิเศษเพื่อต่อสู้กับปีศาจมลพิษ
-ระหว่างการเดินทาง ปอปลา ได้ช่วยดับกองไฟเผาขยะ ต่าง ๆ และ เผชิญหน้ากับผีควัน ซึ่งเป็นวิญญาณที่ถูกควบคุมโดยมลพิษ โดยมีผีคุณยายให้คำแนะนำระหว่างทาง ปอปลาใช้พลังและของวิเศษ ต่อสู้ และ เอาชนะผีควันทั้งหมด
-ปอปลาเดินทางจนไปถึงโรงงานเถื่อน ซึ่งเป็นแหล่งกำเนิดมลพิษ เขาต้องเข้าไปปิดเครื่องจักรที่ก่อให้เกิดมลพิษ และ กำจัดผีควันในโรงงาน และในที่สุด ปอปลา ก็พบกับ ตัวร้ายหลัก จอมปีศาจมลพิษ ที่พยายามปกคลุมกรุงเทพด้วยหมอกควันพิษ และ ปอปลาได้ใช้พลังพิเศษ ความกล้าหาญ และความมุ่งมั่น ต่อสู้และเอาชนะจอมปีศาจมลพิษได้ในที่สุด
-หมอกควันพิษจางหายไป กรุงเทพกลับมามีอากาศบริสุทธิ์อีกครั้ง ผู้คนต่างดีใจ ปอปลากลายเป็นฮีโร่ที่ช่วยกอบกู้เมืองหลวง ดวงวิญญาณของคุณยายได้ให้พรแก่ปอปลา แล้วกล่าวลา และ ล่องลอยไปสู่สุขคติ เขาสัญญาจะปกป้องกรุงเทพ รักษาสิ่งแวดล้อม ไม่ให้ปีศาจมลพิษกลับมาอีก
+ในอดีตกาล เมือง “พุทธนคร” เคยเป็นดินแดนแห่งความสงบ เต็มไปด้วยตลาดคึกคัก วัดวาอารามงดงาม และธรรมชาติที่อุดมสมบูรณ์
+แต่เมื่อยุคสมัยเปลี่ยนไป ความละโมบและความประมาทของผู้คนทำให้เมืองเต็มไปด้วยมลพิษ – กองไฟเผาขยะ, โรงงานปล่อยควัน, รถควันดำ วิถีชีวิตที่มองข้ามสิ่งแวดล้อมได้ปลุก “ผีควัน” และ “ภูตฝุ่น” ขึ้นมาจากเถ้าถ่าน พวกมันออกอาละวาดดูดกลืนชีวิตและความงามของเมือง
 
-**This Kit Includes:**
-- Juicy Platformer Controller
-- Animated Player
-- 2 Demo Levels
-- Level Management
-- Score System
-- Sound Effects
+ตำนานเล่าว่า
+เมื่อมลพิษปกคลุมเมืองจนหนาทึบ จะเกิด "ผีหมอกเจ้าเมือง" ร่างยักษ์ที่รวมเอาฝุ่นและควันทั้งหมดไว้ในตัว และมันจะกักขังดวงวิญญาณของผู้คนไว้ตลอดกาล
 
-The code is documented for better understanding and each script and function is documented with its purpose.
-The code is also beginner friendly, who wants to learn by diving directly into the coding game!
+ผู้เล่นจะสวมบทเป็น “ก้องเกียรติ” ยอดนักรบผู้สืบเชื้อสายจากนักปราบภูตโบราณ ได้รับพลังจาก “เกราะครุฑา” – อาวุธและเครื่องรางแห่งความบริสุทธิ์ ที่สามารถฟาดฟันผีควันและชำระล้างมลพิษ
+ภารกิจของเขาคือ ตะลุยฝ่าด่านในเมืองพุทธนคร กำจัดแหล่งมลพิษ ปราบผีควัน และฟื้นฟูความสดใสให้กลับคืนสู่บ้านเกิด
+
+## ทดลองเล่น  (Version 0.1)
+* https://twachi.github.io/projectgame2d/
 
 ## Screenshots
-![2D Platformer Starter Kit Splash](https://github.com/AdilDevStuff/2D-Platformer-Starter-Kit/assets/94475453/0714f861-5db9-4c49-a5a7-c00708c0f9b5)
-![2D Starter Platformer SS 1](https://github.com/AdilDevStuff/2D-Platformer-Starter-Kit/assets/94475453/566dafe8-273d-4b60-97f6-4b29930c9eca)
-![2D Starter Platformer SS 2](https://github.com/AdilDevStuff/2D-Platformer-Starter-Kit/assets/94475453/aab09d8c-b7d7-459e-9313-9ec62bd585b8)
+![Ghost Dust City SS 1](https://twachi.github.io/projectgame2d/Screenshot%202025-08-17%20001125.png)
+![Ghost Dust City SS 2](https://twachi.github.io/projectgame2d/screen02_wing.png)
+
+## ส่วนประกอบตัวละคร Body Parts
+![Player](https://twachi.github.io/projectgame2d/player-part.png)
+
 
 ## Credits
 
-**2D Assets**
+**2D Platformer Starter Kit** 
+https://github.com/AdilDevStuff/2D-Platformer-Starter-Kit/
+
+**2D Assets** 
 www.Kenney.nl
+
+**Music**
+Sugarbee - Chris Haugen,  [Youtue Music](https://www.youtube.com/watch?v=nTfCZy5ZKuc) 
 
 **Sound Fx**
 Gdfxr (Sfxr plugin for godot)
