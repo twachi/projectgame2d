@@ -26,6 +26,10 @@
 
 ## Screenshots
 ![Ghost Dust City SS 1](https://twachi.github.io/projectgame2d/Screenshot%202025-08-17%20001125.png)
+![Ghost Dust City SS 2](https://twachi.github.io/projectgame2d/screen02_wing.png)
+
+## ส่วนประกอบตัวละคร Body Parts
+![Player](https://twachi.github.io/projectgame2d/player-part.png)
 
 
 **This Kit Includes:**
