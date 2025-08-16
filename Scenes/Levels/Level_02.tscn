@@ -58,19 +58,6 @@ next_scene = null
 z_index = 1
 position = Vector2(117, 348)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(16, 36)
-limit_smoothed = true
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.4
-drag_top_margin = 0.4
-drag_right_margin = 0.4
-drag_bottom_margin = 0.4
-editor_draw_limits = true
-editor_draw_drag_margin = true
-
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("3_nht2m")]

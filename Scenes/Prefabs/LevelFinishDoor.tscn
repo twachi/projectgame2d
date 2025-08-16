@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyti38f0lagf2"]
 
 [ext_resource type="Script" uid="uid://byj272o0dik7h" path="res://Scripts/LevelFinishDoor.gd" id="1_bto8y"]
-[ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="3_f8ea2"]
+[ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="3_f8ea2"]
 [ext_resource type="Texture2D" uid="uid://bfci8t61e2x4b" path="res://Assets/Spritesheet/TX Village Props.png" id="3_xnjwi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34g1n"]
@@ -26,10 +26,10 @@ offset_left = -160.0
 offset_top = -252.0
 offset_right = 182.0
 offset_bottom = -114.0
+theme = ExtResource("3_f8ea2")
 theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_f8ea2")
 theme_override_font_sizes/font_size = 32
 text = "ต้องดับไฟ 
 ทำให้ลดควันพิษทั้งหมด

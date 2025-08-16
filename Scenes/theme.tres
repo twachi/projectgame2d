@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://pg5qj60mkk3i"]
+
+[ext_resource type="FontFile" uid="uid://bgekb0gm45t4k" path="res://Assets/Fonts/THSarabunNew Bold.ttf" id="1_ak4nt"]
+
+[resource]
+default_font = ExtResource("1_ak4nt")

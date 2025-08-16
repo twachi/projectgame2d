@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="3_rrh80"]
 [ext_resource type="Script" uid="uid://dcujj1ch2ow65" path="res://Scripts/GameManager.gd" id="4_vgfkr"]
 [ext_resource type="PackedScene" uid="uid://cg4lt28lfpdd2" path="res://Scenes/Props/tree1.tscn" id="6_xpj05"]
-[ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="8_gwcy2"]
 [ext_resource type="PackedScene" uid="uid://b6tca06ks0ys7" path="res://Scenes/Managers/user_interface.tscn" id="9_5pmb1"]
 [ext_resource type="PackedScene" uid="uid://d0olocigoed7" path="res://Scenes/Prefabs/gbfire.tscn" id="10_1bssr"]
 [ext_resource type="Texture2D" uid="uid://dnmn4ukr1moq4" path="res://Assets/Spritesheet/gbfire1.png" id="10_siisw"]
 [ext_resource type="PackedScene" uid="uid://ct32ygekp6768" path="res://Scenes/Prefabs/floor.tscn" id="11_aksfc"]
 [ext_resource type="Texture2D" uid="uid://dsxa3dabn2mxy" path="res://Assets/Spritesheet/house1.png" id="12_aksfc"]
 [ext_resource type="PackedScene" uid="uid://cjvydf3e86gpn" path="res://Scenes/Prefabs/wing.tscn" id="13_5pmb1"]
+[ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="13_07uvp"]
 [ext_resource type="PackedScene" uid="uid://cbh3xslxnhepu" path="res://Scenes/Prefabs/level_smoke.tscn" id="13_i7ntp"]
 [ext_resource type="Texture2D" uid="uid://byk0lat7o6c7p" path="res://Assets/Textures/bg/bg1.png" id="14_xpj05"]
 [ext_resource type="PackedScene" uid="uid://cq0gdfn3lyb04" path="res://Scenes/Prefabs/help_box.tscn" id="15_5v11l"]
@@ -59,19 +59,6 @@ next_scene = ExtResource("2_0ac5u")
 z_index = 1
 position = Vector2(117, 348)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(16, 36)
-limit_smoothed = true
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.4
-drag_top_margin = 0.4
-drag_right_margin = 0.4
-drag_bottom_margin = 0.4
-editor_draw_limits = true
-editor_draw_drag_margin = true
-
 [node name="Coins" type="Node2D" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("3_rrh80")]
@@ -94,10 +81,10 @@ offset_left = -49.0
 offset_top = -79.0
 offset_right = 67.0
 offset_bottom = -31.0
+theme = ExtResource("13_07uvp")
 theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("8_gwcy2")
 theme_override_font_sizes/font_size = 32
 text = "ปีกวิเศษ กด Z เพื่อใช้งาน"
 metadata/_edit_lock_ = true
@@ -106,13 +93,11 @@ metadata/_edit_lock_ = true
 
 [node name="poly" parent="Level" instance=ExtResource("6_xpj05")]
 position = Vector2(439, 442)
-offset = Vector2(-752.767, -606.636)
 
 [node name="poly2" parent="Level" instance=ExtResource("6_xpj05")]
 z_index = -3
 position = Vector2(395, 439)
 scale = Vector2(2.33139, 2.45556)
-offset = Vector2(-752.767, -606.636)
 
 [node name="floor" parent="Level" instance=ExtResource("11_aksfc")]
 offset_left = -367.0
@@ -145,10 +130,10 @@ offset_left = -147.47
 offset_top = -299.856
 offset_right = 178.53
 offset_bottom = -161.856
+theme = ExtResource("13_07uvp")
 theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("8_gwcy2")
 theme_override_font_sizes/font_size = 32
 text = "มีคนก่อกองไฟเผาขยะ
 ทำให้เกิดมลพิษในอากาศ
@@ -252,10 +237,10 @@ offset_left = 96.0
 offset_top = 481.0
 offset_right = 388.0
 offset_bottom = 572.0
+theme = ExtResource("13_07uvp")
 theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("8_gwcy2")
 theme_override_font_sizes/font_size = 32
 text = "A & D  เพื่อเดิน
 Spacebar เพื่อกระโดด"

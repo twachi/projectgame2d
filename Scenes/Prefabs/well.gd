@@ -6,12 +6,12 @@ var active = false
 
 func start(player):
 	if started : return
-	AudioManager.well.play()
 	started = true
 	animation_player.play("start")
 	player.play("well")
 	$Effect.emitting = true
 	await get_tree().create_timer(GameManager.water_delay).timeout
+	AudioManager.well.play()
 	animation_player.stop()
 	started = false
 	var b = Bucket.instantiate()
@@ -21,6 +21,7 @@ func start(player):
 	
 
 func _ready() -> void:
+	$help.visible = false
 	$image.modulate = Color(0.5,0.5,0.5)
 	
 

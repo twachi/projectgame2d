@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://nk7ostvx7dts" path="res://Assets/Spritesheet/floor1.png" id="1_1kq7s"]
 [ext_resource type="Script" uid="uid://bk7b3shvv1g26" path="res://Scenes/Prefabs/floor.gd" id="2_wx1or"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kq7s"]
-size = Vector2(102, 145)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wx1or"]
 
 [node name="floor" type="NinePatchRect"]
 z_index = -3
@@ -25,6 +24,4 @@ script = ExtResource("2_wx1or")
 collision_layer = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_1kq7s")
-one_way_collision = true
-debug_color = Color(0.858824, 0.219608, 0.254902, 0.623529)
+shape = SubResource("RectangleShape2D_wx1or")

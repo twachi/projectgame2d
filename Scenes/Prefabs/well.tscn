@@ -2,9 +2,36 @@
 
 [ext_resource type="Texture2D" uid="uid://bfci8t61e2x4b" path="res://Assets/Spritesheet/TX Village Props.png" id="1_7ga3n"]
 [ext_resource type="Script" uid="uid://vqxdd4v5q1d" path="res://Scenes/Prefabs/well.gd" id="1_fwlud"]
-[ext_resource type="Texture2D" uid="uid://621as0fwjhum" path="res://Assets/Textures/star_07.png" id="2_2rrd2"]
+[ext_resource type="Texture2D" uid="uid://81hqrxsgm50t" path="res://Assets/Spritesheet/smoke1.png" id="2_2rrd2"]
 [ext_resource type="PackedScene" uid="uid://ffc5x143ydq7" path="res://Scenes/Prefabs/water_bucket.tscn" id="4_hqflh"]
-[ext_resource type="FontFile" uid="uid://bngsxjqp1v8jn" path="res://Assets/Fonts/CkPandaDemo.ttf" id="5_8xuwr"]
+[ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="5_8xuwr"]
+
+[sub_resource type="Animation" id="Animation_2rrd2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("image/poly8:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("image:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_7ga3n"]
 resource_name = "start"
@@ -35,33 +62,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 0.556863, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_2rrd2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("image/poly8:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("image:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fwlud"]
 _data = {
 &"RESET": SubResource("Animation_2rrd2"),
@@ -84,9 +84,8 @@ spread = 10.0
 initial_velocity_min = 50.0
 initial_velocity_max = 100.0
 gravity = Vector3(0, 100, 0)
-scale_min = 0.01
-scale_max = 0.1
-color = Color(0, 0.476373, 0.970366, 1)
+scale_min = 0.2
+color = Color(0.831989, 0.902136, 0.999999, 1)
 alpha_curve = SubResource("CurveTexture_hqflh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqflh"]
@@ -142,16 +141,15 @@ position = Vector2(-57, -24)
 shape = SubResource("RectangleShape2D_hqflh")
 
 [node name="help" type="Label" parent="."]
-visible = false
-offset_left = -80.0
-offset_top = -128.0
-offset_right = 112.0
-offset_bottom = -90.0
-theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+offset_left = -58.0
+offset_top = -111.0
+offset_right = 53.0
+offset_bottom = -86.0
+theme = ExtResource("5_8xuwr")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("5_8xuwr")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 18
 text = "กด X เพื่อตักน้ำ"
 horizontal_alignment = 1
 

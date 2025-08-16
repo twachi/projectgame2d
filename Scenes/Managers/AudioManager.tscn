@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bssjjygu83iwl"]
+[gd_scene load_steps=9 format=3 uid="uid://bssjjygu83iwl"]
 
 [ext_resource type="Script" uid="uid://cc76dr86loxni" path="res://Scripts/AudioManager.gd" id="1_hp1cr"]
 [ext_resource type="AudioStream" uid="uid://d3ldv4818s140" path="res://Assets/Sound/FX/30_Jump_03.wav" id="2_esrla"]
@@ -7,30 +7,43 @@
 [ext_resource type="AudioStream" uid="uid://dgik26y72778d" path="res://Assets/Sound/FX/pickupCoin.wav" id="3_84782"]
 [ext_resource type="AudioStream" uid="uid://clx3woadf11e8" path="res://Assets/Sound/FX/explosion.wav" id="4_y7mjd"]
 [ext_resource type="AudioStream" uid="uid://s84emunwpgeq" path="res://Assets/Sound/FX/powerUp.wav" id="5_qy2l1"]
+[ext_resource type="AudioStream" uid="uid://d2b8bm1w7yki7" path="res://Assets/Sound/music.ogg" id="8_5h2c1"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_hp1cr")
 
 [node name="Water" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_qy2l1")
+bus = &"sfx"
 
 [node name="Well" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_5h2c1")
+bus = &"sfx"
 
 [node name="JumpSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_esrla")
 volume_db = 1.5
+bus = &"sfx"
 
 [node name="CoinPickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_84782")
 volume_db = 1.5
+bus = &"sfx"
 
 [node name="DeathSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_y7mjd")
+bus = &"sfx"
 
 [node name="RespawnSfx" type="AudioStreamPlayer" parent="."]
+bus = &"sfx"
 
 [node name="LevelCompleteSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qy2l1")
 volume_db = -2.0
 pitch_scale = 0.5
+bus = &"sfx"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5h2c1")
+volume_db = -10.0
+bus = &"music"

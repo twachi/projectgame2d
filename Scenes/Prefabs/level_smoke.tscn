@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbh3xslxnhepu"]
+[gd_scene load_steps=6 format=3 uid="uid://cbh3xslxnhepu"]
 
 [ext_resource type="Script" uid="uid://dfgv68mb1jaqh" path="res://Scenes/Prefabs/level_smoke.gd" id="1_ndbxq"]
-[ext_resource type="AudioStream" uid="uid://d2b8bm1w7yki7" path="res://Assets/Sound/music.ogg" id="2_y5khf"]
 
 [sub_resource type="Gradient" id="Gradient_i7ntp"]
 colors = PackedColorArray(0.784314, 0.784314, 0.784314, 0, 1, 1, 1, 0.109804)
@@ -39,8 +38,3 @@ texture = SubResource("NoiseTexture2D_jt6p5")
 centered = false
 flip_h = true
 metadata/_edit_lock_ = true
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_y5khf")
-volume_db = -10.0
-autoplay = true

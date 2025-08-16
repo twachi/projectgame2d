@@ -132,4 +132,15 @@ color_ramp = SubResource("Gradient_3gc37")
 position = Vector2(4, -2)
 scale = Vector2(0.7, 0.7)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(16, 36)
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.4
+drag_right_margin = 0.4
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
 [connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]
