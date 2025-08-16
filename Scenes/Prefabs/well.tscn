@@ -1,0 +1,159 @@
+[gd_scene load_steps=13 format=3 uid="uid://dbbb88cbwyv2x"]
+
+[ext_resource type="Texture2D" uid="uid://bfci8t61e2x4b" path="res://Assets/Spritesheet/TX Village Props.png" id="1_7ga3n"]
+[ext_resource type="Script" uid="uid://vqxdd4v5q1d" path="res://Scenes/Prefabs/well.gd" id="1_fwlud"]
+[ext_resource type="Texture2D" uid="uid://621as0fwjhum" path="res://Assets/Textures/star_07.png" id="2_2rrd2"]
+[ext_resource type="PackedScene" uid="uid://ffc5x143ydq7" path="res://Scenes/Prefabs/water_bucket.tscn" id="4_hqflh"]
+[ext_resource type="FontFile" uid="uid://bngsxjqp1v8jn" path="res://Assets/Fonts/CkPandaDemo.ttf" id="5_8xuwr"]
+
+[sub_resource type="Animation" id="Animation_7ga3n"]
+resource_name = "start"
+length = 0.2
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("image/poly8:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1), Vector2(0, -7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("image:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 0.556863, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2rrd2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("image/poly8:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("image:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fwlud"]
+_data = {
+&"RESET": SubResource("Animation_2rrd2"),
+&"start": SubResource("Animation_7ga3n")
+}
+
+[sub_resource type="Curve" id="Curve_fwlud"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hqflh"]
+curve = SubResource("Curve_fwlud")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8xuwr"]
+particle_flag_disable_z = true
+angle_min = -93.5
+angle_max = 27.9
+direction = Vector3(1, -100, 0)
+spread = 10.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 100, 0)
+scale_min = 0.01
+scale_max = 0.1
+color = Color(0, 0.476373, 0.970366, 1)
+alpha_curve = SubResource("CurveTexture_hqflh")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqflh"]
+size = Vector2(21, 49)
+
+[node name="Well" type="Node2D"]
+script = ExtResource("1_fwlud")
+Bucket = ExtResource("4_hqflh")
+
+[node name="image" type="Node2D" parent="."]
+
+[node name="poly7" type="Polygon2D" parent="image"]
+position = Vector2(0, -1)
+offset = Vector2(-82, -249)
+texture = ExtResource("1_7ga3n")
+polygon = PackedVector2Array(120.399, 162.027, 41.9066, 162.027, 40.3156, 204.986, 43.792, 214.186, 51.1531, 214.391, 50.9486, 233.202, 35.9235, 244.576, 40.7935, 260.075, 123.721, 261.039)
+uv = PackedVector2Array(120.399, 162.027, 41.9066, 162.027, 40.3156, 204.986, 43.792, 214.186, 51.1531, 214.391, 50.9486, 233.202, 35.9235, 244.576, 40.7935, 260.075, 123.721, 261.039)
+
+[node name="poly8" type="Polygon2D" parent="image"]
+position = Vector2(0, -1)
+offset = Vector2(-82, -249)
+texture = ExtResource("1_7ga3n")
+polygon = PackedVector2Array(50.8977, 212.961, 30.0414, 212.756, 30.0414, 224.82, 50.8977, 224.616)
+uv = PackedVector2Array(50.8977, 212.961, 30.0414, 212.756, 30.0414, 224.82, 50.8977, 224.616)
+
+[node name="poly9" type="Polygon2D" parent="image"]
+position = Vector2(-53.6086, -1)
+scale = Vector2(0.440213, 1)
+offset = Vector2(-82, -249)
+texture = ExtResource("1_7ga3n")
+polygon = PackedVector2Array(42.4932, 248.748, 42.4932, 256.326, 119.651, 256.498, 119.995, 250.987, 117.067, 248.059)
+uv = PackedVector2Array(42.4932, 248.748, 42.4932, 256.326, 119.651, 256.498, 119.995, 250.987, 117.067, 248.059)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fwlud")
+}
+
+[node name="Effect" type="GPUParticles2D" parent="."]
+position = Vector2(1.42109e-14, -28)
+scale = Vector2(0.999999, 0.999999)
+emitting = false
+amount = 10
+texture = ExtResource("2_2rrd2")
+lifetime = 2.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_8xuwr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["well"]]
+position = Vector2(-57, -24)
+shape = SubResource("RectangleShape2D_hqflh")
+
+[node name="help" type="Label" parent="."]
+visible = false
+offset_left = -80.0
+offset_top = -128.0
+offset_right = 112.0
+offset_bottom = -90.0
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("5_8xuwr")
+theme_override_font_sizes/font_size = 24
+text = "กด X เพื่อตักน้ำ"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

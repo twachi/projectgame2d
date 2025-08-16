@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0olocigoed7"]
+
+[ext_resource type="Script" uid="uid://ck2qqx5h5rql0" path="res://Scenes/Prefabs/gbfire.gd" id="1_yxeb3"]
+[ext_resource type="Texture2D" uid="uid://81hqrxsgm50t" path="res://Assets/Spritesheet/smoke1.png" id="2_mkm3k"]
+[ext_resource type="AudioStream" uid="uid://clx3woadf11e8" path="res://Assets/Sound/FX/explosion.wav" id="3_yxeb3"]
+
+[sub_resource type="Gradient" id="Gradient_yxeb3"]
+offsets = PackedFloat32Array(0, 0.103806, 1)
+colors = PackedColorArray(0.976471, 0.607843, 0, 1, 1, 0, 0.0588235, 1, 1, 1, 1, 0.486275)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mkm3k"]
+gradient = SubResource("Gradient_yxeb3")
+
+[sub_resource type="Curve" id="Curve_mkm3k"]
+_limits = [0.1, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 0.149873), 0.0, 0.0, 0, 0, Vector2(0.55873, 2.88584), 0.0, 0.0, 0, 0, Vector2(1, 5), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_yxeb3"]
+curve = SubResource("Curve_mkm3k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0jqsn"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 1, 1)
+angle_min = -93.5
+angle_max = 27.9
+spread = 90.0
+gravity = Vector3(0, -120, 0)
+scale_curve = SubResource("CurveTexture_yxeb3")
+scale_over_velocity_min = 10.0
+scale_over_velocity_max = 20.0
+color_ramp = SubResource("GradientTexture1D_mkm3k")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mkm3k"]
+radius = 28.2918
+
+[node name="Gbfire1" type="Node2D"]
+z_index = -2
+scale = Vector2(0.813725, 0.813725)
+script = ExtResource("1_yxeb3")
+
+[node name="Fire" type="GPUParticles2D" parent="."]
+position = Vector2(3.66246e-07, -25.8072)
+amount = 20
+texture = ExtResource("2_mkm3k")
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_0jqsn")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4.50085e-08, -25.8072)
+rotation = -0.0383304
+shape = SubResource("CircleShape2D_mkm3k")
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yxeb3")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

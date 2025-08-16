@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnoimypw1n0ry"]
+
+[ext_resource type="Script" uid="uid://dux44xg3lt1c5" path="res://Scenes/Prefabs/mask.gd" id="1_8tdhx"]
+[ext_resource type="Texture2D" uid="uid://621as0fwjhum" path="res://Assets/Textures/star_07.png" id="3_0qne0"]
+[ext_resource type="Texture2D" uid="uid://cnpnu84cebr7c" path="res://Assets/Spritesheet/player-part.png" id="3_8tdhx"]
+
+[sub_resource type="Curve" id="Curve_yh7uo"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.494709, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_kkhmu"]
+offsets = PackedFloat32Array(0.625, 1)
+colors = PackedColorArray(0.914063, 0.734375, 0, 1, 1, 1, 1, 0)
+
+[node name="Mask" type="Area2D"]
+script = ExtResource("1_8tdhx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, -14, 8, -14, 18, -5, 18, -2, 2, 14, -1, 14, -17, -2, -17, -5)
+
+[node name="CoinSparkles" type="CPUParticles2D" parent="."]
+amount = 4
+texture = ExtResource("3_0qne0")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 40.0
+damping_min = 0.5
+damping_max = 0.5
+scale_amount_min = 0.04
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_yh7uo")
+color_ramp = SubResource("Gradient_kkhmu")
+
+[node name="mask01" type="Polygon2D" parent="."]
+position = Vector2(5, 4)
+offset = Vector2(-79, -45)
+texture = ExtResource("3_8tdhx")
+polygon = PackedVector2Array(59.1205, 17.0665, 53.4318, 25.5996, 68.6016, 52.1467, 81.8752, 55.9392, 95.1488, 40.7694, 92.3044, 18.9628)
+uv = PackedVector2Array(59.1205, 17.0665, 53.4318, 25.5996, 68.6016, 52.1467, 81.8752, 55.9392, 95.1488, 40.7694, 92.3044, 18.9628)
+
+[node name="mask02" type="Polygon2D" parent="."]
+position = Vector2(0, -3)
+offset = Vector2(-125, -40)
+texture = ExtResource("3_8tdhx")
+polygon = PackedVector2Array(101.885, 19.424, 100.426, 36.9392, 113.076, 52.5082, 128.158, 55.4274, 144.214, 46.1833, 145.673, 25.7489, 135.456, 27.2085, 115.508, 29.6412)
+uv = PackedVector2Array(101.885, 19.424, 100.426, 36.9392, 113.076, 52.5082, 128.158, 55.4274, 144.214, 46.1833, 145.673, 25.7489, 135.456, 27.2085, 115.508, 29.6412)
+
+[node name="mask03" type="Polygon2D" parent="."]
+position = Vector2(0, 5)
+scale = Vector2(0.833297, 0.771583)
+offset = Vector2(-53, -100)
+texture = ExtResource("3_8tdhx")
+polygon = PackedVector2Array(55.5755, 71.056, 36.1142, 68.4022, 29.0374, 71.9406, 29.0374, 84.7673, 34.7873, 104.671, 55.1332, 110.421, 68.4022, 107.767, 74.5945, 94.498, 73.7098, 71.9406)
+uv = PackedVector2Array(55.5755, 71.056, 36.1142, 68.4022, 29.0374, 71.9406, 29.0374, 84.7673, 34.7873, 104.671, 55.1332, 110.421, 68.4022, 107.767, 74.5945, 94.498, 73.7098, 71.9406)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

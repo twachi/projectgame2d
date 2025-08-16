@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://brfh8jn0jxafl"]
+
+[ext_resource type="PackedScene" uid="uid://cg4lt28lfpdd2" path="res://Scenes/Props/tree1.tscn" id="1_jlc4l"]
+[ext_resource type="Texture2D" uid="uid://dnmn4ukr1moq4" path="res://Assets/Spritesheet/gbfire1.png" id="2_8gyre"]
+[ext_resource type="Texture2D" uid="uid://bfci8t61e2x4b" path="res://Assets/Spritesheet/TX Village Props.png" id="3_gkxa8"]
+
+[node name="vprops" type="Node2D"]
+
+[node name="poly" parent="." instance=ExtResource("1_jlc4l")]
+show_behind_parent = true
+position = Vector2(0, -1)
+offset = Vector2(-752.767, -606.636)
+
+[node name="poly2" parent="." instance=ExtResource("1_jlc4l")]
+show_behind_parent = true
+position = Vector2(68, -5)
+offset = Vector2(-65.4229, -58.5915)
+polygon = PackedVector2Array(34.8016, 9.64587, 91.5276, 9.64587, 90.1769, 67.7225, 32.1003, 65.0212)
+uv = PackedVector2Array(34.8016, 9.64587, 91.5276, 9.64587, 90.1769, 67.7225, 32.1003, 65.0212)
+
+[node name="poly3" parent="." instance=ExtResource("1_jlc4l")]
+show_behind_parent = true
+position = Vector2(143, -5)
+offset = Vector2(-382.007, -284.736)
+polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+
+[node name="poly4" parent="." instance=ExtResource("1_jlc4l")]
+show_behind_parent = true
+position = Vector2(237, -5)
+offset = Vector2(-383.605, -605.255)
+polygon = PackedVector2Array(353.845, 574.465, 424.23, 574.465, 424.23, 613.177, 345.633, 616.696)
+uv = PackedVector2Array(353.845, 574.465, 424.23, 574.465, 424.23, 613.177, 345.633, 616.696)
+
+[node name="poly5" parent="." instance=ExtResource("1_jlc4l")]
+show_behind_parent = true
+position = Vector2(237, -5)
+offset = Vector2(-383.605, -605.255)
+polygon = PackedVector2Array(353.845, 574.465, 424.23, 574.465, 424.23, 613.177, 345.633, 616.696)
+uv = PackedVector2Array(353.845, 574.465, 424.23, 574.465, 424.23, 613.177, 345.633, 616.696)
+
+[node name="poly6" type="Polygon2D" parent="."]
+show_behind_parent = true
+position = Vector2(325.4, -3.1016)
+scale = Vector2(0.555771, 0.545367)
+offset = Vector2(-100.771, -179.422)
+texture = ExtResource("2_8gyre")
+polygon = PackedVector2Array(21.8737, 189.292, 186.418, 192.396, 182.692, 164.455, 140.47, 117.886, 54.1616, 117.265, 20.6319, 159.488)
+uv = PackedVector2Array(21.8737, 189.292, 186.418, 192.396, 182.692, 164.455, 140.47, 117.886, 54.1616, 117.265, 20.6319, 159.488)
+
+[node name="poly7" type="Polygon2D" parent="."]
+position = Vector2(442, -7)
+offset = Vector2(-82, -249)
+texture = ExtResource("3_gkxa8")
+polygon = PackedVector2Array(28.6667, 154.082, 126.761, 154.082, 122.369, 258.033, 18.418, 259.497)
+uv = PackedVector2Array(28.6667, 154.082, 126.761, 154.082, 122.369, 258.033, 18.418, 259.497)
+
+[node name="poly8" type="Polygon2D" parent="."]
+position = Vector2(499, -5)
+offset = Vector2(-144, -252)
+texture = ExtResource("3_gkxa8")
+polygon = PackedVector2Array(132.163, 228.923, 158.462, 228.484, 156.27, 257.851, 131.286, 257.851)
+uv = PackedVector2Array(132.163, 228.923, 158.462, 228.484, 156.27, 257.851, 131.286, 257.851)

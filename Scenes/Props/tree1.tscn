@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg4lt28lfpdd2"]
+
+[ext_resource type="Texture2D" uid="uid://bfci8t61e2x4b" path="res://Assets/Spritesheet/TX Village Props.png" id="1_ih88u"]
+
+[node name="poly" type="Polygon2D"]
+position = Vector2(1.02673, -2.30878)
+rotation = 0.00940812
+offset = Vector2(-752.767, -606.636)
+texture = ExtResource("1_ih88u")
+polygon = PackedVector2Array(768.54, 614.454, 740.88, 615.018, 736.929, 576.634, 693.464, 561.958, 686.126, 505.51, 719.995, 472.206, 761.766, 463.739, 801.844, 479.545, 817.649, 506.075, 817.649, 506.075, 814.262, 550.104, 780.958, 573.812, 769.668, 580.021)
+uv = PackedVector2Array(768.54, 614.454, 740.88, 615.018, 736.929, 576.634, 693.464, 561.958, 686.126, 505.51, 719.995, 472.206, 761.766, 463.739, 801.844, 479.545, 817.649, 506.075, 817.649, 506.075, 814.262, 550.104, 780.958, 573.812, 769.668, 580.021)

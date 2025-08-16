@@ -1,40 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://bssjjygu83iwl"]
+[gd_scene load_steps=8 format=3 uid="uid://bssjjygu83iwl"]
 
 [ext_resource type="Script" uid="uid://cc76dr86loxni" path="res://Scripts/AudioManager.gd" id="1_hp1cr"]
-
-[sub_resource type="Resource" id="Resource_tyob0"]
-metadata/__load_path__ = "res://Assets/Sound/FX/jump_sfx.sfxr"
-
-[sub_resource type="Resource" id="Resource_esrla"]
-metadata/__load_path__ = "res://Assets/Sound/FX/coin_pickup_sfx.sfxr"
-
-[sub_resource type="Resource" id="Resource_rhsx5"]
-metadata/__load_path__ = "res://Assets/Sound/FX/death_sfx.sfxr"
-
-[sub_resource type="Resource" id="Resource_qes3j"]
-metadata/__load_path__ = "res://Assets/Sound/FX/respawn_sfx.sfxr"
-
-[sub_resource type="Resource" id="Resource_84782"]
-metadata/__load_path__ = "res://Assets/Sound/FX/level_complete_sfx.sfxr"
+[ext_resource type="AudioStream" uid="uid://d3ldv4818s140" path="res://Assets/Sound/FX/30_Jump_03.wav" id="2_esrla"]
+[ext_resource type="AudioStream" uid="uid://ckmdqcafiqu5t" path="res://Assets/Sound/FX/water.wav" id="2_qy2l1"]
+[ext_resource type="AudioStream" uid="uid://8lalda6ro53b" path="res://Assets/Sound/FX/well.wav" id="3_5h2c1"]
+[ext_resource type="AudioStream" uid="uid://dgik26y72778d" path="res://Assets/Sound/FX/pickupCoin.wav" id="3_84782"]
+[ext_resource type="AudioStream" uid="uid://clx3woadf11e8" path="res://Assets/Sound/FX/explosion.wav" id="4_y7mjd"]
+[ext_resource type="AudioStream" uid="uid://s84emunwpgeq" path="res://Assets/Sound/FX/powerUp.wav" id="5_qy2l1"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_hp1cr")
 
+[node name="Water" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_qy2l1")
+
+[node name="Well" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5h2c1")
+
 [node name="JumpSfx" type="AudioStreamPlayer" parent="."]
-stream = SubResource("Resource_tyob0")
+stream = ExtResource("2_esrla")
 volume_db = 1.5
 
 [node name="CoinPickup" type="AudioStreamPlayer" parent="."]
-stream = SubResource("Resource_esrla")
+stream = ExtResource("3_84782")
 volume_db = 1.5
 
 [node name="DeathSfx" type="AudioStreamPlayer" parent="."]
-stream = SubResource("Resource_rhsx5")
+stream = ExtResource("4_y7mjd")
 
 [node name="RespawnSfx" type="AudioStreamPlayer" parent="."]
-stream = SubResource("Resource_qes3j")
 
 [node name="LevelCompleteSfx" type="AudioStreamPlayer" parent="."]
-stream = SubResource("Resource_84782")
+stream = ExtResource("5_qy2l1")
 volume_db = -2.0
 pitch_scale = 0.5

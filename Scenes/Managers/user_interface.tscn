@@ -1,0 +1,224 @@
+[gd_scene load_steps=9 format=3 uid="uid://b6tca06ks0ys7"]
+
+[ext_resource type="Script" uid="uid://c1j1k04ax722v" path="res://Scripts/GameUI.gd" id="1_sjcjl"]
+[ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="2_kuy43"]
+[ext_resource type="FontFile" uid="uid://bngsxjqp1v8jn" path="res://Assets/Fonts/CkPandaDemo.ttf" id="3_kuy43"]
+[ext_resource type="Texture2D" uid="uid://dxp77wq60c2rr" path="res://Assets/Textures/CloudTexture.png" id="4_kuy43"]
+[ext_resource type="Texture2D" uid="uid://bsbhu57lja" path="res://Assets/Spritesheet/heart.png" id="6_0giir"]
+[ext_resource type="Texture2D" uid="uid://c3ptphup6asaw" path="res://Assets/Spritesheet/fire.png" id="6_6jcpp"]
+[ext_resource type="Texture2D" uid="uid://cnpnu84cebr7c" path="res://Assets/Spritesheet/player-part.png" id="7_0giir"]
+[ext_resource type="Texture2D" uid="uid://bfci8t61e2x4b" path="res://Assets/Spritesheet/TX Village Props.png" id="8_6jcpp"]
+
+[node name="UserInterface" type="CanvasLayer"]
+
+[node name="GameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sjcjl")
+metadata/_edit_lock_ = true
+
+[node name="Score" type="Control" parent="GameUI"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreTexture" type="TextureRect" parent="GameUI/Score"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 407.0
+offset_top = -11.0
+offset_right = 507.0
+offset_bottom = 89.0
+texture = ExtResource("2_kuy43")
+stretch_mode = 4
+
+[node name="ScoreLabel" type="Label" parent="GameUI/Score"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 498.0
+offset_top = 15.0
+offset_right = 543.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_kuy43")
+theme_override_font_sizes/font_size = 24
+text = "x 3"
+
+[node name="SmokeLabel" type="Label" parent="GameUI/Score"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 759.0
+offset_top = 15.0
+offset_right = 842.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.909804, 0.247059, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_kuy43")
+theme_override_font_sizes/font_size = 24
+text = "x 3"
+
+[node name="FireLabel" type="Label" parent="GameUI/Score"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 615.0
+offset_top = 15.0
+offset_right = 698.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.909804, 0.247059, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_kuy43")
+theme_override_font_sizes/font_size = 24
+text = "x 3"
+
+[node name="HpLabel" type="Label" parent="GameUI/Score"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 70.0
+offset_top = 15.0
+offset_right = 153.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.909804, 0.247059, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_kuy43")
+theme_override_font_sizes/font_size = 24
+text = "x 3"
+
+[node name="WingLabel" type="Label" parent="GameUI/Score"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 354.324
+offset_top = 15.0
+offset_right = 437.324
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.909804, 0.247059, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_kuy43")
+theme_override_font_sizes/font_size = 24
+text = "x 3"
+
+[node name="WaterLabel" type="Label" parent="GameUI/Score"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 220.0
+offset_top = 15.0
+offset_right = 303.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.180392, 0.117647, 0.780392, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_kuy43")
+theme_override_font_sizes/font_size = 24
+text = "x 3"
+
+[node name="CloudTexture" type="Sprite2D" parent="GameUI/Score"]
+position = Vector2(723, 41)
+texture = ExtResource("4_kuy43")
+
+[node name="Fire" type="Sprite2D" parent="GameUI/Score"]
+position = Vector2(594, 40)
+scale = Vector2(0.53125, 0.609375)
+texture = ExtResource("6_6jcpp")
+
+[node name="Heart" type="Sprite2D" parent="GameUI/Score"]
+position = Vector2(41, 39)
+scale = Vector2(0.65625, 0.734375)
+texture = ExtResource("6_0giir")
+
+[node name="Polygon2D" type="Polygon2D" parent="GameUI/Score"]
+position = Vector2(207.324, -86)
+scale = Vector2(0.686237, 0.814952)
+texture = ExtResource("7_0giir")
+polygon = PackedVector2Array(200.969, 135.667, 127.764, 125.019, 133.088, 158.294, 171.687, 187.576, 196.976, 174.266)
+uv = PackedVector2Array(200.969, 135.667, 127.764, 125.019, 133.088, 158.294, 171.687, 187.576, 196.976, 174.266)
+
+[node name="poly8" type="Polygon2D" parent="GameUI/Score"]
+position = Vector2(190, 48)
+scale = Vector2(1.351, 1.24344)
+offset = Vector2(-144, -252)
+texture = ExtResource("8_6jcpp")
+polygon = PackedVector2Array(132.163, 228.923, 158.462, 228.484, 156.27, 257.851, 131.286, 257.851)
+uv = PackedVector2Array(132.163, 228.923, 158.462, 228.484, 156.27, 257.851, 131.286, 257.851)
+
+[node name="Inventory" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Button1" type="Button" parent="Inventory"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -27.0
+offset_right = 75.0
+offset_bottom = 5.0
+
+[node name="mask01" type="Polygon2D" parent="Inventory/Button1"]
+position = Vector2(26, 23)
+offset = Vector2(-79, -45)
+texture = ExtResource("7_0giir")
+polygon = PackedVector2Array(59.1205, 17.0665, 53.4318, 25.5996, 68.6016, 52.1467, 81.8752, 55.9392, 95.1488, 40.7694, 92.3044, 18.9628)
+uv = PackedVector2Array(59.1205, 17.0665, 53.4318, 25.5996, 68.6016, 52.1467, 81.8752, 55.9392, 95.1488, 40.7694, 92.3044, 18.9628)
+
+[node name="Label" type="Label" parent="Inventory/Button1"]
+layout_mode = 0
+offset_left = 42.0
+offset_right = 59.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="Button2" type="Button" parent="Inventory"]
+offset_left = 76.0
+offset_top = -27.0
+offset_right = 143.0
+offset_bottom = 5.0
+
+[node name="mask02" type="Polygon2D" parent="Inventory/Button2"]
+position = Vector2(25, 18)
+offset = Vector2(-125, -40)
+texture = ExtResource("7_0giir")
+polygon = PackedVector2Array(101.885, 19.424, 100.426, 36.9392, 113.076, 52.5082, 128.158, 55.4274, 144.214, 46.1833, 145.673, 25.7489, 135.456, 27.2085, 115.508, 29.6412)
+uv = PackedVector2Array(101.885, 19.424, 100.426, 36.9392, 113.076, 52.5082, 128.158, 55.4274, 144.214, 46.1833, 145.673, 25.7489, 135.456, 27.2085, 115.508, 29.6412)
+
+[node name="Label" type="Label" parent="Inventory/Button2"]
+offset_left = 48.0
+offset_right = 65.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="Button3" type="Button" parent="Inventory"]
+offset_left = 145.0
+offset_top = -27.0
+offset_right = 215.0
+offset_bottom = 5.0
+
+[node name="mask03" type="Polygon2D" parent="Inventory/Button3"]
+position = Vector2(27, 27)
+scale = Vector2(0.833297, 0.771583)
+offset = Vector2(-53, -100)
+texture = ExtResource("7_0giir")
+polygon = PackedVector2Array(55.5755, 71.056, 36.1142, 68.4022, 29.0374, 71.9406, 29.0374, 84.7673, 34.7873, 104.671, 55.1332, 110.421, 68.4022, 107.767, 74.5945, 94.498, 73.7098, 71.9406)
+uv = PackedVector2Array(55.5755, 71.056, 36.1142, 68.4022, 29.0374, 71.9406, 29.0374, 84.7673, 34.7873, 104.671, 55.1332, 110.421, 68.4022, 107.767, 74.5945, 94.498, 73.7098, 71.9406)
+
+[node name="Label" type="Label" parent="Inventory/Button3"]
+offset_left = 44.0
+offset_right = 61.0
+offset_bottom = 23.0
+text = "0"
+
+[connection signal="pressed" from="Inventory/Button1" to="GameUI" method="_on_button_1_pressed"]
+[connection signal="pressed" from="Inventory/Button2" to="GameUI" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Inventory/Button3" to="GameUI" method="_on_button_3_pressed"]
