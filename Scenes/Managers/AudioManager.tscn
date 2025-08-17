@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bssjjygu83iwl"]
+[gd_scene load_steps=12 format=3 uid="uid://bssjjygu83iwl"]
 
 [ext_resource type="Script" uid="uid://cc76dr86loxni" path="res://Scripts/AudioManager.gd" id="1_hp1cr"]
 [ext_resource type="AudioStream" uid="uid://d3ldv4818s140" path="res://Assets/Sound/FX/30_Jump_03.wav" id="2_esrla"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://d2b8bm1w7yki7" path="res://Assets/Sound/music.ogg" id="8_5h2c1"]
 [ext_resource type="AudioStream" uid="uid://c4negh60r2ehe" path="res://Assets/Sound/FX/56_Attack_03.wav" id="8_s2x08"]
 [ext_resource type="AudioStream" uid="uid://5ikelc0n6b3y" path="res://Assets/Sound/FX/22_Water_02.wav" id="10_ia3a6"]
+[ext_resource type="AudioStream" uid="uid://ws2k5msidgpy" path="res://Assets/Sound/music_thai_mini.ogg" id="11_6fbfh"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_hp1cr")
@@ -57,3 +58,7 @@ bus = &"music"
 [node name="AtkWaterSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_ia3a6")
 bus = &"sfx"
+
+[node name="MusicThaiMini" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_6fbfh")
+bus = &"music"
