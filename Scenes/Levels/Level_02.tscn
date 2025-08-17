@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bjb3dx2x4bocm"]
+[gd_scene load_steps=22 format=3 uid="uid://bjb3dx2x4bocm"]
 
 [ext_resource type="Texture2D" uid="uid://dm0byqy03q7k6" path="res://Assets/Textures/bg/bg2.png" id="1_6ihmv"]
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="2_lpo2y"]
@@ -18,6 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://cq0gdfn3lyb04" path="res://Scenes/Prefabs/help_box.tscn" id="13_pqxa6"]
 [ext_resource type="Texture2D" uid="uid://cjkyx3yt8elxw" path="res://Assets/Spritesheet/temple.png" id="14_6ihmv"]
 [ext_resource type="Texture2D" uid="uid://dsxa3dabn2mxy" path="res://Assets/Spritesheet/house1.png" id="14_ideh1"]
+[ext_resource type="PackedScene" uid="uid://bm3bmj5cqbjrs" path="res://Scenes/Prefabs/Monster.tscn" id="19_u1l2o"]
+[ext_resource type="PackedScene" uid="uid://b8lxxjhdmhipn" path="res://Scenes/Prefabs/boss1_rig.tscn" id="20_8k45j"]
+[ext_resource type="PackedScene" uid="uid://fq21vyw23ws" path="res://Scenes/Prefabs/sword.tscn" id="21_ijm6r"]
 
 [node name="Level_02" type="Node2D"]
 
@@ -51,7 +54,7 @@ metadata/_edit_lock_ = true
 
 [node name="LevelFinishDoor" parent="." instance=ExtResource("4_8k45j")]
 z_index = 1
-position = Vector2(4509, 307)
+position = Vector2(1839, 1023)
 
 [node name="Player" parent="." instance=ExtResource("2_lpo2y")]
 z_index = 1
@@ -97,20 +100,73 @@ offset_bottom = 723.0
 metadata/_edit_lock_ = true
 
 [node name="floor2" parent="Level" instance=ExtResource("10_l1023")]
-offset_left = 1281.0
+offset_left = 1306.0
 offset_top = 562.0
 offset_right = 2958.0
 offset_bottom = 850.0
 
+[node name="CollisionShape2D" parent="Level/floor2/StaticBody2D" index="0"]
+one_way_collision = true
+
 [node name="floor3" parent="Level" instance=ExtResource("10_l1023")]
 offset_left = 2880.0
 offset_top = 309.0
-offset_right = 4705.0
+offset_right = 4336.0
 offset_bottom = 597.0
 
+[node name="floor7" parent="Level" instance=ExtResource("10_l1023")]
+offset_left = 4314.0
+offset_top = 416.0
+offset_right = 4527.0
+offset_bottom = 525.0
+
+[node name="floor4" parent="Level" instance=ExtResource("10_l1023")]
+offset_left = 3260.0
+offset_top = 800.0
+offset_right = 5085.0
+offset_bottom = 1022.0
+
+[node name="floor8" parent="Level" instance=ExtResource("10_l1023")]
+offset_left = 1553.0
+offset_top = 1020.0
+offset_right = 3378.0
+offset_bottom = 1242.0
+
+[node name="floor9" parent="Level" instance=ExtResource("10_l1023")]
+offset_left = 1553.0
+offset_top = 813.0
+offset_right = 1733.0
+offset_bottom = 1242.0
+
+[node name="floor10" parent="Level" instance=ExtResource("10_l1023")]
+offset_left = -522.0
+offset_top = 47.0
+offset_right = -342.0
+offset_bottom = 727.0
+
+[node name="floor6" parent="Level" instance=ExtResource("10_l1023")]
+offset_left = 4670.0
+offset_top = 608.0
+offset_right = 4925.0
+offset_bottom = 853.0
+
+[node name="floor5" parent="Level" instance=ExtResource("10_l1023")]
+offset_left = 4861.0
+offset_top = -60.0
+offset_right = 5082.0
+offset_bottom = 1025.0
+
 [node name="poly4" parent="Level" instance=ExtResource("9_ijm6r")]
+z_index = -5
+position = Vector2(1132, 260)
+scale = Vector2(2.00099, 2.78439)
+polygon = PackedVector2Array(730.474, 674.28, 730.556, 617.514, 874.213, 617.514, 874.213, 677.371)
+uv = PackedVector2Array(729.926, 671.07, 730.556, 617.514, 874.213, 617.514, 874.213, 677.371)
+metadata/_edit_group_ = true
+
+[node name="poly6" parent="Level" instance=ExtResource("9_ijm6r")]
 z_index = -3
-position = Vector2(1119, 323)
+position = Vector2(3520, 691)
 scale = Vector2(1.27989, 1.70067)
 polygon = PackedVector2Array(730.474, 674.28, 730.556, 617.514, 874.213, 617.514, 874.213, 677.371)
 uv = PackedVector2Array(729.926, 671.07, 730.556, 617.514, 874.213, 617.514, 874.213, 677.371)
@@ -171,8 +227,21 @@ text = "ต้องไปหาน้ำมาดับไฟ"
 
 [node name="Gbfire2" parent="Level" instance=ExtResource("4_ombkc")]
 position = Vector2(1535, 558)
+hp = 500
 
 [node name="poly6" type="Polygon2D" parent="Level/Gbfire2"]
+show_behind_parent = true
+offset = Vector2(-100.771, -179.422)
+texture = ExtResource("6_82bm0")
+polygon = PackedVector2Array(21.8737, 189.292, 186.418, 192.396, 182.692, 164.455, 140.47, 117.886, 54.1616, 117.265, 20.6319, 159.488)
+uv = PackedVector2Array(21.8737, 189.292, 186.418, 192.396, 182.692, 164.455, 140.47, 117.886, 54.1616, 117.265, 20.6319, 159.488)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire9" parent="Level" instance=ExtResource("4_ombkc")]
+position = Vector2(3123, 1022)
+hp = 400
+
+[node name="poly6" type="Polygon2D" parent="Level/Gbfire9"]
 show_behind_parent = true
 offset = Vector2(-100.771, -179.422)
 texture = ExtResource("6_82bm0")
@@ -183,6 +252,7 @@ metadata/_edit_lock_ = true
 [node name="Gbfire4" parent="Level" instance=ExtResource("4_ombkc")]
 z_index = -3
 position = Vector2(1078, 445)
+hp = 400
 
 [node name="poly3" parent="Level/Gbfire4" instance=ExtResource("9_ijm6r")]
 show_behind_parent = true
@@ -207,6 +277,7 @@ metadata/_edit_lock_ = true
 
 [node name="Gbfire5" parent="Level" instance=ExtResource("4_ombkc")]
 position = Vector2(3028, 319)
+hp = 300
 
 [node name="poly3" parent="Level/Gbfire5" instance=ExtResource("9_ijm6r")]
 show_behind_parent = true
@@ -219,6 +290,7 @@ metadata/_edit_lock_ = true
 
 [node name="Gbfire6" parent="Level" instance=ExtResource("4_ombkc")]
 position = Vector2(3462, 318)
+hp = 200
 
 [node name="poly3" parent="Level/Gbfire6" instance=ExtResource("9_ijm6r")]
 show_behind_parent = true
@@ -231,8 +303,22 @@ metadata/_edit_lock_ = true
 
 [node name="Gbfire7" parent="Level" instance=ExtResource("4_ombkc")]
 position = Vector2(3690, 316)
+hp = 400
 
 [node name="poly3" parent="Level/Gbfire7" instance=ExtResource("9_ijm6r")]
+show_behind_parent = true
+position = Vector2(-6.14461, -13.5181)
+scale = Vector2(1.30101, 1.74482)
+offset = Vector2(-382.007, -284.736)
+polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire8" parent="Level" instance=ExtResource("4_ombkc")]
+position = Vector2(4060, 806)
+hp = 500
+
+[node name="poly3" parent="Level/Gbfire8" instance=ExtResource("9_ijm6r")]
 show_behind_parent = true
 position = Vector2(-6.14461, -13.5181)
 scale = Vector2(1.30101, 1.74482)
@@ -259,11 +345,17 @@ z_index = -3
 position = Vector2(42.9474, 79.0244)
 scale = Vector2(2.33139, 2.45556)
 
+[node name="poly3" parent="Level/House2" instance=ExtResource("9_ijm6r")]
+z_index = -3
+position = Vector2(-62.6316, 404.489)
+scale = Vector2(1.21408, 1.0816)
+
 [node name="Temple" type="Sprite2D" parent="Level"]
 z_index = -3
 position = Vector2(3161, 46)
 scale = Vector2(1.99315, 2.04286)
 texture = ExtResource("14_6ihmv")
+metadata/_edit_lock_ = true
 
 [node name="TutorialText" type="Node2D" parent="."]
 
@@ -288,3 +380,108 @@ text = "เจอบ่อน้ำแล้ว"
 
 [node name="Well2" parent="." instance=ExtResource("7_20c78")]
 position = Vector2(3970, 307)
+
+[node name="Well3" parent="." instance=ExtResource("7_20c78")]
+position = Vector2(2124, 1014)
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Monster2" parent="Objects" instance=ExtResource("19_u1l2o")]
+position = Vector2(2572, 498)
+scale = Vector2(0.5, 0.5)
+speed = 50
+hp = 50
+maxhp = 50
+def = 2
+title = "ผีควันระดับ 1"
+visible_range = 600
+
+[node name="Monster4" parent="Objects" instance=ExtResource("19_u1l2o")]
+position = Vector2(1722, 509)
+scale = Vector2(0.5, 0.5)
+speed = 50
+hp = 50
+maxhp = 50
+def = 2
+title = "ผีควันระดับ 1"
+visible_range = 600
+
+[node name="Monster5" parent="Objects" instance=ExtResource("19_u1l2o")]
+position = Vector2(1319, 438)
+scale = Vector2(0.5, 0.5)
+speed = 50
+hp = 50
+maxhp = 50
+def = 2
+title = "ผีควันระดับ 1"
+visible_range = 600
+
+[node name="Monster3" parent="Objects" instance=ExtResource("19_u1l2o")]
+position = Vector2(2727, 500)
+scale = Vector2(0.5, 0.5)
+speed = 50
+hp = 50
+maxhp = 50
+def = 2
+title = "ผีควันระดับ 1"
+visible_range = 600
+
+[node name="Monster6" parent="Objects" instance=ExtResource("19_u1l2o")]
+position = Vector2(3299, 276)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("20_8k45j")
+speed = 100
+hp = 80
+maxhp = 80
+title = "ผียายหมอก ระดับ 1"
+visible_range = 600
+
+[node name="Monster7" parent="Objects" instance=ExtResource("19_u1l2o")]
+position = Vector2(3814, 268)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("20_8k45j")
+speed = 100
+hp = 80
+maxhp = 80
+title = "ผียายหมอก ระดับ 1"
+visible_range = 600
+
+[node name="Monster8" parent="Objects" instance=ExtResource("19_u1l2o")]
+position = Vector2(4779, 603)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("20_8k45j")
+speed = 100
+direction = 1
+hp = 80
+maxhp = 80
+title = "ผียายหมอก ระดับ 1"
+visible_range = 600
+
+[node name="Monster9" parent="Objects" instance=ExtResource("19_u1l2o")]
+position = Vector2(3811, 787)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("20_8k45j")
+speed = 100
+direction = 1
+hp = 80
+maxhp = 80
+title = "ผียายหมอก ระดับ 1"
+visible_range = 600
+
+[node name="Boss" parent="Objects" instance=ExtResource("19_u1l2o")]
+position = Vector2(2645, 1022)
+monster_rig = ExtResource("20_8k45j")
+direction = 1
+hp = 300
+maxhp = 300
+atk = 20
+title = "เจ้าผียายหมอก "
+visible_range = 400
+
+[node name="sword" parent="Objects" instance=ExtResource("21_ijm6r")]
+position = Vector2(1186, 366)
+
+[node name="sword2" parent="Objects" instance=ExtResource("21_ijm6r")]
+position = Vector2(1843, 512)
+
+[editable path="Level/floor2"]

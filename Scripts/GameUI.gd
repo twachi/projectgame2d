@@ -14,6 +14,7 @@ extends Control
 @onready var music_off: Sprite2D = $"../Control/MusicButton/music_off"
 @onready var sound_on: Sprite2D = $"../Control/SoundButton/sound_on"
 @onready var sound_off: Sprite2D = $"../Control/SoundButton/sound_off"
+@onready var m6label: Label = $"../Inventory/Button6/Label"
 
 func _ready() -> void:
 	update_audio()
@@ -35,6 +36,8 @@ func _process(_delta):
 	m3label.text = str(GameManager.masks[3])
 	m4label.text = str(GameManager.player_wing)
 	m5label.text = str(GameManager.water)
+	m6label.text = str(GameManager.player_sword)
+	$"../MaskTimeLabel".text = str(int(GameManager.mask_lifetime))
 
 func _on_button_1_pressed() -> void:
 	GameManager.set_mask(1)
@@ -64,3 +67,8 @@ func _on_music_button_pressed() -> void:
 func _on_sound_button_pressed() -> void:
 	AudioManager.set_sound(!AudioManager.sound_on)
 	update_audio()
+
+
+func _on_button_6_pressed() -> void:
+	Input.action_press("sword")
+	Input.action_release("sword")

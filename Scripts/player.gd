@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export_category("Player Properties") # You can tweak these changes according to your likings
 @export var move_speed : float = 200
-@export var jump_force : float = 1300
+@export var jump_force : float = 1100
 @export var gravity : float = 40
 @export var max_jump_count : int = 2
 
@@ -14,6 +14,7 @@ var jump_count : int = 2
 @export var double_jump : = false
 
 var is_grounded : bool = false
+var is_flip = false
 
 @onready var player_sprite = $AnimatedSprite2D
 @onready var spawn_point = %SpawnPoint
@@ -22,15 +23,35 @@ var is_grounded : bool = false
 @onready var player_rig: Node2D = $PlayerRig
 
 @export var Bucket: PackedScene = null
+@onready var weapon: Node2D = $PlayerRig/weapon
 
+var isAttack = false
+var rigscale = Vector2(0.6,0.6)
 # --------- BUILT-IN FUNCTIONS ---------- #
 
+func _ready() -> void:
+	weapon.visible = false
+	GameManager.player_scene = self
+	
+func attack():
+	var wplayer = weapon.get_node("AnimationPlayer")	
+	AudioManager.atk_water_sfx.play();
+	weapon.visible = true
+	isAttack=true
+	player_rig.play("attack")
+	wplayer.play("start")
+	await get_tree().create_timer(0.6).timeout
+	player_rig.play("idle")
+	await get_tree().create_timer(0.1).timeout
+	weapon.visible = false
+	isAttack=false
+	
+	
 
 func _process(_delta):
 	# Calling functions
 	movement()
 	player_animations()
-	flip_player()
 	GameManager.update_hp(_delta)
 	if GameManager.player_hp <= 0:
 		death_tween()
@@ -40,23 +61,30 @@ func _process(_delta):
 # <-- Player Movement Code -->
 func movement():
 	var power=1;
-	if player_rig.wing : power = 2
+	if player_rig.wing : power = 2.5
 	# Gravity
 	if !is_on_floor():
 		velocity.y += (gravity/power)
-		if velocity.y > 2000:
+		if velocity.y > 3000:
 			velocity.y = 0
-			death_tween()
-			
+			death_tween()			
 	elif is_on_floor():
 		jump_count = max_jump_count
+		velocity.x *= 0.9
 	
 	handle_jumping()
 	
 	if !player_rig.wing and GameManager.player_wing>0 and Input.is_action_just_pressed("wing"):
-		player_rig.setWing(true,20)
+		player_rig.setWing(true,60)
 		GameManager.player_wing -= 1
 	
+
+	if Input.is_action_just_pressed("attack") or Input.is_action_just_pressed("sword"):
+		if player_rig.sword==0 and GameManager.player_sword>0:
+			player_rig.setSword(1)
+			GameManager.add_sword(-1)	
+		if player_rig.sword>0 : attack()
+		
 	# ตักน้ำ
 	if Input.is_action_just_pressed("water"):
 		if GameManager.well != null:
@@ -65,20 +93,22 @@ func movement():
 		elif GameManager.water>0:
 			var b = Bucket.instantiate()
 			var direction = 1
-			if player_rig.flip : direction = -1
+			if is_flip : direction = -1
 			b.canpick = false
 			b.position = position + Vector2(0,-30)
 			b.speed = Vector2(direction*400,-200)
 			AudioManager.water.play()
 			GameManager.add_water(-1)
+			GameManager.add_smoke(-1)
 			get_parent().add_child(b)	
 			b.setLifeTime(2)
 			
 		
 	# Move Player
 	var inputAxis = Input.get_axis("Left", "Right")
-	
-	velocity = Vector2(inputAxis * move_speed*power, velocity.y)
+	flip_player(inputAxis)
+	velocity.x = clamp((velocity.x+inputAxis*20*power),-move_speed*power, move_speed*power)
+	if absf(velocity.x) < 0.1 : velocity.x=0
 	move_and_slide()
 
 # Handles jumping functionality (double jump or single jump, can be toggled from inspector)
@@ -95,6 +125,7 @@ func jump():
 	jump_tween()
 	AudioManager.jump_sfx.play()
 	velocity.y = -jump_force
+	if player_rig.wing : velocity.y-100
 
 # Handle Player Animations
 func player_animations():
@@ -111,11 +142,13 @@ func player_animations():
 		player_rig.play("jump")
 
 # Flip player sprite based on X velocity
-func flip_player():
-	if velocity.x < 0:
-		player_rig.setFlip(true)
-	if velocity.x > 0:
-		player_rig.setFlip(false)
+func flip_player(inputAxis):
+	if inputAxis < 0:
+		player_rig.scale.x =-rigscale.x
+		is_flip = true
+	if inputAxis > 0:
+		player_rig.scale.x =rigscale.x
+		is_flip = false
 		
 
 # Tween Animations
@@ -127,6 +160,14 @@ func death_tween():
 	await get_tree().create_timer(0.3).timeout
 	AudioManager.respawn_sfx.play()
 	respawn_tween()
+
+# Animation เมื่อถูกโจมตี
+func damage():
+	death_particles.emitting = true
+	var d = -1
+	if is_flip:d=1
+	velocity.x = clamp(velocity.x+d*1000,-2000,2000)
+	velocity.y -= 600
 
 func respawn_tween():
 	var tween = create_tween()
@@ -145,7 +186,12 @@ func jump_tween():
 # Reset the player's position to the current level spawn point if collided with any trap
 func _on_collision_body_entered(_body):
 	if  _body.is_in_group("wing"):
-		GameManager.player_wing += 1 
+		GameManager.player_wing += _body.amount 
+		AudioManager.coin_pickup_sfx.play()
+		_body.queue_free()
+		
+	if  _body.is_in_group("sword"):
+		GameManager.player_sword += _body.amount  
 		AudioManager.coin_pickup_sfx.play()
 		_body.queue_free()
 		

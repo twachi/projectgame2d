@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cjanwm3sy2x37"]
+[gd_scene load_steps=23 format=3 uid="uid://cjanwm3sy2x37"]
 
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_oqkjg"]
 [ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_0ac5u"]
@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://dm0byqy03q7k6" path="res://Assets/Textures/bg/bg2.png" id="15_i7ntp"]
 [ext_resource type="Texture2D" uid="uid://daukyk7er4cdt" path="res://Assets/Textures/bg/bg3.png" id="16_jt6p5"]
 [ext_resource type="PackedScene" uid="uid://dbbb88cbwyv2x" path="res://Scenes/Prefabs/well.tscn" id="18_s0ca6"]
+[ext_resource type="PackedScene" uid="uid://fq21vyw23ws" path="res://Scenes/Prefabs/sword.tscn" id="20_3dt7p"]
+[ext_resource type="PackedScene" uid="uid://bm3bmj5cqbjrs" path="res://Scenes/Prefabs/Monster.tscn" id="20_07uvp"]
+[ext_resource type="PackedScene" uid="uid://cnoimypw1n0ry" path="res://Scenes/Prefabs/mask.tscn" id="22_3dt7p"]
 
 [node name="Level_01" type="Node2D"]
 
@@ -52,7 +55,7 @@ metadata/_edit_lock_ = true
 
 [node name="LevelFinishDoor" parent="." instance=ExtResource("1_oqkjg")]
 z_index = 1
-position = Vector2(4532, 167)
+position = Vector2(4998, -43)
 next_scene = ExtResource("2_0ac5u")
 
 [node name="Player" parent="." instance=ExtResource("2_pay8t")]
@@ -71,23 +74,24 @@ position = Vector2(1191, 336)
 position = Vector2(1242, 336)
 
 [node name="Wing" parent="Coins" instance=ExtResource("13_5pmb1")]
-position = Vector2(1898, 358)
+position = Vector2(2642, 338)
 
 [node name="Wing2" parent="Coins" instance=ExtResource("13_5pmb1")]
-position = Vector2(1741, 360)
+position = Vector2(2508, 334)
 
 [node name="SmokeText" type="Label" parent="Coins/Wing2"]
-offset_left = -49.0
-offset_top = -79.0
-offset_right = 67.0
-offset_bottom = -31.0
+offset_left = -122.0
+offset_top = 91.0
+offset_right = 106.0
+offset_bottom = 139.0
 theme = ExtResource("13_07uvp")
 theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
-text = "ปีกวิเศษ กด Z เพื่อใช้งาน"
-metadata/_edit_lock_ = true
+text = "ปีกครูฑา กด Z เพื่อใช้งาน
+กระโดดได้สูงเป็นเวลา 60 วินาที"
+horizontal_alignment = 1
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -99,17 +103,44 @@ z_index = -3
 position = Vector2(395, 439)
 scale = Vector2(2.33139, 2.45556)
 
+[node name="poly3" parent="Level" instance=ExtResource("6_xpj05")]
+modulate = Color(0.488492, 0.487556, 0, 1)
+z_index = 4
+position = Vector2(1134, 462)
+scale = Vector2(2.33139, 2.45556)
+
+[node name="poly4" parent="Level" instance=ExtResource("6_xpj05")]
+modulate = Color(0.490196, 0.486275, 0, 0.807843)
+z_index = 4
+position = Vector2(2290.29, 425.269)
+scale = Vector2(1.42148, 1.52025)
+
+[node name="poly5" parent="Level" instance=ExtResource("6_xpj05")]
+modulate = Color(0.490196, 0.486275, 0, 0.807843)
+z_index = -3
+position = Vector2(2446, 487)
+scale = Vector2(1.42148, 1.52025)
+
+[node name="poly6" parent="Level" instance=ExtResource("6_xpj05")]
+modulate = Color(0.490196, 0.486275, 0, 0.807843)
+z_index = -3
+position = Vector2(3299, 203)
+scale = Vector2(1.42148, 1.52025)
+polygon = PackedVector2Array(768.54, 614.454, 740.88, 615.018, 736.929, 576.634, 693.464, 561.958, 658.307, 518.004, 709.827, 464.268, 761.766, 463.739, 801.844, 479.545, 831.876, 498.059, 817.649, 506.075, 832.326, 542.786, 780.958, 573.812, 769.668, 580.021)
+
 [node name="floor" parent="Level" instance=ExtResource("11_aksfc")]
 offset_left = -367.0
 offset_top = 438.0
 offset_right = 1359.0
 offset_bottom = 723.0
+metadata/_edit_lock_ = true
 
 [node name="floor2" parent="Level" instance=ExtResource("11_aksfc")]
-offset_left = 1316.0
+offset_left = 1318.0
 offset_top = 394.0
-offset_right = 2993.0
-offset_bottom = 682.0
+offset_right = 3114.0
+offset_bottom = 723.0
+metadata/_edit_lock_ = true
 
 [node name="floor3" parent="Level" instance=ExtResource("11_aksfc")]
 offset_left = 2844.0
@@ -117,27 +148,40 @@ offset_top = 171.0
 offset_right = 4669.0
 offset_bottom = 459.0
 
+[node name="floor4" parent="Level" instance=ExtResource("11_aksfc")]
+offset_left = 4208.0
+offset_top = -45.0
+offset_right = 5099.0
+offset_bottom = 455.0
+
+[node name="floor5" parent="Level" instance=ExtResource("11_aksfc")]
+offset_left = 5061.0
+offset_top = -571.0
+offset_right = 5408.0
+offset_bottom = 453.0
+
 [node name="SpawnPoint" type="Marker2D" parent="Level"]
 unique_name_in_owner = true
 position = Vector2(174, 383)
 
 [node name="Gbfire1" parent="Level" instance=ExtResource("10_1bssr")]
+z_index = 2
 position = Vector2(580, 446)
 
 [node name="SmokeText2" type="Label" parent="Level/Gbfire1"]
 z_index = 2
-offset_left = -147.47
-offset_top = -299.856
-offset_right = 178.53
-offset_bottom = -161.856
+offset_left = -146.241
+offset_top = 28.2651
+offset_right = 179.759
+offset_bottom = 166.265
 theme = ExtResource("13_07uvp")
 theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
-text = "มีคนก่อกองไฟเผาขยะ
+text = "ใครมาก่อกองไฟเผาขยะ
 ทำให้เกิดมลพิษในอากาศ
-ไปตักน้ำที่บ่อ มาดับไฟ"
+จักต้องไปตักน้ำที่บ่อ มาดับไฟ"
 horizontal_alignment = 1
 
 [node name="poly6" type="Polygon2D" parent="Level/Gbfire1"]
@@ -152,8 +196,13 @@ metadata/_edit_lock_ = true
 position = Vector2(-141.325, -12.2892)
 text = "กด X โยนน้ำดับไฟ"
 
+[node name="HelpBox2" parent="Level/Gbfire1" instance=ExtResource("15_5v11l")]
+position = Vector2(245.783, -24.5783)
+text = "หากใส่หน้ากากนี้ จักสามารถป้องกันอากาศพิษได้ "
+
 [node name="Gbfire2" parent="Level" instance=ExtResource("10_1bssr")]
 position = Vector2(1550, 396)
+hp = 300
 
 [node name="poly6" type="Polygon2D" parent="Level/Gbfire2"]
 show_behind_parent = true
@@ -166,6 +215,7 @@ metadata/_edit_lock_ = true
 [node name="Gbfire4" parent="Level" instance=ExtResource("10_1bssr")]
 z_index = -3
 position = Vector2(1078, 445)
+hp = 200
 
 [node name="poly3" parent="Level/Gbfire4" instance=ExtResource("6_xpj05")]
 show_behind_parent = true
@@ -178,6 +228,7 @@ metadata/_edit_lock_ = true
 
 [node name="Gbfire3" parent="Level" instance=ExtResource("10_1bssr")]
 position = Vector2(2171, 407)
+hp = 300
 
 [node name="poly3" parent="Level/Gbfire3" instance=ExtResource("6_xpj05")]
 show_behind_parent = true
@@ -189,7 +240,8 @@ uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 34
 metadata/_edit_lock_ = true
 
 [node name="Gbfire5" parent="Level" instance=ExtResource("10_1bssr")]
-position = Vector2(3026, 176)
+position = Vector2(3656, 181)
+hp = 500
 
 [node name="poly3" parent="Level/Gbfire5" instance=ExtResource("6_xpj05")]
 show_behind_parent = true
@@ -201,7 +253,8 @@ uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 34
 metadata/_edit_lock_ = true
 
 [node name="Gbfire6" parent="Level" instance=ExtResource("10_1bssr")]
-position = Vector2(3773, 176)
+position = Vector2(3775, 180)
+hp = 400
 
 [node name="poly3" parent="Level/Gbfire6" instance=ExtResource("6_xpj05")]
 show_behind_parent = true
@@ -213,7 +266,8 @@ uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 34
 metadata/_edit_lock_ = true
 
 [node name="Gbfire7" parent="Level" instance=ExtResource("10_1bssr")]
-position = Vector2(3989, 176)
+position = Vector2(3903, 180)
+hp = 300
 
 [node name="poly3" parent="Level/Gbfire7" instance=ExtResource("6_xpj05")]
 show_behind_parent = true
@@ -227,6 +281,13 @@ metadata/_edit_lock_ = true
 [node name="House1" type="Sprite2D" parent="Level"]
 z_index = -2
 position = Vector2(316, 302)
+scale = Vector2(1.7549, 1.9951)
+texture = ExtResource("12_aksfc")
+
+[node name="House2" type="Sprite2D" parent="Level"]
+modulate = Color(0.756863, 0.498039, 1, 1)
+z_index = -4
+position = Vector2(1366, 303)
 scale = Vector2(1.7549, 1.9951)
 texture = ExtResource("12_aksfc")
 
@@ -245,16 +306,152 @@ theme_override_font_sizes/font_size = 32
 text = "A & D  เพื่อเดิน
 Spacebar เพื่อกระโดด"
 
+[node name="Movement2" type="Label" parent="TutorialText"]
+offset_left = -209.0
+offset_top = 175.0
+offset_right = 478.0
+offset_bottom = 234.0
+theme = ExtResource("13_07uvp")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "เมือง “พุทธนคร” เคยเป็นดินแดนแห่งอุดมสมบูรณ์ตอนนี้ทำไมถึงร้างผู้คนเยี่ยงนี้"
+
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("4_vgfkr")
 
 [node name="UserInterface" parent="." instance=ExtResource("9_5pmb1")]
 
 [node name="Smoke" parent="." instance=ExtResource("13_i7ntp")]
+modulate = Color(1, 0.996078, 1, 0)
 metadata/_edit_lock_ = true
 
 [node name="Well" parent="." instance=ExtResource("18_s0ca6")]
 position = Vector2(0, 438)
 
 [node name="Well2" parent="." instance=ExtResource("18_s0ca6")]
-position = Vector2(4275, 171)
+position = Vector2(3340, 167)
+
+[node name="Monster" type="Node2D" parent="."]
+
+[node name="MonsterV21" parent="Monster" instance=ExtResource("20_07uvp")]
+position = Vector2(3135, 160)
+scale = Vector2(0.8, 0.8)
+speed = 80
+atk = 15
+def = 2
+title = "ผีควันระดับ 2"
+
+[node name="MonsterV22" parent="Monster" instance=ExtResource("20_07uvp")]
+position = Vector2(4024, 152)
+scale = Vector2(0.8, 0.8)
+speed = 80
+atk = 15
+def = 2
+title = "ผีควันระดับ 2"
+
+[node name="Monster3" parent="Monster" instance=ExtResource("20_07uvp")]
+modulate = Color(1, 0.054902, 0.0392157, 1)
+position = Vector2(4439, -75)
+speed = 150
+hp = 400
+maxhp = 400
+atk = 25
+title = "เจ้าพ่อผีควัน"
+
+[node name="Monster2" parent="Monster" instance=ExtResource("20_07uvp")]
+position = Vector2(1907, 295)
+scale = Vector2(0.5, 0.5)
+speed = 50
+maxhp = 50
+def = 1
+title = "ผีควันระดับ 1"
+
+[node name="Monster4" parent="Monster" instance=ExtResource("20_07uvp")]
+position = Vector2(1734, 270)
+scale = Vector2(0.5, 0.5)
+speed = 50
+maxhp = 50
+def = 1
+title = "ผีควันระดับ 1"
+
+[node name="Monster5" parent="Monster" instance=ExtResource("20_07uvp")]
+position = Vector2(2059, 303)
+scale = Vector2(0.5, 0.5)
+speed = 60
+maxhp = 50
+def = 1
+title = "ผีควันระดับ 1"
+
+[node name="sword" parent="." instance=ExtResource("20_3dt7p")]
+position = Vector2(1427, 334)
+amount = 3
+
+[node name="SmokeText" type="Label" parent="sword"]
+offset_left = -80.0
+offset_top = 85.0
+offset_right = 114.0
+offset_bottom = 174.0
+theme = ExtResource("13_07uvp")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "ดาษแห่งความบริสุทธิ์ 
+กด C เพื่อฟัน ผีร้าย"
+horizontal_alignment = 1
+
+[node name="sword2" parent="." instance=ExtResource("20_3dt7p")]
+position = Vector2(3476, 156)
+amount = 3
+
+[node name="SmokeText" type="Label" parent="sword2"]
+offset_left = -80.0
+offset_top = 85.0
+offset_right = 114.0
+offset_bottom = 174.0
+theme = ExtResource("13_07uvp")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "ดาษแห่งความบริสุทธิ์ 
+กด C เพื่อฟัน ผีร้าย"
+horizontal_alignment = 1
+
+[node name="SmokeText2" type="Label" parent="."]
+z_index = -1
+offset_left = 1638.0
+offset_top = 428.0
+offset_right = 2097.0
+offset_bottom = 609.0
+theme = ExtResource("13_07uvp")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "ความประมาทของผู้คนทำให้เมืองนี้เต็มไปด้วยมลพิษ 
+ได้ปลุก “ผีควัน” ขึ้นมาจากเถ้าถ่าน 
+พวกมันออกอาละวาดดูดกลืนชีวิต
+และความงามของเมือง"
+horizontal_alignment = 1
+
+[node name="SmokeText3" type="Label" parent="."]
+z_index = -1
+offset_left = 4248.0
+offset_top = 29.0
+offset_right = 4707.0
+offset_bottom = 210.0
+theme = ExtResource("13_07uvp")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "ตำนานเล่าว่า เมื่อมลพิษปกคลุมเมืองจนหนาทึบ 
+จะเกิด \"เจ้าพ่อผีควัน\" ร่างยักษ์ที่รวมเอาฝุ่นและผีควันทั้งหมดไว้ในตัว 
+และมันจะกักขังดวงวิญญาณของผู้คนไว้ตลอดกาล"
+horizontal_alignment = 1
+
+[node name="Mask" parent="." instance=ExtResource("22_3dt7p")]
+position = Vector2(786, 376)

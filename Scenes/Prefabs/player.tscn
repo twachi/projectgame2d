@@ -1,56 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://w7m6tehvvy3g"]
+[gd_scene load_steps=10 format=3 uid="uid://w7m6tehvvy3g"]
 
 [ext_resource type="Script" uid="uid://cul3tqoiyrqvp" path="res://Scripts/player.gd" id="1_qt7d6"]
 [ext_resource type="PackedScene" uid="uid://ffc5x143ydq7" path="res://Scenes/Prefabs/water_bucket.tscn" id="2_cb7df"]
-[ext_resource type="Texture2D" uid="uid://cbss87b7xk5lc" path="res://Assets/Spritesheet/platformerPack_character.png" id="2_q0cxm"]
 [ext_resource type="Texture2D" uid="uid://dxp77wq60c2rr" path="res://Assets/Textures/CloudTexture.png" id="3_8vxmb"]
 [ext_resource type="PackedScene" uid="uid://87ufo8tg0qg4" path="res://Scenes/Prefabs/PlayerRig.tscn" id="4_0ctox"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_57bci"]
-atlas = ExtResource("2_q0cxm")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y2um1"]
-atlas = ExtResource("2_q0cxm")
-region = Rect2(96, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cjvmv"]
-atlas = ExtResource("2_q0cxm")
-region = Rect2(192, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k3yh2"]
-atlas = ExtResource("2_q0cxm")
-region = Rect2(288, 0, 96, 96)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4nss6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_57bci")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y2um1")
-}],
-"loop": true,
-"name": &"Jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cjvmv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k3yh2")
-}],
-"loop": true,
-"name": &"Walk",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://7o5mcurssx4w" path="res://Scenes/Weapons/weapon1.tscn" id="6_v34u6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n4sts"]
 radius = 27.0
@@ -71,18 +25,12 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 script = ExtResource("1_qt7d6")
 Bucket = ExtResource("2_cb7df")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(-1, 0.999998)
-scale = Vector2(0.802083, 0.885417)
-sprite_frames = SubResource("SpriteFrames_4nss6")
-animation = &"Walk"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, -34)
 shape = SubResource("CapsuleShape2D_n4sts")
 
 [node name="Collision" type="Area2D" parent="."]
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
 position = Vector2(3, -37)
@@ -109,6 +57,7 @@ color = Color(1, 1, 1, 0.611765)
 color_ramp = SubResource("Gradient_3gc37")
 
 [node name="DeathParticles" type="CPUParticles2D" parent="."]
+z_index = 1
 position = Vector2(1, -44)
 emitting = false
 amount = 20
@@ -126,11 +75,16 @@ damping_max = 1.0
 scale_amount_min = 15.0
 scale_amount_max = 30.0
 scale_amount_curve = SubResource("Curve_m2jh0")
+color = Color(0.72121, 0.189719, 1.2514e-06, 1)
 color_ramp = SubResource("Gradient_3gc37")
 
 [node name="PlayerRig" parent="." instance=ExtResource("4_0ctox")]
 position = Vector2(4, -2)
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.6, 0.6)
+
+[node name="weapon" parent="PlayerRig" instance=ExtResource("6_v34u6")]
+position = Vector2(25.7143, -55.7143)
+scale = Vector2(1.42857, 1.42857)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(16, 36)

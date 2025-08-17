@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm3bmj5cqbjrs"]
+
+[ext_resource type="Script" uid="uid://1enw06ba3l7j" path="res://Scripts/monster.gd" id="1_dsb2y"]
+[ext_resource type="PackedScene" uid="uid://bjl1ciumunp52" path="res://Scenes/Prefabs/monster_rig.tscn" id="1_omk6g"]
+[ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="3_mla7t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7c7ju"]
+radius = 31.0
+height = 160.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mla7t"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+angle_min = 1.07288e-05
+angle_max = 180.0
+direction = Vector3(40, -200, 0)
+spread = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 50, 0)
+scale_min = 5.0
+scale_max = 10.0
+color = Color(1, 0.00784314, 0, 1)
+
+[node name="Monster" type="CharacterBody2D" groups=["monster"]]
+collision_layer = 4
+collision_mask = 12
+script = ExtResource("1_dsb2y")
+
+[node name="Part" type="Node2D" parent="."]
+
+[node name="FloorRay" type="RayCast2D" parent="Part"]
+position = Vector2(-51, -11)
+rotation = -3.14159
+scale = Vector2(1, -1)
+target_position = Vector2(0, 33)
+collision_mask = 8
+
+[node name="WallRay" type="RayCast2D" parent="Part"]
+position = Vector2(0, -12)
+rotation = -3.14159
+scale = Vector2(1, -1)
+target_position = Vector2(68, -0.999989)
+collision_mask = 12
+
+[node name="PlayerRay" type="RayCast2D" parent="Part"]
+position = Vector2(-12, -13)
+rotation = -3.14159
+scale = Vector2(1, -1)
+target_position = Vector2(300, -2)
+
+[node name="PlayerRay2" type="RayCast2D" parent="Part"]
+position = Vector2(0, -14)
+target_position = Vector2(89, 2)
+
+[node name="Rig" parent="Part" instance=ExtResource("1_omk6g")]
+position = Vector2(6, -20)
+scale = Vector2(0.8, 0.8)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -75)
+shape = SubResource("CapsuleShape2D_7c7ju")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+auto_translate_mode = 2
+modulate = Color(0.643137, 1, 1, 0.635294)
+offset_left = -57.0
+offset_top = -199.0
+offset_right = 49.0
+offset_bottom = -173.0
+theme = ExtResource("3_mla7t")
+value = 50.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -90.0
+offset_top = -226.0
+offset_right = 90.0
+offset_bottom = -204.0
+theme = ExtResource("3_mla7t")
+theme_override_colors/font_color = Color(0.921569, 0.768627, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 24
+text = "TItle"
+horizontal_alignment = 1
+
+[node name="DamageParicle" type="GPUParticles2D" parent="."]
+z_index = 10
+position = Vector2(-2, -78)
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_mla7t")

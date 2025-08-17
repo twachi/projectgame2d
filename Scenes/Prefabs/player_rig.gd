@@ -16,6 +16,7 @@ func _ready() -> void:
 	$AnimationPlayer.speed_scale=2
 	setWing(wing)
 	setSword(sword)
+	sword_part1.visible = sword==1
 
 func _process(delta: float) -> void:
 	mask_01.visible = GameManager.mask_id == 1
@@ -27,7 +28,9 @@ func setSword(v):
 		sword=v
 		sword_part1.visible = false		
 		if v==1:
-			sword_part1.visible = true		
+			sword_part1.visible = true
+			await get_tree().create_timer(60).timeout
+			setSword(0)
 
 func setWing(v,time=0):
 	wing = v

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dfgv68mb1jaqh" path="res://Scenes/Prefabs/level_smoke.gd" id="1_ndbxq"]
 
 [sub_resource type="Gradient" id="Gradient_i7ntp"]
-colors = PackedColorArray(0.784314, 0.784314, 0.784314, 0, 1, 1, 1, 0.109804)
+colors = PackedColorArray(0.784314, 0.784314, 0.784314, 0, 1, 1, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i7ntp"]
 
@@ -20,7 +20,7 @@ color_ramp = SubResource("Gradient_i7ntp")
 noise = SubResource("FastNoiseLite_i7ntp")
 
 [node name="Smoke" type="Parallax2D"]
-modulate = Color(1, 0.996078, 1, 1)
+modulate = Color(1, 1, 1, 0.027451)
 z_index = 10
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(1200, 0)
@@ -28,6 +28,7 @@ autoscroll = Vector2(10, 0)
 script = ExtResource("1_ndbxq")
 
 [node name="Bg1" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.996078)
 texture = SubResource("NoiseTexture2D_vwv0a")
 centered = false
 metadata/_edit_lock_ = true

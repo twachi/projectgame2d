@@ -12,7 +12,9 @@ func update_level():
 		level = v
 		if (level % 5) == 0 :
 			autoscroll.x =  level * -1.0
-			($Bg1.texture as NoiseTexture2D).color_ramp.colors[1].a = level / 100.0
+			modulate.a = level / 100.0
+			# $Bg2.modulate.a = level / 100.0
+			#($Bg1.texture as NoiseTexture2D).color_ramp.colors[1].a = level / 100.0
 
 func _process(delta: float) -> void:
 	if GameManager.fire_count<=0:

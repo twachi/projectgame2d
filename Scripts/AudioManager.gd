@@ -10,9 +10,11 @@ extends Node
 @onready var water: AudioStreamPlayer = $Water
 @onready var well: AudioStreamPlayer = $Well
 @onready var music: AudioStreamPlayer = $Music
+@onready var attack_sfx: AudioStreamPlayer = $AttackSfx
+@onready var atk_water_sfx: AudioStreamPlayer = $AtkWaterSfx
 
-var music_on = true
-var sound_on = true
+var music_on = false
+var sound_on = false
 var music_bus = null
 var sfx_bus = null
 

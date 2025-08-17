@@ -14,10 +14,10 @@ func _on_body_entered(body):
 func _process(delta: float) -> void:
 	if GameManager.smoke_level>0:
 		if GameManager.fire_count >0 :
-			$Label.text = "ต้องตักน้ำไปดับไฟทั้งหมด\nเพื่อลดมลพิษ"
+			$Label.text = "ต้องตักน้ำไปดับไฟ และ กำจัดผีร้ายทั้งหมด\nเพื่อลดมลพิษ"
 		else:
 			$Label.text = "รอให้มลพิษหมดก่อน\nจึงจะไปด่านต่อไป"
-		$Part.visible = false
+		$Part.modulate.a = 0.4
 	else:
 		$Label.text = "ตอนนี้อากาศบริสุทธิ์แล้ว"
-		$Part.visible = true	
+		$Part.modulate.a = 1

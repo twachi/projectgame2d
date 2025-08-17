@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bssjjygu83iwl"]
+[gd_scene load_steps=11 format=3 uid="uid://bssjjygu83iwl"]
 
 [ext_resource type="Script" uid="uid://cc76dr86loxni" path="res://Scripts/AudioManager.gd" id="1_hp1cr"]
 [ext_resource type="AudioStream" uid="uid://d3ldv4818s140" path="res://Assets/Sound/FX/30_Jump_03.wav" id="2_esrla"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://clx3woadf11e8" path="res://Assets/Sound/FX/explosion.wav" id="4_y7mjd"]
 [ext_resource type="AudioStream" uid="uid://s84emunwpgeq" path="res://Assets/Sound/FX/powerUp.wav" id="5_qy2l1"]
 [ext_resource type="AudioStream" uid="uid://d2b8bm1w7yki7" path="res://Assets/Sound/music.ogg" id="8_5h2c1"]
+[ext_resource type="AudioStream" uid="uid://c4negh60r2ehe" path="res://Assets/Sound/FX/56_Attack_03.wav" id="8_s2x08"]
+[ext_resource type="AudioStream" uid="uid://5ikelc0n6b3y" path="res://Assets/Sound/FX/22_Water_02.wav" id="10_ia3a6"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_hp1cr")
@@ -43,7 +45,15 @@ volume_db = -2.0
 pitch_scale = 0.5
 bus = &"sfx"
 
+[node name="AttackSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_s2x08")
+bus = &"sfx"
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_5h2c1")
 volume_db = -10.0
 bus = &"music"
+
+[node name="AtkWaterSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ia3a6")
+bus = &"sfx"

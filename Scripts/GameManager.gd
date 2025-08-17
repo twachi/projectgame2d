@@ -12,24 +12,24 @@ var player_wing = 0
 var player_shield = 0
 var player_sword = 0
 var water = 0
-var max_water = 100
+var max_water = 200
 var well = null
 var fire_count = 0
 var water_delay = 1.0
-var masks = [0,0,0,0]
+var masks = [0,1,1,1]
 var mask_id       = 0  #หน้ากาก  0 คือไม่ใส่
 var mask_power    = 0  #พลังหน้ากาก  0 คือไม่มี
 var mask_lifetime = 0  #เวลาชีวิตหน้ากาก  0 คือหมด
-
+var player_def = 10
 # สำหรับการสุ่ม drop item
-var wing_item = PackedScene
-var mask_item = PackedScene
+var drop_items : Array[PackedScene] =[]
+var player_scene = null
 
 func _ready() -> void:
-	masks = [0,1,0,0]
-	wing_item = preload("res://Scenes/Prefabs/wing.tscn")
-	mask_item = preload("res://Scenes/Prefabs/mask.tscn")
-
+	drop_items.push_back( preload("res://Scenes/Prefabs/wing.tscn"))
+	drop_items.push_back( preload("res://Scenes/Prefabs/mask.tscn"))
+	drop_items.push_back( preload("res://Scenes/Prefabs/sword.tscn"))
+	
 # Adds 1 to score variable
 func add_score():
 	score += 1
@@ -65,17 +65,45 @@ func add_mask(id,v=1):
 func set_mask(id):
 	id = clamp(id,0,3)
 	if id>0 and masks[id] <= 0 : return
+	var time = [0,60,40,30][id]
+	if mask_id == id: mask_lifetime+=time
+	else: mask_lifetime=time
 	mask_id = id
 	masks[id] = clamp(masks[id]-1,0,100)
-	mask_lifetime += [0,5,10,15][id]
 	mask_power = [0,0.4,0.6,1.0][id]
 
-func drop_item(node):
-	var x=null
-	if randf()>0.5:
-		x = wing_item.instantiate()
-	else:
-		x = mask_item.instantiate()
-	x.position = node.position - Vector2(0,40)
+func drop_item(node,id=-1):
+	var i = randi_range(0,drop_items.size()-1)
+	if id>=0 : i= clamp(id,0,drop_items.size()-1)	
+	var x = drop_items[i].instantiate()
+	x.position = node.position
+	x.scale = Vector2.ZERO
 	node.get_parent().add_child(x)
+	var tween = create_tween()
+	var tween2 = create_tween()
+	tween.tween_property(x, "scale", Vector2.ONE, 0.2)
+	tween.tween_property(x, "position", node.position - Vector2(0,150), 0.2)
+	tween.tween_property(x, "position", node.position - Vector2(0,40), 0.5)
+	tween2.tween_property(x, "rotation_degrees", 360, 1.5)
+	await tween.finished
+	await tween2.finished
 	
+func add_wing(n):
+	player_wing += n
+
+func add_sword(n):
+	player_sword += n
+
+func player_damage(atk=1):
+	var def = randf_range(player_def/2,player_def) 
+	atk = randf_range(atk/2,atk) 
+	var v = clamp(atk - def,0.1,atk)
+	player_hp = clamp(player_hp-v,0,player_maxhp)
+	AudioManager.death_sfx.play()
+	if player_scene != null:
+		player_scene.damage()
+		
+func add_xp(n):
+	player_maxhp += n
+	player_hp_rate += (n*0.1)
+	player_hp = clamp(player_hp+n,0,player_maxhp)

@@ -276,6 +276,30 @@ texture = ExtResource("8_6jcpp")
 polygon = PackedVector2Array(132.163, 228.923, 158.462, 228.484, 156.27, 257.851, 131.286, 257.851)
 uv = PackedVector2Array(132.163, 228.923, 158.462, 228.484, 156.27, 257.851, 131.286, 257.851)
 
+[node name="Button6" type="Button" parent="Inventory"]
+layout_mode = 0
+offset_left = 362.0
+offset_top = -27.0
+offset_right = 432.0
+offset_bottom = 5.0
+focus_mode = 0
+action_mode = 0
+
+[node name="Label" type="Label" parent="Inventory/Button6"]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 57.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="Polygon2D" type="Polygon2D" parent="Inventory/Button6"]
+position = Vector2(13, 23)
+scale = Vector2(0.693335, 0.450414)
+offset = Vector2(-17.4869, -107.982)
+texture = ExtResource("7_0giir")
+polygon = PackedVector2Array(22.1698, 97.7633, 26.8114, 81.2601, 25.2642, 66.8198, 16.4969, 54.9582, 6.69814, 51.3481, 6.69814, 60.1154, 10.8239, 70.4299, 10.3082, 98.7947, 6.69814, 101.373, 9.27675, 110.141, 12.3711, 120.971, 25.2642, 126.128, 24.7485, 115.298, 29.9057, 109.109)
+uv = PackedVector2Array(22.1698, 97.7633, 26.8114, 81.2601, 25.2642, 66.8198, 16.4969, 54.9582, 6.69814, 51.3481, 6.69814, 60.1154, 10.8239, 70.4299, 10.3082, 98.7947, 6.69814, 101.373, 9.27675, 110.141, 12.3711, 120.971, 25.2642, 126.128, 24.7485, 115.298, 29.9057, 109.109)
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 3
@@ -321,10 +345,18 @@ texture = ExtResource("10_clwj3")
 position = Vector2(29, 28)
 texture = ExtResource("12_8y5f2")
 
+[node name="MaskTimeLabel" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 614.0
+offset_right = 36.0
+offset_bottom = 637.0
+text = "0"
+
 [connection signal="pressed" from="Inventory/Button1" to="GameUI" method="_on_button_1_pressed"]
 [connection signal="pressed" from="Inventory/Button2" to="GameUI" method="_on_button_2_pressed"]
 [connection signal="pressed" from="Inventory/Button3" to="GameUI" method="_on_button_3_pressed"]
 [connection signal="pressed" from="Inventory/Button4" to="GameUI" method="_on_button_4_pressed"]
 [connection signal="pressed" from="Inventory/Button5" to="GameUI" method="_on_button_5_pressed"]
+[connection signal="pressed" from="Inventory/Button6" to="GameUI" method="_on_button_6_pressed"]
 [connection signal="pressed" from="Control/MusicButton" to="GameUI" method="_on_music_button_pressed"]
 [connection signal="pressed" from="Control/SoundButton" to="GameUI" method="_on_sound_button_pressed"]

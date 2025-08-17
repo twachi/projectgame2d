@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjvydf3e86gpn"]
+[gd_scene load_steps=10 format=3 uid="uid://cjvydf3e86gpn"]
 
 [ext_resource type="Texture2D" uid="uid://cnpnu84cebr7c" path="res://Assets/Spritesheet/player-part.png" id="1_73r4j"]
+[ext_resource type="Script" uid="uid://bgrss5x7solmy" path="res://Scripts/item.gd" id="1_u63wj"]
 [ext_resource type="Texture2D" uid="uid://621as0fwjhum" path="res://Assets/Textures/star_07.png" id="2_sifiy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sifiy"]
@@ -75,6 +76,7 @@ offsets = PackedFloat32Array(0.625, 1)
 colors = PackedColorArray(0.914063, 0.734375, 0, 1, 1, 1, 1, 0)
 
 [node name="wing" type="StaticBody2D" groups=["wing"]]
+script = ExtResource("1_u63wj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_sifiy")
