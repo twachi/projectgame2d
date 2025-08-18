@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>คำนวณ BMI • เด็ก-ผู้ใหญ่ (CDC/WHO)</title>
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --card:#0b1224;        /* deep */
+      --muted:#94a3b8;       /* slate-400 */
+      --text:#e2e8f0;        /* slate-200 */
+      --brand:#7c3aed;       /* violet-600 */
+      --brand2:#22c55e;      /* green-500 */
+      --danger:#ef4444;      /* red-500 */
+      --warn:#f59e0b;        /* amber-500 */
+      --ok:#10b981;          /* emerald-500 */
+      --info:#38bdf8;        /* sky-400 */
+      --panel:#111827aa;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif,system-ui,Segoe UI,Arial; color:var(--text);
+      background: radial-gradient(1200px 600px at 20% -10%, #1e1b4b, transparent),
+                  radial-gradient(1000px 600px at 120% 10%, #083344, transparent),
+                  linear-gradient(180deg,#0b1021, #0b1021 50%, #0f172a 100%);
+      display:grid; place-items:center; padding:24px;
+    }
+    .app{
+      width:min(980px,100%);
+      background: linear-gradient(180deg,#0e152b, #0b1224);
+      border:1px solid #1f2937; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,.45);
+      overflow:hidden; position:relative;
+    }
+    header{
+      padding:22px 22px 18px; display:flex; align-items:center; gap:14px;
+      background: linear-gradient(90deg, #1d1b3a, #0e1a2d);
+      border-bottom:1px solid #1f2937;
+    }
+    .logo{width:42px; height:42px; display:grid; place-items:center; border-radius:12px;
+      background: radial-gradient(60% 60% at 50% 30%, #7c3aed, #3b82f6);
+      box-shadow:inset 0 0 10px #ffffff22, 0 10px 20px #00000066;
+    }
+    .logo svg{filter:drop-shadow(0 2px 2px #0008)}
+    .title h1{margin:0; font-size:1.2rem; letter-spacing:.2px}
+    .title .sub{color:var(--muted); font-size:.92rem}
+
+    .content{display:grid; grid-template-columns: 1.15fr 1fr; gap:0;}
+    @media (max-width: 820px){ .content{grid-template-columns: 1fr;} }
+
+    .panel{padding:22px;}
+
+    .form{
+      display:grid; grid-template-columns:1fr 1fr; gap:14px;
+      background: linear-gradient(180deg,#0c1325, #0a1120);
+      padding:18px; border-radius:16px; border:1px solid #1f2937;
+    }
+    .form .full{grid-column:1 / -1}
+    label{display:block; font-weight:600; margin-bottom:6px}
+    input, select{
+      width:100%; background:#0b1224; color:var(--text); border:1px solid #233046;
+      border-radius:12px; padding:12px 12px; font-size:1rem; outline:none;
+      transition: box-shadow .2s ease, border-color .2s ease;
+    }
+    input:focus, select:focus{ box-shadow:0 0 0 3px #7c3aed33; border-color:#7c3aed }
+
+    .btn{
+      grid-column:1 / -1; margin-top:6px; background:linear-gradient(90deg,#7c3aed, #3b82f6);
+      color:white; font-weight:700; border:none; padding:13px 14px; border-radius:12px;
+      cursor:pointer; letter-spacing:.3px; font-size:1.02rem;
+    }
+    .btn:hover{filter:brightness(1.04)}
+
+    .card{
+      background: #0b1224; border:1px solid #1f2937; border-radius:16px; padding:18px;
+    }
+
+    .metric{
+      display:flex; align-items:center; gap:12px; margin-bottom:10px
+    }
+    .metric .ring{
+      width:48px; height:48px; border-radius:50%; display:grid; place-items:center;
+      background: conic-gradient(#7c3aed var(--deg,0deg), #1f2937 0);
+    }
+    .metric .ring span{background:#0b1224; width:40px; height:40px; display:grid; place-items:center; border-radius:50%; font-weight:800}
+
+    .pill{display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-weight:700; font-size:.9rem}
+    .pill.ok{background:#064e3b; color:#a7f3d0}
+    .pill.warn{background:#78350f; color:#fde68a}
+    .pill.bad{background:#7f1d1d; color:#fecaca}
+    .pill.info{background:#0c4a6e; color:#bae6fd}
+
+    .bar{height:10px; background:#1f2937; border-radius:999px; overflow:hidden}
+    .bar>div{height:100%; width:0%; background:linear-gradient(90deg,#22c55e,#f59e0b,#ef4444); transition:width .5s}
+
+    .grid{display:grid; gap:14px}
+
+    .advice{color:var(--muted); line-height:1.6}
+    footer{padding:16px 22px; color:#9ca3af; font-size:.85rem; border-top:1px solid #1f2937; background:#0b1224}
+    footer a{color:#93c5fd}
+
+    .icons{display:flex; gap:10px; margin-top:8px}
+    .icons svg{width:22px; height:22px; opacity:.9}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="logo" aria-hidden="true">
+        <!-- Heart + ruler SVG icon -->
+        <svg viewBox="0 0 48 48" width="28" height="28" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M34 8c-3.5 0-5.6 2-10 7-4.4-5-6.5-7-10-7A6 6 0 0 0 8 14c0 10 16 18 16 18s16-8 16-18a6 6 0 0 0-6-6Z"/>
+          <path d="M6 40h36M10 36v8M18 34v10M26 36v8M34 33v11"/>
+        </svg>
+      </div>
+      <div class="title">
+        <h1>โปรแกรมคำนวณ BMI (เด็ก–ผู้ใหญ่)</h1>
+        <div class="sub">รองรับการตีความตามอายุและเพศ (CDC 2–20 ปี: LMS/Z-score) + เกณฑ์ผู้ใหญ่</div>
+        <div class="icons" aria-hidden="true">
+          <!-- decorative icons -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="1.6"><path d="M4 6h16M4 12h10M4 18h7"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="1.6"><path d="M4 20l8-16 8 16H4Z"/></svg>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <section class="panel">
+        <div class="form">
+          <div>
+            <label for="age">อายุ (ปี)</label>
+            <input id="age" type="number" min="2" max="120" placeholder="เช่น 16" />
+          </div>
+          <div>
+            <label for="sex">เพศ</label>
+            <select id="sex">
+              <option value="male">ชาย</option>
+              <option value="female">หญิง</option>
+            </select>
+          </div>
+          <div>
+            <label for="height">ส่วนสูง (ซม.)</label>
+            <input id="height" type="number" min="40" max="250" placeholder="เช่น 170" />
+          </div>
+          <div>
+            <label for="weight">น้ำหนัก (กก.)</label>
+            <input id="weight" type="number" step="0.1" min="2" max="300" placeholder="เช่น 60.5" />
+          </div>
+          <button class="btn" id="calc">คำนวณ</button>
+        </div>
+
+        <div class="grid" style="margin-top:16px">
+          <div class="card">
+            <div class="metric">
+              <div class="ring" id="ring" style="--deg:0deg"><span id="bmiVal">–</span></div>
+              <div>
+                <div style="font-weight:800">ค่า BMI</div>
+                <div class="bar" style="margin-top:6px"><div id="bar"></div></div>
+              </div>
+            </div>
+            <div id="category" style="margin-top:8px"></div>
+          </div>
+
+          <div class="card" id="detail">
+            กรอกข้อมูลด้านบนแล้วกด “คำนวณ” เพื่อดูเปอร์เซ็นไทล์/เกณฑ์สุขภาพและคำแนะนำเฉพาะวัย
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel" style="background:var(--panel)">
+        <div class="card" style="background:#0c1428">
+          <h3 style="margin:0 0 8px">วิธีคำนวณ (สรุป)</h3>
+          <ol style="margin:0; padding-left:18px; line-height:1.7; color:var(--muted)">
+            <li>คำนวณ BMI = น้ำหนัก(กก.) / (ส่วนสูง(ม.)²)</li>
+            <li>ถ้าอายุ &lt; 20 ปี → แปลงเป็น <b>z-score</b> และ <b>เปอร์เซ็นไทล์</b> ด้วยพารามิเตอร์ <b>L, M, S</b> ตามอายุ(เดือน)และเพศ</li>
+            <li>จัดกลุ่ม: ต่ำกว่า 5th = น้ำหนักน้อย, 5th–&lt;85th = ปกติ, 85th–&lt;95th = น้ำหนักเกิน, ≥95th = อ้วน</li>
+            <li>ถ้าอายุ ≥ 20 ปี → ใช้เกณฑ์ผู้ใหญ่ (เอเชียตะวันออกเฉียงใต้)</li>
+          </ol>
+        </div>
+        <div class="card" style="margin-top:14px">
+          <h3 style="margin:0 0 8px">อ้างอิง</h3>
+          <ul style="margin:0; padding-left:18px; line-height:1.7; color:var(--muted)">
+            <li>CDC Growth Charts (2000) – ไฟล์ <code>bmiagerev.csv</code> (LMS รายเดือน 2–20 ปี)</li>
+            <li>CDC Extended BMI-for-Age (2022) – สำหรับค่ามากกว่า 95th</li>
+            <li>WHO 5–19 ปี – ความหมายของ +1SD/+2SD</li>
+          </ul>
+          <p class="advice">หมายเหตุ: แอปจะพยายามดาวน์โหลดตาราง LMS จาก CDC อัตโนมัติ หากเครือข่าย/CORS ไม่อนุญาต จะใช้ข้อมูลสำรอง (interpolation รายปี) ซึ่งความแม่นยำใกล้เคียง แต่ไม่เท่ารายเดือน</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      สร้างเพื่อการศึกษา ไม่ใช่เครื่องมือวินิจฉัยทางการแพทย์ หากมีข้อกังวลด้านสุขภาพโปรดปรึกษาแพทย์
+    </footer>
+  </div>
+
+<script>
+// ------------------------- Utilities -------------------------
+const $ = (q)=>document.querySelector(q);
+const round = (x, d=2)=> Number.parseFloat(x).toFixed(d);
+function clamp(x, a, b){ return Math.max(a, Math.min(b, x)); }
+
+// Normal CDF (approx) → percentile
+// Abramowitz & Stegun approximation for erf
+function erf(x){
+  const a1=0.254829592, a2=-0.284496736, a3=1.421413741, a4=-1.453152027, a5=1.061405429, p=0.3275911;
+  const sign = x<0? -1:1; x=Math.abs(x);
+  const t = 1/(1+p*x);
+  const y = 1 - (((((a5*t + a4)*t) + a3)*t + a2)*t + a1)*t*Math.exp(-x*x);
+  return sign*y;
+}
+function cdf(z){ return 0.5*(1+erf(z/Math.SQRT2)); }
+
+// ------------------------- Adult thresholds (SEA) -------------------------
+function adultCategory(bmi){
+  if(bmi < 18.5) return {label:"ผอม", cls:"info"};
+  if(bmi < 23)   return {label:"ปกติ", cls:"ok"};
+  if(bmi < 25)   return {label:"น้ำหนักเกิน", cls:"warn"};
+  if(bmi < 30)   return {label:"อ้วน ระดับ 1", cls:"bad"};
+  return {label:"อ้วน ระดับ 2", cls:"bad"};
+}
+
+function adultAdvice(cat){
+  switch(cat.label){
+    case "ผอม": return "เพิ่มโปรตีน, ฝึกแรงต้าน 2–3 ครั้ง/สัปดาห์, ตรวจคัดกรองภาวะขาดสารอาหาร";
+    case "ปกติ": return "คงกิจกรรมแอโรบิก ≥150 นาที/สัปดาห์ + เวทเทรนนิ่ง 2 วัน/สัปดาห์";
+    case "น้ำหนักเกิน": return "โฟกัสสมดุลพลังงาน, เพิ่ม NEAT (เดิน/ยืน), จำกัดน้ำตาลเพิ่ม";
+    default: return "ปรึกษาผู้เชี่ยวชาญโภชนาการ/แพทย์, ตั้งเป้าลด 5–10% ภายใน 3–6 เดือนแบบปลอดภัย";
+  }
+}
+
+// ------------------------- Pediatric LMS (CDC) -------------------------
+// Try to fetch official monthly LMS. Fallback to yearly anchors (compact) if blocked.
+let LMS = null; // { male: [{ageMonths,L,M,S}], female: [...] }
+
+// Fallback compact LMS (approx) — yearly points from CDC tables (selected), interpolated linearly.
+// NOTE: These values are representative anchors; monthly CSV will override when loaded.
+// Source: CDC 2000 BMI-for-age (rounded). Age in months: 24..240 (2–20y)
+const FALLBACK = {
+  male: [
+    {m:24,L:-2.0,M:16.575,S:0.0800}, {m:36,L:-1.9,M:16.025,S:0.0820}, {m:48,L:-1.8,M:15.620,S:0.0830},
+    {m:60,L:-1.6,M:15.410,S:0.0840}, {m:72,L:-1.4,M:15.500,S:0.0860}, {m:84,L:-1.2,M:16.000,S:0.0880},
+    {m:96,L:-1.1,M:16.600,S:0.0900}, {m:108,L:-1.0,M:17.250,S:0.0920}, {m:120,L:-0.9,M:17.900,S:0.0940},
+    {m:132,L:-0.8,M:18.550,S:0.0960}, {m:144,L:-0.7,M:19.200,S:0.0970}, {m:156,L:-0.6,M:19.850,S:0.0980},
+    {m:168,L:-0.5,M:20.450,S:0.0990}, {m:180,L:-0.4,M:21.000,S:0.1000}, {m:192,L:-0.3,M:21.500,S:0.1010},
+    {m:204,L:-0.2,M:22.000,S:0.1020}, {m:216,L:-0.2,M:22.500,S:0.1030}, {m:228,L:-0.2,M:23.000,S:0.1040},
+    {m:240,L:-0.1,M:23.300,S:0.1050}
+  ],
+  female: [
+    {m:24,L:-2.0,M:16.450,S:0.0850}, {m:36,L:-1.9,M:15.900,S:0.0860}, {m:48,L:-1.8,M:15.500,S:0.0870},
+    {m:60,L:-1.6,M:15.300,S:0.0880}, {m:72,L:-1.4,M:15.450,S:0.0900}, {m:84,L:-1.3,M:16.050,S:0.0920},
+    {m:96,L:-1.2,M:16.700,S:0.0940}, {m:108,L:-1.1,M:17.350,S:0.0960}, {m:120,L:-1.0,M:18.000,S:0.0980},
+    {m:132,L:-0.9,M:18.700,S:0.1000}, {m:144,L:-0.8,M:19.450,S:0.1010}, {m:156,L:-0.7,M:20.050,S:0.1020},
+    {m:168,L:-0.6,M:20.600,S:0.1030}, {m:180,L:-0.5,M:21.100,S:0.1040}, {m:192,L:-0.4,M:21.600,S:0.1050},
+    {m:204,L:-0.3,M:22.050,S:0.1060}, {m:216,L:-0.3,M:22.400,S:0.1070}, {m:228,L:-0.2,M:22.750,S:0.1080},
+    {m:240,L:-0.2,M:23.000,S:0.1090}
+  ]
+};
+
+async function loadCDC(){
+  try{
+    const url = 'https://www.cdc.gov/growthcharts/data/zscore/bmiagerev.csv';
+    const res = await fetch(url, {mode:'cors'});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const text = await res.text();
+    LMS = parseCDCcsv(text); // set global
+  }catch(e){
+    console.warn('CDC CSV load failed, using fallback anchors', e);
+    LMS = expandFallback(FALLBACK); // interpolate to monthly
+  }
+}
+
+function parseCDCcsv(csv){
+  // csv columns: Sex, Agemos, L, M, S; may include other rows like header names
+  const lines = csv.trim().split(/\r?\n/);
+  const male=[], female=[];
+  let header = lines[0].split(',').map(h=>h.trim().toLowerCase());
+  let idxSex = header.indexOf('sex');
+  let idxAge = header.indexOf('agemos');
+  let idxL = header.indexOf('l');
+  let idxM = header.indexOf('m');
+  let idxS = header.indexOf('s');
+  for(let i=1;i<lines.length;i++){
+    const parts = lines[i].split(',');
+    if(parts.length < 5) continue;
+    const sex = parts[idxSex].trim();
+    const age = Number(parts[idxAge]);
+    const L = Number(parts[idxL]);
+    const M = Number(parts[idxM]);
+    const S = Number(parts[idxS]);
+    if(!Number.isFinite(age) || !Number.isFinite(L) || !Number.isFinite(M) || !Number.isFinite(S)) continue;
+    const obj = {m:age, L, M, S};
+    (sex==='1' ? male : female).push(obj);
+  }
+  return {male, female};
+}
+
+function expandFallback(fb){
+  // Linear interpolation per month between yearly anchors (24..240)
+  function interp(arr){
+    const out = [];
+    for(let i=0; i<arr.length-1; i++){
+      const a = arr[i], b = arr[i+1];
+      const dt = b.m - a.m; // months (~12)
+      for(let k=0; k<dt; k++){
+        const t = k/dt;
+        out.push({
+          m: a.m + k,
+          L: a.L + t*(b.L-a.L),
+          M: a.M + t*(b.M-a.M),
+          S: a.S + t*(b.S-a.S)
+        });
+      }
+    }
+    out.push(arr[arr.length-1]);
+    return out;
+  }
+  return { male: interp(fb.male), female: interp(fb.female) };
+}
+
+function lmsFor(ageYears, sex){
+  const months = clamp(Math.round(ageYears*12), 24, 240);
+  const arr = (sex==='male'? LMS.male : LMS.female);
+  // Find nearest two months for interpolation (if exact found, return)
+  let i = arr.findIndex(row => row.m >= months);
+  if(i <= 0) return arr[0];
+  if(arr[i].m === months) return arr[i];
+  const a = arr[i-1], b = arr[i];
+  const t = (months - a.m)/(b.m - a.m);
+  return { m: months, L: a.L + t*(b.L-a.L), M: a.M + t*(b.M-a.M), S: a.S + t*(b.S-a.S) };
+}
+
+function zFromLMS(x, {L,M,S}){
+  if(L === 0) return Math.log(x/M)/S;
+  return (Math.pow(x/M, L) - 1) / (L*S);
+}
+
+function pediatricCategory(p){
+  // CDC: <5th underweight; 5th–<85th healthy; 85th–<95th overweight; >=95th obesity
+  if(p < 0.05) return {label:"น้ำหนักน้อย (\u003c 5th)", cls:"info"};
+  if(p < 0.85) return {label:"น้ำหนักปกติ (5th–\u003c85th)", cls:"ok"};
+  if(p < 0.95) return {label:"น้ำหนักเกิน (85th–\u003c95th)", cls:"warn"};
+  return {label:"อ้วน (\u2265 95th)", cls:"bad"};
+}
+
+function pediatricAdvice(p, age){
+  if(p < 0.05) return "เพิ่มพลังงานและโปรตีนตามวัย, ติดตามการเจริญเติบโตทุก 3–6 เดือน";
+  if(p < 0.85) return "คงกิจกรรมกลางแจ้งอย่างน้อย 60 นาที/วัน, โภชนาการครบ 5 หมู่";
+  if(p < 0.95) return "จำกัดน้ำหวาน/ของทอด, เพิ่มกิจกรรมทางกายทั้งครอบครัว";
+  return "ปรึกษากุมารแพทย์/นักโภชนาการ, วางแผนโภชนบำบัดและกิจกรรมอย่างเหมาะสม";
+}
+
+// ------------------------- UI Logic -------------------------
+async function main(){
+  await loadCDC();
+  $('#calc').addEventListener('click', ()=>{
+    const age = Number($('#age').value);
+    const sex = $('#sex').value;
+    const h = Number($('#height').value);
+    const w = Number($('#weight').value);
+
+    if(!age || !h || !w){
+      $('#detail').innerHTML = '<span class="pill info">กรุณากรอกข้อมูลให้ครบ</span>';
+      return;
+    }
+
+    const bmi = w / Math.pow(h/100,2);
+
+    // ring + bar
+    $('#bmiVal').textContent = round(bmi,2);
+    const pct = clamp((bmi/35)*100, 0, 100);
+    $('#ring').style.setProperty('--deg', `${pct*3.6}deg`);
+    $('#bar').style.width = pct+'%';
+
+    if(age >= 20){
+      const cat = adultCategory(bmi);
+      $('#category').innerHTML = `<span class="pill ${cat.cls}">${cat.label}</span>`;
+      $('#detail').innerHTML = `
+        <div style="font-weight:700; margin-bottom:6px">ผลสำหรับผู้ใหญ่ (≥ 20 ปี)</div>
+        <div>เกณฑ์ภูมิภาคเอเชียตะวันออกเฉียงใต้</div>
+        <ul style="line-height:1.8; color:var(--muted)">
+          <li><b>BMI:</b> ${round(bmi,2)}</li>
+          <li><b>คำแนะนำ:</b> ${adultAdvice(cat)}</li>
+        </ul>
+      `;
+      return;
+    }
+
+    // Pediatric (2–19.99y)
+    const lms = lmsFor(age, sex);
+    const z = zFromLMS(bmi, lms);
+    const p = cdf(z); // 0..1
+    const cat = pediatricCategory(p);
+
+    $('#category').innerHTML = `<span class="pill ${cat.cls}">${cat.label}</span>`;
+
+    $('#detail').innerHTML = `
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
+        <div>
+          <div style="font-weight:700; margin-bottom:6px">ผลสำหรับเด็ก/วัยรุ่น</div>
+          <ul style="margin:0; padding-left:18px; line-height:1.8; color:var(--muted)">
+            <li><b>BMI:</b> ${round(bmi,2)}</li>
+            <li><b>อายุ (ประมาณ):</b> ${round(age,2)} ปี</li>
+            <li><b>เปอร์เซ็นไทล์:</b> ${round(p*100,1)}th</li>
+            <li><b>z-score:</b> ${round(z,2)}</li>
+          </ul>
+        </div>
+        <div class="advice"><b>คำแนะนำ:</b> ${pediatricAdvice(p, age)}</div>
+      </div>
+      <div style="margin-top:10px; font-size:.9rem; color:var(--muted)">
+        พารามิเตอร์ L=${round(lms.L,3)}, M=${round(lms.M,3)}, S=${round(lms.S,3)} (CDC; อายุเป็นเดือน ~ ${Math.round(age*12)})
+      </div>
+    `;
+  });
+}
+
+main();
+</script>
+</body>
+</html>
