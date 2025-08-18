@@ -37,7 +37,7 @@ func _process(_delta):
 	m4label.text = str(GameManager.player_wing)
 	m5label.text = str(GameManager.water)
 	m6label.text = str(GameManager.player_sword)
-	$"../MaskTimeLabel".text = str(int(GameManager.mask_lifetime))
+#	$"../MaskTimeLabel".text = str(int(GameManager.mask_lifetime))
 
 func _on_button_1_pressed() -> void:
 	GameManager.set_mask(1)
@@ -72,3 +72,26 @@ func _on_sound_button_pressed() -> void:
 func _on_button_6_pressed() -> void:
 	Input.action_press("sword")
 	Input.action_release("sword")
+
+func _on_left_button_4_pressed() -> void:
+	Input.action_press("attack")
+	Input.action_release("attack")
+
+
+func _on_left_button_5_pressed() -> void:
+	Input.action_press("Jump")
+	Input.action_release("Jump")
+
+func _on_a_button_button_down() -> void:
+	Input.action_press("Left")
+
+func _on_a_button_button_up() -> void:
+	Input.action_release("Left")
+
+
+func _on_d_button_button_down() -> void:
+	Input.action_press("Right")
+
+
+func _on_d_button_button_up() -> void:
+	Input.action_release("Right")

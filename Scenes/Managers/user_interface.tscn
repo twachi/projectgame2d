@@ -345,12 +345,60 @@ texture = ExtResource("10_clwj3")
 position = Vector2(29, 28)
 texture = ExtResource("12_8y5f2")
 
-[node name="MaskTimeLabel" type="Label" parent="."]
-offset_left = 9.0
-offset_top = 614.0
-offset_right = 36.0
-offset_bottom = 637.0
+[node name="AButton" type="Button" parent="Control"]
+offset_left = -455.0
+offset_top = -51.0
+offset_right = -378.0
+offset_bottom = 12.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "A"
+
+[node name="DButton" type="Button" parent="Control"]
+offset_left = -297.0
+offset_top = -51.0
+offset_right = -220.0
+offset_bottom = 12.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "D"
+
+[node name="CButton" type="Button" parent="Control"]
+offset_left = -217.0
+offset_top = -51.0
+offset_right = -140.0
+offset_bottom = 12.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "C"
+
+[node name="Polygon2D" type="Polygon2D" parent="Control/CButton"]
+position = Vector2(14, 39)
+scale = Vector2(0.693335, 0.450414)
+offset = Vector2(-17.4869, -107.982)
+texture = ExtResource("7_0giir")
+polygon = PackedVector2Array(22.1698, 97.7633, 26.8114, 81.2601, 25.2642, 66.8198, 16.4969, 54.9582, 6.69814, 51.3481, 6.69814, 60.1154, 10.8239, 70.4299, 10.3082, 98.7947, 6.69814, 101.373, 9.27675, 110.141, 12.3711, 120.971, 25.2642, 126.128, 24.7485, 115.298, 29.9057, 109.109)
+uv = PackedVector2Array(22.1698, 97.7633, 26.8114, 81.2601, 25.2642, 66.8198, 16.4969, 54.9582, 6.69814, 51.3481, 6.69814, 60.1154, 10.8239, 70.4299, 10.3082, 98.7947, 6.69814, 101.373, 9.27675, 110.141, 12.3711, 120.971, 25.2642, 126.128, 24.7485, 115.298, 29.9057, 109.109)
+
+[node name="MaskTimeLabel" type="Label" parent="Control"]
+offset_left = -1103.0
+offset_top = 6.0
+offset_right = -1076.0
+offset_bottom = 29.0
 text = "0"
+
+[node name="SPButton" type="Button" parent="Control"]
+offset_left = -376.0
+offset_top = -51.0
+offset_right = -299.0
+offset_bottom = 12.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+action_mode = 0
+text = "Space"
 
 [connection signal="pressed" from="Inventory/Button1" to="GameUI" method="_on_button_1_pressed"]
 [connection signal="pressed" from="Inventory/Button2" to="GameUI" method="_on_button_2_pressed"]
@@ -360,3 +408,8 @@ text = "0"
 [connection signal="pressed" from="Inventory/Button6" to="GameUI" method="_on_button_6_pressed"]
 [connection signal="pressed" from="Control/MusicButton" to="GameUI" method="_on_music_button_pressed"]
 [connection signal="pressed" from="Control/SoundButton" to="GameUI" method="_on_sound_button_pressed"]
+[connection signal="button_down" from="Control/AButton" to="GameUI" method="_on_a_button_button_down"]
+[connection signal="button_up" from="Control/AButton" to="GameUI" method="_on_a_button_button_up"]
+[connection signal="button_down" from="Control/DButton" to="GameUI" method="_on_d_button_button_down"]
+[connection signal="button_up" from="Control/DButton" to="GameUI" method="_on_d_button_button_up"]
+[connection signal="pressed" from="Control/SPButton" to="GameUI" method="_on_left_button_5_pressed"]

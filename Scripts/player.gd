@@ -106,6 +106,9 @@ func movement(_delta):
 		
 	# Move Player
 	var inputAxis = Input.get_axis("Left", "Right")
+	if Input.is_action_just_pressed("Left"): inputAxis=-1
+	elif Input.is_action_just_pressed("Right"): inputAxis=1
+	
 	flip_player(inputAxis)
 	velocity.x = clamp((velocity.x+inputAxis*20*power),-move_speed*power, move_speed*power)
 	if absf(velocity.x) < 0.1 : velocity.x=0
