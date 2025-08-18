@@ -15,9 +15,12 @@ extends Control
 @onready var sound_on: Sprite2D = $"../Control/SoundButton/sound_on"
 @onready var sound_off: Sprite2D = $"../Control/SoundButton/sound_off"
 @onready var m6label: Label = $"../Inventory/Button6/Label"
+var full = false
+var showkey = false
 
 func _ready() -> void:
 	update_audio()
+	$"../Control/Keyboards".visible = showkey
 	
 func update_audio():
 	music_off.visible = !AudioManager.music_on
@@ -111,3 +114,15 @@ func _on_x_button_button_down() -> void:
 
 func _on_x_button_button_up() -> void:
 	Input.action_release("water")
+
+
+func _on_fullscreen_button_pressed() -> void:
+	full = !full
+	if full:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	else:		
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	
+func _on_keyboard_button_pressed() -> void:
+	showkey = !showkey
+	$"../Control/Keyboards".visible = showkey

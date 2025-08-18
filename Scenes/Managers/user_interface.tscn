@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6tca06ks0ys7"]
+[gd_scene load_steps=17 format=3 uid="uid://b6tca06ks0ys7"]
 
 [ext_resource type="Script" uid="uid://c1j1k04ax722v" path="res://Scripts/GameUI.gd" id="1_sjcjl"]
 [ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="2_kuy43"]
@@ -12,7 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://dot1d83id2y3h" path="res://Assets/Icons/icons8-music-48.png" id="9_idnum"]
 [ext_resource type="Texture2D" uid="uid://cxtvwi5lwvx3i" path="res://Assets/Icons/icons8-audio-48.png" id="10_clwj3"]
 [ext_resource type="Texture2D" uid="uid://d31b5cfwpyfow" path="res://Assets/Icons/icons8-cancel-48.png" id="10_svglc"]
+[ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="12_0dfm7"]
 [ext_resource type="Texture2D" uid="uid://dvwl0ifppdwwf" path="res://Assets/Icons/icons8-mute-48.png" id="12_8y5f2"]
+[ext_resource type="Texture2D" uid="uid://06e7nmu0eb0r" path="res://Assets/Spritesheet/icons8-full-screen-50.png" id="13_3kuws"]
+[ext_resource type="Texture2D" uid="uid://bnb10m5sfvi3w" path="res://Assets/Spritesheet/icons8-keyboard-48.png" id="14_3kuws"]
 
 [node name="UserInterface" type="CanvasLayer"]
 
@@ -300,6 +303,13 @@ texture = ExtResource("7_0giir")
 polygon = PackedVector2Array(22.1698, 97.7633, 26.8114, 81.2601, 25.2642, 66.8198, 16.4969, 54.9582, 6.69814, 51.3481, 6.69814, 60.1154, 10.8239, 70.4299, 10.3082, 98.7947, 6.69814, 101.373, 9.27675, 110.141, 12.3711, 120.971, 25.2642, 126.128, 24.7485, 115.298, 29.9057, 109.109)
 uv = PackedVector2Array(22.1698, 97.7633, 26.8114, 81.2601, 25.2642, 66.8198, 16.4969, 54.9582, 6.69814, 51.3481, 6.69814, 60.1154, 10.8239, 70.4299, 10.3082, 98.7947, 6.69814, 101.373, 9.27675, 110.141, 12.3711, 120.971, 25.2642, 126.128, 24.7485, 115.298, 29.9057, 109.109)
 
+[node name="MaskTimeLabel" type="Label" parent="Inventory"]
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 36.0
+offset_bottom = 29.0
+text = "0"
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 3
@@ -327,6 +337,37 @@ position = Vector2(48, 29)
 scale = Vector2(0.46875, 0.489583)
 texture = ExtResource("10_svglc")
 
+[node name="FullscreenButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -157.0
+offset_top = -34.0
+offset_right = -99.0
+offset_bottom = 22.0
+focus_mode = 0
+theme = ExtResource("12_0dfm7")
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+text = "F"
+
+[node name="Icons8-full-screen-50" type="Sprite2D" parent="Control/FullscreenButton"]
+position = Vector2(26, 26)
+texture = ExtResource("13_3kuws")
+
+[node name="KeyboardButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -216.0
+offset_top = -34.0
+offset_right = -158.0
+offset_bottom = 22.0
+focus_mode = 0
+theme = ExtResource("12_0dfm7")
+theme_override_font_sizes/font_size = 32
+action_mode = 0
+
+[node name="Icons8-keyboard-48" type="Sprite2D" parent="Control/KeyboardButton"]
+position = Vector2(29, 28)
+texture = ExtResource("14_3kuws")
+
 [node name="SoundButton" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = -33.0
@@ -345,76 +386,93 @@ texture = ExtResource("10_clwj3")
 position = Vector2(29, 28)
 texture = ExtResource("12_8y5f2")
 
-[node name="AButton" type="Button" parent="Control"]
-offset_left = -457.0
-offset_top = -110.0
-offset_right = -380.0
-offset_bottom = -47.0
+[node name="Keyboards" type="Node2D" parent="Control"]
+
+[node name="AButton" type="Button" parent="Control/Keyboards"]
+offset_left = -516.0
+offset_top = -124.0
+offset_right = -439.0
+offset_bottom = -61.0
+scale = Vector2(1.2, 1.2)
 focus_mode = 0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "A"
 
-[node name="DButton" type="Button" parent="Control"]
-offset_left = -299.0
-offset_top = -110.0
-offset_right = -222.0
-offset_bottom = -47.0
+[node name="DButton" type="Button" parent="Control/Keyboards"]
+offset_left = -317.0
+offset_top = -127.0
+offset_right = -240.0
+offset_bottom = -64.0
+scale = Vector2(1.2, 1.2)
 focus_mode = 0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "D"
 
-[node name="ZButton" type="Button" parent="Control"]
-offset_left = -419.0
-offset_top = -39.0
-offset_right = -342.0
-offset_bottom = 24.0
+[node name="ZButton" type="Button" parent="Control/Keyboards"]
+offset_left = -516.0
+offset_top = -43.0
+offset_right = -439.0
+offset_bottom = 20.0
+scale = Vector2(1.2, 1.2)
 focus_mode = 0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "Z"
 
-[node name="XButton" type="Button" parent="Control"]
-offset_left = -338.0
-offset_top = -39.0
-offset_right = -261.0
-offset_bottom = 24.0
+[node name="Polygon2D" type="Polygon2D" parent="Control/Keyboards/ZButton"]
+position = Vector2(18.3333, 33.3333)
+scale = Vector2(0.3, 0.3)
+offset = Vector2(-173.409, -161.973)
+texture = ExtResource("7_0giir")
+polygon = PackedVector2Array(200.969, 135.667, 127.764, 125.019, 133.088, 158.294, 171.687, 187.576, 196.976, 174.266)
+uv = PackedVector2Array(200.969, 135.667, 127.764, 125.019, 133.088, 158.294, 171.687, 187.576, 196.976, 174.266)
+
+[node name="XButton" type="Button" parent="Control/Keyboards"]
+offset_left = -417.0
+offset_top = -44.0
+offset_right = -340.0
+offset_bottom = 19.0
+scale = Vector2(1.2, 1.2)
 focus_mode = 0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "X"
 
-[node name="CButton" type="Button" parent="Control"]
-offset_left = -258.0
-offset_top = -40.0
-offset_right = -181.0
-offset_bottom = 23.0
+[node name="poly8" type="Polygon2D" parent="Control/Keyboards/XButton"]
+position = Vector2(15, 40.8333)
+scale = Vector2(1.03069, 1.02408)
+offset = Vector2(-144, -252)
+texture = ExtResource("8_6jcpp")
+polygon = PackedVector2Array(132.163, 228.923, 158.462, 228.484, 156.27, 257.851, 131.286, 257.851)
+uv = PackedVector2Array(132.163, 228.923, 158.462, 228.484, 156.27, 257.851, 131.286, 257.851)
+
+[node name="CButton" type="Button" parent="Control/Keyboards"]
+offset_left = -317.0
+offset_top = -47.0
+offset_right = -240.0
+offset_bottom = 16.0
+scale = Vector2(1.2, 1.2)
 focus_mode = 0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "C"
 
-[node name="Polygon2D" type="Polygon2D" parent="Control/CButton"]
-position = Vector2(14, 39)
-scale = Vector2(0.693335, 0.450414)
+[node name="Polygon2D" type="Polygon2D" parent="Control/Keyboards/CButton"]
+position = Vector2(14.1667, 49.1667)
+scale = Vector2(0.8, 0.8)
 offset = Vector2(-17.4869, -107.982)
 texture = ExtResource("7_0giir")
 polygon = PackedVector2Array(22.1698, 97.7633, 26.8114, 81.2601, 25.2642, 66.8198, 16.4969, 54.9582, 6.69814, 51.3481, 6.69814, 60.1154, 10.8239, 70.4299, 10.3082, 98.7947, 6.69814, 101.373, 9.27675, 110.141, 12.3711, 120.971, 25.2642, 126.128, 24.7485, 115.298, 29.9057, 109.109)
 uv = PackedVector2Array(22.1698, 97.7633, 26.8114, 81.2601, 25.2642, 66.8198, 16.4969, 54.9582, 6.69814, 51.3481, 6.69814, 60.1154, 10.8239, 70.4299, 10.3082, 98.7947, 6.69814, 101.373, 9.27675, 110.141, 12.3711, 120.971, 25.2642, 126.128, 24.7485, 115.298, 29.9057, 109.109)
 
-[node name="MaskTimeLabel" type="Label" parent="Control"]
-offset_left = -1103.0
-offset_top = 6.0
-offset_right = -1076.0
-offset_bottom = 29.0
-text = "0"
-
-[node name="SPButton" type="Button" parent="Control"]
-offset_left = -378.0
-offset_top = -110.0
-offset_right = -301.0
-offset_bottom = -47.0
+[node name="SPButton" type="Button" parent="Control/Keyboards"]
+offset_left = -417.0
+offset_top = -126.0
+offset_right = -340.0
+offset_bottom = -63.0
+scale = Vector2(1.2, 1.2)
 focus_mode = 0
 theme_override_font_sizes/font_size = 20
 action_mode = 0
@@ -427,14 +485,16 @@ text = "Space"
 [connection signal="pressed" from="Inventory/Button5" to="GameUI" method="_on_button_5_pressed"]
 [connection signal="pressed" from="Inventory/Button6" to="GameUI" method="_on_button_6_pressed"]
 [connection signal="pressed" from="Control/MusicButton" to="GameUI" method="_on_music_button_pressed"]
+[connection signal="pressed" from="Control/FullscreenButton" to="GameUI" method="_on_fullscreen_button_pressed"]
+[connection signal="pressed" from="Control/KeyboardButton" to="GameUI" method="_on_keyboard_button_pressed"]
 [connection signal="pressed" from="Control/SoundButton" to="GameUI" method="_on_sound_button_pressed"]
-[connection signal="button_down" from="Control/AButton" to="GameUI" method="_on_a_button_button_down"]
-[connection signal="button_up" from="Control/AButton" to="GameUI" method="_on_a_button_button_up"]
-[connection signal="button_down" from="Control/DButton" to="GameUI" method="_on_d_button_button_down"]
-[connection signal="button_up" from="Control/DButton" to="GameUI" method="_on_d_button_button_up"]
-[connection signal="button_down" from="Control/ZButton" to="GameUI" method="_on_z_button_button_down"]
-[connection signal="button_up" from="Control/ZButton" to="GameUI" method="_on_z_button_button_up"]
-[connection signal="button_down" from="Control/XButton" to="GameUI" method="_on_x_button_button_down"]
-[connection signal="button_up" from="Control/XButton" to="GameUI" method="_on_x_button_button_up"]
-[connection signal="pressed" from="Control/CButton" to="GameUI" method="_on_c_button_pressed"]
-[connection signal="pressed" from="Control/SPButton" to="GameUI" method="_on_left_button_5_pressed"]
+[connection signal="button_down" from="Control/Keyboards/AButton" to="GameUI" method="_on_a_button_button_down"]
+[connection signal="button_up" from="Control/Keyboards/AButton" to="GameUI" method="_on_a_button_button_up"]
+[connection signal="button_down" from="Control/Keyboards/DButton" to="GameUI" method="_on_d_button_button_down"]
+[connection signal="button_up" from="Control/Keyboards/DButton" to="GameUI" method="_on_d_button_button_up"]
+[connection signal="button_down" from="Control/Keyboards/ZButton" to="GameUI" method="_on_z_button_button_down"]
+[connection signal="button_up" from="Control/Keyboards/ZButton" to="GameUI" method="_on_z_button_button_up"]
+[connection signal="button_down" from="Control/Keyboards/XButton" to="GameUI" method="_on_x_button_button_down"]
+[connection signal="button_up" from="Control/Keyboards/XButton" to="GameUI" method="_on_x_button_button_up"]
+[connection signal="pressed" from="Control/Keyboards/CButton" to="GameUI" method="_on_c_button_pressed"]
+[connection signal="pressed" from="Control/Keyboards/SPButton" to="GameUI" method="_on_left_button_5_pressed"]
