@@ -346,30 +346,50 @@ position = Vector2(29, 28)
 texture = ExtResource("12_8y5f2")
 
 [node name="AButton" type="Button" parent="Control"]
-offset_left = -455.0
-offset_top = -51.0
-offset_right = -378.0
-offset_bottom = 12.0
+offset_left = -457.0
+offset_top = -110.0
+offset_right = -380.0
+offset_bottom = -47.0
 focus_mode = 0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "A"
 
 [node name="DButton" type="Button" parent="Control"]
-offset_left = -297.0
-offset_top = -51.0
-offset_right = -220.0
-offset_bottom = 12.0
+offset_left = -299.0
+offset_top = -110.0
+offset_right = -222.0
+offset_bottom = -47.0
 focus_mode = 0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "D"
 
+[node name="ZButton" type="Button" parent="Control"]
+offset_left = -419.0
+offset_top = -39.0
+offset_right = -342.0
+offset_bottom = 24.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "Z"
+
+[node name="XButton" type="Button" parent="Control"]
+offset_left = -338.0
+offset_top = -39.0
+offset_right = -261.0
+offset_bottom = 24.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "X"
+
 [node name="CButton" type="Button" parent="Control"]
-offset_left = -217.0
-offset_top = -51.0
-offset_right = -140.0
-offset_bottom = 12.0
+offset_left = -258.0
+offset_top = -40.0
+offset_right = -181.0
+offset_bottom = 23.0
 focus_mode = 0
 theme_override_font_sizes/font_size = 40
 action_mode = 0
@@ -391,10 +411,10 @@ offset_bottom = 29.0
 text = "0"
 
 [node name="SPButton" type="Button" parent="Control"]
-offset_left = -376.0
-offset_top = -51.0
-offset_right = -299.0
-offset_bottom = 12.0
+offset_left = -378.0
+offset_top = -110.0
+offset_right = -301.0
+offset_bottom = -47.0
 focus_mode = 0
 theme_override_font_sizes/font_size = 20
 action_mode = 0
@@ -412,4 +432,9 @@ text = "Space"
 [connection signal="button_up" from="Control/AButton" to="GameUI" method="_on_a_button_button_up"]
 [connection signal="button_down" from="Control/DButton" to="GameUI" method="_on_d_button_button_down"]
 [connection signal="button_up" from="Control/DButton" to="GameUI" method="_on_d_button_button_up"]
+[connection signal="button_down" from="Control/ZButton" to="GameUI" method="_on_z_button_button_down"]
+[connection signal="button_up" from="Control/ZButton" to="GameUI" method="_on_z_button_button_up"]
+[connection signal="button_down" from="Control/XButton" to="GameUI" method="_on_x_button_button_down"]
+[connection signal="button_up" from="Control/XButton" to="GameUI" method="_on_x_button_button_up"]
+[connection signal="pressed" from="Control/CButton" to="GameUI" method="_on_c_button_pressed"]
 [connection signal="pressed" from="Control/SPButton" to="GameUI" method="_on_left_button_5_pressed"]

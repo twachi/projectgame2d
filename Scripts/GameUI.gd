@@ -73,10 +73,6 @@ func _on_button_6_pressed() -> void:
 	Input.action_press("sword")
 	Input.action_release("sword")
 
-func _on_left_button_4_pressed() -> void:
-	Input.action_press("attack")
-	Input.action_release("attack")
-
 
 func _on_left_button_5_pressed() -> void:
 	Input.action_press("Jump")
@@ -95,3 +91,23 @@ func _on_d_button_button_down() -> void:
 
 func _on_d_button_button_up() -> void:
 	Input.action_release("Right")
+
+
+func _on_c_button_pressed() -> void:
+	Input.action_press("attack")
+	Input.action_release("attack")
+	pass # Replace with function body.
+
+func _on_z_button_button_down() -> void:
+	Input.action_press("wing")
+
+
+func _on_z_button_button_up() -> void:
+	Input.action_release("wing")
+
+func _on_x_button_button_down() -> void:
+	Input.action_press("water")
+
+
+func _on_x_button_button_up() -> void:
+	Input.action_release("water")
