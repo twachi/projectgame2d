@@ -29,7 +29,6 @@ func set_music(v):
 func _ready() -> void:
 	music_bus = AudioServer.get_bus_index("music")
 	sfx_bus = AudioServer.get_bus_index("sfx")
-	music.play()
 	AudioServer.set_bus_mute(music_bus,!music_on)
 	AudioServer.set_bus_mute(sfx_bus,!sound_on)
 		

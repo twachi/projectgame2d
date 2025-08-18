@@ -50,7 +50,7 @@ func attack():
 
 func _process(_delta):
 	# Calling functions
-	movement()
+	movement(_delta)
 	player_animations()
 	GameManager.update_hp(_delta)
 	if GameManager.player_hp <= 0:
@@ -59,12 +59,12 @@ func _process(_delta):
 # --------- CUSTOM FUNCTIONS ---------- #
 
 # <-- Player Movement Code -->
-func movement():
+func movement(_delta):
 	var power=1;
 	if player_rig.wing : power = 2.5
 	# Gravity
 	if !is_on_floor():
-		velocity.y += (gravity/power)
+		velocity.y += (120*_delta*gravity/power)
 		if velocity.y > 3000:
 			velocity.y = 0
 			death_tween()			

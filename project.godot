@@ -12,15 +12,12 @@ config_version=5
 
 config/name="projectgame2d"
 config/tags=PackedStringArray("starterkit")
-run/main_scene="res://Scenes/Levels/Level_01.tscn"
+run/main_scene="uid://rmjqp130cc8k"
 config/features=PackedStringArray("4.4", "Forward Plus")
-boot_splash/bg_color=Color(0.105882, 0.458824, 0.733333, 1)
-boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/image="uid://i2lyrbj1j17f"
 config/icon="res://Icon.png"
-boot_splash/minimum_display_time=50
 
 [autoload]
 
