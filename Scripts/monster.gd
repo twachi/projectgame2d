@@ -30,6 +30,7 @@ func _ready() -> void:
 	$ProgressBar.max_value = maxhp
 	$Label.text = title
 	player_ray.target_position.x = visible_range
+	GameManager.fire_count +=1
 
 func _process(delta: float) -> void:
 	GameManager.add_smoke(delta*hp*0.0005)
@@ -95,3 +96,4 @@ func damage(atk):
 		GameManager.add_smoke(-5)
 		GameManager.drop_item(self)
 		queue_free()
+		GameManager.fire_count -=1

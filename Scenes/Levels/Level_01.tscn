@@ -280,8 +280,8 @@ metadata/_edit_lock_ = true
 
 [node name="House1" type="Sprite2D" parent="Level"]
 z_index = -2
-position = Vector2(316, 302)
-scale = Vector2(1.7549, 1.9951)
+position = Vector2(-95.75, 291.563)
+scale = Vector2(2.32108, 2.05453)
 texture = ExtResource("12_aksfc")
 
 [node name="House2" type="Sprite2D" parent="Level"]
@@ -316,7 +316,8 @@ theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
-text = "เมือง “พุทธนคร” เคยเป็นดินแดนแห่งอุดมสมบูรณ์ตอนนี้ทำไมถึงร้างผู้คนเยี่ยงนี้"
+text = "เมือง “พุทธนคร” เคยเป็นดินแดนที่สวยงาม
+ตอนนี้ทำไมถึงสกปรกและไร้ผู้คนเยี่ยงนี้"
 
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("4_vgfkr")

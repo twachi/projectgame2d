@@ -88,7 +88,7 @@ func movement(_delta):
 	# ตักน้ำ
 	if Input.is_action_just_pressed("water"):
 		if GameManager.well != null:
-			player_rig.setFlip(false)
+			flip_player(1)
 			GameManager.well.start(player_rig)
 		elif GameManager.water>0:
 			var b = Bucket.instantiate()
