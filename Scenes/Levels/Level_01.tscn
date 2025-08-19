@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cjanwm3sy2x37"]
+[gd_scene load_steps=24 format=3 uid="uid://cjanwm3sy2x37"]
 
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_oqkjg"]
 [ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_0ac5u"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dbbb88cbwyv2x" path="res://Scenes/Prefabs/well.tscn" id="18_s0ca6"]
 [ext_resource type="PackedScene" uid="uid://fq21vyw23ws" path="res://Scenes/Prefabs/sword.tscn" id="20_3dt7p"]
 [ext_resource type="PackedScene" uid="uid://bm3bmj5cqbjrs" path="res://Scenes/Prefabs/Monster.tscn" id="20_07uvp"]
+[ext_resource type="PackedScene" uid="uid://c54kslsvpaq1d" path="res://Scenes/Monsters/ghost_kasu_rig.tscn" id="21_x83xq"]
 [ext_resource type="PackedScene" uid="uid://cnoimypw1n0ry" path="res://Scenes/Prefabs/mask.tscn" id="22_3dt7p"]
 
 [node name="Level_01" type="Node2D"]
@@ -354,7 +355,7 @@ title = "ผีควันระดับ 2"
 
 [node name="Monster3" parent="Monster" instance=ExtResource("20_07uvp")]
 modulate = Color(1, 0.054902, 0.0392157, 1)
-position = Vector2(4439, -75)
+position = Vector2(4834, -84)
 speed = 150
 hp = 400
 maxhp = 400
@@ -372,6 +373,15 @@ title = "ผีควันระดับ 1"
 [node name="Monster4" parent="Monster" instance=ExtResource("20_07uvp")]
 position = Vector2(1734, 270)
 scale = Vector2(0.5, 0.5)
+speed = 50
+maxhp = 50
+def = 1
+title = "ผีควันระดับ 1"
+
+[node name="Monster6" parent="Monster" instance=ExtResource("20_07uvp")]
+position = Vector2(2759, 299)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("21_x83xq")
 speed = 50
 maxhp = 50
 def = 1
@@ -456,3 +466,12 @@ horizontal_alignment = 1
 
 [node name="Mask" parent="." instance=ExtResource("22_3dt7p")]
 position = Vector2(786, 376)
+
+[node name="Ghost1_Kasu1" parent="." instance=ExtResource("20_07uvp")]
+position = Vector2(4299, -112)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("21_x83xq")
+speed = 50
+maxhp = 50
+def = 1
+title = "ผีกระสือ ระดับ 1"

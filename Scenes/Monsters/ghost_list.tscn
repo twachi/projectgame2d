@@ -1,0 +1,237 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr1t8ohsgslmw"]
+
+[ext_resource type="PackedScene" uid="uid://bm3bmj5cqbjrs" path="res://Scenes/Prefabs/Monster.tscn" id="1_gi6vt"]
+[ext_resource type="PackedScene" uid="uid://c54kslsvpaq1d" path="res://Scenes/Monsters/ghost_kasu_rig.tscn" id="2_o1fun"]
+[ext_resource type="PackedScene" uid="uid://b8lxxjhdmhipn" path="res://Scenes/Prefabs/boss1_rig.tscn" id="3_vun8y"]
+
+[node name="GhostList" type="Node2D"]
+
+[node name="Ghost1_Kasu1" parent="." instance=ExtResource("1_gi6vt")]
+position = Vector2(706, -103)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("2_o1fun")
+speed = 50
+maxhp = 50
+def = 1
+title = "ผีกระสือ ระดับ 1"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 681.0
+offset_top = -99.0
+offset_right = 788.0
+offset_bottom = -50.0
+text = "ระดับ 1
+"
+
+[node name="Ghost2_Smoke1" parent="." instance=ExtResource("1_gi6vt")]
+position = Vector2(119, -101)
+scale = Vector2(0.5, 0.5)
+speed = 50
+maxhp = 50
+def = 1
+title = "ผีควันระดับ 1"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 66.0
+offset_top = -100.0
+offset_right = 173.0
+offset_bottom = -51.0
+text = "ผีควันระดับ 1
+"
+
+[node name="Label7" type="Label" parent="."]
+offset_left = 173.0
+offset_top = -51.0
+offset_right = 280.0
+offset_bottom = -2.0
+text = "ผีควัน"
+
+[node name="Ghost2_Smoke2" parent="." instance=ExtResource("1_gi6vt")]
+position = Vector2(227, -99)
+scale = Vector2(0.7, 0.7)
+speed = 50
+maxhp = 50
+def = 1
+title = "ผีควันระดับ 2"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 174.0
+offset_top = -98.0
+offset_right = 281.0
+offset_bottom = -49.0
+text = "ผีควันระดับ 2
+"
+
+[node name="Ghost2_Smoke3" parent="." instance=ExtResource("1_gi6vt")]
+position = Vector2(344, -99)
+speed = 50
+maxhp = 50
+def = 1
+title = "ผีควันระดับ 3"
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 291.0
+offset_top = -98.0
+offset_right = 398.0
+offset_bottom = -49.0
+text = "ผีควันระดับ 3
+"
+
+[node name="Ghost2_Boss" parent="." instance=ExtResource("1_gi6vt")]
+position = Vector2(487, -98)
+scale = Vector2(1.5, 1.5)
+speed = 50
+maxhp = 50
+def = 1
+title = "ผีควันระดับ 3"
+
+[node name="Label8" type="Label" parent="."]
+offset_left = 441.0
+offset_top = -95.0
+offset_right = 548.0
+offset_bottom = -46.0
+text = "เจ้าพ่อผีควัน
+"
+
+[node name="Ghost1_Kasu2" parent="." instance=ExtResource("1_gi6vt")]
+position = Vector2(798, -105)
+scale = Vector2(0.7, 0.7)
+monster_rig = ExtResource("2_o1fun")
+speed = 50
+maxhp = 50
+def = 1
+title = "ผีกระสือ ระดับ 2"
+
+[node name="Ghost1_Kasu3" parent="." instance=ExtResource("1_gi6vt")]
+position = Vector2(918, -100)
+monster_rig = ExtResource("2_o1fun")
+speed = 50
+maxhp = 50
+def = 1
+title = "ผีกระสือ ระดับ 2"
+
+[node name="Ghost1_Boss" parent="." instance=ExtResource("1_gi6vt")]
+position = Vector2(1041, -96)
+scale = Vector2(1.5, 1.5)
+monster_rig = ExtResource("2_o1fun")
+speed = 50
+maxhp = 50
+def = 1
+title = "เจ้าแม่ ผีกระสือ "
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 771.0
+offset_top = -103.0
+offset_right = 878.0
+offset_bottom = -28.0
+text = "ระดับ 2
+
+"
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 768.0
+offset_top = -65.0
+offset_right = 875.0
+offset_bottom = 10.0
+text = "ผีกระสือ
+
+"
+
+[node name="GhostRig" parent="." instance=ExtResource("2_o1fun")]
+position = Vector2(761, -292)
+
+[node name="Label9" type="Label" parent="."]
+offset_left = 894.0
+offset_top = -101.0
+offset_right = 1001.0
+offset_bottom = -52.0
+text = "ระดับ 3
+"
+
+[node name="Label10" type="Label" parent="."]
+offset_left = 1024.0
+offset_top = -99.0
+offset_right = 1131.0
+offset_bottom = -50.0
+text = "Bิoss
+"
+
+[node name="Ghost1_Kasu4" parent="." instance=ExtResource("1_gi6vt")]
+position = Vector2(1300, -145)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("3_vun8y")
+speed = 50
+maxhp = 50
+def = 1
+title = "ผียายหมอก ระดับ 1"
+
+[node name="Label11" type="Label" parent="."]
+offset_left = 1275.0
+offset_top = -141.0
+offset_right = 1382.0
+offset_bottom = -92.0
+text = "ระดับ 1
+"
+
+[node name="Ghost1_Kasu5" parent="." instance=ExtResource("1_gi6vt")]
+position = Vector2(1392, -147)
+scale = Vector2(0.7, 0.7)
+monster_rig = ExtResource("3_vun8y")
+speed = 50
+maxhp = 50
+def = 1
+title = "ผียายหมอก ระดับ 2"
+
+[node name="Ghost1_Kasu6" parent="." instance=ExtResource("1_gi6vt")]
+position = Vector2(1512, -142)
+monster_rig = ExtResource("3_vun8y")
+speed = 50
+maxhp = 50
+def = 1
+title = "ผียายหมอก ระดับ 3"
+
+[node name="Ghost1_Boss2" parent="." instance=ExtResource("1_gi6vt")]
+position = Vector2(1635, -138)
+scale = Vector2(1.5, 1.5)
+monster_rig = ExtResource("3_vun8y")
+speed = 50
+maxhp = 50
+def = 1
+title = "เจ้าแม่ผีหมอก "
+
+[node name="Label12" type="Label" parent="."]
+offset_left = 1365.0
+offset_top = -145.0
+offset_right = 1472.0
+offset_bottom = -70.0
+text = "ระดับ 2
+
+"
+
+[node name="Label13" type="Label" parent="."]
+offset_left = 1362.0
+offset_top = -107.0
+offset_right = 1469.0
+offset_bottom = -32.0
+text = "ผียายหมอก
+
+"
+
+[node name="Label14" type="Label" parent="."]
+offset_left = 1488.0
+offset_top = -143.0
+offset_right = 1595.0
+offset_bottom = -94.0
+text = "ระดับ 3
+"
+
+[node name="Label15" type="Label" parent="."]
+offset_left = 1618.0
+offset_top = -141.0
+offset_right = 1725.0
+offset_bottom = -92.0
+text = "Bิoss
+"
+
+[node name="Rig" parent="." instance=ExtResource("3_vun8y")]
+position = Vector2(1383, -352)

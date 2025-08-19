@@ -1362,6 +1362,7 @@ shape = SubResource("CircleShape2D_pfpbc")
 [node name="Effect" type="GPUParticles2D" parent="AttackArea/CollisionShape2D"]
 position = Vector2(-3.225, -2.56891)
 scale = Vector2(0.999999, 0.999999)
+emitting = false
 amount = 6
 texture = ExtResource("4_pfpbc")
 process_material = SubResource("ParticleProcessMaterial_61lvt")
