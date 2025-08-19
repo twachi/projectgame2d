@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>แบบคัดกรองภาวะซึมเศร้า (PHQ-9 + 1)</title>
+<style>
+  :root{
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --text: #1f2937;
+    --muted:#6b7280;
+    --primary:#4f46e5;
+    --ok:#16a34a; --warn:#f59e0b; --bad:#dc2626; --info:#2563eb;
+    --ring:#e5e7eb;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    background: radial-gradient(1200px 600px at 10% -10%, #eef2ff, transparent),
+                radial-gradient(1000px 500px at 110% -20%, #e0f2fe, transparent),
+                var(--bg);
+    color:var(--text);
+  }
+  .wrap{
+    max-width:900px; margin:40px auto; padding:0 16px;
+  }
+  header{
+    display:flex; gap:14px; align-items:center; margin-bottom:18px;
+  }
+  .logo{
+    width:56px; height:56px; border-radius:14px;
+    background: conic-gradient(from 210deg, #a78bfa, #60a5fa 40%, #34d399 78%, #fbbf24);
+    display:grid; place-items:center;
+    box-shadow:0 10px 30px rgba(79,70,229,.25);
+  }
+  .logo svg{width:34px; height:34px; filter:drop-shadow(0 2px 4px rgba(0,0,0,.15))}
+  h1{font-size:1.5rem; margin:0}
+  p.sub{margin:.25rem 0 0; color:var(--muted)}
+  .card{
+    background:var(--card); border:1px solid #eef2f7; border-radius:16px;
+    box-shadow:0 12px 30px rgba(0,0,0,.06); padding:20px; margin:16px 0;
+  }
+  .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  @media (max-width:700px){ .row{grid-template-columns:1fr} }
+  label{font-weight:600}
+  input[type="number"], select{
+    width:100%; margin-top:6px; padding:10px 12px; border-radius:12px;
+    border:1px solid #d1d5db; font-size:1rem; background:#fff;
+  }
+  fieldset{
+    margin:16px 0; border:1px solid #e5e7eb; border-radius:14px; padding:12px 12px 2px;
+  }
+  legend{padding:0 8px; color:#374151; font-weight:700}
+  .q{
+    padding:10px 8px; border-radius:10px; transition:background .2s;
+  }
+  .q:hover{background:#f8fafc}
+  .choices{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:10px; margin-top:8px}
+  .choice{
+    border:1px solid #e5e7eb; border-radius:10px; padding:8px; text-align:center;
+    cursor:pointer; user-select:none; background:#fff;
+  }
+  .choice input{display:none}
+  .choice.active{outline:3px solid #c7d2fe; border-color:#a5b4fc; background:#eef2ff}
+  .actions{display:flex; gap:10px; flex-wrap:wrap}
+  button{
+    appearance:none; border:none; border-radius:12px; padding:12px 16px;
+    background:var(--primary); color:#fff; font-size:1rem; cursor:pointer;
+    box-shadow:0 8px 20px rgba(79,70,229,.25);
+  }
+  button[disabled]{opacity:.6; cursor:not-allowed; box-shadow:none}
+  .muted{background:#e5e7eb; color:#111827}
+  .result{
+    display:grid; grid-template-columns: 1fr 320px; gap:16px; align-items:start;
+  }
+  @media (max-width:900px){ .result{grid-template-columns:1fr} }
+  .chip{
+    display:inline-block; padding:4px 10px; border-radius:999px; font-weight:700;
+  }
+  .ok{background:#dcfce7; color:#166534}
+  .warn{background:#fef3c7; color:#b45309}
+  .bad{background:#fee2e2; color:#991b1b}
+  .info{background:#dbeafe; color:#1d4ed8}
+  .note{color:var(--muted); font-size:.95rem}
+  .ring{
+    width:100%; aspect-ratio:1/1; display:grid; place-items:center;
+  }
+  .ring svg{width:100%; height:100%}
+  .scoreText{font-size:2rem; font-weight:800}
+  .footer{
+    color:var(--muted); font-size:.9rem; margin-top:8px
+  }
+  .danger{
+    border-left:6px solid #ef4444; padding:10px 12px; background:#fff1f2; border-radius:10px;
+  }
+  .help-links a{color:#1d4ed8}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo" aria-hidden="true">
+      <!-- brain-heart icon -->
+      <svg viewBox="0 0 24 24" fill="white">
+        <path d="M12 3c-1.657 0-3 1.343-3 3 0 .342.058.67.165.973A2.996 2.996 0 0 0 6 9c0 1.306.835 2.418 2 2.83V12a3 3 0 1 0 2.995 3.212A3 3 0 0 0 15 12v-.17A3.001 3.001 0 0 0 18 9c0-1.657-1.343-3-3-3h-1a2.999 2.999 0 0 0-2-3z"/>
+      </svg>
+    </div>
+    <div>
+      <h1>แบบคัดกรองภาวะซึมเศร้า (PHQ‑9 + ข้อผลกระทบ)</h1>
+      <p class="sub">ช่วงอ้างอิง: 2 สัปดาห์ที่ผ่านมา • 10 ข้อ • คะแนนรวม 0–27</p>
+    </div>
+  </header>
+
+  <div class="card">
+    <div class="row">
+      <div>
+        <label for="age">อายุ (ปี)</label>
+        <input id="age" type="number" min="8" max="120" placeholder="เช่น 18" />
+      </div>
+      <div>
+        <label for="sex">เพศ</label>
+        <select id="sex">
+          <option value="unspecified">ไม่ระบุ</option>
+          <option value="female">หญิง</option>
+          <option value="male">ชาย</option>
+          <option value="other">อื่น ๆ</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <form id="form">
+    <fieldset class="card">
+      <legend>กรุณาเลือกคำตอบที่ตรงกับคุณมากที่สุดในช่วง 2 สัปดาห์ที่ผ่านมา</legend>
+
+      <!-- Questions 1..9 -->
+      <div id="questions"></div>
+
+      <!-- Q10 impairment -->
+      <div class="q">
+        <strong>10) หากรวมทุกอาการข้างต้น สิ่งเหล่านี้ทำให้การทำงาน/การบ้าน/การเข้าสังคมของคุณยากลำบากเพียงใด?</strong>
+        <div class="choices" data-q="10">
+          <label class="choice"><input type="radio" name="q10" value="0"><span>ไม่ยากเลย</span></label>
+          <label class="choice"><input type="radio" name="q10" value="1"><span>ยากเล็กน้อย</span></label>
+          <label class="choice"><input type="radio" name="q10" value="2"><span>ค่อนข้างยาก</span></label>
+          <label class="choice"><input type="radio" name="q10" value="3"><span>ยากมาก</span></label>
+        </div>
+        <div class="note">* ข้อนี้ไม่รวมในคะแนนรวม แต่ช่วยบอกระดับผลกระทบต่อชีวิตประจำวัน</div>
+      </div>
+    </fieldset>
+
+    <div class="card actions">
+      <button type="button" id="calc" disabled>คำนวณผล</button>
+      <button type="reset" class="muted">ล้างแบบสอบถาม</button>
+    </div>
+  </form>
+
+  <div id="out" class="card" hidden>
+    <div class="result">
+      <div>
+        <h2>ผลการคัดกรอง</h2>
+        <p style="margin:.25rem 0 .5rem">
+          คะแนนรวม (ข้อ 1–9): <b id="score">0</b> / 27
+          <span id="badge" class="chip" style="margin-left:8px"></span>
+        </p>
+        <p class="note" id="categoryLine"></p>
+        <p id="advice"></p>
+
+        <div id="flags" class="danger" hidden>
+          <strong>ถ้าคุณมีความคิดอยากทำร้ายตนเองหรือผู้อื่น</strong> หรือรู้สึกไม่ปลอดภัย โปรดติดต่อผู้เชี่ยวชาญ/หน่วยฉุกเฉินทันที
+          <div class="help-links" style="margin-top:6px">
+            ไทย: สายด่วนสุขภาพจิต <b>1323</b> • เหตุฉุกเฉิน <b>191</b>
+          </div>
+        </div>
+
+        <div class="footer">
+          หมายเหตุ: เครื่องมือนี้ช่วยคัดกรองเบื้องต้นเท่านั้น ไม่ใช่การวินิจฉัย หากผลอยู่ในระดับ <b>ปานกลางขึ้นไป</b> หรือข้อ 9 เกี่ยวกับความคิดทำร้ายตนเองมีคะแนนตั้งแต่ 1 ขึ้นไป ควรปรึกษาผู้เชี่ยวชาญด้านสุขภาพจิต
+        </div>
+      </div>
+
+      <div>
+        <!-- score ring -->
+        <div class="ring">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <defs>
+              <linearGradient id="g">
+                <stop offset="0%" stop-color="#22c55e"/>
+                <stop offset="55%" stop-color="#f59e0b"/>
+                <stop offset="100%" stop-color="#ef4444"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="50" fill="none" stroke="var(--ring)" stroke-width="14"/>
+            <circle id="arc" cx="60" cy="60" r="50" fill="none" stroke="url(#g)" stroke-width="14"
+                    stroke-linecap="round" pathLength="100" stroke-dasharray="0 100"
+                    transform="rotate(-90 60 60)"/>
+            <text x="60" y="58" text-anchor="middle" class="scoreText">0</text>
+            <text x="60" y="76" text-anchor="middle" fill="#6b7280">/ 27</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer" style="margin-top:12px">
+    © แบบคัดกรองนี้อ้างอิงแนวคิด <b>PHQ‑9</b> (ข้อ 1–9) และคำถามผลกระทบต่อการใช้ชีวิต (ข้อ 10)
+  </div>
+
+</div>
+
+<script>
+  // --------------------------
+  // Setup questions (PHQ‑9)
+  // --------------------------
+  const PHQ9 = [
+    "เบื่อ เซ็ง หรือไม่สนใจทำอะไร",
+    "รู้สึกเศร้า หดหู่ หรือท้อแท้",
+    "หลับยาก หลับไม่สนิท หรือหลับมากเกินไป",
+    "เหนื่อยง่าย หรือรู้สึกพลังงานน้อย",
+    "เบื่ออาหาร หรือทานมากเกินไป",
+    "รู้สึกแย่กับตัวเอง คิดว่าตนเองล้มเหลว หรือทำให้ตัวเอง/ครอบครัวผิดหวัง",
+    "สมาธิไม่ดี เช่น ดูทีวี อ่านหนังสือ หรือทำงานแล้วมีปัญหา",
+    "พูด/เคลื่อนไหวช้าลงจนคนอื่นสังเกต หรือ กระสับกระส่ายอยู่ไม่สุข",
+    "คิดอยากตาย หรือคิดทำร้ายตนเอง"
+  ];
+  const CHOICES = [
+    {label:"ไม่เลย", val:0},
+    {label:"บางวัน (หลายวัน)", val:1},
+    {label:"บ่อยครั้ง (เกินครึ่งวัน)", val:2},
+    {label:"เกือบทุกวัน", val:3}
+  ];
+
+  const qWrap = document.getElementById("questions");
+  PHQ9.forEach((text, i)=>{
+    const n = i+1;
+    const sec = document.createElement("div");
+    sec.className = "q";
+    sec.innerHTML = `
+      <strong>${n}) ${text}</strong>
+      <div class="choices" data-q="${n}">
+        ${CHOICES.map(c=>`
+          <label class="choice">
+            <input type="radio" name="q${n}" value="${c.val}" />
+            <span>${c.label}</span>
+          </label>
+        `).join("")}
+      </div>
+    `;
+    qWrap.appendChild(sec);
+  });
+
+  // --------------------------
+  // UI interactions
+  // --------------------------
+  const form = document.getElementById("form");
+  const calcBtn = document.getElementById("calc");
+  const out = document.getElementById("out");
+  const scoreEl = document.getElementById("score");
+  const badge = document.getElementById("badge");
+  const catLine = document.getElementById("categoryLine");
+  const advice = document.getElementById("advice");
+  const arc = document.getElementById("arc");
+  const ringText = document.querySelector(".scoreText");
+  const flags = document.getElementById("flags");
+
+  // activate visual choice
+  document.addEventListener("change", (e)=>{
+    if(e.target.name?.startsWith("q")){
+      const wrap = e.target.closest(".choices");
+      wrap.querySelectorAll(".choice").forEach(x=>x.classList.remove("active"));
+      e.target.closest(".choice").classList.add("active");
+      validateAllAnswered();
+    }
+  });
+
+  form.addEventListener("reset", ()=>{
+    setTimeout(()=>{
+      document.querySelectorAll(".choice").forEach(x=>x.classList.remove("active"));
+      calcBtn.disabled = true; out.hidden = true;
+      arc.setAttribute("stroke-dasharray", `0 100`);
+      ringText.textContent = "0"; scoreEl.textContent = "0";
+    }, 0);
+  });
+
+  function validateAllAnswered(){
+    // Questions 1..10 must be answered
+    for(let i=1;i<=10;i++){
+      if(!form.querySelector(`input[name="q${i}"]:checked`)) {
+        calcBtn.disabled = true; return;
+      }
+    }
+    calcBtn.disabled = false;
+  }
+
+  calcBtn.addEventListener("click", ()=>{
+    // sum Q1..Q9
+    let total = 0;
+    for(let i=1;i<=9;i++){
+      total += +form.querySelector(`input[name="q${i}"]:checked`).value;
+    }
+    const impairment = +form.querySelector(`input[name="q10"]:checked`).value;
+    const age = +document.getElementById("age").value || null;
+    const sex = document.getElementById("sex").value;
+
+    // Category by PHQ-9 standard ranges
+    const cat = phq9Category(total);
+    const color = cat.color;
+    scoreEl.textContent = total.toString();
+    ringText.textContent = total.toString();
+
+    // ring
+    const pct = Math.min(100, Math.round((total/27)*100));
+    arc.setAttribute("stroke-dasharray", `${pct} ${100-pct}`);
+
+    // badge + info
+    badge.className = `chip ${color}`;
+    badge.textContent = cat.label;
+
+    // advice
+    const addAge = age ? ` (อายุ ${age} ปี${sex!=="unspecified" ? `, เพศ ${sexTH(sex)}`:""})` : "";
+    catLine.innerHTML = `สรุปคะแนน PHQ‑9${addAge}: <b>${cat.label}</b> — แนวโน้ม ${cat.desc}`;
+    advice.innerHTML = guidance(total, impairment);
+
+    // safety flags
+    const q9 = +form.querySelector('input[name="q9"]:checked').value; // self-harm item
+    const trigger = (total >= 10) || (impairment >= 2) || (q9 >= 1);
+    flags.hidden = !trigger;
+
+    out.hidden = false;
+    out.scrollIntoView({behavior:"smooth", block:"start"});
+  });
+
+  function phq9Category(score){
+    // 0–4 minimal, 5–9 mild, 10–14 moderate, 15–19 moderately severe, 20–27 severe
+    if(score <= 4)  return {label:"ต่ำ/น้อยมาก", desc:"ไม่มีหรือมีอาการน้อย", color:"ok"};
+    if(score <= 9)  return {label:"เล็กน้อย", desc:"อาการเล็กน้อย", color:"ok"};
+    if(score <= 14) return {label:"ปานกลาง", desc:"อาจกระทบชีวิตประจำวัน ควรพิจารณาปรึกษาผู้เชี่ยวชาญ", color:"warn"};
+    if(score <= 19) return {label:"ค่อนข้างรุนแรง", desc:"ควรปรึกษาผู้เชี่ยวชาญโดยเร็ว", color:"bad"};
+    return {label:"รุนแรง", desc:"ควรพบผู้เชี่ยวชาญเป็นการเร่งด่วน", color:"bad"};
+  }
+
+  function guidance(score, impairment){
+    const impText = ["ไม่ยากเลย","ยากเล็กน้อย","ค่อนข้างยาก","ยากมาก"][impairment] || "-";
+    let tips = [
+      `ระดับผลกระทบ: <b>${impText}</b>`,
+      `แนวทางทั่วไป:`,
+    ];
+
+    if(score <= 4){
+      tips.push("ดูแลสุขภาพพื้นฐานให้ดี: นอนพอ ออกกำลังสม่ำเสมอ พบปะผู้คนที่ไว้ใจได้");
+    } else if(score <= 9){
+      tips.push("ลองใช้วิธีช่วยตนเอง: จัดตารางกิจกรรมที่ให้ความหมาย, ฝึกผ่อนคลาย, พูดคุยกับคนที่ไว้ใจ");
+      tips.push("หากอาการนานเกิน 2–4 สัปดาห์หรือรบกวนชีวิต ควรปรึกษาผู้เชี่ยวชาญ");
+    } else if(score <= 14){
+      tips.push("แนะนำให้ปรึกษาแพทย์/นักจิตวิทยา เพื่อประเมินอย่างเป็นระบบ");
+    } else if(score <= 19){
+      tips.push("ควรนัดพบผู้เชี่ยวชาญโดยเร็ว อาจพิจารณาการดูแลแบบผสมผสาน (จิตบำบัด/ยา) ตามคำแนะนำแพทย์");
+    } else {
+      tips.push("ควรเข้ารับการประเมินจากแพทย์อย่างเร่งด่วน หากมีความคิดทำร้ายตนเองให้ติดต่อสายด่วน/ฉุกเฉินทันที");
+    }
+
+    if(impairment >= 2){
+      tips.push("เนื่องจากระดับผลกระทบต่อชีวิตค่อนข้างมาก/มาก แนะนำให้พบผู้เชี่ยวชาญ");
+    }
+    return tips.map(t=>`• ${t}`).join("<br>");
+  }
+
+  function sexTH(sex){
+    switch(sex){
+      case "male": return "ชาย";
+      case "female": return "หญิง";
+      case "other": return "อื่น ๆ";
+      default: return "ไม่ระบุ";
+    }
+  }
+</script>
+</body>
+</html>
