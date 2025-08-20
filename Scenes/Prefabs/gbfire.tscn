@@ -64,10 +64,10 @@ bus = &"sfx"
 auto_translate_mode = 2
 modulate = Color(0.643137, 1, 1, 0.635294)
 z_index = 10
-offset_left = -49.1567
-offset_top = -136.41
-offset_right = 56.8433
-offset_bottom = -110.41
+offset_left = -51.6145
+offset_top = 9.83133
+offset_right = 54.3855
+offset_bottom = 35.8313
 theme = ExtResource("4_4vggd")
 value = 50.0
 

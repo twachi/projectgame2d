@@ -7,11 +7,13 @@ extends Node
 @onready var death_sfx = $DeathSfx
 @onready var respawn_sfx = $RespawnSfx
 @onready var level_complete_sfx = $LevelCompleteSfx
-@onready var water: AudioStreamPlayer = $Water
+@onready var water: AudioStreamPlayer = $"Water-splash"
 @onready var well: AudioStreamPlayer = $Well
 @onready var music: AudioStreamPlayer = $MusicThaiMini
 @onready var attack_sfx: AudioStreamPlayer = $AttackSfx
 @onready var atk_water_sfx: AudioStreamPlayer = $AtkWaterSfx
+@onready var pain: AudioStreamPlayer = $"Pain-2201"
+@onready var horror_music: AudioStreamPlayer = $"Mixkit-horror-sci-fi-wind-tunnel-894"
 
 var music_on = true
 var sound_on = true

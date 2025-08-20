@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8lxxjhdmhipn"]
+[gd_scene load_steps=13 format=3 uid="uid://b8lxxjhdmhipn"]
 
 [ext_resource type="Texture2D" uid="uid://b4klvbftkam7b" path="res://Assets/Spritesheet/boss1_part.png" id="1_4kijb"]
 [ext_resource type="Script" uid="uid://cw2n5cnb3qs1w" path="res://Scenes/Prefabs/monster_rig.gd" id="1_h3cug"]
+[ext_resource type="AudioStream" uid="uid://7a2musvbrfhy" path="res://Assets/Sound/FX/ghost.ogg" id="4_7hp84"]
 [ext_resource type="Texture2D" uid="uid://81hqrxsgm50t" path="res://Assets/Spritesheet/smoke1.png" id="4_pfpbc"]
 
 [sub_resource type="Curve" id="Curve_7hp84"]
@@ -1368,4 +1369,9 @@ texture = ExtResource("4_pfpbc")
 process_material = SubResource("ParticleProcessMaterial_61lvt")
 metadata/_edit_lock_ = true
 
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7hp84")
+bus = &"sfx"
+
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

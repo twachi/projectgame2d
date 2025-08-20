@@ -7,7 +7,8 @@ var x1=150
 var x2=1000
 
 func _on_button_pressed() -> void:
-	AudioManager.music.play(120)
+	AudioManager.music.stop()
+	AudioManager.horror_music.play()
 	get_tree().change_scene_to_file("res://Scenes/Levels/Level_01.tscn")
 
 func _ready() -> void:

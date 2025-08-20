@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bjb3dx2x4bocm"]
+[gd_scene load_steps=25 format=3 uid="uid://bjb3dx2x4bocm"]
 
 [ext_resource type="Texture2D" uid="uid://dm0byqy03q7k6" path="res://Assets/Textures/bg/bg2.png" id="1_6ihmv"]
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="2_lpo2y"]
@@ -20,7 +20,19 @@
 [ext_resource type="Texture2D" uid="uid://dsxa3dabn2mxy" path="res://Assets/Spritesheet/house1.png" id="14_ideh1"]
 [ext_resource type="PackedScene" uid="uid://bm3bmj5cqbjrs" path="res://Scenes/Prefabs/Monster.tscn" id="19_u1l2o"]
 [ext_resource type="PackedScene" uid="uid://b8lxxjhdmhipn" path="res://Scenes/Prefabs/boss1_rig.tscn" id="20_8k45j"]
+[ext_resource type="PackedScene" uid="uid://c54kslsvpaq1d" path="res://Scenes/Monsters/ghost_kasu_rig.tscn" id="20_ijm6r"]
 [ext_resource type="PackedScene" uid="uid://fq21vyw23ws" path="res://Scenes/Prefabs/sword.tscn" id="21_ijm6r"]
+
+[sub_resource type="Gradient" id="Gradient_x83xq"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8k45j"]
+gradient = SubResource("Gradient_x83xq")
+width = 150
+height = 150
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.0136752, 0.517094)
 
 [node name="Level_02" type="Node2D"]
 
@@ -59,6 +71,11 @@ position = Vector2(1839, 1023)
 [node name="Player" parent="." instance=ExtResource("2_lpo2y")]
 z_index = 1
 position = Vector2(117, 348)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+position = Vector2(5, -29)
+scale = Vector2(4.29388, 1.98531)
+texture = SubResource("GradientTexture2D_8k45j")
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -406,6 +423,17 @@ def = 2
 title = "ผีควันระดับ 1"
 visible_range = 600
 
+[node name="Monster10" parent="Objects" instance=ExtResource("19_u1l2o")]
+position = Vector2(1626, 513)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("20_ijm6r")
+speed = 50
+hp = 50
+maxhp = 50
+def = 2
+title = "ผีควันระดับ 1"
+visible_range = 600
+
 [node name="Monster5" parent="Objects" instance=ExtResource("19_u1l2o")]
 position = Vector2(1319, 438)
 scale = Vector2(0.5, 0.5)
@@ -483,5 +511,8 @@ position = Vector2(1186, 366)
 
 [node name="sword2" parent="Objects" instance=ExtResource("21_ijm6r")]
 position = Vector2(1843, 512)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.277528, 0.277528, 0.277528, 1)
 
 [editable path="Level/floor2"]

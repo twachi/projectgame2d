@@ -80,4 +80,4 @@ attack={
 
 textures/vram_compression/import_etc2_astc=true
 textures/webp_compression/compression_method=1
-environment/defaults/default_clear_color=Color(0.105469, 0.457031, 0.730469, 1)
+environment/defaults/default_clear_color=Color(0.0768358, 0.0768358, 0.0768358, 1)

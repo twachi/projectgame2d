@@ -20,11 +20,12 @@ color_ramp = SubResource("Gradient_i7ntp")
 noise = SubResource("FastNoiseLite_i7ntp")
 
 [node name="Smoke" type="Parallax2D"]
+modulate = Color(1, 1, 1, 0.470588)
 z_index = 10
 scroll_scale = Vector2(0, 0)
-repeat_size = Vector2(1200, 0)
+repeat_size = Vector2(1200, 1000)
 autoscroll = Vector2(10, 0)
-repeat_times = 2
+repeat_times = 3
 script = ExtResource("1_ndbxq")
 
 [node name="Bg1" type="Sprite2D" parent="."]

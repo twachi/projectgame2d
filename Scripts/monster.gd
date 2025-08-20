@@ -88,7 +88,7 @@ func damage(atk):
 	AudioManager.attack_sfx.play()
 	velocity.x -= direction*v*150
 	if hp <= 0:
-		AudioManager.death_sfx.play()
+		AudioManager.pain.play()
 		var tween = create_tween()
 		tween.tween_property(self, "scale", Vector2.ZERO, 0.2)
 		await tween.finished
