@@ -1,6 +1,7 @@
 # โครงงานเกม PLATFORMER 2D 
 วิชา Computer Game Development ปี 2025
 
+
 **สมาชิกในกลุ่ม**
 1. วชิราวุธ ธรรมวิเศษ
 
@@ -30,7 +31,16 @@
 
 ## ส่วนประกอบตัวละคร Body Parts
 ![Player](https://twachi.github.io/projectgame2d/player-part.png)
+Player
 
+![ผีกระสือ](https://github.com/twachi/projectgame2d/blob/main/Assets/Spritesheet/ghost_kasu.png?raw=true)
+ผีกระสือ
+
+![ผียายหมอก](https://github.com/twachi/projectgame2d/blob/main/Assets/Spritesheet/boss1_part.png?raw=true)
+ผียายหมอก
+
+![ผีควัน](https://github.com/twachi/projectgame2d/blob/main/Assets/Spritesheet/smoker_part.png?raw=true)
+ผีควัน
 
 ## Credits
 
