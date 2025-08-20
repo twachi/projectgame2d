@@ -8,16 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://cg4lt28lfpdd2" path="res://Scenes/Props/tree1.tscn" id="6_xpj05"]
 [ext_resource type="PackedScene" uid="uid://b6tca06ks0ys7" path="res://Scenes/Managers/user_interface.tscn" id="9_5pmb1"]
 [ext_resource type="PackedScene" uid="uid://d0olocigoed7" path="res://Scenes/Prefabs/gbfire.tscn" id="10_1bssr"]
-[ext_resource type="Texture2D" uid="uid://dnmn4ukr1moq4" path="res://Assets/Spritesheet/gbfire1.png" id="10_siisw"]
+[ext_resource type="Texture2D" uid="uid://b8klq3s020yfd" path="res://Assets/Spritesheet/gbfire1.png" id="10_siisw"]
 [ext_resource type="PackedScene" uid="uid://ct32ygekp6768" path="res://Scenes/Prefabs/floor.tscn" id="11_aksfc"]
-[ext_resource type="Texture2D" uid="uid://dsxa3dabn2mxy" path="res://Assets/Spritesheet/house1.png" id="12_aksfc"]
+[ext_resource type="Texture2D" uid="uid://dmty7ofvtsfxs" path="res://Assets/Spritesheet/house1.png" id="12_aksfc"]
 [ext_resource type="PackedScene" uid="uid://cjvydf3e86gpn" path="res://Scenes/Prefabs/wing.tscn" id="13_5pmb1"]
 [ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="13_07uvp"]
 [ext_resource type="PackedScene" uid="uid://cbh3xslxnhepu" path="res://Scenes/Prefabs/level_smoke.tscn" id="13_i7ntp"]
-[ext_resource type="Texture2D" uid="uid://byk0lat7o6c7p" path="res://Assets/Textures/bg/bg1.png" id="14_xpj05"]
+[ext_resource type="Texture2D" uid="uid://cw45pm6f7jh4d" path="res://Assets/Textures/bg/bg1.png" id="14_xpj05"]
 [ext_resource type="PackedScene" uid="uid://cq0gdfn3lyb04" path="res://Scenes/Prefabs/help_box.tscn" id="15_5v11l"]
-[ext_resource type="Texture2D" uid="uid://dm0byqy03q7k6" path="res://Assets/Textures/bg/bg2.png" id="15_i7ntp"]
-[ext_resource type="Texture2D" uid="uid://daukyk7er4cdt" path="res://Assets/Textures/bg/bg3.png" id="16_jt6p5"]
+[ext_resource type="Texture2D" uid="uid://i2wvkuwc1uk3" path="res://Assets/Textures/bg/bg2.png" id="15_i7ntp"]
+[ext_resource type="Texture2D" uid="uid://boj36t5bwpqk6" path="res://Assets/Textures/bg/bg3.png" id="16_jt6p5"]
 [ext_resource type="PackedScene" uid="uid://dbbb88cbwyv2x" path="res://Scenes/Prefabs/well.tscn" id="18_s0ca6"]
 [ext_resource type="PackedScene" uid="uid://fq21vyw23ws" path="res://Scenes/Prefabs/sword.tscn" id="20_3dt7p"]
 [ext_resource type="PackedScene" uid="uid://bm3bmj5cqbjrs" path="res://Scenes/Prefabs/Monster.tscn" id="20_07uvp"]
@@ -78,8 +78,8 @@ z_index = 1
 position = Vector2(117, 348)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
-position = Vector2(5, -29)
-scale = Vector2(4.29388, 1.98531)
+position = Vector2(7.99999, -13.5)
+scale = Vector2(3.34667, 2.76667)
 texture = SubResource("GradientTexture2D_ex0qg")
 
 [node name="Coins" type="Node2D" parent="."]
@@ -458,6 +458,7 @@ speed = 50
 maxhp = 50
 def = 1
 title = "ผีควันระดับ 1"
+visible_range = 600
 
 [node name="Monster6" parent="Monster" instance=ExtResource("20_07uvp")]
 position = Vector2(2759, 299)
@@ -488,4 +489,4 @@ amount = 3
 position = Vector2(786, 376)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.169245, 0.169245, 0.169245, 1)
+color = Color(0.0576534, 0.284055, 0.244384, 1)

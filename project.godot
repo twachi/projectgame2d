@@ -34,6 +34,10 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray()
 
+[gui]
+
+theme/custom="uid://brk3xjuf5lyj3"
+
 [input]
 
 Left={
@@ -80,4 +84,4 @@ attack={
 
 textures/vram_compression/import_etc2_astc=true
 textures/webp_compression/compression_method=1
-environment/defaults/default_clear_color=Color(0.0768358, 0.0768358, 0.0768358, 1)
+environment/defaults/default_clear_color=Color(0.868985, 0.868985, 0.868985, 1)

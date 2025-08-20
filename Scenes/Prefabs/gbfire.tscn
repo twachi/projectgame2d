@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://d0olocigoed7"]
 
 [ext_resource type="Script" uid="uid://ck2qqx5h5rql0" path="res://Scenes/Prefabs/gbfire.gd" id="1_yxeb3"]
-[ext_resource type="Texture2D" uid="uid://81hqrxsgm50t" path="res://Assets/Spritesheet/smoke1.png" id="2_mkm3k"]
-[ext_resource type="AudioStream" uid="uid://clx3woadf11e8" path="res://Assets/Sound/FX/explosion.wav" id="3_yxeb3"]
+[ext_resource type="Texture2D" uid="uid://cekerbh0mb2xp" path="res://Assets/Spritesheet/smoke1.png" id="2_mkm3k"]
+[ext_resource type="AudioStream" uid="uid://by1eajwd548c7" path="res://Assets/Sound/FX/explosion.wav" id="3_yxeb3"]
 [ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="4_4vggd"]
 
 [sub_resource type="Gradient" id="Gradient_yxeb3"]

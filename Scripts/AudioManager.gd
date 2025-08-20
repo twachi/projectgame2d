@@ -15,8 +15,8 @@ extends Node
 @onready var pain: AudioStreamPlayer = $"Pain-2201"
 @onready var horror_music: AudioStreamPlayer = $"Mixkit-horror-sci-fi-wind-tunnel-894"
 
-var music_on = true
-var sound_on = true
+var music_on = false
+var sound_on = false
 var music_bus = null
 var sfx_bus = null
 
