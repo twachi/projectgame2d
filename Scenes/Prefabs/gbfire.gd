@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	$ProgressBar.value = hp
+	$Light.energy = randf_range(0.6,1)
 	if hp>0:
 		GameManager.add_smoke(delta*hp*0.0005)
 

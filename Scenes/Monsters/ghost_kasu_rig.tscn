@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c54kslsvpaq1d"]
+[gd_scene load_steps=16 format=3 uid="uid://c54kslsvpaq1d"]
 
 [ext_resource type="Script" uid="uid://cw2n5cnb3qs1w" path="res://Scenes/Prefabs/monster_rig.gd" id="1_2wdt2"]
 [ext_resource type="Texture2D" uid="uid://d4k7hidww6vq1" path="res://Assets/Spritesheet/ghost_kasu.png" id="1_ggyak"]
@@ -1684,6 +1684,17 @@ scale_max = 3.0
 color = Color(0.831989, 0.902136, 0.999999, 1)
 alpha_curve = SubResource("CurveTexture_owypb")
 
+[sub_resource type="Gradient" id="Gradient_x83xq"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ohn8q"]
+gradient = SubResource("Gradient_x83xq")
+width = 100
+height = 150
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.0136752, 0.517094)
+
 [node name="GhostRig" type="Node2D"]
 script = ExtResource("1_2wdt2")
 
@@ -1857,6 +1868,12 @@ amount = 10
 texture = ExtResource("2_2wdt2")
 process_material = SubResource("ParticleProcessMaterial_q5ymm")
 metadata/_edit_lock_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(3.5, -113.5)
+scale = Vector2(1.75, 1.66)
+color = Color(0.2, 1, 0.188235, 1)
+texture = SubResource("GradientTexture2D_ohn8q")
 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
