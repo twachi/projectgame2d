@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://c54kslsvpaq1d"]
 
 [ext_resource type="Script" uid="uid://cw2n5cnb3qs1w" path="res://Scenes/Prefabs/monster_rig.gd" id="1_2wdt2"]
-[ext_resource type="Texture2D" uid="uid://d4k7hidww6vq1" path="res://Assets/Spritesheet/ghost_kasu.png" id="1_ggyak"]
-[ext_resource type="Texture2D" uid="uid://81hqrxsgm50t" path="res://Assets/Spritesheet/smoke1.png" id="2_2wdt2"]
-[ext_resource type="AudioStream" uid="uid://xip8h6y4crdx" path="res://Assets/Sound/FX/ghost_kasu.ogg" id="3_ohn8q"]
+[ext_resource type="Texture2D" uid="uid://c2p6fwpse07qc" path="res://Assets/Spritesheet/ghost_kasu.png" id="1_ggyak"]
+[ext_resource type="Texture2D" uid="uid://df5vmwpitwpic" path="res://Assets/Spritesheet/smoke1.png" id="2_2wdt2"]
+[ext_resource type="AudioStream" uid="uid://cfqtcwc3gxnev" path="res://Assets/Sound/FX/ghost_kasu.ogg" id="3_ohn8q"]
 
 [sub_resource type="Animation" id="Animation_2wdt2"]
 length = 0.001
@@ -1723,6 +1723,7 @@ bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "H
 metadata/_edit_lock_ = true
 
 [node name="Arm2" type="Polygon2D" parent="Part"]
+visible = false
 position = Vector2(4, 13)
 rotation = -0.481922
 offset = Vector2(-15.3149, -86.4987)
@@ -1754,6 +1755,7 @@ bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 metadata/_edit_lock_ = true
 
 [node name="Arm1" type="Polygon2D" parent="Part"]
+visible = false
 position = Vector2(-20, 13)
 offset = Vector2(-15, -86)
 texture = ExtResource("1_ggyak")

@@ -2,7 +2,7 @@ extends Node2D
 
 var pos = Vector2(0,0) 
 var speed = Vector2(-1,0)
-@onready var rig: Node2D = $CanvasLayer/Rig
+@onready var rig: Node2D = $CanvasLayer/Control/Rig
 var x1=150
 var x2=1000
 

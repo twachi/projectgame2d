@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cjanwm3sy2x37"]
+[gd_scene load_steps=27 format=3 uid="uid://cjanwm3sy2x37"]
 
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_oqkjg"]
 [ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_0ac5u"]
@@ -8,16 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://cg4lt28lfpdd2" path="res://Scenes/Props/tree1.tscn" id="6_xpj05"]
 [ext_resource type="PackedScene" uid="uid://b6tca06ks0ys7" path="res://Scenes/Managers/user_interface.tscn" id="9_5pmb1"]
 [ext_resource type="PackedScene" uid="uid://d0olocigoed7" path="res://Scenes/Prefabs/gbfire.tscn" id="10_1bssr"]
-[ext_resource type="Texture2D" uid="uid://b8klq3s020yfd" path="res://Assets/Spritesheet/gbfire1.png" id="10_siisw"]
+[ext_resource type="Texture2D" uid="uid://yq3kf81hialm" path="res://Assets/Spritesheet/gbfire1.png" id="10_siisw"]
 [ext_resource type="PackedScene" uid="uid://ct32ygekp6768" path="res://Scenes/Prefabs/floor.tscn" id="11_aksfc"]
-[ext_resource type="Texture2D" uid="uid://dmty7ofvtsfxs" path="res://Assets/Spritesheet/house1.png" id="12_aksfc"]
+[ext_resource type="Texture2D" uid="uid://cdybm71rlxwmo" path="res://Assets/Spritesheet/house1.png" id="12_aksfc"]
 [ext_resource type="PackedScene" uid="uid://cjvydf3e86gpn" path="res://Scenes/Prefabs/wing.tscn" id="13_5pmb1"]
 [ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="13_07uvp"]
 [ext_resource type="PackedScene" uid="uid://cbh3xslxnhepu" path="res://Scenes/Prefabs/level_smoke.tscn" id="13_i7ntp"]
-[ext_resource type="Texture2D" uid="uid://cw45pm6f7jh4d" path="res://Assets/Textures/bg/bg1.png" id="14_xpj05"]
+[ext_resource type="Texture2D" uid="uid://ch6abc6t0yruf" path="res://Assets/Textures/bg/bg1.png" id="14_xpj05"]
 [ext_resource type="PackedScene" uid="uid://cq0gdfn3lyb04" path="res://Scenes/Prefabs/help_box.tscn" id="15_5v11l"]
-[ext_resource type="Texture2D" uid="uid://i2wvkuwc1uk3" path="res://Assets/Textures/bg/bg2.png" id="15_i7ntp"]
-[ext_resource type="Texture2D" uid="uid://boj36t5bwpqk6" path="res://Assets/Textures/bg/bg3.png" id="16_jt6p5"]
+[ext_resource type="FontFile" uid="uid://b5oq7bd5fnsf2" path="res://Assets/Fonts/TH Charmonman.ttf" id="15_ex0qg"]
+[ext_resource type="Texture2D" uid="uid://dpyla153tsirs" path="res://Assets/Textures/bg/bg2.png" id="15_i7ntp"]
+[ext_resource type="Texture2D" uid="uid://dmfi1ihe2tcj1" path="res://Assets/Textures/bg/bg3.png" id="16_jt6p5"]
 [ext_resource type="PackedScene" uid="uid://dbbb88cbwyv2x" path="res://Scenes/Prefabs/well.tscn" id="18_s0ca6"]
 [ext_resource type="PackedScene" uid="uid://fq21vyw23ws" path="res://Scenes/Prefabs/sword.tscn" id="20_3dt7p"]
 [ext_resource type="PackedScene" uid="uid://bm3bmj5cqbjrs" path="res://Scenes/Prefabs/Monster.tscn" id="20_07uvp"]
@@ -78,8 +79,8 @@ z_index = 1
 position = Vector2(117, 348)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
-position = Vector2(7.99999, -13.5)
-scale = Vector2(3.34667, 2.76667)
+position = Vector2(1.50001, -45)
+scale = Vector2(3.06, 2.62667)
 texture = SubResource("GradientTexture2D_ex0qg")
 
 [node name="Coins" type="Node2D" parent="."]
@@ -312,6 +313,7 @@ theme = ExtResource("13_07uvp")
 theme_override_colors/font_color = Color(0.434823, 0.07048, 2.40654e-08, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_ex0qg")
 theme_override_font_sizes/font_size = 32
 text = "เมือง “พุทธนคร” เคยเป็นดินแดนที่สวยงาม
 ตอนนี้ทำไมถึงสกปรกและไร้ผู้คนเยี่ยงนี้"
@@ -489,4 +491,4 @@ amount = 3
 position = Vector2(786, 376)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.0576534, 0.284055, 0.244384, 1)
+color = Color(4.36185e-08, 0.0829391, 0.00325268, 1)

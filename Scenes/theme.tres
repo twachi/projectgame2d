@@ -1,10 +1,11 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://pg5qj60mkk3i"]
 
-[ext_resource type="FontFile" uid="uid://cus0irtfrp15k" path="res://Assets/Fonts/THSarabunNew Bold.ttf" id="1_ak4nt"]
+[ext_resource type="FontFile" uid="uid://b5oq7bd5fnsf2" path="res://Assets/Fonts/TH Charmonman.ttf" id="1_ak4nt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ak4nt"]
 bg_color = Color(0.224551, 0.561674, 0.381746, 1)
 
 [resource]
 default_font = ExtResource("1_ak4nt")
+default_font_size = 20
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ak4nt")
