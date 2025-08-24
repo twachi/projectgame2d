@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dwsy6rt5nyber"]
+[gd_scene load_steps=29 format=3 uid="uid://dwsy6rt5nyber"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_mhqdi"]
 [ext_resource type="Texture2D" uid="uid://cp04b16o5xh4o" path="res://Assets/Hd/meye_washingtonia-robusta_x14390.png" id="2_tvl15"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://c54kslsvpaq1d" path="res://Scenes/Monsters/ghost_kasu_rig.tscn" id="23_guj4r"]
 [ext_resource type="PackedScene" uid="uid://xfsdk3tsmscp" path="res://Scenes/Monsters/ghost_boy.tscn" id="24_4o1t0"]
 [ext_resource type="PackedScene" uid="uid://fq21vyw23ws" path="res://Scenes/Prefabs/sword.tscn" id="25_c3yc2"]
+[ext_resource type="PackedScene" uid="uid://b8lxxjhdmhipn" path="res://Scenes/Prefabs/boss1_rig.tscn" id="25_eminj"]
 [ext_resource type="PackedScene" uid="uid://cnoimypw1n0ry" path="res://Scenes/Prefabs/mask.tscn" id="26_xlg1h"]
 
 [node name="Level_03" type="Node2D"]
@@ -665,28 +666,13 @@ metadata/_edit_lock_ = true
 [node name="TutorialText" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="SmokeText6" type="Label" parent="TutorialText"]
-offset_left = 2386.0
-offset_top = 425.0
-offset_right = 2663.0
-offset_bottom = 514.0
-theme = ExtResource("16_6wex4")
-theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
-theme_override_colors/font_outline_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 32
-text = "ปีกครูฑ กด Z เพื่อใช้งาน
-กระโดดได้สูงเป็นเวลา 60 วินาที"
-horizontal_alignment = 1
-
 [node name="HelpBox" parent="TutorialText" instance=ExtResource("17_ledef")]
 position = Vector2(832, 497)
 text = "กด X โยนน้ำดับไฟ"
 
 [node name="HelpBox1" parent="TutorialText" instance=ExtResource("17_ledef")]
 position = Vector2(47, 455)
-text = "เมือง “พุทธนคร” เคยเป็นดินแดนที่สวยงาม
-ตอนนี้ทำไมถึงสกปรกและไร้ผู้คนเยี่ยงนี้"
+text = "หมู่บ้านนี้ทำไมมีหมอกควันเยอะนัก"
 
 [node name="Movement" type="Label" parent="TutorialText/HelpBox1"]
 offset_left = -22.0
@@ -699,28 +685,12 @@ theme_override_colors/font_outline_color = Color(0.180005, 0.180005, 0.180005, 1
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
 text = "A & D  เพื่อเดิน
-Spacebar เพื่อกระโดด"
+Spacebar เพื่อกระโดด
+ค้นหาดาบ สู้กับ ผื"
 
 [node name="HelpBox2" parent="TutorialText" instance=ExtResource("17_ledef")]
 position = Vector2(249, 423)
 text = "หากใส่หน้ากากนี้ จักสามารถป้องกันอากาศพิษได้ "
-
-[node name="SmokeText4" type="Label" parent="TutorialText"]
-z_index = -1
-offset_left = 1638.0
-offset_top = 428.0
-offset_right = 2097.0
-offset_bottom = 609.0
-theme = ExtResource("16_6wex4")
-theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
-theme_override_colors/font_outline_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 32
-text = "ความประมาทของผู้คนทำให้เมืองนี้เต็มไปด้วยมลพิษ 
-ได้ปลุก “ผีควัน” ขึ้นมาจากเถ้าถ่าน 
-พวกมันออกอาละวาดดูดกลืนชีวิต
-และความงามของเมือง"
-horizontal_alignment = 1
 
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("18_hyfak")
@@ -826,13 +796,25 @@ title = "ผีควันระดับ 1"
 [node name="Monster7" parent="Monster" instance=ExtResource("22_r0wa7")]
 position = Vector2(572, 463)
 scale = Vector2(0.5, 0.5)
-monster_rig = ExtResource("24_4o1t0")
+monster_rig = ExtResource("25_eminj")
 speed = 40
 hp = 50
 maxhp = 50
 atk = 2
 def = 1
-title = "ผีเด็กเล่นไฟ ระดับ 1"
+title = "ผียายหมอก ระดับ 1"
+pitch = 2.0
+
+[node name="Monster13" parent="Monster" instance=ExtResource("22_r0wa7")]
+position = Vector2(909, 465)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("25_eminj")
+speed = 40
+hp = 50
+maxhp = 50
+atk = 2
+def = 1
+title = "ผียายหมอก ระดับ 1"
 pitch = 2.0
 
 [node name="Monster8" parent="Monster" instance=ExtResource("22_r0wa7")]
@@ -844,7 +826,19 @@ hp = 50
 maxhp = 50
 atk = 2
 def = 1
-title = "ผีเด็กเล่นไฟ ระดับ 1"
+title = "ผีเด็กเขียว ระดับ 1"
+pitch = 2.0
+
+[node name="Monster14" parent="Monster" instance=ExtResource("22_r0wa7")]
+position = Vector2(-404, 416)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("24_4o1t0")
+speed = 40
+hp = 50
+maxhp = 50
+atk = 2
+def = 1
+title = "ผีเด็กเขียว ระดับ 1"
 pitch = 2.0
 
 [node name="Monster10" parent="Monster" instance=ExtResource("22_r0wa7")]
@@ -966,6 +960,7 @@ offset = Vector2(-489.427, -533.019)
 texture = ExtResource("4_yeob7")
 polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
 uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
 
 [node name="Tree8" type="Polygon2D" parent="FgObjects/Tree9"]
 position = Vector2(-23.5178, 51.691)
@@ -1128,7 +1123,7 @@ polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929
 uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
 
 [node name="Tree5" type="Polygon2D" parent="FgObjects"]
-position = Vector2(2112, -146)
+position = Vector2(2116, -129)
 scale = Vector2(-2.41537, 2.63741)
 offset = Vector2(-489.427, -533.019)
 texture = ExtResource("4_yeob7")
@@ -1154,11 +1149,13 @@ texture = ExtResource("2_tvl15")
 [node name="M2Tree3" type="Sprite2D" parent="FgObjects"]
 position = Vector2(2570, 832)
 texture = ExtResource("2_tvl15")
+metadata/_edit_lock_ = true
 
 [node name="M3Tree2" type="Sprite2D" parent="FgObjects"]
-position = Vector2(-249, 250)
+position = Vector2(-237, 291)
 scale = Vector2(1.59875, 1.64643)
 texture = ExtResource("6_dd8ie")
+metadata/_edit_lock_ = true
 
 [node name="M3Tree3" type="Sprite2D" parent="FgObjects"]
 position = Vector2(438, 1171)

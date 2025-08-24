@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bjb3dx2x4bocm"]
+[gd_scene load_steps=30 format=3 uid="uid://bjb3dx2x4bocm"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_leegk"]
 [ext_resource type="Texture2D" uid="uid://cp04b16o5xh4o" path="res://Assets/Hd/meye_washingtonia-robusta_x14390.png" id="2_2487p"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://3al3peqkhjg8" path="res://Scenes/Items/potion_heal.tscn" id="11_pvn24"]
 [ext_resource type="PackedScene" uid="uid://cq0gdfn3lyb04" path="res://Scenes/Prefabs/help_box.tscn" id="13_pqxa6"]
 [ext_resource type="Texture2D" uid="uid://b3jseknij8o7e" path="res://Assets/Hd/junks.png" id="15_pvpkf"]
+[ext_resource type="Material" uid="uid://iibu7pbpls0h" path="res://nolight.tres" id="16_gd4ow"]
 [ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="16_vln1t"]
 [ext_resource type="PackedScene" uid="uid://bm3bmj5cqbjrs" path="res://Scenes/Prefabs/Monster.tscn" id="19_u1l2o"]
 [ext_resource type="PackedScene" uid="uid://b8lxxjhdmhipn" path="res://Scenes/Prefabs/boss1_rig.tscn" id="20_8k45j"]
@@ -450,6 +451,24 @@ polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.83
 uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
 metadata/_edit_lock_ = true
 
+[node name="SmokeText4" type="Label" parent="Level/Fires/Gbfire8"]
+z_index = 11
+material = ExtResource("16_gd4ow")
+offset_left = -207.687
+offset_top = 57.7591
+offset_right = 251.313
+offset_bottom = 238.759
+theme = ExtResource("16_vln1t")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "ผู้คนเผาขยะจนทำให้เมืองนี้เต็มไปด้วยมลพิษ 
+ได้ปลุก “ผีควัน” ขึ้นมาจากเถ้าถ่าน 
+พวกมันออกอาละวาดดูดกลืนชีวิต
+และความงามของเมือง"
+horizontal_alignment = 1
+
 [node name="Gbfire9" parent="Level/Fires" instance=ExtResource("4_ombkc")]
 z_index = -3
 position = Vector2(-2336, 383)
@@ -574,23 +593,6 @@ Spacebar เพื่อกระโดด"
 [node name="HelpBox2" parent="TutorialText" instance=ExtResource("13_pqxa6")]
 position = Vector2(768, 424)
 text = "หากใส่หน้ากากนี้ จักสามารถป้องกันอากาศพิษได้ "
-
-[node name="SmokeText4" type="Label" parent="TutorialText"]
-z_index = -1
-offset_left = 1638.0
-offset_top = 428.0
-offset_right = 2097.0
-offset_bottom = 609.0
-theme = ExtResource("16_vln1t")
-theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
-theme_override_colors/font_outline_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 32
-text = "ผู้คนเผาขยะจนทำให้เมืองนี้เต็มไปด้วยมลพิษ 
-ได้ปลุก “ผีควัน” ขึ้นมาจากเถ้าถ่าน 
-พวกมันออกอาละวาดดูดกลืนชีวิต
-และความงามของเมือง"
-horizontal_alignment = 1
 
 [node name="SmokeText5" type="Label" parent="TutorialText"]
 z_index = -1

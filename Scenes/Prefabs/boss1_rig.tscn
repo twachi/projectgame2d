@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8lxxjhdmhipn"]
+[gd_scene load_steps=13 format=3 uid="uid://b8lxxjhdmhipn"]
 
 [ext_resource type="Texture2D" uid="uid://b4klvbftkam7b" path="res://Assets/Spritesheet/boss1_part.png" id="1_4kijb"]
 [ext_resource type="Script" uid="uid://cw2n5cnb3qs1w" path="res://Scenes/Prefabs/monster_rig.gd" id="1_h3cug"]
@@ -1189,17 +1189,6 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_pfpbc"]
 radius = 31.4006
 
-[sub_resource type="Gradient" id="Gradient_pfpbc"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_7hp84"]
-gradient = SubResource("Gradient_pfpbc")
-width = 150
-height = 150
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.0136752, 0.517094)
-
 [node name="Rig" type="Node2D"]
 script = ExtResource("1_h3cug")
 
@@ -1383,12 +1372,6 @@ metadata/_edit_lock_ = true
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_7hp84")
 bus = &"sfx"
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(7, -103)
-scale = Vector2(1.62667, 1.65333)
-color = Color(0.172549, 1, 1, 1)
-texture = SubResource("GradientTexture2D_7hp84")
 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

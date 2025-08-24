@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cjanwm3sy2x37"]
+[gd_scene load_steps=29 format=3 uid="uid://cjanwm3sy2x37"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_jgw62"]
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_oqkjg"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cl31fa13eej8c" path="res://Assets/Hd/objects.png" id="14_rqrja"]
 [ext_resource type="PackedScene" uid="uid://cq0gdfn3lyb04" path="res://Scenes/Prefabs/help_box.tscn" id="15_5v11l"]
 [ext_resource type="Texture2D" uid="uid://b3jseknij8o7e" path="res://Assets/Hd/junks.png" id="16_lg4gj"]
+[ext_resource type="Material" uid="uid://iibu7pbpls0h" path="res://nolight.tres" id="17_rqrja"]
 [ext_resource type="PackedScene" uid="uid://dbbb88cbwyv2x" path="res://Scenes/Prefabs/well.tscn" id="18_s0ca6"]
 [ext_resource type="PackedScene" uid="uid://fq21vyw23ws" path="res://Scenes/Prefabs/sword.tscn" id="20_3dt7p"]
 [ext_resource type="PackedScene" uid="uid://bm3bmj5cqbjrs" path="res://Scenes/Prefabs/Monster.tscn" id="20_07uvp"]
@@ -316,6 +317,20 @@ position = Vector2(2642, 338)
 [node name="Wing2" parent="Coins" instance=ExtResource("13_5pmb1")]
 position = Vector2(2508, 334)
 
+[node name="SmokeText6" type="Label" parent="Coins/Wing2"]
+offset_left = -109.0
+offset_top = 114.0
+offset_right = 168.0
+offset_bottom = 203.0
+theme = ExtResource("13_07uvp")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "ปีกครูฑ กด Z เพื่อใช้งาน
+กระโดดได้สูงเป็นเวลา 60 วินาที"
+horizontal_alignment = 1
+
 [node name="PotionHeal" parent="Coins" instance=ExtResource("9_jgw62")]
 position = Vector2(2416, 327)
 amount = 2
@@ -404,6 +419,23 @@ polygon = PackedVector2Array(21.8737, 189.292, 186.418, 192.396, 182.692, 164.45
 uv = PackedVector2Array(21.8737, 189.292, 186.418, 192.396, 182.692, 164.455, 140.47, 117.886, 54.1616, 117.265, 20.6319, 159.488)
 metadata/_edit_lock_ = true
 
+[node name="SmokeText2" type="Label" parent="Level/Fires/Gbfire1"]
+z_index = 2
+material = ExtResource("17_rqrja")
+offset_left = -201.542
+offset_top = 38.0964
+offset_right = 124.458
+offset_bottom = 176.096
+theme = ExtResource("13_07uvp")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(0.111197, 0.111197, 0.111197, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "เด็กน้อยทำไมก่อกองไฟเผาขยะ
+รู้มั้ยว่าทำให้เกิดมลพิษในอากาศ
+จักต้องไปตักน้ำที่บ่อ มาดับไฟ"
+horizontal_alignment = 1
+
 [node name="Gbfire2" parent="Level/Fires" instance=ExtResource("10_1bssr")]
 position = Vector2(1550, 396)
 hp = 300
@@ -487,6 +519,24 @@ polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.83
 uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
 metadata/_edit_lock_ = true
 
+[node name="SmokeText4" type="Label" parent="Level/Fires/Gbfire3"]
+z_index = -1
+material = ExtResource("17_rqrja")
+offset_left = -922.916
+offset_top = 33.1807
+offset_right = -463.916
+offset_bottom = 214.181
+theme = ExtResource("13_07uvp")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "ความประมาทของผู้คนทำให้เมืองนี้เต็มไปด้วยมลพิษ 
+ได้ปลุก “ผีควัน” ขึ้นมาจากเถ้าถ่าน 
+พวกมันออกอาละวาดดูดกลืนชีวิต
+และความงามของเมือง"
+horizontal_alignment = 1
+
 [node name="Gbfire5" parent="Level/Fires" instance=ExtResource("10_1bssr")]
 position = Vector2(3656, 181)
 hp = 500
@@ -531,36 +581,6 @@ metadata/_edit_lock_ = true
 [node name="TutorialText" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="SmokeText6" type="Label" parent="TutorialText"]
-offset_left = 2386.0
-offset_top = 425.0
-offset_right = 2663.0
-offset_bottom = 514.0
-theme = ExtResource("13_07uvp")
-theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
-theme_override_colors/font_outline_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 32
-text = "ปีกครูฑ กด Z เพื่อใช้งาน
-กระโดดได้สูงเป็นเวลา 60 วินาที"
-horizontal_alignment = 1
-
-[node name="SmokeText2" type="Label" parent="TutorialText"]
-z_index = 2
-offset_left = 414.0
-offset_top = 471.0
-offset_right = 740.0
-offset_bottom = 609.0
-theme = ExtResource("13_07uvp")
-theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
-theme_override_colors/font_outline_color = Color(0.111197, 0.111197, 0.111197, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 32
-text = "เด็กน้อยทำไมก่อกองไฟเผาขยะ
-รู้มั้ยว่าทำให้เกิดมลพิษในอากาศ
-จักต้องไปตักน้ำที่บ่อ มาดับไฟ"
-horizontal_alignment = 1
-
 [node name="HelpBox" parent="TutorialText" instance=ExtResource("15_5v11l")]
 position = Vector2(277, 427)
 text = "ทำไมเด็กน้อยไม่มีขา
@@ -588,53 +608,9 @@ Spacebar เพื่อกระโดด"
 position = Vector2(768, 424)
 text = "หากใส่หน้ากากนี้ จักสามารถป้องกันอากาศพิษได้ "
 
-[node name="SmokeText" type="Label" parent="TutorialText"]
-offset_left = -393.0
-offset_top = 483.0
-offset_right = -148.0
-offset_bottom = 572.0
-theme = ExtResource("13_07uvp")
-theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
-theme_override_colors/font_outline_color = Color(0.111197, 0.111197, 0.111197, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 32
-text = "ค้นหาดาบแห่งความบริสุทธิ์ 
-กด C เพื่อฟาดฟัน ผีร้าย"
-horizontal_alignment = 1
-
-[node name="SmokeText3" type="Label" parent="TutorialText"]
-offset_left = 3396.0
-offset_top = 241.0
-offset_right = 3590.0
-offset_bottom = 330.0
-theme = ExtResource("13_07uvp")
-theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
-theme_override_colors/font_outline_color = Color(0.111197, 0.111197, 0.111197, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 32
-text = "ดาษแห่งความบริสุทธิ์ 
-กด C เพื่อฟัน ผีร้าย"
-horizontal_alignment = 1
-
-[node name="SmokeText4" type="Label" parent="TutorialText"]
-z_index = -1
-offset_left = 1638.0
-offset_top = 428.0
-offset_right = 2097.0
-offset_bottom = 609.0
-theme = ExtResource("13_07uvp")
-theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
-theme_override_colors/font_outline_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 32
-text = "ความประมาทของผู้คนทำให้เมืองนี้เต็มไปด้วยมลพิษ 
-ได้ปลุก “ผีควัน” ขึ้นมาจากเถ้าถ่าน 
-พวกมันออกอาละวาดดูดกลืนชีวิต
-และความงามของเมือง"
-horizontal_alignment = 1
-
 [node name="SmokeText5" type="Label" parent="TutorialText"]
 z_index = -1
+material = ExtResource("17_rqrja")
 offset_left = 4248.0
 offset_top = 29.0
 offset_right = 4850.0
@@ -796,9 +772,38 @@ pitch = 2.0
 position = Vector2(-229, 365)
 amount = 3
 
+[node name="SmokeText" type="Label" parent="sword"]
+material = ExtResource("17_rqrja")
+offset_left = -108.0
+offset_top = 114.0
+offset_right = 137.0
+offset_bottom = 203.0
+theme = ExtResource("13_07uvp")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(0.111197, 0.111197, 0.111197, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "ค้นหาดาบแห่งความบริสุทธิ์ 
+กด C เพื่อฟาดฟัน ผีร้าย"
+horizontal_alignment = 1
+
 [node name="sword2" parent="." instance=ExtResource("20_3dt7p")]
 position = Vector2(3476, 156)
 amount = 3
+
+[node name="SmokeText3" type="Label" parent="sword2"]
+offset_left = -99.0
+offset_top = 53.0
+offset_right = 95.0
+offset_bottom = 142.0
+theme = ExtResource("13_07uvp")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(0.111197, 0.111197, 0.111197, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "ดาษแห่งความบริสุทธิ์ 
+กด C เพื่อฟัน ผีร้าย"
+horizontal_alignment = 1
 
 [node name="Mask" parent="." instance=ExtResource("22_3dt7p")]
 position = Vector2(786, 376)
@@ -818,6 +823,7 @@ offset = Vector2(-489.427, -533.019)
 texture = ExtResource("14_rqrja")
 polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
 uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
 
 [node name="Tree2" type="Polygon2D" parent="FgObjects"]
 position = Vector2(-659, 20)
@@ -926,3 +932,4 @@ metadata/_edit_lock_ = true
 position = Vector2(-249, 250)
 scale = Vector2(1.59875, 1.64643)
 texture = ExtResource("6_lg4gj")
+metadata/_edit_lock_ = true

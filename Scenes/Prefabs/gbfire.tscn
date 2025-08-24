@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://d0olocigoed7"]
+[gd_scene load_steps=31 format=3 uid="uid://d0olocigoed7"]
 
 [ext_resource type="Script" uid="uid://ck2qqx5h5rql0" path="res://Scenes/Prefabs/gbfire.gd" id="1_yxeb3"]
 [ext_resource type="Texture2D" uid="uid://81hqrxsgm50t" path="res://Assets/Spritesheet/smoke1.png" id="2_mkm3k"]
 [ext_resource type="AudioStream" uid="uid://clx3woadf11e8" path="res://Assets/Sound/FX/explosion.wav" id="3_yxeb3"]
 [ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="4_4vggd"]
+[ext_resource type="Material" uid="uid://iibu7pbpls0h" path="res://nolight.tres" id="4_phuk3"]
 [ext_resource type="Texture2D" uid="uid://c13u7tcplnubd" path="res://Assets/Hd/water/Png/water40000.png" id="5_e5u60"]
 [ext_resource type="Texture2D" uid="uid://c0pmn0jtqhdbo" path="res://Assets/Hd/water/Png/water40001.png" id="6_phuk3"]
 [ext_resource type="Texture2D" uid="uid://cldqreoj1cgs1" path="res://Assets/Hd/water/Png/water40002.png" id="7_xwpxb"]
@@ -148,6 +149,7 @@ bus = &"sfx"
 auto_translate_mode = 2
 modulate = Color(0.643137, 1, 1, 0.635294)
 z_index = 10
+material = ExtResource("4_phuk3")
 offset_left = -51.6145
 offset_top = 9.83133
 offset_right = 54.3855

@@ -95,7 +95,7 @@ visible = false
 autoplay = "idle"
 
 [node name="ArmL2" parent="CanvasLayer/PlayerHDRig/Skeleton2D/Hip/Chest/ArmL" index="1"]
-scale = Vector2(0.999998, 0.999998)
+scale = Vector2(0.999997, 0.999997)
 
 [connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
 
