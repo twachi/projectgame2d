@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://dwsy6rt5nyber"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_mhqdi"]
+[ext_resource type="Script" uid="uid://txoi61hnjmqa" path="res://Scenes/Levels/level.gd" id="1_mhqdi"]
 [ext_resource type="Texture2D" uid="uid://cp04b16o5xh4o" path="res://Assets/Hd/meye_washingtonia-robusta_x14390.png" id="2_tvl15"]
 [ext_resource type="Texture2D" uid="uid://dwbmgdymkdrmx" path="res://Assets/Hd/meye_fraxinus-ornus_s15342.png" id="3_eminj"]
 [ext_resource type="Texture2D" uid="uid://cl31fa13eej8c" path="res://Assets/Hd/objects.png" id="4_yeob7"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cvu5h7ylpy6nk" path="res://Assets/Hd/meye_malus_S8317.png" id="6_dd8ie"]
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="7_1xrk5"]
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="8_q2ch3"]
-[ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="8_tvl15"]
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="9_um8mk"]
 [ext_resource type="PackedScene" uid="uid://cjvydf3e86gpn" path="res://Scenes/Prefabs/wing.tscn" id="10_bmhd3"]
 [ext_resource type="PackedScene" uid="uid://3al3peqkhjg8" path="res://Scenes/Items/potion_heal.tscn" id="11_1l3op"]
@@ -27,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://xfsdk3tsmscp" path="res://Scenes/Monsters/ghost_boy.tscn" id="24_4o1t0"]
 [ext_resource type="PackedScene" uid="uid://fq21vyw23ws" path="res://Scenes/Prefabs/sword.tscn" id="25_c3yc2"]
 [ext_resource type="PackedScene" uid="uid://b8lxxjhdmhipn" path="res://Scenes/Prefabs/boss1_rig.tscn" id="25_eminj"]
+[ext_resource type="PackedScene" uid="uid://cf6tl0o8f0p8" path="res://Scenes/Monsters/ghost_girl.tscn" id="25_yeob7"]
 [ext_resource type="PackedScene" uid="uid://cnoimypw1n0ry" path="res://Scenes/Prefabs/mask.tscn" id="26_xlg1h"]
 
 [node name="Level_03" type="Node2D"]
@@ -346,7 +346,7 @@ uv = PackedVector2Array(595.984, 394.732, 754.237, 404.041, 803.321, 496.284, 78
 [node name="LevelFinishDoor" parent="." instance=ExtResource("7_1xrk5")]
 z_index = 1
 position = Vector2(922, 1317)
-next_scene = ExtResource("8_tvl15")
+next_scenefile = "uid://bjb3dx2x4bocm"
 metadata/_edit_lock_ = true
 
 [node name="Temple" parent="LevelFinishDoor" instance=ExtResource("5_fq02v")]
@@ -729,11 +729,12 @@ title = "ผีควันระดับ 2"
 modulate = Color(1, 0.054902, 0.0392157, 1)
 position = Vector2(5336, 548)
 scale = Vector2(1.2, 1.2)
+monster_rig = ExtResource("25_eminj")
 speed = 150
 hp = 400
 maxhp = 400
 atk = 50
-title = "เจ้าพ่อผีควัน"
+title = "เจ้าย่าผีหมอก"
 visible_range = 800
 
 [node name="Bosss2" parent="Monster" instance=ExtResource("22_r0wa7")]
@@ -800,7 +801,6 @@ monster_rig = ExtResource("25_eminj")
 speed = 40
 hp = 50
 maxhp = 50
-atk = 2
 def = 1
 title = "ผียายหมอก ระดับ 1"
 pitch = 2.0
@@ -808,13 +808,12 @@ pitch = 2.0
 [node name="Monster13" parent="Monster" instance=ExtResource("22_r0wa7")]
 position = Vector2(909, 465)
 scale = Vector2(0.5, 0.5)
-monster_rig = ExtResource("25_eminj")
+monster_rig = ExtResource("25_yeob7")
 speed = 40
 hp = 50
 maxhp = 50
-atk = 2
 def = 1
-title = "ผียายหมอก ระดับ 1"
+title = "ผีอีหมอก ระดับ 1"
 pitch = 2.0
 
 [node name="Monster8" parent="Monster" instance=ExtResource("22_r0wa7")]
@@ -824,7 +823,6 @@ monster_rig = ExtResource("24_4o1t0")
 speed = 40
 hp = 50
 maxhp = 50
-atk = 2
 def = 1
 title = "ผีเด็กเขียว ระดับ 1"
 pitch = 2.0
@@ -832,13 +830,12 @@ pitch = 2.0
 [node name="Monster14" parent="Monster" instance=ExtResource("22_r0wa7")]
 position = Vector2(-404, 416)
 scale = Vector2(0.5, 0.5)
-monster_rig = ExtResource("24_4o1t0")
+monster_rig = ExtResource("25_yeob7")
 speed = 40
 hp = 50
 maxhp = 50
-atk = 2
 def = 1
-title = "ผีเด็กเขียว ระดับ 1"
+title = "ผีอีเขียว ระดับ 1"
 pitch = 2.0
 
 [node name="Monster10" parent="Monster" instance=ExtResource("22_r0wa7")]
@@ -847,7 +844,7 @@ monster_rig = ExtResource("24_4o1t0")
 speed = 60
 hp = 50
 maxhp = 50
-atk = 5
+atk = 15
 def = 2
 title = "ผีเด็กเล่นไฟ ระดับ 1"
 visible_range = 500
@@ -860,7 +857,7 @@ monster_rig = ExtResource("23_guj4r")
 speed = 60
 hp = 50
 maxhp = 50
-atk = 5
+atk = 15
 def = 2
 title = "ผีกระสือสาว"
 visible_range = 500
@@ -874,7 +871,7 @@ monster_rig = ExtResource("23_guj4r")
 speed = 40
 hp = 50
 maxhp = 50
-atk = 2
+atk = 20
 def = 1
 title = "ผีกระสือ"
 pitch = 2.0
@@ -905,14 +902,16 @@ offset = Vector2(-489.427, -533.019)
 texture = ExtResource("4_yeob7")
 polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
 uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
 
 [node name="Tree2" type="Polygon2D" parent="FgObjects"]
 position = Vector2(-659, 20)
 scale = Vector2(2, 2)
 offset = Vector2(-489.427, -533.019)
 texture = ExtResource("4_yeob7")
-polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 127.803, 167.105, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
 uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
 
 [node name="MTree1" type="Sprite2D" parent="FgObjects"]
 position = Vector2(1532, 937)

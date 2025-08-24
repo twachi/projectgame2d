@@ -39,6 +39,10 @@ collision_layer = 4
 collision_mask = 12
 script = ExtResource("1_dsb2y")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(2.99999, -81)
+scale = Vector2(7.2, 9.1)
+
 [node name="Part" type="Node2D" parent="."]
 
 [node name="FloorRay" type="RayCast2D" parent="Part"]
@@ -122,3 +126,6 @@ theme_override_fonts/font = ExtResource("4_d5asi")
 theme_override_font_sizes/font_size = 32
 text = "TItle"
 horizontal_alignment = 1
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

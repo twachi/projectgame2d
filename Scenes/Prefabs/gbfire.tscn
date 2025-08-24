@@ -125,6 +125,10 @@ z_index = -2
 scale = Vector2(0.813725, 0.813725)
 script = ExtResource("1_yxeb3")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1.22892, -46)
+scale = Vector2(3.31807, 5.6)
+
 [node name="Fire" type="GPUParticles2D" parent="."]
 position = Vector2(3.66246e-07, -25.8072)
 emitting = false
@@ -172,4 +176,6 @@ frame_progress = 1.0
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

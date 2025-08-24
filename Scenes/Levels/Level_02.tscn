@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://bjb3dx2x4bocm"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_leegk"]
+[ext_resource type="Script" uid="uid://txoi61hnjmqa" path="res://Scenes/Levels/level.gd" id="1_leegk"]
 [ext_resource type="Texture2D" uid="uid://cp04b16o5xh4o" path="res://Assets/Hd/meye_washingtonia-robusta_x14390.png" id="2_2487p"]
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="2_lpo2y"]
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="3_nht2m"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://dnmn4ukr1moq4" path="res://Assets/Spritesheet/gbfire1.png" id="6_82bm0"]
 [ext_resource type="PackedScene" uid="uid://b6tca06ks0ys7" path="res://Scenes/Managers/user_interface.tscn" id="6_ao2uv"]
 [ext_resource type="PackedScene" uid="uid://dbbb88cbwyv2x" path="res://Scenes/Prefabs/well.tscn" id="7_20c78"]
-[ext_resource type="PackedScene" uid="uid://dwsy6rt5nyber" path="res://Scenes/Levels/Level_03.tscn" id="8_2487p"]
 [ext_resource type="PackedScene" uid="uid://cbh3xslxnhepu" path="res://Scenes/Prefabs/level_smoke.tscn" id="8_es7ky"]
 [ext_resource type="PackedScene" uid="uid://cg4lt28lfpdd2" path="res://Scenes/Props/tree1.tscn" id="9_ijm6r"]
 [ext_resource type="PackedScene" uid="uid://ct32ygekp6768" path="res://Scenes/Prefabs/floor.tscn" id="10_l1023"]
@@ -29,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://fq21vyw23ws" path="res://Scenes/Prefabs/sword.tscn" id="21_ijm6r"]
 [ext_resource type="PackedScene" uid="uid://xfsdk3tsmscp" path="res://Scenes/Monsters/ghost_boy.tscn" id="24_hy3sy"]
 [ext_resource type="PackedScene" uid="uid://cnoimypw1n0ry" path="res://Scenes/Prefabs/mask.tscn" id="26_1ytsj"]
+[ext_resource type="PackedScene" uid="uid://cf6tl0o8f0p8" path="res://Scenes/Monsters/ghost_girl.tscn" id="26_gd4ow"]
 
 [node name="Level_02" type="Node2D"]
 script = ExtResource("1_leegk")
@@ -294,7 +294,7 @@ texture = ExtResource("2_2487p")
 [node name="LevelFinishDoor" parent="." instance=ExtResource("4_8k45j")]
 z_index = 1
 position = Vector2(-1965, 243)
-next_scene = ExtResource("8_2487p")
+next_scenefile = "uid://dwsy6rt5nyber"
 
 [node name="Temple" parent="LevelFinishDoor" instance=ExtResource("9_ijm6r")]
 show_behind_parent = true
@@ -678,6 +678,17 @@ title = "ผีกระสือ ระดับ 2"
 visible_range = 800
 metadata/_edit_lock_ = true
 
+[node name="Monster14" parent="Monster" instance=ExtResource("19_u1l2o")]
+position = Vector2(-2602, 346)
+scale = Vector2(1.2, 1.2)
+monster_rig = ExtResource("26_gd4ow")
+speed = 150
+hp = 400
+maxhp = 400
+atk = 60
+title = "ผีสาว"
+visible_range = 800
+
 [node name="Monster2" parent="Monster" instance=ExtResource("19_u1l2o")]
 position = Vector2(1907, 295)
 scale = Vector2(0.5, 0.5)
@@ -722,7 +733,7 @@ monster_rig = ExtResource("24_hy3sy")
 speed = 40
 hp = 50
 maxhp = 50
-atk = 2
+atk = 15
 def = 1
 title = "ผีเด็กเล่นไฟ ระดับ 1"
 pitch = 2.0
@@ -734,9 +745,21 @@ monster_rig = ExtResource("20_ijm6r")
 speed = 40
 hp = 50
 maxhp = 50
-atk = 2
+atk = 15
 def = 1
 title = "กระสือ ระดับ 1"
+pitch = 2.0
+
+[node name="Monster15" parent="Monster" instance=ExtResource("19_u1l2o")]
+position = Vector2(1168, 410)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("26_gd4ow")
+speed = 40
+hp = 50
+maxhp = 50
+atk = 20
+def = 1
+title = "ผีสาว"
 pitch = 2.0
 
 [node name="Monster10" parent="Monster" instance=ExtResource("19_u1l2o")]
@@ -758,7 +781,6 @@ monster_rig = ExtResource("20_ijm6r")
 speed = 60
 hp = 50
 maxhp = 50
-atk = 5
 def = 2
 title = "ผีกระสือสาว"
 visible_range = 500
@@ -772,7 +794,6 @@ monster_rig = ExtResource("20_ijm6r")
 speed = 40
 hp = 50
 maxhp = 50
-atk = 2
 def = 1
 title = "ผีกระสือ"
 pitch = 2.0
@@ -842,6 +863,7 @@ offset = Vector2(-489.427, -533.019)
 texture = ExtResource("4_gd4ow")
 polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
 uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
 
 [node name="Tree10" type="Polygon2D" parent="FgObjects"]
 position = Vector2(-3111, -46)
@@ -850,6 +872,7 @@ offset = Vector2(-489.427, -533.019)
 texture = ExtResource("4_gd4ow")
 polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
 uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
 
 [node name="Tree7" type="Polygon2D" parent="FgObjects"]
 position = Vector2(-2768, -202)
@@ -858,6 +881,7 @@ offset = Vector2(-489.427, -533.019)
 texture = ExtResource("4_gd4ow")
 polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
 uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
 
 [node name="Tree8" type="Polygon2D" parent="FgObjects"]
 position = Vector2(-2829, -42)
@@ -866,6 +890,7 @@ offset = Vector2(-489.427, -533.019)
 texture = ExtResource("4_gd4ow")
 polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
 uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
 
 [node name="Tree5" type="Polygon2D" parent="FgObjects"]
 position = Vector2(2265.93, -204.332)

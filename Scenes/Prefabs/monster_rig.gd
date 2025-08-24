@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var atk_power = 10
+@onready var effect: GPUParticles2D = $AttackArea/CollisionShape2D/Effect
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:

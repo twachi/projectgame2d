@@ -25,7 +25,7 @@ var potion_heal   = 1  # น้ำยาเพิ่มเลือด
 var mask_id       = 0  #หน้ากาก  0 คือไม่ใส่
 var mask_power    = 0  #พลังหน้ากาก  0 คือไม่มี
 var mask_lifetime = 0  #เวลาชีวิตหน้ากาก  0 คือหมด
-var player_def = 10
+var player_def = 1
 var player_atk = 10
 # สำหรับการสุ่ม drop item
 var drop_items : Array[PackedScene] =[]
@@ -124,8 +124,8 @@ func levelUp():
 	player_xp = clamp(player_xp-player_levelxp,0,player_levelxp)
 	player_levelxp = 100+(player_level*50)
 	player_maxhp = 100 + (player_level*10)
-	player_def = 10 + (player_level*2)
-	player_atk = 10 + (player_level*2)
+	player_def = 1 + player_level
+	player_atk = clamp(player_atk+player_level,1,100)
 	player_hp_rate = clamp(player_level,1,10)
 
 func use_healpotion():

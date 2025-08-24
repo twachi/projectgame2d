@@ -20,6 +20,7 @@ extends CharacterBody2D
 @onready var player_ray_2: RayCast2D = $Part/PlayerRay2
 var smoke_time=0
 var animation_player = null
+var onscreen = false
 func _ready() -> void:
 	if monster_rig!=null:
 		rig = monster_rig.instantiate()
@@ -39,11 +40,12 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	smoke_time += delta
+	if !onscreen: return
 	if randi_range(0,5)>2:
 		$PointLight2D.energy = randf_range(0.8,1.2)
 	if smoke_time >1:
 		smoke_time = 0
-		GameManager.add_smoke(randf_range(0.1,hp*0.005))
+		GameManager.add_smoke(randf_range(0.1,hp*0.01))
 	if !is_on_floor():
 		velocity.y += gravity
 		if velocity.y > 3000 : queue_free()
@@ -110,3 +112,16 @@ func damage(atk):
 		queue_free()
 		GameManager.fire_count -=1
 		#AudioManager.pain.pitch_scale = 1.0
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	onscreen = true
+	$PointLight2D.visible = true
+	rig.effect.emitting = true
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	onscreen = false
+	rig.effect.emitting = false
+	$PointLight2D.visible = false
+	

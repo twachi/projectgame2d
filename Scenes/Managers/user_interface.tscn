@@ -455,6 +455,17 @@ theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "D"
 
+[node name="IButton" type="Button" parent="Control/Keyboards"]
+offset_left = -219.0
+offset_top = -127.0
+offset_right = -142.0
+offset_bottom = -64.0
+scale = Vector2(1.2, 1.2)
+focus_mode = 0
+theme_override_font_sizes/font_size = 40
+action_mode = 0
+text = "I"
+
 [node name="ZButton" type="Button" parent="Control/Keyboards"]
 offset_left = -516.0
 offset_top = -43.0
@@ -520,6 +531,83 @@ theme_override_font_sizes/font_size = 20
 action_mode = 0
 text = "Space"
 
+[node name="PanelInfo" type="Panel" parent="."]
+offset_left = 23.0
+offset_top = 133.0
+offset_right = 444.0
+offset_bottom = 342.0
+
+[node name="InfoCloseBtn" type="Button" parent="PanelInfo"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -39.0
+offset_bottom = 37.0
+grow_horizontal = 0
+text = "X"
+
+[node name="TitleLabel" type="Label" parent="PanelInfo"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 13.0
+offset_right = 170.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.862745, 0.658824, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Player Information"
+
+[node name="AtkLabel" type="Label" parent="PanelInfo"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 70.0
+offset_right = 210.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 20
+text = "ATK = "
+
+[node name="DefLabel" type="Label" parent="PanelInfo"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 117.0
+offset_right = 211.0
+offset_bottom = 145.0
+theme_override_font_sizes/font_size = 20
+text = "DEF = "
+
+[node name="ExpLabel" type="Label" parent="PanelInfo"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 159.0
+offset_right = 211.0
+offset_bottom = 187.0
+theme_override_font_sizes/font_size = 20
+text = "EXP = "
+
+[node name="LvLabel" type="Label" parent="PanelInfo"]
+offset_left = 215.0
+offset_top = 160.0
+offset_right = 397.0
+offset_bottom = 188.0
+theme_override_font_sizes/font_size = 20
+text = "Level = "
+
+[node name="HPLabel" type="Label" parent="PanelInfo"]
+offset_left = 214.0
+offset_top = 72.0
+offset_right = 396.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 20
+text = "HP = "
+
+[node name="RateLabel" type="Label" parent="PanelInfo"]
+offset_left = 213.0
+offset_top = 118.0
+offset_right = 395.0
+offset_bottom = 146.0
+theme_override_font_sizes/font_size = 20
+text = "Recovery = "
+
 [connection signal="pressed" from="Inventory/Button1" to="GameUI" method="_on_button_1_pressed"]
 [connection signal="pressed" from="Inventory/Button2" to="GameUI" method="_on_button_2_pressed"]
 [connection signal="pressed" from="Inventory/Button3" to="GameUI" method="_on_button_3_pressed"]
@@ -535,9 +623,11 @@ text = "Space"
 [connection signal="button_up" from="Control/Keyboards/AButton" to="GameUI" method="_on_a_button_button_up"]
 [connection signal="button_down" from="Control/Keyboards/DButton" to="GameUI" method="_on_d_button_button_down"]
 [connection signal="button_up" from="Control/Keyboards/DButton" to="GameUI" method="_on_d_button_button_up"]
+[connection signal="pressed" from="Control/Keyboards/IButton" to="GameUI" method="_on_i_button_pressed"]
 [connection signal="button_down" from="Control/Keyboards/ZButton" to="GameUI" method="_on_z_button_button_down"]
 [connection signal="button_up" from="Control/Keyboards/ZButton" to="GameUI" method="_on_z_button_button_up"]
 [connection signal="button_down" from="Control/Keyboards/XButton" to="GameUI" method="_on_x_button_button_down"]
 [connection signal="button_up" from="Control/Keyboards/XButton" to="GameUI" method="_on_x_button_button_up"]
 [connection signal="pressed" from="Control/Keyboards/CButton" to="GameUI" method="_on_c_button_pressed"]
 [connection signal="pressed" from="Control/Keyboards/SPButton" to="GameUI" method="_on_left_button_5_pressed"]
+[connection signal="pressed" from="PanelInfo/InfoCloseBtn" to="GameUI" method="_on_info_close_btn_pressed"]

@@ -25,6 +25,7 @@ var showkey = false
 func _ready() -> void:
 	update_audio()
 	$"../Control/Keyboards".visible = showkey
+	$"../PanelInfo".visible = false
 	
 func update_audio():
 	music_off.visible = !AudioManager.music_on
@@ -47,7 +48,10 @@ func _process(_delta):
 	label_lv.text = str(GameManager.player_level)
 	label_xp.text = str(GameManager.player_xp)
 	label_potionhp.text = str(GameManager.potion_heal)
-#	$"../MaskTimeLabel".text = str(int(GameManager.mask_lifetime))
+	if $"../PanelInfo".visible:
+		print_info()
+	if Input.is_action_just_pressed("info"):
+		toggle_info()	
 
 func _on_button_1_pressed() -> void:
 	GameManager.set_mask(1)
@@ -137,3 +141,29 @@ func _on_keyboard_button_pressed() -> void:
 
 func _on_button_7_pressed() -> void:
 	GameManager.use_healpotion()
+
+func _on_info_close_btn_pressed() -> void:
+	$"../PanelInfo".visible = false
+
+func toggle_info():
+	$"../PanelInfo".visible = !($"../PanelInfo".visible)
+
+@onready var atk_label: Label = $"../PanelInfo/AtkLabel"
+@onready var def_label: Label = $"../PanelInfo/DefLabel"
+@onready var exp_label: Label = $"../PanelInfo/ExpLabel"
+@onready var lv_label: Label = $"../PanelInfo/LvLabel"
+@onready var ihp_label: Label = $"../PanelInfo/HPLabel"
+@onready var rate_label: Label = $"../PanelInfo/RateLabel"
+
+func print_info():
+	atk_label.text = "ATK: %d" % GameManager.player_atk
+	def_label.text = "DEF: %d" % GameManager.player_def
+	exp_label.text = "EXP: %d/%d" % [GameManager.player_xp,GameManager.player_levelxp]
+	lv_label.text = "Level: %d" % GameManager.player_level
+	ihp_label.text = "HP:%d/%d" %[GameManager.player_hp,GameManager.player_maxhp]
+	rate_label.text = "Heal Rate:%.2f" % GameManager.player_hp_rate
+	
+
+
+func _on_i_button_pressed() -> void:
+	toggle_info()
