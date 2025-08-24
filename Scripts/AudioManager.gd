@@ -13,7 +13,7 @@ extends Node
 @onready var attack_sfx: AudioStreamPlayer = $AttackSfx
 @onready var atk_water_sfx: AudioStreamPlayer = $AtkWaterSfx
 @onready var pain: AudioStreamPlayer = $"Pain-2201"
-@onready var horror_music: AudioStreamPlayer = $"Mixkit-horror-sci-fi-wind-tunnel-894"
+@onready var horror_music: AudioStreamPlayer = $MusicHorror
 
 var music_on = true
 var sound_on = true

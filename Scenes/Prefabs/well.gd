@@ -9,9 +9,9 @@ func start(player):
 	started = true
 	animation_player.play("start")
 	player.play("well")
+	AudioManager.well.play()
 	$Effect.emitting = true
 	await get_tree().create_timer(GameManager.water_delay).timeout
-	AudioManager.well.play()
 	animation_player.stop()
 	started = false
 	var b = Bucket.instantiate()

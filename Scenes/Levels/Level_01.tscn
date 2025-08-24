@@ -1,42 +1,35 @@
-[gd_scene load_steps=27 format=3 uid="uid://cjanwm3sy2x37"]
+[gd_scene load_steps=28 format=3 uid="uid://cjanwm3sy2x37"]
 
+[ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_jgw62"]
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_oqkjg"]
 [ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_0ac5u"]
+[ext_resource type="Texture2D" uid="uid://cp04b16o5xh4o" path="res://Assets/Hd/meye_washingtonia-robusta_x14390.png" id="2_ailna"]
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="2_pay8t"]
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="3_rrh80"]
+[ext_resource type="Texture2D" uid="uid://dwbmgdymkdrmx" path="res://Assets/Hd/meye_fraxinus-ornus_s15342.png" id="3_x83xq"]
 [ext_resource type="Script" uid="uid://dcujj1ch2ow65" path="res://Scripts/GameManager.gd" id="4_vgfkr"]
+[ext_resource type="Texture2D" uid="uid://cvu5h7ylpy6nk" path="res://Assets/Hd/meye_malus_S8317.png" id="6_lg4gj"]
 [ext_resource type="PackedScene" uid="uid://cg4lt28lfpdd2" path="res://Scenes/Props/tree1.tscn" id="6_xpj05"]
 [ext_resource type="PackedScene" uid="uid://b6tca06ks0ys7" path="res://Scenes/Managers/user_interface.tscn" id="9_5pmb1"]
+[ext_resource type="PackedScene" uid="uid://3al3peqkhjg8" path="res://Scenes/Items/potion_heal.tscn" id="9_jgw62"]
 [ext_resource type="PackedScene" uid="uid://d0olocigoed7" path="res://Scenes/Prefabs/gbfire.tscn" id="10_1bssr"]
-[ext_resource type="Texture2D" uid="uid://yq3kf81hialm" path="res://Assets/Spritesheet/gbfire1.png" id="10_siisw"]
+[ext_resource type="Texture2D" uid="uid://dnmn4ukr1moq4" path="res://Assets/Spritesheet/gbfire1.png" id="10_siisw"]
 [ext_resource type="PackedScene" uid="uid://ct32ygekp6768" path="res://Scenes/Prefabs/floor.tscn" id="11_aksfc"]
-[ext_resource type="Texture2D" uid="uid://cdybm71rlxwmo" path="res://Assets/Spritesheet/house1.png" id="12_aksfc"]
 [ext_resource type="PackedScene" uid="uid://cjvydf3e86gpn" path="res://Scenes/Prefabs/wing.tscn" id="13_5pmb1"]
 [ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="13_07uvp"]
 [ext_resource type="PackedScene" uid="uid://cbh3xslxnhepu" path="res://Scenes/Prefabs/level_smoke.tscn" id="13_i7ntp"]
-[ext_resource type="Texture2D" uid="uid://ch6abc6t0yruf" path="res://Assets/Textures/bg/bg1.png" id="14_xpj05"]
+[ext_resource type="Texture2D" uid="uid://cl31fa13eej8c" path="res://Assets/Hd/objects.png" id="14_rqrja"]
 [ext_resource type="PackedScene" uid="uid://cq0gdfn3lyb04" path="res://Scenes/Prefabs/help_box.tscn" id="15_5v11l"]
-[ext_resource type="FontFile" uid="uid://b5oq7bd5fnsf2" path="res://Assets/Fonts/TH Charmonman.ttf" id="15_ex0qg"]
-[ext_resource type="Texture2D" uid="uid://dpyla153tsirs" path="res://Assets/Textures/bg/bg2.png" id="15_i7ntp"]
-[ext_resource type="Texture2D" uid="uid://dmfi1ihe2tcj1" path="res://Assets/Textures/bg/bg3.png" id="16_jt6p5"]
+[ext_resource type="Texture2D" uid="uid://b3jseknij8o7e" path="res://Assets/Hd/junks.png" id="16_lg4gj"]
 [ext_resource type="PackedScene" uid="uid://dbbb88cbwyv2x" path="res://Scenes/Prefabs/well.tscn" id="18_s0ca6"]
 [ext_resource type="PackedScene" uid="uid://fq21vyw23ws" path="res://Scenes/Prefabs/sword.tscn" id="20_3dt7p"]
 [ext_resource type="PackedScene" uid="uid://bm3bmj5cqbjrs" path="res://Scenes/Prefabs/Monster.tscn" id="20_07uvp"]
 [ext_resource type="PackedScene" uid="uid://c54kslsvpaq1d" path="res://Scenes/Monsters/ghost_kasu_rig.tscn" id="21_x83xq"]
 [ext_resource type="PackedScene" uid="uid://cnoimypw1n0ry" path="res://Scenes/Prefabs/mask.tscn" id="22_3dt7p"]
-
-[sub_resource type="Gradient" id="Gradient_x83xq"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ex0qg"]
-gradient = SubResource("Gradient_x83xq")
-width = 150
-height = 150
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.0136752, 0.517094)
+[ext_resource type="PackedScene" uid="uid://xfsdk3tsmscp" path="res://Scenes/Monsters/ghost_boy.tscn" id="22_ex0qg"]
 
 [node name="Level_01" type="Node2D"]
+script = ExtResource("1_jgw62")
 
 [node name="Background" type="Node2D" parent="."]
 modulate = Color(0.548963, 0.548963, 0.548963, 1)
@@ -45,43 +38,266 @@ visibility_layer = 2
 z_index = -100
 
 [node name="Layer1" type="Parallax2D" parent="Background"]
-scroll_scale = Vector2(0, 0.8)
+scroll_scale = Vector2(0.7, 0.8)
 repeat_size = Vector2(982, 0)
 repeat_times = 3
 
-[node name="Bg1" type="Sprite2D" parent="Background/Layer1"]
-texture = ExtResource("15_i7ntp")
-centered = false
-metadata/_edit_lock_ = true
+[node name="Polygon2D" type="Polygon2D" parent="Background/Layer1"]
+position = Vector2(-514, 352)
+scale = Vector2(12.759, 2)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(15.3164, 8.70656, 94.1734, 8.08564, 94.1735, 43.5403, 94.1734, 85.7008, 53.814, 85.3879, 14.0746, 85.0799)
+uv = PackedVector2Array(15.3164, 8.70656, 94.1734, 8.08564, 94.1734, 85.7008, 14.0746, 85.0799)
+
+[node name="M2Tree1" type="Sprite2D" parent="Background/Layer1"]
+modulate = Color(0.77084, 0.770839, 0.770839, 1)
+position = Vector2(-973, 176)
+scale = Vector2(0.611875, 0.589233)
+texture = ExtResource("2_ailna")
+
+[node name="M2Tree2" type="Sprite2D" parent="Background/Layer1"]
+modulate = Color(0.77084, 0.770839, 0.770839, 1)
+position = Vector2(-373, 161)
+scale = Vector2(0.611875, 0.589233)
+texture = ExtResource("2_ailna")
 
 [node name="Layer2" type="Parallax2D" parent="Background"]
-scroll_scale = Vector2(0.2, 0.8)
+scroll_scale = Vector2(0.8, 0.8)
 repeat_size = Vector2(982, 0)
 repeat_times = 3
 
-[node name="Bg2" type="Sprite2D" parent="Background/Layer2"]
-position = Vector2(490, 679)
-texture = ExtResource("14_xpj05")
+[node name="M2Tree2" type="Sprite2D" parent="Background/Layer2"]
+modulate = Color(0.77084, 0.770839, 0.770839, 1)
+position = Vector2(-621.5, 215.875)
+scale = Vector2(0.7325, 0.773294)
+texture = ExtResource("2_ailna")
 
-[node name="Bg1" type="Sprite2D" parent="Background/Layer2"]
-position = Vector2(0, 100)
-texture = ExtResource("16_jt6p5")
-centered = false
+[node name="M2Tree3" type="Sprite2D" parent="Background/Layer2"]
+modulate = Color(0.77084, 0.770839, 0.770839, 1)
+position = Vector2(-846, 225)
+scale = Vector2(0.7325, 0.773294)
+texture = ExtResource("2_ailna")
+
+[node name="Layer3" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.9, 1)
+
+[node name="M2Tree5" type="Sprite2D" parent="Background/Layer3"]
+position = Vector2(329.25, 46.8749)
+scale = Vector2(1.03875, 1.05282)
+texture = ExtResource("2_ailna")
+
+[node name="MTree1" type="Sprite2D" parent="Background/Layer3"]
+position = Vector2(1172, 157)
+texture = ExtResource("3_x83xq")
+
+[node name="House1" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(-306.954, -467.743)
+scale = Vector2(1.64687, 1.66366)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(1.78625, 545.1, 172.528, 544.633, 172.528, 392.085, -4.27834, 391.152)
+uv = PackedVector2Array(1.78625, 545.1, 172.528, 544.633, 172.528, 392.085, -4.27834, 391.152)
+
+[node name="House6" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(231, -359)
+scale = Vector2(1.52768, 1.43998)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+
+[node name="House7" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(807.403, -737.539)
+scale = Vector2(1.98077, 2.04653)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+
+[node name="House8" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(-750, 402)
+scale = Vector2(-2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+
+[node name="poly2" parent="Background/Layer3" instance=ExtResource("6_xpj05")]
+position = Vector2(489, 439)
+
+[node name="poly5" parent="Background/Layer3" instance=ExtResource("6_xpj05")]
+modulate = Color(0.490196, 0.486275, 0, 0.807843)
+z_index = -3
+position = Vector2(2446, 487)
+scale = Vector2(1.42148, 1.52025)
 metadata/_edit_lock_ = true
+
+[node name="poly6" parent="Background/Layer3" instance=ExtResource("6_xpj05")]
+modulate = Color(0.490196, 0.486275, 0, 0.807843)
+z_index = -3
+position = Vector2(3299, 203)
+scale = Vector2(1.42148, 1.52025)
+polygon = PackedVector2Array(768.54, 614.454, 740.88, 615.018, 736.929, 576.634, 693.464, 561.958, 658.307, 518.004, 709.827, 464.268, 761.766, 463.739, 801.844, 479.545, 831.876, 498.059, 817.649, 506.075, 832.326, 542.786, 780.958, 573.812, 769.668, 580.021)
+
+[node name="tree1" parent="Background/Layer3" instance=ExtResource("6_xpj05")]
+position = Vector2(184, 438)
+
+[node name="Tree5" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(2358, 916)
+scale = Vector2(1.531, 1.5803)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+uv = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+metadata/_edit_lock_ = true
+
+[node name="Tree6" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(-2571, 961)
+scale = Vector2(1.73592, 1.71225)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+uv = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+
+[node name="Tree7" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(-2127, 959)
+scale = Vector2(1.73592, 1.71225)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+uv = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+
+[node name="M2Tree3" type="Sprite2D" parent="Background/Layer3"]
+position = Vector2(4929, -280.125)
+scale = Vector2(0.865, 1.07069)
+texture = ExtResource("2_ailna")
+
+[node name="M2Tree4" type="Sprite2D" parent="Background/Layer3"]
+position = Vector2(3501, -97)
+scale = Vector2(0.865, 0.884615)
+texture = ExtResource("2_ailna")
+
+[node name="M2Tree7" type="Sprite2D" parent="Background/Layer3"]
+modulate = Color(0.687215, 0.687215, 0.687215, 1)
+position = Vector2(2117, -82)
+scale = Vector2(1.1425, 1.06744)
+texture = ExtResource("2_ailna")
+metadata/_edit_lock_ = true
+
+[node name="Layer4" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.95, 1)
+
+[node name="MTree1" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(872, 144)
+texture = ExtResource("3_x83xq")
+
+[node name="M2Tree7" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(1898, -61)
+scale = Vector2(1.1425, 1.06744)
+texture = ExtResource("2_ailna")
+metadata/_edit_lock_ = true
+
+[node name="House6" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(-141, -630)
+scale = Vector2(1.843, 1.9316)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+metadata/_edit_lock_ = true
+
+[node name="House7" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(807.403, -737.539)
+scale = Vector2(1.98077, 2.04653)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+
+[node name="House8" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(-1238, 401)
+scale = Vector2(-2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+
+[node name="House9" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(-2450, 357)
+scale = Vector2(2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+metadata/_edit_lock_ = true
+
+[node name="House2" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(-580, -601)
+scale = Vector2(1.88271, 1.90777)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(1.78625, 545.1, 172.528, 544.633, 172.528, 392.085, -4.27834, 391.152)
+uv = PackedVector2Array(1.78625, 545.1, 172.528, 544.633, 172.528, 392.085, -4.27834, 391.152)
+
+[node name="poly2" parent="Background/Layer4" instance=ExtResource("6_xpj05")]
+position = Vector2(352, 442)
+scale = Vector2(2, 2)
+
+[node name="Tree5" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(2182, 961)
+scale = Vector2(1.73592, 1.71225)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+uv = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+metadata/_edit_lock_ = true
+
+[node name="Tree6" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(-1837, 1024)
+scale = Vector2(1.73592, 1.71225)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+uv = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+
+[node name="M3Tree1" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(5343, -171)
+scale = Vector2(-1, 1)
+texture = ExtResource("6_lg4gj")
+
+[node name="M2Tree4" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(4143, -271)
+rotation = -3.0149
+scale = Vector2(1.22218, -1.35232)
+texture = ExtResource("2_ailna")
+
+[node name="M3Tree2" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(4529, -166)
+scale = Vector2(-1, 1)
+texture = ExtResource("6_lg4gj")
+
+[node name="M2Tree5" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(3735.5, -181.875)
+scale = Vector2(0.9375, 0.975352)
+texture = ExtResource("2_ailna")
+
+[node name="M2Tree6" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(3242, -186)
+scale = Vector2(0.865, 0.884615)
+texture = ExtResource("2_ailna")
 
 [node name="LevelFinishDoor" parent="." instance=ExtResource("1_oqkjg")]
 z_index = 1
-position = Vector2(4998, -43)
+position = Vector2(5567, -84)
 next_scene = ExtResource("2_0ac5u")
+
+[node name="Temple" parent="LevelFinishDoor" instance=ExtResource("6_xpj05")]
+show_behind_parent = true
+position = Vector2(223, -86)
+scale = Vector2(2.48899, 2.91604)
+offset = Vector2(-145.981, -663.901)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(46.0704, 559.326, -11.2663, 650.056, -5.59564, 707.393, 249.584, 709.283, 248.324, 687.23, 245.804, 602.171, 195.398, 561.216)
+uv = PackedVector2Array(46.0704, 559.326, -11.2663, 650.056, -5.59564, 707.393, 249.584, 709.283, 248.324, 687.23, 245.804, 602.171, 195.398, 561.216)
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_pay8t")]
 z_index = 1
-position = Vector2(117, 348)
-
-[node name="PointLight2D" type="PointLight2D" parent="Player"]
-position = Vector2(1.50001, -45)
-scale = Vector2(3.06, 2.62667)
-texture = SubResource("GradientTexture2D_ex0qg")
+position = Vector2(110, 393)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -100,47 +316,49 @@ position = Vector2(2642, 338)
 [node name="Wing2" parent="Coins" instance=ExtResource("13_5pmb1")]
 position = Vector2(2508, 334)
 
+[node name="PotionHeal" parent="Coins" instance=ExtResource("9_jgw62")]
+position = Vector2(2416, 327)
+amount = 2
+
+[node name="PotionHeal2" parent="Coins" instance=ExtResource("9_jgw62")]
+position = Vector2(3558, 113)
+amount = 2
+
+[node name="PotionHeal3" parent="Coins" instance=ExtResource("9_jgw62")]
+position = Vector2(4413, -248)
+amount = 2
+
+[node name="PotionHeal4" parent="Coins" instance=ExtResource("9_jgw62")]
+position = Vector2(4724, -249)
+amount = 2
+
+[node name="PotionHeal5" parent="Coins" instance=ExtResource("9_jgw62")]
+position = Vector2(-2804, 197)
+amount = 2
+
+[node name="PotionHeal6" parent="Coins" instance=ExtResource("9_jgw62")]
+position = Vector2(-2698, 195)
+amount = 2
+
 [node name="Level" type="Node2D" parent="."]
 
-[node name="poly" parent="Level" instance=ExtResource("6_xpj05")]
-position = Vector2(439, 442)
-
-[node name="poly2" parent="Level" instance=ExtResource("6_xpj05")]
-z_index = -3
-position = Vector2(395, 439)
-scale = Vector2(2.33139, 2.45556)
-
-[node name="poly3" parent="Level" instance=ExtResource("6_xpj05")]
-modulate = Color(0.488492, 0.487556, 0, 1)
-z_index = 4
-position = Vector2(1134, 462)
-scale = Vector2(2.33139, 2.45556)
-
-[node name="poly4" parent="Level" instance=ExtResource("6_xpj05")]
-modulate = Color(0.490196, 0.486275, 0, 0.807843)
-z_index = 4
-position = Vector2(2290.29, 425.269)
-scale = Vector2(1.42148, 1.52025)
-
-[node name="poly5" parent="Level" instance=ExtResource("6_xpj05")]
-modulate = Color(0.490196, 0.486275, 0, 0.807843)
-z_index = -3
-position = Vector2(2446, 487)
-scale = Vector2(1.42148, 1.52025)
-
-[node name="poly6" parent="Level" instance=ExtResource("6_xpj05")]
-modulate = Color(0.490196, 0.486275, 0, 0.807843)
-z_index = -3
-position = Vector2(3299, 203)
-scale = Vector2(1.42148, 1.52025)
-polygon = PackedVector2Array(768.54, 614.454, 740.88, 615.018, 736.929, 576.634, 693.464, 561.958, 658.307, 518.004, 709.827, 464.268, 761.766, 463.739, 801.844, 479.545, 831.876, 498.059, 817.649, 506.075, 832.326, 542.786, 780.958, 573.812, 769.668, 580.021)
-
 [node name="floor" parent="Level" instance=ExtResource("11_aksfc")]
-offset_left = -367.0
+offset_left = -1645.0
 offset_top = 438.0
 offset_right = 1359.0
 offset_bottom = 723.0
-metadata/_edit_lock_ = true
+
+[node name="floor6" parent="Level" instance=ExtResource("11_aksfc")]
+offset_left = -3163.0
+offset_top = 377.0
+offset_right = -1554.0
+offset_bottom = 719.0
+
+[node name="floor7" parent="Level" instance=ExtResource("11_aksfc")]
+offset_left = -3166.0
+offset_top = -1067.0
+offset_right = -3014.0
+offset_bottom = 723.0
 
 [node name="floor2" parent="Level" instance=ExtResource("11_aksfc")]
 offset_left = 1318.0
@@ -154,28 +372,31 @@ offset_left = 2844.0
 offset_top = 171.0
 offset_right = 4669.0
 offset_bottom = 459.0
+metadata/_edit_lock_ = true
 
 [node name="floor4" parent="Level" instance=ExtResource("11_aksfc")]
 offset_left = 4208.0
 offset_top = -45.0
-offset_right = 5099.0
+offset_right = 6479.0
 offset_bottom = 455.0
 
 [node name="floor5" parent="Level" instance=ExtResource("11_aksfc")]
-offset_left = 5061.0
-offset_top = -571.0
-offset_right = 5408.0
-offset_bottom = 453.0
+offset_left = 6068.0
+offset_top = -1041.0
+offset_right = 6488.0
+offset_bottom = 444.0
 
 [node name="SpawnPoint" type="Marker2D" parent="Level"]
 unique_name_in_owner = true
 position = Vector2(174, 383)
 
-[node name="Gbfire1" parent="Level" instance=ExtResource("10_1bssr")]
+[node name="Fires" type="Node2D" parent="Level"]
+
+[node name="Gbfire1" parent="Level/Fires" instance=ExtResource("10_1bssr")]
 z_index = 2
 position = Vector2(580, 446)
 
-[node name="poly6" type="Polygon2D" parent="Level/Gbfire1"]
+[node name="poly6" type="Polygon2D" parent="Level/Fires/Gbfire1"]
 show_behind_parent = true
 offset = Vector2(-100.771, -179.422)
 texture = ExtResource("10_siisw")
@@ -183,11 +404,11 @@ polygon = PackedVector2Array(21.8737, 189.292, 186.418, 192.396, 182.692, 164.45
 uv = PackedVector2Array(21.8737, 189.292, 186.418, 192.396, 182.692, 164.455, 140.47, 117.886, 54.1616, 117.265, 20.6319, 159.488)
 metadata/_edit_lock_ = true
 
-[node name="Gbfire2" parent="Level" instance=ExtResource("10_1bssr")]
+[node name="Gbfire2" parent="Level/Fires" instance=ExtResource("10_1bssr")]
 position = Vector2(1550, 396)
 hp = 300
 
-[node name="poly6" type="Polygon2D" parent="Level/Gbfire2"]
+[node name="poly6" type="Polygon2D" parent="Level/Fires/Gbfire2"]
 show_behind_parent = true
 offset = Vector2(-100.771, -179.422)
 texture = ExtResource("10_siisw")
@@ -195,12 +416,12 @@ polygon = PackedVector2Array(21.8737, 189.292, 186.418, 192.396, 182.692, 164.45
 uv = PackedVector2Array(21.8737, 189.292, 186.418, 192.396, 182.692, 164.455, 140.47, 117.886, 54.1616, 117.265, 20.6319, 159.488)
 metadata/_edit_lock_ = true
 
-[node name="Gbfire4" parent="Level" instance=ExtResource("10_1bssr")]
+[node name="Gbfire4" parent="Level/Fires" instance=ExtResource("10_1bssr")]
 z_index = -3
 position = Vector2(1078, 445)
 hp = 200
 
-[node name="poly3" parent="Level/Gbfire4" instance=ExtResource("6_xpj05")]
+[node name="poly3" parent="Level/Fires/Gbfire4" instance=ExtResource("6_xpj05")]
 show_behind_parent = true
 position = Vector2(-6.14461, -13.5181)
 scale = Vector2(1.30101, 1.74482)
@@ -209,11 +430,55 @@ polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.83
 uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
 metadata/_edit_lock_ = true
 
-[node name="Gbfire3" parent="Level" instance=ExtResource("10_1bssr")]
+[node name="Gbfire8" parent="Level/Fires" instance=ExtResource("10_1bssr")]
+z_index = -3
+position = Vector2(-786, 447)
+hp = 200
+
+[node name="poly3" parent="Level/Fires/Gbfire8" instance=ExtResource("6_xpj05")]
+show_behind_parent = true
+position = Vector2(-6.14461, -13.5181)
+scale = Vector2(1.30101, 1.74482)
+offset = Vector2(-382.007, -284.736)
+polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire9" parent="Level/Fires" instance=ExtResource("10_1bssr")]
+z_index = -3
+position = Vector2(-2336, 383)
+hp = 200
+metadata/_edit_lock_ = true
+
+[node name="poly3" parent="Level/Fires/Gbfire9" instance=ExtResource("6_xpj05")]
+show_behind_parent = true
+position = Vector2(324.434, 206.458)
+offset = Vector2(-382.007, -284.736)
+texture = ExtResource("16_lg4gj")
+polygon = PackedVector2Array(0.92984, 2.78044, 0.92984, 84.0599, 53.226, 99.1817, 99.2213, 94.1411, 104.262, 79.6494, 97.3311, 38.6946, 54.4861, -4.78045)
+uv = PackedVector2Array(0.92984, 2.78044, 0.92984, 84.0599, 53.226, 99.1817, 99.2213, 94.1411, 104.262, 79.6494, 97.3311, 38.6946, 54.4861, -4.78045)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire10" parent="Level/Fires" instance=ExtResource("10_1bssr")]
+z_index = -3
+position = Vector2(-2516, 389)
+hp = 200
+metadata/_edit_lock_ = true
+
+[node name="poly3" parent="Level/Fires/Gbfire10" instance=ExtResource("6_xpj05")]
+show_behind_parent = true
+position = Vector2(228.578, 204)
+offset = Vector2(-382.007, -284.736)
+texture = ExtResource("16_lg4gj")
+polygon = PackedVector2Array(173.008, 15.9303, 163.148, 9.95421, 145.219, 9.0578, 123.406, 3.67931, 95.6177, 17.7231, 103.685, 81.9662, 128.785, 101.09, 159.263, 86.4482, 185.558, 95.1136, 210.359, 84.6554, 193.028, 70.9104, 195.717, 51.7869, 190.638, 23.4004)
+uv = PackedVector2Array(173.008, 15.9303, 163.148, 9.95421, 145.219, 9.0578, 123.406, 3.67931, 95.6177, 17.7231, 103.685, 81.9662, 128.785, 101.09, 159.263, 86.4482, 185.558, 95.1136, 210.359, 84.6554, 193.028, 70.9104, 195.717, 51.7869, 190.638, 23.4004)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire3" parent="Level/Fires" instance=ExtResource("10_1bssr")]
 position = Vector2(2171, 407)
 hp = 300
 
-[node name="poly3" parent="Level/Gbfire3" instance=ExtResource("6_xpj05")]
+[node name="poly3" parent="Level/Fires/Gbfire3" instance=ExtResource("6_xpj05")]
 show_behind_parent = true
 position = Vector2(-6.14461, -13.5181)
 scale = Vector2(1.30101, 1.74482)
@@ -222,11 +487,12 @@ polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.83
 uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
 metadata/_edit_lock_ = true
 
-[node name="Gbfire5" parent="Level" instance=ExtResource("10_1bssr")]
+[node name="Gbfire5" parent="Level/Fires" instance=ExtResource("10_1bssr")]
 position = Vector2(3656, 181)
 hp = 500
+metadata/_edit_lock_ = true
 
-[node name="poly3" parent="Level/Gbfire5" instance=ExtResource("6_xpj05")]
+[node name="poly3" parent="Level/Fires/Gbfire5" instance=ExtResource("6_xpj05")]
 show_behind_parent = true
 position = Vector2(-6.14461, -13.5181)
 scale = Vector2(1.30101, 1.74482)
@@ -235,11 +501,11 @@ polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.83
 uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
 metadata/_edit_lock_ = true
 
-[node name="Gbfire6" parent="Level" instance=ExtResource("10_1bssr")]
-position = Vector2(3775, 180)
+[node name="Gbfire6" parent="Level/Fires" instance=ExtResource("10_1bssr")]
+position = Vector2(3782, 182)
 hp = 400
 
-[node name="poly3" parent="Level/Gbfire6" instance=ExtResource("6_xpj05")]
+[node name="poly3" parent="Level/Fires/Gbfire6" instance=ExtResource("6_xpj05")]
 show_behind_parent = true
 position = Vector2(-6.14461, -13.5181)
 scale = Vector2(1.30101, 1.74482)
@@ -248,11 +514,12 @@ polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.83
 uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
 metadata/_edit_lock_ = true
 
-[node name="Gbfire7" parent="Level" instance=ExtResource("10_1bssr")]
-position = Vector2(3903, 180)
+[node name="Gbfire7" parent="Level/Fires" instance=ExtResource("10_1bssr")]
+position = Vector2(3920, 179)
 hp = 300
+metadata/_edit_lock_ = true
 
-[node name="poly3" parent="Level/Gbfire7" instance=ExtResource("6_xpj05")]
+[node name="poly3" parent="Level/Fires/Gbfire7" instance=ExtResource("6_xpj05")]
 show_behind_parent = true
 position = Vector2(-6.14461, -13.5181)
 scale = Vector2(1.30101, 1.74482)
@@ -260,19 +527,6 @@ offset = Vector2(-382.007, -284.736)
 polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
 uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
 metadata/_edit_lock_ = true
-
-[node name="House1" type="Sprite2D" parent="Level"]
-z_index = -2
-position = Vector2(-95.75, 291.563)
-scale = Vector2(2.32108, 2.05453)
-texture = ExtResource("12_aksfc")
-
-[node name="House2" type="Sprite2D" parent="Level"]
-modulate = Color(0.756863, 0.498039, 1, 1)
-z_index = -4
-position = Vector2(1366, 303)
-scale = Vector2(1.7549, 1.9951)
-texture = ExtResource("12_aksfc")
 
 [node name="TutorialText" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -291,33 +545,6 @@ text = "ปีกครูฑ กด Z เพื่อใช้งาน
 กระโดดได้สูงเป็นเวลา 60 วินาที"
 horizontal_alignment = 1
 
-[node name="Movement" type="Label" parent="TutorialText"]
-offset_left = 96.0
-offset_top = 481.0
-offset_right = 388.0
-offset_bottom = 572.0
-theme = ExtResource("13_07uvp")
-theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
-theme_override_colors/font_outline_color = Color(0.180005, 0.180005, 0.180005, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 32
-text = "A & D  เพื่อเดิน
-Spacebar เพื่อกระโดด"
-
-[node name="Movement2" type="Label" parent="TutorialText"]
-offset_left = -209.0
-offset_top = 175.0
-offset_right = 478.0
-offset_bottom = 234.0
-theme = ExtResource("13_07uvp")
-theme_override_colors/font_color = Color(0.434823, 0.07048, 2.40654e-08, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_ex0qg")
-theme_override_font_sizes/font_size = 32
-text = "เมือง “พุทธนคร” เคยเป็นดินแดนที่สวยงาม
-ตอนนี้ทำไมถึงสกปรกและไร้ผู้คนเยี่ยงนี้"
-
 [node name="SmokeText2" type="Label" parent="TutorialText"]
 z_index = 2
 offset_left = 414.0
@@ -329,31 +556,50 @@ theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
 theme_override_colors/font_outline_color = Color(0.111197, 0.111197, 0.111197, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
-text = "ใครมาก่อกองไฟเผาขยะ
-ทำให้เกิดมลพิษในอากาศ
+text = "เด็กน้อยทำไมก่อกองไฟเผาขยะ
+รู้มั้ยว่าทำให้เกิดมลพิษในอากาศ
 จักต้องไปตักน้ำที่บ่อ มาดับไฟ"
 horizontal_alignment = 1
 
 [node name="HelpBox" parent="TutorialText" instance=ExtResource("15_5v11l")]
-position = Vector2(415, 431)
-text = "กด X โยนน้ำดับไฟ"
+position = Vector2(277, 427)
+text = "ทำไมเด็กน้อยไม่มีขา
+กด X โยนน้ำดับไฟ"
+
+[node name="HelpBox1" parent="TutorialText" instance=ExtResource("15_5v11l")]
+position = Vector2(111, 428)
+text = "เมือง “พุทธนคร” เคยเป็นดินแดนที่สวยงาม
+ตอนนี้ทำไมถึงสกปรกและไร้ผู้คนเยี่ยงนี้"
+
+[node name="Movement" type="Label" parent="TutorialText/HelpBox1"]
+offset_left = -22.0
+offset_top = 50.0
+offset_right = 270.0
+offset_bottom = 177.0
+theme = ExtResource("13_07uvp")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(0.180005, 0.180005, 0.180005, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "A & D  เพื่อเดิน
+Spacebar เพื่อกระโดด"
 
 [node name="HelpBox2" parent="TutorialText" instance=ExtResource("15_5v11l")]
 position = Vector2(768, 424)
 text = "หากใส่หน้ากากนี้ จักสามารถป้องกันอากาศพิษได้ "
 
 [node name="SmokeText" type="Label" parent="TutorialText"]
-offset_left = 1347.0
-offset_top = 419.0
-offset_right = 1541.0
-offset_bottom = 508.0
+offset_left = -393.0
+offset_top = 483.0
+offset_right = -148.0
+offset_bottom = 572.0
 theme = ExtResource("13_07uvp")
 theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
 theme_override_colors/font_outline_color = Color(0.111197, 0.111197, 0.111197, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
-text = "ดาษแห่งความบริสุทธิ์ 
-กด C เพื่อฟัน ผีร้าย"
+text = "ค้นหาดาบแห่งความบริสุทธิ์ 
+กด C เพื่อฟาดฟัน ผีร้าย"
 horizontal_alignment = 1
 
 [node name="SmokeText3" type="Label" parent="TutorialText"]
@@ -416,7 +662,7 @@ metadata/_edit_lock_ = true
 position = Vector2(0, 438)
 
 [node name="Well2" parent="." instance=ExtResource("18_s0ca6")]
-position = Vector2(3340, 167)
+position = Vector2(3379, 163)
 
 [node name="Monster" type="Node2D" parent="."]
 
@@ -438,12 +684,14 @@ title = "ผีควันระดับ 2"
 
 [node name="Monster3" parent="Monster" instance=ExtResource("20_07uvp")]
 modulate = Color(1, 0.054902, 0.0392157, 1)
-position = Vector2(4834, -84)
+position = Vector2(5354, -77)
+scale = Vector2(1.2, 1.2)
 speed = 150
 hp = 400
 maxhp = 400
-atk = 25
+atk = 50
 title = "เจ้าพ่อผีควัน"
+visible_range = 800
 
 [node name="Monster2" parent="Monster" instance=ExtResource("20_07uvp")]
 position = Vector2(1907, 295)
@@ -452,6 +700,7 @@ speed = 50
 maxhp = 50
 def = 1
 title = "ผีควันระดับ 1"
+visible_range = 600
 
 [node name="Monster4" parent="Monster" instance=ExtResource("20_07uvp")]
 position = Vector2(1734, 270)
@@ -469,18 +718,82 @@ monster_rig = ExtResource("21_x83xq")
 speed = 50
 maxhp = 50
 def = 1
-title = "ผีควันระดับ 1"
+title = "ผีกระสือ "
+visible_range = 1000
+pitch = 2.5
 
 [node name="Monster5" parent="Monster" instance=ExtResource("20_07uvp")]
-position = Vector2(2059, 303)
+position = Vector2(2074, 296)
 scale = Vector2(0.5, 0.5)
 speed = 60
 maxhp = 50
 def = 1
 title = "ผีควันระดับ 1"
 
+[node name="Monster7" parent="Monster" instance=ExtResource("20_07uvp")]
+position = Vector2(578, 406)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("22_ex0qg")
+speed = 40
+hp = 50
+maxhp = 50
+atk = 2
+def = 1
+title = "ผีเด็กเล่นไฟ ระดับ 1"
+pitch = 2.0
+
+[node name="Monster8" parent="Monster" instance=ExtResource("20_07uvp")]
+position = Vector2(-245, 409)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("22_ex0qg")
+speed = 40
+hp = 50
+maxhp = 50
+atk = 2
+def = 1
+title = "ผีเด็กเล่นไฟ ระดับ 1"
+pitch = 2.0
+
+[node name="Monster10" parent="Monster" instance=ExtResource("20_07uvp")]
+position = Vector2(-2237, 275)
+monster_rig = ExtResource("22_ex0qg")
+speed = 60
+hp = 50
+maxhp = 50
+atk = 5
+def = 2
+title = "ผีเด็กเล่นไฟ ระดับ 1"
+visible_range = 500
+pitch = 2.0
+metadata/_edit_lock_ = true
+
+[node name="Monster11" parent="Monster" instance=ExtResource("20_07uvp")]
+position = Vector2(-2931, 272)
+monster_rig = ExtResource("21_x83xq")
+speed = 60
+hp = 50
+maxhp = 50
+atk = 5
+def = 2
+title = "ผีกระสือสาว"
+visible_range = 500
+pitch = 2.0
+metadata/_edit_lock_ = true
+
+[node name="Monster9" parent="Monster" instance=ExtResource("20_07uvp")]
+position = Vector2(-1125, 415)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("21_x83xq")
+speed = 40
+hp = 50
+maxhp = 50
+atk = 2
+def = 1
+title = "ผีกระสือ"
+pitch = 2.0
+
 [node name="sword" parent="." instance=ExtResource("20_3dt7p")]
-position = Vector2(1427, 334)
+position = Vector2(-229, 365)
 amount = 3
 
 [node name="sword2" parent="." instance=ExtResource("20_3dt7p")]
@@ -491,4 +804,125 @@ amount = 3
 position = Vector2(786, 376)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(4.36185e-08, 0.0829391, 0.00325268, 1)
+
+[node name="FgObjects" type="Parallax2D" parent="."]
+modulate = Color(1, 1, 1, 0.768627)
+z_index = 7
+
+[node name="Tree1" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-294, -135)
+scale = Vector2(-2.41537, 2.63741)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="Tree2" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-659, 20)
+scale = Vector2(2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="MTree1" type="Sprite2D" parent="FgObjects"]
+position = Vector2(239, 12)
+scale = Vector2(1.57383, 1.57383)
+texture = ExtResource("3_x83xq")
+
+[node name="Tree3" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-1299.8, -143.332)
+scale = Vector2(-2.41537, 2.63741)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree4" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-1410, 11)
+scale = Vector2(2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree9" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-2689, -203)
+scale = Vector2(-2.41537, 2.63741)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree10" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-3111, -46)
+scale = Vector2(2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="Tree7" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-2768, -202)
+scale = Vector2(-2.41537, 2.63741)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="Tree8" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-2829, -42)
+scale = Vector2(2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree5" type="Polygon2D" parent="FgObjects"]
+position = Vector2(2265.93, -204.332)
+scale = Vector2(-2.41537, 2.63741)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree6" type="Polygon2D" parent="FgObjects"]
+position = Vector2(2232.73, -47)
+scale = Vector2(2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="M2Tree1" type="Sprite2D" parent="FgObjects"]
+position = Vector2(1299, 30)
+texture = ExtResource("2_ailna")
+metadata/_edit_lock_ = true
+
+[node name="M2Tree2" type="Sprite2D" parent="FgObjects"]
+position = Vector2(2934, -200)
+texture = ExtResource("2_ailna")
+
+[node name="M2Tree3" type="Sprite2D" parent="FgObjects"]
+position = Vector2(4286, -432)
+texture = ExtResource("2_ailna")
+metadata/_edit_lock_ = true
+
+[node name="M3Tree1" type="Sprite2D" parent="FgObjects"]
+position = Vector2(5066, -277)
+scale = Vector2(2, 2)
+texture = ExtResource("6_lg4gj")
+metadata/_edit_lock_ = true
+
+[node name="M3Tree2" type="Sprite2D" parent="FgObjects"]
+position = Vector2(-249, 250)
+scale = Vector2(1.59875, 1.64643)
+texture = ExtResource("6_lg4gj")

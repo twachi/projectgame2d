@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://c54kslsvpaq1d"]
 
 [ext_resource type="Script" uid="uid://cw2n5cnb3qs1w" path="res://Scenes/Prefabs/monster_rig.gd" id="1_2wdt2"]
-[ext_resource type="Texture2D" uid="uid://c2p6fwpse07qc" path="res://Assets/Spritesheet/ghost_kasu.png" id="1_ggyak"]
-[ext_resource type="Texture2D" uid="uid://df5vmwpitwpic" path="res://Assets/Spritesheet/smoke1.png" id="2_2wdt2"]
-[ext_resource type="AudioStream" uid="uid://cfqtcwc3gxnev" path="res://Assets/Sound/FX/ghost_kasu.ogg" id="3_ohn8q"]
+[ext_resource type="Texture2D" uid="uid://d4k7hidww6vq1" path="res://Assets/Spritesheet/ghost_kasu.png" id="1_ggyak"]
+[ext_resource type="Texture2D" uid="uid://81hqrxsgm50t" path="res://Assets/Spritesheet/smoke1.png" id="2_2wdt2"]
+[ext_resource type="AudioStream" uid="uid://xip8h6y4crdx" path="res://Assets/Sound/FX/ghost_kasu.ogg" id="3_ohn8q"]
 
 [sub_resource type="Animation" id="Animation_2wdt2"]
 length = 0.001
@@ -1801,6 +1801,9 @@ rest = Transform2D(1, 0, 0, 1, 11.6867, -22.1905)
 
 [node name="Arm11" type="Bone2D" parent="Skeleton2D/Hip/Chest/Arm1/Arm11"]
 position = Vector2(11.4241, -19.0392)
+rest = Transform2D(1, 0, 0, 1, 11.4241, -19.0392)
+
+[node name="Arm12" type="Bone2D" parent="Skeleton2D/Hip/Chest/Arm1/Arm11/Arm11"]
 rest = Transform2D(1, 0, 0, 1, 11.4241, -19.0392)
 
 [node name="Arm2" type="Bone2D" parent="Skeleton2D/Hip/Chest"]

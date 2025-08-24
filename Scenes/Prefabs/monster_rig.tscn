@@ -1729,6 +1729,7 @@ position = Vector2(43, -65)
 shape = SubResource("CircleShape2D_5u3q0")
 
 [node name="Smoke2" type="Polygon2D" parent="AttackArea/CollisionShape2D"]
+visible = false
 modulate = Color(1, 0.819608, 0.247059, 1)
 z_index = 3
 position = Vector2(-3.06411, 1.90034)

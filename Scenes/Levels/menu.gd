@@ -16,15 +16,15 @@ func _ready() -> void:
 	rig.get_node("AnimationPlayer").play("walk")
 	pos = rig.position
 	x2 = pos.x
-	rig.scale = Vector2(1.5,1.5)
+	rig.scale = Vector2(1,1)
 
 func _process(delta: float) -> void:
 	pos += speed
 	if pos.x < x1 : 
 		speed.x = 1
-		rig.scale.x=-1.5
+		rig.scale.x=-1
 	if pos.x > x2 : 
 		speed.x = -1
-		rig.scale.x=1.5
+		rig.scale.x=1
 	rig.position = pos
 	

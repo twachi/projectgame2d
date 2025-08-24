@@ -1,16 +1,24 @@
 extends Area2D
 
 @onready var help: Label = $help
-@export var text = "ข้อความ"
+@export_multiline var text = ""
+
+var shown = true
 
 func _ready() -> void:
-	help.visible = false
+	shown = false
+	for x in get_children():
+		x.visible = false
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if !shown and body.is_in_group("Player"):
 		help.text = text
-		help.visible = true
+		#shown = true
+		for x in get_children():
+			x.visible = true
+		
 
 func _on_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		help.visible = false
+	help.visible = false
+	for x in get_children():
+		x.visible = false

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://rmjqp130cc8k"]
 
-[ext_resource type="Texture2D" uid="uid://brum6biw4q1b0" path="res://Assets/Splash/screen.png" id="1_aegwq"]
+[ext_resource type="Texture2D" uid="uid://i2lyrbj1j17f" path="res://Assets/Splash/screen.png" id="1_aegwq"]
 [ext_resource type="Script" uid="uid://d1gwngb04i6q3" path="res://Scenes/Levels/menu.gd" id="1_v6ejk"]
 [ext_resource type="PackedScene" uid="uid://c54kslsvpaq1d" path="res://Scenes/Monsters/ghost_kasu_rig.tscn" id="4_b1fqg"]
-[ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="4_oxsyl"]
+[ext_resource type="PackedScene" uid="uid://72vbdo0vicl2" path="res://Scenes/Character/player_hd_rig.tscn" id="4_oxsyl"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_v6ejk")
@@ -46,7 +46,6 @@ offset_bottom = -210.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme = ExtResource("4_oxsyl")
 theme_override_colors/font_outline_color = Color(0.988235, 1, 1, 1)
 theme_override_colors/font_color = Color(0.866667, 0.403922, 0, 1)
 theme_override_constants/outline_size = 4
@@ -55,6 +54,17 @@ text = "Play"
 
 [node name="Rig" parent="CanvasLayer/Control" instance=ExtResource("4_b1fqg")]
 position = Vector2(439, -178)
+scale = Vector2(0.7, 0.7)
+
+[node name="Hair" parent="CanvasLayer/Control/Rig/Skeleton2D/Hip/Chest" index="2"]
+scale = Vector2(1, 1)
+
+[node name="Head3" parent="CanvasLayer/Control/Rig/Skeleton2D/Hip/Chest/Head/Head2" index="0"]
+scale = Vector2(1, 1)
+
+[node name="Effect" parent="CanvasLayer/Control/Rig/AttackArea/CollisionShape2D" index="0"]
+modulate = Color(0.0392157, 1, 0.0588235, 1)
+emitting = true
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 1
@@ -66,6 +76,28 @@ offset_right = -24.0
 offset_bottom = 74.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 40
-text = "Version 1.0"
+text = "Version 1.2"
+
+[node name="PlayerHDRig" parent="CanvasLayer" instance=ExtResource("4_oxsyl")]
+z_index = 7
+position = Vector2(236, 572)
+
+[node name="Wing1" parent="CanvasLayer/PlayerHDRig/Part/Body" index="0"]
+visible = false
+
+[node name="Wing2" parent="CanvasLayer/PlayerHDRig/Part/Body" index="1"]
+visible = false
+
+[node name="Sword" parent="CanvasLayer/PlayerHDRig/Part/Body/Arm_Right" index="0"]
+visible = false
+
+[node name="AnimationPlayer" parent="CanvasLayer/PlayerHDRig" index="1"]
+autoplay = "idle"
+
+[node name="ArmL2" parent="CanvasLayer/PlayerHDRig/Skeleton2D/Hip/Chest/ArmL" index="1"]
+scale = Vector2(0.999998, 0.999998)
 
 [connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
+
+[editable path="CanvasLayer/Control/Rig"]
+[editable path="CanvasLayer/PlayerHDRig"]

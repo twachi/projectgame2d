@@ -1,9 +1,25 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0olocigoed7"]
+[gd_scene load_steps=30 format=3 uid="uid://d0olocigoed7"]
 
 [ext_resource type="Script" uid="uid://ck2qqx5h5rql0" path="res://Scenes/Prefabs/gbfire.gd" id="1_yxeb3"]
-[ext_resource type="Texture2D" uid="uid://cekerbh0mb2xp" path="res://Assets/Spritesheet/smoke1.png" id="2_mkm3k"]
-[ext_resource type="AudioStream" uid="uid://by1eajwd548c7" path="res://Assets/Sound/FX/explosion.wav" id="3_yxeb3"]
+[ext_resource type="Texture2D" uid="uid://81hqrxsgm50t" path="res://Assets/Spritesheet/smoke1.png" id="2_mkm3k"]
+[ext_resource type="AudioStream" uid="uid://clx3woadf11e8" path="res://Assets/Sound/FX/explosion.wav" id="3_yxeb3"]
 [ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="4_4vggd"]
+[ext_resource type="Texture2D" uid="uid://c13u7tcplnubd" path="res://Assets/Hd/water/Png/water40000.png" id="5_e5u60"]
+[ext_resource type="Texture2D" uid="uid://c0pmn0jtqhdbo" path="res://Assets/Hd/water/Png/water40001.png" id="6_phuk3"]
+[ext_resource type="Texture2D" uid="uid://cldqreoj1cgs1" path="res://Assets/Hd/water/Png/water40002.png" id="7_xwpxb"]
+[ext_resource type="Texture2D" uid="uid://b26gc14t2v50i" path="res://Assets/Hd/water/Png/water40003.png" id="8_26wcr"]
+[ext_resource type="Texture2D" uid="uid://yt4fcdjxjywf" path="res://Assets/Hd/water/Png/water40004.png" id="9_kjya5"]
+[ext_resource type="Texture2D" uid="uid://bl8g23kw3jvpf" path="res://Assets/Hd/water/Png/water40005.png" id="10_o185j"]
+[ext_resource type="Texture2D" uid="uid://b33l78cikffru" path="res://Assets/Hd/water/Png/water40006.png" id="11_uxg8v"]
+[ext_resource type="Texture2D" uid="uid://1oa26vbimpli" path="res://Assets/Hd/water/Png/water40007.png" id="12_hb8tk"]
+[ext_resource type="Texture2D" uid="uid://c4uail8qafqqw" path="res://Assets/Hd/water/Png/water40008.png" id="13_dbwm3"]
+[ext_resource type="Texture2D" uid="uid://tvxsmd6r4tlu" path="res://Assets/Hd/water/Png/water40009.png" id="14_78fxh"]
+[ext_resource type="Texture2D" uid="uid://c0it7cc02aga5" path="res://Assets/Hd/water/Png/water40010.png" id="15_8u0jj"]
+[ext_resource type="Texture2D" uid="uid://sqfld0ikdpio" path="res://Assets/Hd/water/Png/water40011.png" id="16_oh3po"]
+[ext_resource type="Texture2D" uid="uid://ctcwql1lh5gov" path="res://Assets/Hd/water/Png/water40012.png" id="17_tik0g"]
+[ext_resource type="Texture2D" uid="uid://crnrroijpx4h5" path="res://Assets/Hd/water/Png/water40013.png" id="18_wcupe"]
+[ext_resource type="Texture2D" uid="uid://nqm2p6rah1up" path="res://Assets/Hd/water/Png/water40014.png" id="19_7o0md"]
+[ext_resource type="Texture2D" uid="uid://broytw3jwq64b" path="res://Assets/Hd/water/Png/water40015.png" id="20_0ni7t"]
 
 [sub_resource type="Gradient" id="Gradient_yxeb3"]
 offsets = PackedFloat32Array(0, 0.103806, 1)
@@ -36,16 +52,72 @@ color_ramp = SubResource("GradientTexture1D_mkm3k")
 [sub_resource type="CircleShape2D" id="CircleShape2D_mkm3k"]
 radius = 28.2918
 
-[sub_resource type="Gradient" id="Gradient_4vggd"]
+[sub_resource type="Gradient" id="Gradient_e5u60"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0jqsn"]
-gradient = SubResource("Gradient_4vggd")
+gradient = SubResource("Gradient_e5u60")
 width = 150
 height = 150
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.0136752, 0.517094)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5v7y6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_e5u60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_phuk3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xwpxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_26wcr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kjya5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_o185j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uxg8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hb8tk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_dbwm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_78fxh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8u0jj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_oh3po")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_tik0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_wcupe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_7o0md")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_0ni7t")
+}],
+"loop": false,
+"name": &"start",
+"speed": 15.0
+}]
 
 [node name="Gbfire1" type="Node2D"]
 z_index = -2
@@ -54,6 +126,7 @@ script = ExtResource("1_yxeb3")
 
 [node name="Fire" type="GPUParticles2D" parent="."]
 position = Vector2(3.66246e-07, -25.8072)
+emitting = false
 amount = 20
 texture = ExtResource("2_mkm3k")
 lifetime = 3.0
@@ -83,9 +156,17 @@ theme = ExtResource("4_4vggd")
 value = 50.0
 
 [node name="Light" type="PointLight2D" parent="."]
-position = Vector2(0.614451, -118.59)
-scale = Vector2(2.35133, 2.18747)
+position = Vector2(-1.22891, -94.6263)
+scale = Vector2(3.08048, 2.50699)
 texture = SubResource("GradientTexture2D_0jqsn")
+
+[node name="Animate" type="AnimatedSprite2D" parent="."]
+position = Vector2(4.76837e-07, -30.7229)
+scale = Vector2(0.530723, 0.648494)
+sprite_frames = SubResource("SpriteFrames_5v7y6")
+animation = &"start"
+frame = 15
+frame_progress = 1.0
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

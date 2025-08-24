@@ -22,8 +22,9 @@
 ผู้เล่นจะสวมบทเป็น “ก้องเกียรติ” ยอดนักรบผู้สืบเชื้อสายจากนักปราบภูตโบราณ ได้รับพลังจาก “เกราะครุฑา” – อาวุธและเครื่องรางแห่งความบริสุทธิ์ ที่สามารถฟาดฟันผีควันและชำระล้างมลพิษ
 ภารกิจของเขาคือ ตะลุยฝ่าด่านในเมืองพุทธนคร กำจัดแหล่งมลพิษ ปราบผีควัน และฟื้นฟูความสดใสให้กลับคืนสู่บ้านเกิด
 
-## ทดลองเล่น  (Version 0.1)
-* https://twachi.github.io/projectgame2d/
+## ทดลองเล่น  
+* Version 1.2 https://twachi.github.io/projectgame2d/index2.html
+* Version 1.0 https://twachi.github.io/projectgame2d/index.html
 
 ## Screenshots
 ![Ghost Dust City SS 1](https://twachi.github.io/projectgame2d/Screenshot%202025-08-17%20001125.png)

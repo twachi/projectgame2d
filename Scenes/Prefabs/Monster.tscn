@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm3bmj5cqbjrs"]
+[gd_scene load_steps=9 format=3 uid="uid://bm3bmj5cqbjrs"]
 
 [ext_resource type="Script" uid="uid://1enw06ba3l7j" path="res://Scripts/monster.gd" id="1_dsb2y"]
 [ext_resource type="PackedScene" uid="uid://bjl1ciumunp52" path="res://Scenes/Prefabs/monster_rig.tscn" id="1_omk6g"]
-[ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="3_mla7t"]
+[ext_resource type="Material" uid="uid://iibu7pbpls0h" path="res://nolight.tres" id="3_d5asi"]
+[ext_resource type="FontFile" uid="uid://bgekb0gm45t4k" path="res://Assets/Fonts/THSarabunNew Bold.ttf" id="4_d5asi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7c7ju"]
 radius = 31.0
@@ -21,6 +22,17 @@ gravity = Vector3(0, 50, 0)
 scale_min = 5.0
 scale_max = 10.0
 color = Color(1, 0.00784314, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_x83xq"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mla7t"]
+gradient = SubResource("Gradient_x83xq")
+width = 100
+height = 150
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.0641026, 0.521368)
 
 [node name="Monster" type="CharacterBody2D" groups=["monster"]]
 collision_layer = 4
@@ -47,11 +59,11 @@ collision_mask = 12
 position = Vector2(-12, -13)
 rotation = -3.14159
 scale = Vector2(1, -1)
-target_position = Vector2(393, 1.001)
+target_position = Vector2(370, -0.999063)
 
 [node name="PlayerRay2" type="RayCast2D" parent="Part"]
 position = Vector2(0, -14)
-target_position = Vector2(178, 2)
+target_position = Vector2(202, 0)
 
 [node name="Rig" parent="Part" instance=ExtResource("1_omk6g")]
 position = Vector2(6, -20)
@@ -61,29 +73,7 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -75)
 shape = SubResource("CapsuleShape2D_7c7ju")
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-auto_translate_mode = 2
-modulate = Color(0.643137, 1, 1, 0.635294)
-offset_left = -57.0
-offset_top = -199.0
-offset_right = 49.0
-offset_bottom = -173.0
-theme = ExtResource("3_mla7t")
-value = 50.0
-
-[node name="Label" type="Label" parent="."]
-offset_left = -90.0
-offset_top = -226.0
-offset_right = 90.0
-offset_bottom = -204.0
-theme = ExtResource("3_mla7t")
-theme_override_colors/font_color = Color(0.921569, 0.768627, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 1
-theme_override_font_sizes/font_size = 24
-text = "TItle"
-horizontal_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="DamageParicle" type="GPUParticles2D" parent="."]
 z_index = 10
@@ -93,3 +83,43 @@ lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_mla7t")
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(3.99998, -89)
+scale = Vector2(4.1, 2.56)
+color = Color(0.0525501, 1, 0.500392, 1)
+energy = 1.5
+range_z_min = -2
+range_z_max = 0
+texture = SubResource("GradientTexture2D_mla7t")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+auto_translate_mode = 2
+modulate = Color(0.227451, 1, 0.160784, 1)
+light_mask = 2
+visibility_layer = 2
+z_index = 20
+material = ExtResource("3_d5asi")
+offset_left = -53.0
+offset_top = -201.0
+offset_right = 53.0
+offset_bottom = -174.0
+value = 50.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+z_index = 20
+material = ExtResource("3_d5asi")
+offset_left = -93.0
+offset_top = -242.0
+offset_right = 87.0
+offset_bottom = -197.0
+theme_override_colors/font_color = Color(0.921569, 0.768627, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("4_d5asi")
+theme_override_font_sizes/font_size = 32
+text = "TItle"
+horizontal_alignment = 1

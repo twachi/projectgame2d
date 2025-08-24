@@ -1,0 +1,1187 @@
+[gd_scene load_steps=28 format=3 uid="uid://dwsy6rt5nyber"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/level.gd" id="1_mhqdi"]
+[ext_resource type="Texture2D" uid="uid://cp04b16o5xh4o" path="res://Assets/Hd/meye_washingtonia-robusta_x14390.png" id="2_tvl15"]
+[ext_resource type="Texture2D" uid="uid://dwbmgdymkdrmx" path="res://Assets/Hd/meye_fraxinus-ornus_s15342.png" id="3_eminj"]
+[ext_resource type="Texture2D" uid="uid://cl31fa13eej8c" path="res://Assets/Hd/objects.png" id="4_yeob7"]
+[ext_resource type="PackedScene" uid="uid://cg4lt28lfpdd2" path="res://Scenes/Props/tree1.tscn" id="5_fq02v"]
+[ext_resource type="Texture2D" uid="uid://cvu5h7ylpy6nk" path="res://Assets/Hd/meye_malus_S8317.png" id="6_dd8ie"]
+[ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="7_1xrk5"]
+[ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="8_q2ch3"]
+[ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="8_tvl15"]
+[ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="9_um8mk"]
+[ext_resource type="PackedScene" uid="uid://cjvydf3e86gpn" path="res://Scenes/Prefabs/wing.tscn" id="10_bmhd3"]
+[ext_resource type="PackedScene" uid="uid://3al3peqkhjg8" path="res://Scenes/Items/potion_heal.tscn" id="11_1l3op"]
+[ext_resource type="PackedScene" uid="uid://ct32ygekp6768" path="res://Scenes/Prefabs/floor.tscn" id="12_2poiy"]
+[ext_resource type="PackedScene" uid="uid://d0olocigoed7" path="res://Scenes/Prefabs/gbfire.tscn" id="13_3rpj4"]
+[ext_resource type="Texture2D" uid="uid://dnmn4ukr1moq4" path="res://Assets/Spritesheet/gbfire1.png" id="14_qr3aj"]
+[ext_resource type="Texture2D" uid="uid://b3jseknij8o7e" path="res://Assets/Hd/junks.png" id="15_6ixvx"]
+[ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="16_6wex4"]
+[ext_resource type="PackedScene" uid="uid://cq0gdfn3lyb04" path="res://Scenes/Prefabs/help_box.tscn" id="17_ledef"]
+[ext_resource type="Script" uid="uid://dcujj1ch2ow65" path="res://Scripts/GameManager.gd" id="18_hyfak"]
+[ext_resource type="PackedScene" uid="uid://b6tca06ks0ys7" path="res://Scenes/Managers/user_interface.tscn" id="19_iqp1n"]
+[ext_resource type="PackedScene" uid="uid://cbh3xslxnhepu" path="res://Scenes/Prefabs/level_smoke.tscn" id="20_002rs"]
+[ext_resource type="PackedScene" uid="uid://dbbb88cbwyv2x" path="res://Scenes/Prefabs/well.tscn" id="21_y0ry0"]
+[ext_resource type="PackedScene" uid="uid://bm3bmj5cqbjrs" path="res://Scenes/Prefabs/Monster.tscn" id="22_r0wa7"]
+[ext_resource type="PackedScene" uid="uid://c54kslsvpaq1d" path="res://Scenes/Monsters/ghost_kasu_rig.tscn" id="23_guj4r"]
+[ext_resource type="PackedScene" uid="uid://xfsdk3tsmscp" path="res://Scenes/Monsters/ghost_boy.tscn" id="24_4o1t0"]
+[ext_resource type="PackedScene" uid="uid://fq21vyw23ws" path="res://Scenes/Prefabs/sword.tscn" id="25_c3yc2"]
+[ext_resource type="PackedScene" uid="uid://cnoimypw1n0ry" path="res://Scenes/Prefabs/mask.tscn" id="26_xlg1h"]
+
+[node name="Level_03" type="Node2D"]
+script = ExtResource("1_mhqdi")
+
+[node name="Background" type="Node2D" parent="."]
+modulate = Color(0.548963, 0.548963, 0.548963, 1)
+light_mask = 2
+visibility_layer = 2
+z_index = -100
+
+[node name="Layer1" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.7, 0.1)
+repeat_size = Vector2(800, 0)
+repeat_times = 5
+
+[node name="Polygon2D" type="Polygon2D" parent="Background/Layer1"]
+position = Vector2(-514, 352)
+scale = Vector2(12.759, 2)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(15.3164, 8.70656, 94.1734, 8.08564, 94.1735, 43.5403, 94.1734, 85.7008, 53.814, 85.3879, 14.0746, 85.0799)
+uv = PackedVector2Array(15.3164, 8.70656, 94.1734, 8.08564, 94.1734, 85.7008, 14.0746, 85.0799)
+
+[node name="M2Tree1" type="Sprite2D" parent="Background/Layer1"]
+modulate = Color(0.77084, 0.770839, 0.770839, 1)
+position = Vector2(-90.6875, 116.966)
+scale = Vector2(0.673437, 0.662981)
+texture = ExtResource("2_tvl15")
+
+[node name="M2Tree2" type="Sprite2D" parent="Background/Layer1"]
+modulate = Color(0.77084, 0.770839, 0.770839, 1)
+position = Vector2(-408, 140)
+scale = Vector2(0.611875, 0.589233)
+texture = ExtResource("2_tvl15")
+
+[node name="Layer2" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.8, 0.1)
+repeat_size = Vector2(982, 0)
+repeat_times = 5
+
+[node name="M2Tree2" type="Sprite2D" parent="Background/Layer2"]
+modulate = Color(0.77084, 0.770839, 0.770839, 1)
+position = Vector2(-580, 64)
+scale = Vector2(0.7325, 0.773294)
+texture = ExtResource("2_tvl15")
+
+[node name="M2Tree3" type="Sprite2D" parent="Background/Layer2"]
+modulate = Color(0.77084, 0.770839, 0.770839, 1)
+position = Vector2(-787, 63)
+scale = Vector2(0.7325, 0.773294)
+texture = ExtResource("2_tvl15")
+
+[node name="Layer3" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.9, 1)
+
+[node name="M2Tree5" type="Sprite2D" parent="Background/Layer3"]
+position = Vector2(-627, 33)
+scale = Vector2(1.03875, 1.05282)
+texture = ExtResource("2_tvl15")
+
+[node name="MTree1" type="Sprite2D" parent="Background/Layer3"]
+position = Vector2(1120, 216)
+texture = ExtResource("3_eminj")
+
+[node name="House1" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(-958, -444)
+scale = Vector2(1.64687, 1.66366)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(1.78625, 545.1, 172.528, 544.633, 172.528, 392.085, -4.27834, 391.152)
+uv = PackedVector2Array(1.78625, 545.1, 172.528, 544.633, 172.528, 392.085, -4.27834, 391.152)
+
+[node name="House6" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(2835, -337)
+scale = Vector2(1.73882, 1.66875)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+
+[node name="House10" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(1409, 326)
+scale = Vector2(1.73882, 1.66875)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(595.984, 394.732, 754.237, 404.041, 803.321, 496.284, 788.934, 523.365, 808.399, 559.755, 601.908, 557.216, 603.601, 478.513)
+uv = PackedVector2Array(595.984, 394.732, 754.237, 404.041, 803.321, 496.284, 788.934, 523.365, 808.399, 559.755, 601.908, 557.216, 603.601, 478.513)
+
+[node name="House11" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(1158, 326)
+scale = Vector2(1.73882, 1.66875)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(595.984, 394.732, 754.237, 404.041, 803.321, 496.284, 788.934, 523.365, 808.399, 559.755, 601.908, 557.216, 603.601, 478.513)
+uv = PackedVector2Array(595.984, 394.732, 754.237, 404.041, 803.321, 496.284, 788.934, 523.365, 808.399, 559.755, 601.908, 557.216, 603.601, 478.513)
+
+[node name="House7" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(-1974, 357)
+rotation = -0.0280238
+scale = Vector2(1.98077, 2.04653)
+offset = Vector2(-488.119, -501.249)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+
+[node name="House9" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(-2195, 1360)
+rotation = 0.00499234
+scale = Vector2(1.98077, 2.04653)
+offset = Vector2(-488.119, -501.249)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+
+[node name="House8" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(-1152, 408)
+scale = Vector2(-2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+
+[node name="poly2" parent="Background/Layer3" instance=ExtResource("5_fq02v")]
+position = Vector2(552, 494)
+
+[node name="poly5" parent="Background/Layer3" instance=ExtResource("5_fq02v")]
+modulate = Color(0.490196, 0.486275, 0, 0.807843)
+z_index = -3
+position = Vector2(2446, 487)
+scale = Vector2(1.42148, 1.52025)
+
+[node name="poly6" parent="Background/Layer3" instance=ExtResource("5_fq02v")]
+modulate = Color(0.490196, 0.486275, 0, 0.807843)
+z_index = -3
+position = Vector2(3011, 462)
+scale = Vector2(1.42148, 1.52025)
+polygon = PackedVector2Array(768.54, 614.454, 740.88, 615.018, 736.929, 576.634, 693.464, 561.958, 658.307, 518.004, 709.827, 464.268, 761.766, 463.739, 801.844, 479.545, 831.876, 498.059, 817.649, 506.075, 832.326, 542.786, 780.958, 573.812, 769.668, 580.021)
+
+[node name="tree1" parent="Background/Layer3" instance=ExtResource("5_fq02v")]
+position = Vector2(180, 479)
+
+[node name="Tree5" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(2374, 996)
+scale = Vector2(1.531, 1.5803)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+uv = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+
+[node name="Tree6" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(-2580, 1044)
+scale = Vector2(1.73592, 1.71225)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+uv = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+
+[node name="Tree7" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(-2124, 1013)
+scale = Vector2(1.73592, 1.71225)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+uv = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+
+[node name="Tree8" type="Polygon2D" parent="Background/Layer3"]
+position = Vector2(-2195, 2053)
+scale = Vector2(1.73592, 1.71225)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+uv = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+
+[node name="M2Tree3" type="Sprite2D" parent="Background/Layer3"]
+position = Vector2(4768, 270)
+scale = Vector2(0.865, 1.07069)
+texture = ExtResource("2_tvl15")
+
+[node name="M2Tree4" type="Sprite2D" parent="Background/Layer3"]
+position = Vector2(3496, 162)
+scale = Vector2(0.865, 0.884615)
+texture = ExtResource("2_tvl15")
+
+[node name="M2Tree7" type="Sprite2D" parent="Background/Layer3"]
+modulate = Color(0.687215, 0.687215, 0.687215, 1)
+position = Vector2(-199, -4.00001)
+scale = Vector2(1.1425, 1.06744)
+texture = ExtResource("2_tvl15")
+
+[node name="MeyeMalusS8317" type="Sprite2D" parent="Background/Layer3"]
+position = Vector2(1387, 1174)
+scale = Vector2(1.1325, 1.31429)
+texture = ExtResource("6_dd8ie")
+
+[node name="MeyeMalusS8319" type="Sprite2D" parent="Background/Layer3"]
+position = Vector2(5312, 856)
+scale = Vector2(1.1325, 1.31429)
+texture = ExtResource("6_dd8ie")
+
+[node name="MeyeMalusS8318" type="Sprite2D" parent="Background/Layer3"]
+position = Vector2(722, 1184)
+scale = Vector2(1.1325, 1.31429)
+texture = ExtResource("6_dd8ie")
+
+[node name="Layer4" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(0.95, 1)
+
+[node name="MTree1" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(-164, 192)
+texture = ExtResource("3_eminj")
+
+[node name="MTree2" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(-1112, 1220)
+texture = ExtResource("3_eminj")
+
+[node name="M2Tree7" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(-451, -26)
+scale = Vector2(1.1425, 1.06744)
+texture = ExtResource("2_tvl15")
+
+[node name="House6" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(982, 359)
+scale = Vector2(-1.843, 1.932)
+offset = Vector2(-370.038, -476.631)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+
+[node name="House7" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(1563, 679)
+scale = Vector2(1.98077, 2.04653)
+offset = Vector2(-429.427, -651.121)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+
+[node name="House8" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(-1366, 408)
+scale = Vector2(-2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+
+[node name="House9" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(-2488, 449)
+scale = Vector2(2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+
+[node name="House10" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(-1435, 1489)
+scale = Vector2(2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+uv = PackedVector2Array(497.116, 398.499, 422.669, 406.635, 412.091, 467.251, 414.532, 505.491, 419.414, 553.089, 592.717, 555.123, 592.717, 486.778, 604.108, 472.946, 600.04, 423.315)
+
+[node name="House2" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(-703, -581)
+scale = Vector2(1.88271, 1.90777)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(1.78625, 545.1, 172.528, 544.633, 172.528, 392.085, -4.27834, 391.152)
+uv = PackedVector2Array(1.78625, 545.1, 172.528, 544.633, 172.528, 392.085, -4.27834, 391.152)
+
+[node name="poly2" parent="Background/Layer4" instance=ExtResource("5_fq02v")]
+position = Vector2(-183, 1438)
+scale = Vector2(2, 2)
+
+[node name="Tree5" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(1920, 1029)
+scale = Vector2(1.73592, 1.71225)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+uv = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+
+[node name="Tree6" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(-1837, 1024)
+scale = Vector2(1.73592, 1.71225)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+uv = PackedVector2Array(719.277, 29.3818, 689.497, 7.18156, 665.13, 12.5963, 667.296, 35.338, 626.686, 44.0015, 624.52, 62.4115, 641.847, 72.1579, 619.647, 113.31, 645.096, 124.68, 654.842, 127.388, 654.842, 146.339, 673.252, 165.291, 663.506, 191.823, 654.301, 214.564, 766.927, 205.901, 764.761, 145.798, 764.761, 121.973, 778.839, 126.846, 793.459, 120.89, 778.839, 89.4849, 812.952, 88.402, 777.756, 51.5821, 777.215, 19.6354, 768.01, 7.72303, 748.517, 10.9718)
+
+[node name="M3Tree1" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(5340, 899)
+scale = Vector2(-1, 1)
+texture = ExtResource("6_dd8ie")
+
+[node name="M2Tree4" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(4014, 64)
+rotation = -3.0149
+scale = Vector2(1.22218, -1.35232)
+texture = ExtResource("2_tvl15")
+
+[node name="M3Tree2" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(4824, 582)
+scale = Vector2(-1, 1)
+texture = ExtResource("6_dd8ie")
+
+[node name="M2Tree5" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(2163, 42)
+scale = Vector2(0.9375, 0.975352)
+texture = ExtResource("2_tvl15")
+
+[node name="M2Tree6" type="Sprite2D" parent="Background/Layer4"]
+position = Vector2(2957, 84)
+scale = Vector2(0.865, 0.884615)
+texture = ExtResource("2_tvl15")
+
+[node name="House11" type="Polygon2D" parent="Background/Layer4"]
+position = Vector2(1666, 297)
+scale = Vector2(1.73882, 1.66875)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(595.984, 394.732, 754.237, 404.041, 803.321, 496.284, 788.934, 523.365, 808.399, 559.755, 601.908, 557.216, 603.601, 478.513)
+uv = PackedVector2Array(595.984, 394.732, 754.237, 404.041, 803.321, 496.284, 788.934, 523.365, 808.399, 559.755, 601.908, 557.216, 603.601, 478.513)
+
+[node name="LevelFinishDoor" parent="." instance=ExtResource("7_1xrk5")]
+z_index = 1
+position = Vector2(922, 1317)
+next_scene = ExtResource("8_tvl15")
+metadata/_edit_lock_ = true
+
+[node name="Temple" parent="LevelFinishDoor" instance=ExtResource("5_fq02v")]
+show_behind_parent = true
+position = Vector2(223, -86)
+scale = Vector2(2.48899, 2.91604)
+offset = Vector2(-145.981, -663.901)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(46.0704, 559.326, -11.2663, 650.056, -5.59564, 707.393, 249.584, 709.283, 248.324, 687.23, 245.804, 602.171, 195.398, 561.216)
+uv = PackedVector2Array(46.0704, 559.326, -11.2663, 650.056, -5.59564, 707.393, 249.584, 709.283, 248.324, 687.23, 245.804, 602.171, 195.398, 561.216)
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("8_q2ch3")]
+z_index = 1
+position = Vector2(55, 424)
+metadata/_edit_lock_ = true
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("9_um8mk")]
+position = Vector2(1144, 338)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("9_um8mk")]
+position = Vector2(1191, 336)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("9_um8mk")]
+position = Vector2(1242, 336)
+
+[node name="Wing" parent="Coins" instance=ExtResource("10_bmhd3")]
+position = Vector2(2730, 1149)
+
+[node name="Wing2" parent="Coins" instance=ExtResource("10_bmhd3")]
+position = Vector2(2508, 334)
+
+[node name="PotionHeal" parent="Coins" instance=ExtResource("11_1l3op")]
+position = Vector2(1494, 378)
+
+[node name="PotionHeal2" parent="Coins" instance=ExtResource("11_1l3op")]
+position = Vector2(3431, 448)
+
+[node name="PotionHeal3" parent="Coins" instance=ExtResource("11_1l3op")]
+position = Vector2(4371, 557)
+
+[node name="PotionHeal4" parent="Coins" instance=ExtResource("11_1l3op")]
+position = Vector2(3646, 1061)
+
+[node name="PotionHeal5" parent="Coins" instance=ExtResource("11_1l3op")]
+position = Vector2(-2826.8, 552.67)
+
+[node name="PotionHeal7" parent="Coins" instance=ExtResource("11_1l3op")]
+position = Vector2(-2438, 1301)
+
+[node name="PotionHeal6" parent="Coins" instance=ExtResource("11_1l3op")]
+position = Vector2(-3030, 1272)
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="floor" parent="Level" instance=ExtResource("12_2poiy")]
+offset_left = -1645.58
+offset_top = 431.066
+offset_right = 1358.42
+offset_bottom = 716.066
+rotation = 0.0240756
+pivot_offset = Vector2(-287.698, 27.6244)
+metadata/_edit_lock_ = true
+
+[node name="floor6" parent="Level" instance=ExtResource("12_2poiy")]
+offset_left = -3247.0
+offset_top = 525.0
+offset_right = -1638.0
+offset_bottom = 810.0
+rotation = -0.0527401
+metadata/_edit_lock_ = true
+
+[node name="floor7" parent="Level" instance=ExtResource("12_2poiy")]
+offset_left = -3277.0
+offset_top = -986.0
+offset_right = -3125.0
+offset_bottom = 1679.0
+metadata/_edit_lock_ = true
+
+[node name="floor2" parent="Level" instance=ExtResource("12_2poiy")]
+offset_left = 1329.0
+offset_top = 466.0
+offset_right = 3125.0
+offset_bottom = 795.0
+metadata/_edit_lock_ = true
+
+[node name="floor8" parent="Level" instance=ExtResource("12_2poiy")]
+offset_left = 270.0
+offset_top = 1354.0
+offset_right = 2066.0
+offset_bottom = 1683.0
+metadata/_edit_lock_ = true
+
+[node name="floor9" parent="Level" instance=ExtResource("12_2poiy")]
+offset_left = -1504.0
+offset_top = 1538.0
+offset_right = 292.0
+offset_bottom = 1867.0
+rotation = -0.100665
+metadata/_edit_lock_ = true
+
+[node name="floor10" parent="Level" instance=ExtResource("12_2poiy")]
+offset_left = -3200.0
+offset_top = 1354.0
+offset_right = -1404.0
+offset_bottom = 1683.0
+rotation = 0.0992352
+metadata/_edit_lock_ = true
+
+[node name="floor3" parent="Level" instance=ExtResource("12_2poiy")]
+offset_left = 3121.0
+offset_top = 506.0
+offset_right = 4946.0
+offset_bottom = 794.0
+rotation = 0.119979
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" parent="Level/floor3/StaticBody2D" index="0"]
+one_way_collision = true
+
+[node name="floor4" parent="Level" instance=ExtResource("12_2poiy")]
+offset_left = 2032.0
+offset_top = 1276.0
+offset_right = 6005.0
+offset_bottom = 1681.0
+rotation = -0.077741
+metadata/_edit_lock_ = true
+
+[node name="floor5" parent="Level" instance=ExtResource("12_2poiy")]
+offset_left = 5980.0
+offset_top = -323.0
+offset_right = 6199.0
+offset_bottom = 1475.0
+metadata/_edit_lock_ = true
+
+[node name="SpawnPoint" type="Marker2D" parent="Level"]
+unique_name_in_owner = true
+position = Vector2(174, 383)
+
+[node name="Fires" type="Node2D" parent="Level"]
+
+[node name="Gbfire1" parent="Level/Fires" instance=ExtResource("13_3rpj4")]
+z_index = 2
+position = Vector2(-303, 471)
+
+[node name="poly6" type="Polygon2D" parent="Level/Fires/Gbfire1"]
+show_behind_parent = true
+offset = Vector2(-100.771, -179.422)
+texture = ExtResource("14_qr3aj")
+polygon = PackedVector2Array(21.8737, 189.292, 186.418, 192.396, 182.692, 164.455, 140.47, 117.886, 54.1616, 117.265, 20.6319, 159.488)
+uv = PackedVector2Array(21.8737, 189.292, 186.418, 192.396, 182.692, 164.455, 140.47, 117.886, 54.1616, 117.265, 20.6319, 159.488)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire2" parent="Level/Fires" instance=ExtResource("13_3rpj4")]
+position = Vector2(1201, 507)
+hp = 300
+
+[node name="poly6" type="Polygon2D" parent="Level/Fires/Gbfire2"]
+show_behind_parent = true
+offset = Vector2(-100.771, -179.422)
+texture = ExtResource("14_qr3aj")
+polygon = PackedVector2Array(21.8737, 189.292, 186.418, 192.396, 182.692, 164.455, 140.47, 117.886, 54.1616, 117.265, 20.6319, 159.488)
+uv = PackedVector2Array(21.8737, 189.292, 186.418, 192.396, 182.692, 164.455, 140.47, 117.886, 54.1616, 117.265, 20.6319, 159.488)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire4" parent="Level/Fires" instance=ExtResource("13_3rpj4")]
+z_index = -3
+position = Vector2(961, 513)
+hp = 200
+
+[node name="poly3" parent="Level/Fires/Gbfire4" instance=ExtResource("5_fq02v")]
+show_behind_parent = true
+position = Vector2(-6.14461, -13.5181)
+scale = Vector2(1.30101, 1.74482)
+offset = Vector2(-382.007, -284.736)
+polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire8" parent="Level/Fires" instance=ExtResource("13_3rpj4")]
+z_index = -3
+position = Vector2(-834, 475)
+hp = 200
+
+[node name="poly3" parent="Level/Fires/Gbfire8" instance=ExtResource("5_fq02v")]
+show_behind_parent = true
+position = Vector2(-6.14461, -13.5181)
+scale = Vector2(1.30101, 1.74482)
+offset = Vector2(-382.007, -284.736)
+polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire9" parent="Level/Fires" instance=ExtResource("13_3rpj4")]
+z_index = -3
+position = Vector2(-2276, 475)
+hp = 200
+
+[node name="poly3" parent="Level/Fires/Gbfire9" instance=ExtResource("5_fq02v")]
+show_behind_parent = true
+position = Vector2(324.434, 206.458)
+offset = Vector2(-382.007, -284.736)
+texture = ExtResource("15_6ixvx")
+polygon = PackedVector2Array(0.92984, 2.78044, 0.92984, 84.0599, 53.226, 99.1817, 99.2213, 94.1411, 104.262, 79.6494, 97.3311, 38.6946, 54.4861, -4.78045)
+uv = PackedVector2Array(0.92984, 2.78044, 0.92984, 84.0599, 53.226, 99.1817, 99.2213, 94.1411, 104.262, 79.6494, 97.3311, 38.6946, 54.4861, -4.78045)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire10" parent="Level/Fires" instance=ExtResource("13_3rpj4")]
+z_index = -3
+position = Vector2(-2837, 1393)
+hp = 200
+
+[node name="poly3" parent="Level/Fires/Gbfire10" instance=ExtResource("5_fq02v")]
+show_behind_parent = true
+position = Vector2(228.578, 204)
+offset = Vector2(-382.007, -284.736)
+texture = ExtResource("15_6ixvx")
+polygon = PackedVector2Array(173.008, 15.9303, 163.148, 9.95421, 145.219, 9.0578, 123.406, 3.67931, 95.6177, 17.7231, 103.685, 81.9662, 128.785, 101.09, 159.263, 86.4482, 185.558, 95.1136, 210.359, 84.6554, 193.028, 70.9104, 195.717, 51.7869, 190.638, 23.4004)
+uv = PackedVector2Array(173.008, 15.9303, 163.148, 9.95421, 145.219, 9.0578, 123.406, 3.67931, 95.6177, 17.7231, 103.685, 81.9662, 128.785, 101.09, 159.263, 86.4482, 185.558, 95.1136, 210.359, 84.6554, 193.028, 70.9104, 195.717, 51.7869, 190.638, 23.4004)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire11" parent="Level/Fires" instance=ExtResource("13_3rpj4")]
+z_index = -3
+position = Vector2(-2159, 1460)
+hp = 200
+
+[node name="poly3" parent="Level/Fires/Gbfire11" instance=ExtResource("5_fq02v")]
+show_behind_parent = true
+position = Vector2(228.578, 204)
+offset = Vector2(-382.007, -284.736)
+texture = ExtResource("15_6ixvx")
+polygon = PackedVector2Array(173.008, 15.9303, 163.148, 9.95421, 145.219, 9.0578, 123.406, 3.67931, 95.6177, 17.7231, 103.685, 81.9662, 128.785, 101.09, 159.263, 86.4482, 185.558, 95.1136, 210.359, 84.6554, 193.028, 70.9104, 195.717, 51.7869, 190.638, 23.4004)
+uv = PackedVector2Array(173.008, 15.9303, 163.148, 9.95421, 145.219, 9.0578, 123.406, 3.67931, 95.6177, 17.7231, 103.685, 81.9662, 128.785, 101.09, 159.263, 86.4482, 185.558, 95.1136, 210.359, 84.6554, 193.028, 70.9104, 195.717, 51.7869, 190.638, 23.4004)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire3" parent="Level/Fires" instance=ExtResource("13_3rpj4")]
+position = Vector2(2077, 465)
+hp = 300
+metadata/_edit_lock_ = true
+
+[node name="poly3" parent="Level/Fires/Gbfire3" instance=ExtResource("5_fq02v")]
+show_behind_parent = true
+position = Vector2(-6.14461, -13.5181)
+scale = Vector2(1.30101, 1.74482)
+offset = Vector2(-382.007, -284.736)
+polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire5" parent="Level/Fires" instance=ExtResource("13_3rpj4")]
+position = Vector2(3642, 582)
+hp = 500
+
+[node name="poly3" parent="Level/Fires/Gbfire5" instance=ExtResource("5_fq02v")]
+show_behind_parent = true
+position = Vector2(-6.14461, -13.5181)
+scale = Vector2(1.30101, 1.74482)
+offset = Vector2(-382.007, -284.736)
+polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire6" parent="Level/Fires" instance=ExtResource("13_3rpj4")]
+position = Vector2(3858, 607)
+hp = 400
+
+[node name="poly3" parent="Level/Fires/Gbfire6" instance=ExtResource("5_fq02v")]
+show_behind_parent = true
+position = Vector2(-6.14461, -13.5181)
+scale = Vector2(1.30101, 1.74482)
+offset = Vector2(-382.007, -284.736)
+polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire13" parent="Level/Fires" instance=ExtResource("13_3rpj4")]
+position = Vector2(2258, 1275)
+hp = 400
+
+[node name="poly3" parent="Level/Fires/Gbfire13" instance=ExtResource("5_fq02v")]
+show_behind_parent = true
+position = Vector2(-6.14461, -13.5181)
+scale = Vector2(1.30101, 1.74482)
+offset = Vector2(-382.007, -284.736)
+polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire7" parent="Level/Fires" instance=ExtResource("13_3rpj4")]
+position = Vector2(5081, 1054)
+hp = 300
+
+[node name="poly3" parent="Level/Fires/Gbfire7" instance=ExtResource("5_fq02v")]
+show_behind_parent = true
+position = Vector2(-6.14461, -13.5181)
+scale = Vector2(1.30101, 1.74482)
+offset = Vector2(-382.007, -284.736)
+polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+metadata/_edit_lock_ = true
+
+[node name="Gbfire12" parent="Level/Fires" instance=ExtResource("13_3rpj4")]
+position = Vector2(3462, 1179)
+hp = 300
+
+[node name="poly3" parent="Level/Fires/Gbfire12" instance=ExtResource("5_fq02v")]
+show_behind_parent = true
+position = Vector2(-6.14461, -13.5181)
+scale = Vector2(1.30101, 1.74482)
+offset = Vector2(-382.007, -284.736)
+polygon = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+uv = PackedVector2Array(348.474, 256.249, 421.462, 258.074, 418.725, 291.831, 347.562, 292.743)
+metadata/_edit_lock_ = true
+
+[node name="TutorialText" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="SmokeText6" type="Label" parent="TutorialText"]
+offset_left = 2386.0
+offset_top = 425.0
+offset_right = 2663.0
+offset_bottom = 514.0
+theme = ExtResource("16_6wex4")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "ปีกครูฑ กด Z เพื่อใช้งาน
+กระโดดได้สูงเป็นเวลา 60 วินาที"
+horizontal_alignment = 1
+
+[node name="HelpBox" parent="TutorialText" instance=ExtResource("17_ledef")]
+position = Vector2(832, 497)
+text = "กด X โยนน้ำดับไฟ"
+
+[node name="HelpBox1" parent="TutorialText" instance=ExtResource("17_ledef")]
+position = Vector2(47, 455)
+text = "เมือง “พุทธนคร” เคยเป็นดินแดนที่สวยงาม
+ตอนนี้ทำไมถึงสกปรกและไร้ผู้คนเยี่ยงนี้"
+
+[node name="Movement" type="Label" parent="TutorialText/HelpBox1"]
+offset_left = -22.0
+offset_top = 50.0
+offset_right = 270.0
+offset_bottom = 177.0
+theme = ExtResource("16_6wex4")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(0.180005, 0.180005, 0.180005, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "A & D  เพื่อเดิน
+Spacebar เพื่อกระโดด"
+
+[node name="HelpBox2" parent="TutorialText" instance=ExtResource("17_ledef")]
+position = Vector2(249, 423)
+text = "หากใส่หน้ากากนี้ จักสามารถป้องกันอากาศพิษได้ "
+
+[node name="SmokeText4" type="Label" parent="TutorialText"]
+z_index = -1
+offset_left = 1638.0
+offset_top = 428.0
+offset_right = 2097.0
+offset_bottom = 609.0
+theme = ExtResource("16_6wex4")
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(0.0646965, 0.0646965, 0.0646965, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "ความประมาทของผู้คนทำให้เมืองนี้เต็มไปด้วยมลพิษ 
+ได้ปลุก “ผีควัน” ขึ้นมาจากเถ้าถ่าน 
+พวกมันออกอาละวาดดูดกลืนชีวิต
+และความงามของเมือง"
+horizontal_alignment = 1
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("18_hyfak")
+
+[node name="UserInterface" parent="." instance=ExtResource("19_iqp1n")]
+
+[node name="Smoke" parent="." instance=ExtResource("20_002rs")]
+modulate = Color(1, 0.996078, 1, 0)
+metadata/_edit_lock_ = true
+
+[node name="Well" parent="." instance=ExtResource("21_y0ry0")]
+position = Vector2(452, 485)
+
+[node name="Well2" parent="." instance=ExtResource("21_y0ry0")]
+position = Vector2(3137, 1192)
+
+[node name="Monster" type="Node2D" parent="."]
+
+[node name="MonsterV21" parent="Monster" instance=ExtResource("22_r0wa7")]
+position = Vector2(3082, 310)
+scale = Vector2(0.8, 0.8)
+speed = 80
+atk = 15
+def = 2
+title = "ผีควันระดับ 2"
+
+[node name="MonsterV22" parent="Monster" instance=ExtResource("22_r0wa7")]
+position = Vector2(4262, 534)
+scale = Vector2(0.8, 0.8)
+speed = 80
+atk = 15
+def = 2
+title = "ผีควันระดับ 2"
+
+[node name="Bosss1" parent="Monster" instance=ExtResource("22_r0wa7")]
+modulate = Color(1, 0.054902, 0.0392157, 1)
+position = Vector2(5336, 548)
+scale = Vector2(1.2, 1.2)
+speed = 150
+hp = 400
+maxhp = 400
+atk = 50
+title = "เจ้าพ่อผีควัน"
+visible_range = 800
+
+[node name="Bosss2" parent="Monster" instance=ExtResource("22_r0wa7")]
+modulate = Color(1, 0.054902, 0.0392157, 1)
+position = Vector2(1922, 1274)
+scale = Vector2(1.2, 1.2)
+monster_rig = ExtResource("23_guj4r")
+speed = 150
+hp = 400
+maxhp = 400
+atk = 50
+title = "เจ้าพ่อผีควัน"
+visible_range = 800
+
+[node name="Monster2" parent="Monster" instance=ExtResource("22_r0wa7")]
+position = Vector2(1517, 1293)
+scale = Vector2(0.5, 0.5)
+speed = 50
+maxhp = 50
+def = 1
+title = "ผีควันระดับ 1"
+visible_range = 600
+
+[node name="Monster4" parent="Monster" instance=ExtResource("22_r0wa7")]
+position = Vector2(1718, 375)
+scale = Vector2(0.5, 0.5)
+speed = 50
+maxhp = 50
+def = 1
+title = "ผีควันระดับ 1"
+visible_range = 600
+
+[node name="Monster6" parent="Monster" instance=ExtResource("22_r0wa7")]
+position = Vector2(2263, 1135)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("23_guj4r")
+speed = 50
+maxhp = 50
+def = 1
+title = "ผีกระสือ "
+visible_range = 1000
+pitch = 2.5
+
+[node name="Monster5" parent="Monster" instance=ExtResource("22_r0wa7")]
+position = Vector2(-465, 1353)
+scale = Vector2(0.5, 0.5)
+speed = 60
+maxhp = 50
+def = 1
+title = "ผีควันระดับ 1"
+
+[node name="Monster12" parent="Monster" instance=ExtResource("22_r0wa7")]
+position = Vector2(-2565, 1262)
+scale = Vector2(0.5, 0.5)
+speed = 60
+maxhp = 50
+def = 1
+title = "ผีควันระดับ 1"
+
+[node name="Monster7" parent="Monster" instance=ExtResource("22_r0wa7")]
+position = Vector2(572, 463)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("24_4o1t0")
+speed = 40
+hp = 50
+maxhp = 50
+atk = 2
+def = 1
+title = "ผีเด็กเล่นไฟ ระดับ 1"
+pitch = 2.0
+
+[node name="Monster8" parent="Monster" instance=ExtResource("22_r0wa7")]
+position = Vector2(-245, 409)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("24_4o1t0")
+speed = 40
+hp = 50
+maxhp = 50
+atk = 2
+def = 1
+title = "ผีเด็กเล่นไฟ ระดับ 1"
+pitch = 2.0
+
+[node name="Monster10" parent="Monster" instance=ExtResource("22_r0wa7")]
+position = Vector2(-2237, 275)
+monster_rig = ExtResource("24_4o1t0")
+speed = 60
+hp = 50
+maxhp = 50
+atk = 5
+def = 2
+title = "ผีเด็กเล่นไฟ ระดับ 1"
+visible_range = 500
+pitch = 2.0
+metadata/_edit_lock_ = true
+
+[node name="Monster11" parent="Monster" instance=ExtResource("22_r0wa7")]
+position = Vector2(-2931, 272)
+monster_rig = ExtResource("23_guj4r")
+speed = 60
+hp = 50
+maxhp = 50
+atk = 5
+def = 2
+title = "ผีกระสือสาว"
+visible_range = 500
+pitch = 2.0
+metadata/_edit_lock_ = true
+
+[node name="Monster9" parent="Monster" instance=ExtResource("22_r0wa7")]
+position = Vector2(-1125, 415)
+scale = Vector2(0.5, 0.5)
+monster_rig = ExtResource("23_guj4r")
+speed = 40
+hp = 50
+maxhp = 50
+atk = 2
+def = 1
+title = "ผีกระสือ"
+pitch = 2.0
+
+[node name="sword" parent="." instance=ExtResource("25_c3yc2")]
+position = Vector2(-229, 365)
+amount = 3
+
+[node name="sword2" parent="." instance=ExtResource("25_c3yc2")]
+position = Vector2(678, 426)
+amount = 3
+
+[node name="Mask" parent="." instance=ExtResource("26_xlg1h")]
+position = Vector2(-130, 395)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(4.36185e-08, 0.0829391, 0.00325268, 1)
+
+[node name="FgObjects" type="Parallax2D" parent="."]
+modulate = Color(1, 1, 1, 0.768627)
+z_index = 7
+
+[node name="Tree1" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-294, -135)
+scale = Vector2(-2.41537, 2.63741)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="Tree2" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-659, 20)
+scale = Vector2(2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="MTree1" type="Sprite2D" parent="FgObjects"]
+position = Vector2(1532, 937)
+scale = Vector2(1.57383, 1.57383)
+texture = ExtResource("3_eminj")
+
+[node name="MTree2" type="Sprite2D" parent="FgObjects/MTree1"]
+position = Vector2(-2009.11, 89.5904)
+texture = ExtResource("3_eminj")
+
+[node name="MTree2" type="Sprite2D" parent="FgObjects"]
+position = Vector2(3389, 728)
+scale = Vector2(1.57383, 1.57383)
+texture = ExtResource("3_eminj")
+
+[node name="MTree2" type="Sprite2D" parent="FgObjects/MTree2"]
+position = Vector2(-2014.83, 155.036)
+texture = ExtResource("3_eminj")
+
+[node name="M3Tree1" type="Sprite2D" parent="FgObjects"]
+position = Vector2(4731, 479)
+scale = Vector2(2, 2)
+texture = ExtResource("6_dd8ie")
+
+[node name="Tree3" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-1299.8, -143.332)
+scale = Vector2(-2.41537, 2.63741)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="Tree4" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-1410, 11)
+scale = Vector2(2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="Tree9" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-2688.8, -61.3302)
+scale = Vector2(-2.41537, 2.63741)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="Tree8" type="Polygon2D" parent="FgObjects/Tree9"]
+position = Vector2(-23.5178, 51.691)
+rotation = 3.14159
+scale = Vector2(0.82803, -0.75832)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree10" type="Polygon2D" parent="FgObjects/Tree9"]
+position = Vector2(174.714, 59.5281)
+rotation = 3.14159
+scale = Vector2(0.82803, -0.75832)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree7" type="Polygon2D" parent="FgObjects/Tree9"]
+position = Vector2(-63.2633, -2.52891)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree10" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-699, 918)
+scale = Vector2(-2.41537, 2.63741)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="Tree8" type="Polygon2D" parent="FgObjects/Tree10"]
+position = Vector2(-23.5178, 51.691)
+rotation = 3.14159
+scale = Vector2(0.82803, -0.75832)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree10" type="Polygon2D" parent="FgObjects/Tree10"]
+position = Vector2(174.714, 59.5281)
+rotation = 3.14159
+scale = Vector2(0.82803, -0.75832)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree7" type="Polygon2D" parent="FgObjects/Tree10"]
+position = Vector2(-63.2633, -2.52891)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree14" type="Polygon2D" parent="FgObjects"]
+position = Vector2(4537, 435)
+scale = Vector2(-2.41537, 2.89028)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="Tree8" type="Polygon2D" parent="FgObjects/Tree14"]
+position = Vector2(-23.5178, 51.691)
+rotation = 3.14159
+scale = Vector2(0.82803, -0.75832)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree10" type="Polygon2D" parent="FgObjects/Tree14"]
+position = Vector2(174.714, 59.5281)
+rotation = 3.14159
+scale = Vector2(0.82803, -0.75832)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree7" type="Polygon2D" parent="FgObjects/Tree14"]
+position = Vector2(-63.2633, -2.52891)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree15" type="Polygon2D" parent="FgObjects"]
+position = Vector2(5852, 328)
+scale = Vector2(-2.41537, 2.89028)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="Tree8" type="Polygon2D" parent="FgObjects/Tree15"]
+position = Vector2(-23.5178, 51.691)
+rotation = 3.14159
+scale = Vector2(0.82803, -0.75832)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree10" type="Polygon2D" parent="FgObjects/Tree15"]
+position = Vector2(174.714, 59.5281)
+rotation = 3.14159
+scale = Vector2(0.82803, -0.75832)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree7" type="Polygon2D" parent="FgObjects/Tree15"]
+position = Vector2(-63.2633, -2.52891)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+metadata/_edit_lock_ = true
+
+[node name="Tree11" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-2301, 861)
+scale = Vector2(-2.41537, 2.63741)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="Tree12" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-2745.8, 999.34)
+scale = Vector2(2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="Tree13" type="Polygon2D" parent="FgObjects"]
+position = Vector2(-2073, 877)
+scale = Vector2(-2.41537, 2.63741)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="Tree5" type="Polygon2D" parent="FgObjects"]
+position = Vector2(2112, -146)
+scale = Vector2(-2.41537, 2.63741)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="Tree6" type="Polygon2D" parent="FgObjects"]
+position = Vector2(2220, 19)
+scale = Vector2(2, 2)
+offset = Vector2(-489.427, -533.019)
+texture = ExtResource("4_yeob7")
+polygon = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+uv = PackedVector2Array(543.755, 585.194, 474.846, 566.49, 444.329, 601.929, 450.236, 649.181, 476.815, 670.838, 454.173, 705.292, 458.111, 735.809, 510.285, 718.09, 510.285, 786.014, 561.475, 806.687, 590.023, 782.077, 582.148, 725.965, 625.462, 736.794, 614.633, 688.557, 640.228, 683.635, 640.228, 659.025, 618.571, 648.196, 662.87, 618.664, 619.555, 600.944, 624.477, 573.381, 608.727, 551.723, 573.288, 561.568)
+
+[node name="M2Tree1" type="Sprite2D" parent="FgObjects"]
+position = Vector2(-2950, 958)
+texture = ExtResource("2_tvl15")
+
+[node name="M2Tree2" type="Sprite2D" parent="FgObjects"]
+position = Vector2(725, 936)
+texture = ExtResource("2_tvl15")
+
+[node name="M2Tree3" type="Sprite2D" parent="FgObjects"]
+position = Vector2(2570, 832)
+texture = ExtResource("2_tvl15")
+
+[node name="M3Tree2" type="Sprite2D" parent="FgObjects"]
+position = Vector2(-249, 250)
+scale = Vector2(1.59875, 1.64643)
+texture = ExtResource("6_dd8ie")
+
+[node name="M3Tree3" type="Sprite2D" parent="FgObjects"]
+position = Vector2(438, 1171)
+rotation = 0.243017
+scale = Vector2(1.59875, 1.84107)
+texture = ExtResource("6_dd8ie")
+
+[node name="M3Tree4" type="Sprite2D" parent="FgObjects"]
+position = Vector2(1720, 1130)
+rotation = 0.243017
+scale = Vector2(1.59875, 1.84107)
+texture = ExtResource("6_dd8ie")
+
+[node name="M3Tree5" type="Sprite2D" parent="FgObjects"]
+position = Vector2(2763, 242)
+rotation = 0.0225338
+scale = Vector2(1.59875, 1.84107)
+texture = ExtResource("6_dd8ie")
+
+[node name="M3Tree6" type="Sprite2D" parent="FgObjects"]
+position = Vector2(2943, 239)
+rotation = 0.521059
+scale = Vector2(1.59875, 1.84107)
+texture = ExtResource("6_dd8ie")
+
+[editable path="Level/floor3"]

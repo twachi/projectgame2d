@@ -1,20 +1,27 @@
 extends Node2D
 
 @export var hp = 100
+@export var xp = 15
+var smoke_time=0
 
 func _ready() -> void:
 	$ProgressBar.max_value = hp
-	
+	$Fire.emitting = true
+	$Light.visible = true
+	smoke_time -= randi_range(1,20)	
 
 func _process(delta: float) -> void:
 	$ProgressBar.value = hp
-	$Light.energy = randf_range(0.6,1)
-	if hp>0:
-		GameManager.add_smoke(delta*hp*0.0005)
+	$Light.energy = randf_range(1,1.5)
+	smoke_time += delta
+	if hp>0 and smoke_time>1:
+		smoke_time=0
+		GameManager.add_smoke(randf_range(0.1,hp*0.001))
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("water"):
-		$Explosion.play()
+		$Animate.play("start")
+		AudioManager.water.play()
 		body.queue_free()
 		hp -= randi_range(25,75)
 		if hp<=50: 
@@ -22,7 +29,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			$Fire.lifetime = 1
 			$Fire.scale = Vector2(0.2,0.2)
 		if hp<=0 :
-			GameManager.add_xp(5)
+			GameManager.add_xp(xp)
 			GameManager.add_smoke(-5)
 			queue_free()
 			GameManager.drop_item(self)

@@ -11,8 +11,8 @@ func update_level():
 	if v != level:
 		level = v
 		if (level % 5) == 0 :
-			autoscroll.x =  level * -1.0
-			modulate.a = 0.8*level / 100.0
+			autoscroll.x =  level * -0.8
+			modulate.a = 0.6*level / 100.0
 			# $Bg2.modulate.a = level / 100.0
 			#($Bg1.texture as NoiseTexture2D).color_ramp.colors[1].a = level / 100.0
 

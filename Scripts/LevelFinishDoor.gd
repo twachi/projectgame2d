@@ -2,6 +2,7 @@ extends Area2D
 
 # Define the next scene to load in the inspector
 @export var next_scene : PackedScene
+@export_multiline var text = "ต้องตักน้ำไปดับไฟ และ กำจัดผีร้ายทั้งหมด\nจึงจะสามารถผ่านประตูได้"
 
 # Load next level scene when player collide with level finish door.
 func _on_body_entered(body):
@@ -14,10 +15,10 @@ func _on_body_entered(body):
 func _process(delta: float) -> void:
 	if GameManager.smoke_level>0:
 		if GameManager.fire_count >0 :
-			$Label.text = "ต้องตักน้ำไปดับไฟ และ กำจัดผีร้ายทั้งหมด\nเพื่อลดมลพิษ"
+			$Label.text =  text
 		else:
 			$Label.text = "รอให้มลพิษหมดก่อน\nจึงจะไปด่านต่อไป"
 		$Part.modulate.a = 0.4
 	else:
-		$Label.text = "ตอนนี้อากาศบริสุทธิ์แล้ว"
+		$Label.text = "เข้าประตูเพื่อไปด่านต่อไป"
 		$Part.modulate.a = 1

@@ -8,19 +8,25 @@ var smoke_scene = null
 var player_hp = 100
 var player_maxhp = 100
 var player_hp_rate = 1.0
-var player_wing = 0
+var player_wing = 1
 var player_shield = 0
 var player_sword = 0
+var player_level = 1
+var player_xp = 0
+var player_levelxp = 100
+
 var water = 0
 var max_water = 200
 var well = null
 var fire_count = 0
 var water_delay = 1.0
 var masks = [0,1,1,1]
+var potion_heal   = 1  # น้ำยาเพิ่มเลือด
 var mask_id       = 0  #หน้ากาก  0 คือไม่ใส่
 var mask_power    = 0  #พลังหน้ากาก  0 คือไม่มี
 var mask_lifetime = 0  #เวลาชีวิตหน้ากาก  0 คือหมด
 var player_def = 10
+var player_atk = 10
 # สำหรับการสุ่ม drop item
 var drop_items : Array[PackedScene] =[]
 var player_scene = null
@@ -29,6 +35,7 @@ func _ready() -> void:
 	drop_items.push_back( preload("res://Scenes/Prefabs/wing.tscn"))
 	drop_items.push_back( preload("res://Scenes/Prefabs/mask.tscn"))
 	drop_items.push_back( preload("res://Scenes/Prefabs/sword.tscn"))
+	drop_items.push_back( preload("res://Scenes/Items/potion_heal.tscn"))
 	
 # Adds 1 to score variable
 func add_score():
@@ -40,7 +47,7 @@ func load_next_level(next_scene : PackedScene):
 
 func add_smoke(v):
 	smoke_level = clamp(smoke_level+v,0,100.0) 
-	if smoke_level>10: player_hp_rate = -smoke_level/100
+	if smoke_level>10: player_hp_rate = -smoke_level/200
 	elif smoke_level>0 : player_hp_rate = 0
 	else: player_hp_rate = 1
 	
@@ -48,7 +55,10 @@ func add_smoke(v):
 
 func add_water(v):
 	water = clamp(water+v,0,max_water)
-	
+
+func add_hp(v):
+	player_hp = clamp(player_hp+v,0,player_maxhp)
+
 func update_hp(delta):
 	var rate = player_hp_rate
 	if mask_power>0: rate += mask_power
@@ -94,16 +104,35 @@ func add_wing(n):
 func add_sword(n):
 	player_sword += n
 
-func player_damage(atk=1):
+func player_damage(atk=1, from=Vector2.ZERO):
 	var def = randf_range(player_def/2,player_def) 
 	atk = randf_range(atk/2,atk) 
 	var v = clamp(atk - def,0.1,atk)
 	player_hp = clamp(player_hp-v,0,player_maxhp)
 	AudioManager.death_sfx.play()
 	if player_scene != null:
-		player_scene.damage()
+		player_scene.damage(from)
 		
 func add_xp(n):
-	player_maxhp += n
-	player_hp_rate += (n*0.1)
-	player_hp = clamp(player_hp+n,0,player_maxhp)
+	player_xp += n
+	if player_xp >= player_levelxp:
+		levelUp()
+
+func levelUp():
+	if player_xp < player_levelxp: return
+	player_level +=1
+	player_xp = clamp(player_xp-player_levelxp,0,player_levelxp)
+	player_levelxp = 100+(player_level*50)
+	player_maxhp = 100 + (player_level*10)
+	player_def = 10 + (player_level*2)
+	player_atk = 10 + (player_level*2)
+	player_hp_rate = clamp(player_level,1,10)
+
+func use_healpotion():
+	if potion_heal>0:
+		AudioManager.level_complete_sfx.play()
+		add_hp(50)
+		add_healpotion(-1)
+		
+func add_healpotion(amount):
+	potion_heal = clamp(potion_heal+amount,0,100)

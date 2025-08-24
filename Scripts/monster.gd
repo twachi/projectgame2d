@@ -9,14 +9,16 @@ extends CharacterBody2D
 @export	var maxhp = 100
 @export	var atk = 10
 @export	var def = 10
+@export var xp = 30
 @export var title = "Smoker"
 @export var visible_range = 300 
+@export var pitch = 1.0
 @onready var wall_ray: RayCast2D = $Part/WallRay
 @onready var player_ray: RayCast2D = $Part/PlayerRay
 @onready var floor_ray: RayCast2D = $Part/FloorRay
 @onready var damage_paricle: GPUParticles2D = $DamageParicle
 @onready var player_ray_2: RayCast2D = $Part/PlayerRay2
-
+var smoke_time=0
 var animation_player = null
 func _ready() -> void:
 	if monster_rig!=null:
@@ -30,10 +32,18 @@ func _ready() -> void:
 	$ProgressBar.max_value = maxhp
 	$Label.text = title
 	player_ray.target_position.x = visible_range
+	player_ray_2.target_position.x = visible_range
 	GameManager.fire_count +=1
+	smoke_time = -randi_range(1,30)
+	$PointLight2D.visible = true
 
 func _process(delta: float) -> void:
-	GameManager.add_smoke(delta*hp*0.0005)
+	smoke_time += delta
+	if randi_range(0,5)>2:
+		$PointLight2D.energy = randf_range(0.8,1.2)
+	if smoke_time >1:
+		smoke_time = 0
+		GameManager.add_smoke(randf_range(0.1,hp*0.005))
 	if !is_on_floor():
 		velocity.y += gravity
 		if velocity.y > 3000 : queue_free()
@@ -55,7 +65,8 @@ func _process(delta: float) -> void:
 	if is_on_floor():
 		if player_ray_2.is_colliding() :
 			var p = player_ray_2.get_collider()
-			if p!=null and p.is_in_group("Player"):		
+			if p!=null and p.is_in_group("Player"):
+				if direction==0: direction=1		
 				direction = -direction
 		
 		if !floor_ray.is_colliding() || wall_ray.is_colliding():
@@ -88,12 +99,14 @@ func damage(atk):
 	AudioManager.attack_sfx.play()
 	velocity.x -= direction*v*150
 	if hp <= 0:
+		AudioManager.pain.pitch_scale = pitch
 		AudioManager.pain.play()
 		var tween = create_tween()
 		tween.tween_property(self, "scale", Vector2.ZERO, 0.2)
 		await tween.finished
-		GameManager.add_xp(5)
+		GameManager.add_xp(xp)
 		GameManager.add_smoke(-5)
 		GameManager.drop_item(self)
 		queue_free()
 		GameManager.fire_count -=1
+		#AudioManager.pain.pitch_scale = 1.0

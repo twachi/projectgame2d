@@ -16,4 +16,5 @@ func setMask(m):
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		GameManager.add_mask(mask)
+		AudioManager.coin_pickup_sfx.play()
 		queue_free()

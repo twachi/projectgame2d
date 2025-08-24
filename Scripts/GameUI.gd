@@ -15,6 +15,10 @@ extends Control
 @onready var sound_on: Sprite2D = $"../Control/SoundButton/sound_on"
 @onready var sound_off: Sprite2D = $"../Control/SoundButton/sound_off"
 @onready var m6label: Label = $"../Inventory/Button6/Label"
+@onready var label_lv: Label = $Score/LabelLv
+@onready var label_xp: Label = $Score/LabelXp
+@onready var label_potionhp: Label = $"../Inventory/Button7/Label"
+
 var full = false
 var showkey = false
 
@@ -40,6 +44,9 @@ func _process(_delta):
 	m4label.text = str(GameManager.player_wing)
 	m5label.text = str(GameManager.water)
 	m6label.text = str(GameManager.player_sword)
+	label_lv.text = str(GameManager.player_level)
+	label_xp.text = str(GameManager.player_xp)
+	label_potionhp.text = str(GameManager.potion_heal)
 #	$"../MaskTimeLabel".text = str(int(GameManager.mask_lifetime))
 
 func _on_button_1_pressed() -> void:
@@ -126,3 +133,7 @@ func _on_fullscreen_button_pressed() -> void:
 func _on_keyboard_button_pressed() -> void:
 	showkey = !showkey
 	$"../Control/Keyboards".visible = showkey
+
+
+func _on_button_7_pressed() -> void:
+	GameManager.use_healpotion()

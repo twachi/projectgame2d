@@ -89,13 +89,14 @@ color = Color(0.831989, 0.902136, 0.999999, 1)
 alpha_curve = SubResource("CurveTexture_8xuwr")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqflh"]
-size = Vector2(21, 49)
+size = Vector2(36.5, 70.5)
 
 [node name="Well" type="Node2D"]
 script = ExtResource("1_fwlud")
 Bucket = ExtResource("4_hqflh")
 
 [node name="image" type="Node2D" parent="."]
+scale = Vector2(1.5, 1.5)
 
 [node name="poly7" type="Polygon2D" parent="image"]
 position = Vector2(0, -1)
@@ -137,14 +138,15 @@ process_material = SubResource("ParticleProcessMaterial_8xuwr")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["well"]]
-position = Vector2(-57, -24)
+position = Vector2(-88.25, -34.75)
 shape = SubResource("RectangleShape2D_hqflh")
 
 [node name="help" type="Label" parent="."]
-offset_left = -58.0
-offset_top = -111.0
-offset_right = 53.0
-offset_bottom = -86.0
+z_index = 4
+offset_left = -56.0
+offset_top = -168.0
+offset_right = 55.0
+offset_bottom = -132.0
 theme = ExtResource("5_8xuwr")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)

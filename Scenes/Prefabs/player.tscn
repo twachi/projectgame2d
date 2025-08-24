@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://w7m6tehvvy3g"]
+[gd_scene load_steps=12 format=3 uid="uid://w7m6tehvvy3g"]
 
 [ext_resource type="Script" uid="uid://cul3tqoiyrqvp" path="res://Scripts/player.gd" id="1_qt7d6"]
 [ext_resource type="PackedScene" uid="uid://ffc5x143ydq7" path="res://Scenes/Prefabs/water_bucket.tscn" id="2_cb7df"]
 [ext_resource type="Texture2D" uid="uid://dxp77wq60c2rr" path="res://Assets/Textures/CloudTexture.png" id="3_8vxmb"]
-[ext_resource type="PackedScene" uid="uid://87ufo8tg0qg4" path="res://Scenes/Prefabs/PlayerRig.tscn" id="4_0ctox"]
+[ext_resource type="PackedScene" uid="uid://72vbdo0vicl2" path="res://Scenes/Character/player_hd_rig.tscn" id="6_ak25i"]
 [ext_resource type="PackedScene" uid="uid://7o5mcurssx4w" path="res://Scenes/Weapons/weapon1.tscn" id="6_v34u6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n4sts"]
@@ -20,6 +20,17 @@ point_count = 3
 [sub_resource type="Gradient" id="Gradient_3gc37"]
 offsets = PackedFloat32Array(0.25, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_x83xq"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v34u6"]
+gradient = SubResource("Gradient_x83xq")
+width = 150
+height = 150
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.0136752, 0.517094)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_qt7d6")
@@ -78,14 +89,6 @@ scale_amount_curve = SubResource("Curve_m2jh0")
 color = Color(0.72121, 0.189719, 1.2514e-06, 1)
 color_ramp = SubResource("Gradient_3gc37")
 
-[node name="PlayerRig" parent="." instance=ExtResource("4_0ctox")]
-position = Vector2(4, -2)
-scale = Vector2(0.6, 0.6)
-
-[node name="weapon" parent="PlayerRig" instance=ExtResource("6_v34u6")]
-position = Vector2(25.7143, -55.7143)
-scale = Vector2(1.42857, 1.42857)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(16, 36)
 limit_smoothed = true
@@ -96,5 +99,19 @@ drag_left_margin = 0.4
 drag_right_margin = 0.4
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="PlayerRig" parent="." instance=ExtResource("6_ak25i")]
+position = Vector2(0, 6)
+scale = Vector2(0.5, 0.5)
+
+[node name="weapon" parent="PlayerRig" instance=ExtResource("6_v34u6")]
+position = Vector2(38.8572, -82.8572)
+scale = Vector2(1.71428, 1.71428)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(3, -74)
+scale = Vector2(3.94, 3.37333)
+texture = SubResource("GradientTexture2D_v34u6")
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]

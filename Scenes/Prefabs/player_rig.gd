@@ -8,9 +8,9 @@ extends Node2D
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var sword_part1: Polygon2D = $Part/Body/Arm_Right/Sword
 var current_animate = "idle"
-@onready var mask_01: Polygon2D = $Part/Head/mask01
-@onready var mask_02: Polygon2D = $Part/Head/mask02
-@onready var mask_03: Polygon2D = $Part/Head/mask03
+@onready var mask_01: Polygon2D = $Part/Body/Head/mask01
+@onready var mask_02: Polygon2D = $Part/Body/Head/mask02
+@onready var mask_03: Polygon2D = $Part/Body/Head/mask03
 
 func _ready() -> void:
 	$AnimationPlayer.speed_scale=2

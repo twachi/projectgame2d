@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://pg5qj60mkk3i"]
 
-[ext_resource type="FontFile" uid="uid://b5oq7bd5fnsf2" path="res://Assets/Fonts/TH Charmonman.ttf" id="1_ak4nt"]
+[ext_resource type="FontFile" uid="uid://bgekb0gm45t4k" path="res://Assets/Fonts/THSarabunNew Bold.ttf" id="1_ak4nt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ak4nt"]
 bg_color = Color(0.224551, 0.561674, 0.381746, 1)

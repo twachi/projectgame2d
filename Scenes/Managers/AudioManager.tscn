@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" uid="uid://cc76dr86loxni" path="res://Scripts/AudioManager.gd" id="1_hp1cr"]
 [ext_resource type="AudioStream" uid="uid://d3ldv4818s140" path="res://Assets/Sound/FX/30_Jump_03.wav" id="2_esrla"]
-[ext_resource type="AudioStream" uid="uid://c67gtsjbre8vt" path="res://Assets/Sound/FX/water.wav" id="2_qy2l1"]
-[ext_resource type="AudioStream" uid="uid://ca2fdox4fburv" path="res://Assets/Sound/FX/pickupCoin.wav" id="3_84782"]
-[ext_resource type="AudioStream" uid="uid://b8nwpd8yr63jo" path="res://Assets/Sound/FX/explosion.wav" id="4_y7mjd"]
-[ext_resource type="AudioStream" uid="uid://dsqjmi2hm6lu" path="res://Assets/Sound/FX/powerUp.wav" id="5_qy2l1"]
-[ext_resource type="AudioStream" uid="uid://0yainp6twe2" path="res://Assets/Sound/music.ogg" id="8_5h2c1"]
-[ext_resource type="AudioStream" uid="uid://bhka5hthbeoiq" path="res://Assets/Sound/FX/56_Attack_03.wav" id="8_s2x08"]
-[ext_resource type="AudioStream" uid="uid://dagbie7rwpbpj" path="res://Assets/Sound/FX/22_Water_02.wav" id="10_ia3a6"]
-[ext_resource type="AudioStream" uid="uid://w4u0mu8pyufi" path="res://Assets/Sound/music_thai_mini.ogg" id="11_6fbfh"]
-[ext_resource type="AudioStream" uid="uid://biii4a50ew2pb" path="res://Assets/Sound/FX/pain-2201.ogg" id="12_egdra"]
-[ext_resource type="AudioStream" uid="uid://cmdrghfljce28" path="res://Assets/Sound/FX/well.ogg" id="12_stugb"]
-[ext_resource type="AudioStream" uid="uid://brdlr847gyxsr" path="res://Assets/Sound/FX/mixkit-horror-sci-fi-wind-tunnel-894.ogg" id="13_6ivta"]
-[ext_resource type="AudioStream" uid="uid://euxotoa7nra3" path="res://Assets/Sound/FX/water-splash.ogg" id="14_s537f"]
+[ext_resource type="AudioStream" uid="uid://ckmdqcafiqu5t" path="res://Assets/Sound/FX/water.wav" id="2_qy2l1"]
+[ext_resource type="AudioStream" uid="uid://dgik26y72778d" path="res://Assets/Sound/FX/pickupCoin.wav" id="3_84782"]
+[ext_resource type="AudioStream" uid="uid://clx3woadf11e8" path="res://Assets/Sound/FX/explosion.wav" id="4_y7mjd"]
+[ext_resource type="AudioStream" uid="uid://s84emunwpgeq" path="res://Assets/Sound/FX/powerUp.wav" id="5_qy2l1"]
+[ext_resource type="AudioStream" uid="uid://d2b8bm1w7yki7" path="res://Assets/Sound/music.ogg" id="8_5h2c1"]
+[ext_resource type="AudioStream" uid="uid://c4negh60r2ehe" path="res://Assets/Sound/FX/56_Attack_03.wav" id="8_s2x08"]
+[ext_resource type="AudioStream" uid="uid://5ikelc0n6b3y" path="res://Assets/Sound/FX/22_Water_02.wav" id="10_ia3a6"]
+[ext_resource type="AudioStream" uid="uid://ws2k5msidgpy" path="res://Assets/Sound/music_thai_mini.ogg" id="11_6fbfh"]
+[ext_resource type="AudioStream" uid="uid://dsno265xpc5f7" path="res://Assets/Sound/FX/pain-2201.ogg" id="12_egdra"]
+[ext_resource type="AudioStream" uid="uid://cjwwm2hmnudap" path="res://Assets/Sound/FX/well.ogg" id="12_stugb"]
+[ext_resource type="AudioStream" uid="uid://wc8qovwlv7t3" path="res://Assets/Sound/FX/water-splash.ogg" id="14_s537f"]
+[ext_resource type="AudioStream" uid="uid://kglo7bfyjqy0" path="res://Assets/Sound/FX/music_horror.ogg" id="14_stugb"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_hp1cr")
@@ -29,7 +29,7 @@ bus = &"sfx"
 
 [node name="CoinPickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_84782")
-volume_db = 1.5
+volume_db = -20.0
 bus = &"sfx"
 
 [node name="DeathSfx" type="AudioStreamPlayer" parent="."]
@@ -56,6 +56,7 @@ bus = &"music"
 
 [node name="AtkWaterSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_ia3a6")
+volume_db = -10.0
 bus = &"sfx"
 
 [node name="MusicThaiMini" type="AudioStreamPlayer" parent="."]
@@ -64,15 +65,17 @@ bus = &"music"
 
 [node name="Pain-2201" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_egdra")
+pitch_scale = 2.0
 bus = &"sfx"
 
 [node name="Well" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_stugb")
 bus = &"sfx"
 
-[node name="Mixkit-horror-sci-fi-wind-tunnel-894" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_6ivta")
-bus = &"music"
-
 [node name="Water-splash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_s537f")
+
+[node name="MusicHorror" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_stugb")
+volume_db = -15.0
+bus = &"music"

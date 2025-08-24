@@ -1,21 +1,24 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6tca06ks0ys7"]
+[gd_scene load_steps=19 format=3 uid="uid://b6tca06ks0ys7"]
 
 [ext_resource type="Script" uid="uid://c1j1k04ax722v" path="res://Scripts/GameUI.gd" id="1_sjcjl"]
 [ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="2_kuy43"]
-[ext_resource type="FontFile" uid="uid://cpxlr840dok7t" path="res://Assets/Fonts/CkPandaDemo.ttf" id="3_kuy43"]
 [ext_resource type="Texture2D" uid="uid://dxp77wq60c2rr" path="res://Assets/Textures/CloudTexture.png" id="4_kuy43"]
-[ext_resource type="Texture2D" uid="uid://b1feqbw86mfle" path="res://Assets/Icons/icons8-fire-48.png" id="5_8y5f2"]
-[ext_resource type="Texture2D" uid="uid://df3a6wiirf3io" path="res://Assets/Icons/icons8-heart-48.png" id="6_waw7t"]
-[ext_resource type="Texture2D" uid="uid://djwkwdfkw35md" path="res://Assets/Spritesheet/player-part.png" id="7_0giir"]
-[ext_resource type="Texture2D" uid="uid://nhwgk45gt5cc" path="res://Assets/Icons/icons8-water-48.png" id="8_0dfm7"]
-[ext_resource type="Texture2D" uid="uid://bojfctu7ku81d" path="res://Assets/Spritesheet/TX Village Props.png" id="8_6jcpp"]
-[ext_resource type="Texture2D" uid="uid://bpgqwp6wfregx" path="res://Assets/Icons/icons8-music-48.png" id="9_idnum"]
-[ext_resource type="Texture2D" uid="uid://celtwu1hf7xm3" path="res://Assets/Icons/icons8-audio-48.png" id="10_clwj3"]
-[ext_resource type="Texture2D" uid="uid://b7u73130ct1s7" path="res://Assets/Icons/icons8-cancel-48.png" id="10_svglc"]
+[ext_resource type="Texture2D" uid="uid://dt0ttv200j814" path="res://Assets/Icons/icons8-fire-48.png" id="5_8y5f2"]
+[ext_resource type="Texture2D" uid="uid://cf8tjd3dgmirh" path="res://Assets/Icons/icons8-heart-48.png" id="6_waw7t"]
+[ext_resource type="Texture2D" uid="uid://cnpnu84cebr7c" path="res://Assets/Spritesheet/player-part.png" id="7_0giir"]
+[ext_resource type="Texture2D" uid="uid://btk8xdguiq0uk" path="res://Assets/Icons/icons8-water-48.png" id="8_0dfm7"]
+[ext_resource type="Texture2D" uid="uid://8ydre4h876kg" path="res://Assets/Icons/level.png" id="8_lvsre"]
+[ext_resource type="Texture2D" uid="uid://dot1d83id2y3h" path="res://Assets/Icons/icons8-music-48.png" id="9_idnum"]
+[ext_resource type="Texture2D" uid="uid://0n8kxx77sok2" path="res://Assets/Icons/xp.png" id="9_xdupk"]
+[ext_resource type="Texture2D" uid="uid://cxtvwi5lwvx3i" path="res://Assets/Icons/icons8-audio-48.png" id="10_clwj3"]
+[ext_resource type="Texture2D" uid="uid://d31b5cfwpyfow" path="res://Assets/Icons/icons8-cancel-48.png" id="10_svglc"]
+[ext_resource type="Texture2D" uid="uid://bcrs2smwejtne" path="res://Assets/Spritesheet/potion_heal.png" id="11_lvsre"]
 [ext_resource type="Theme" uid="uid://pg5qj60mkk3i" path="res://Scenes/theme.tres" id="12_0dfm7"]
-[ext_resource type="Texture2D" uid="uid://dnxjito3dnjk6" path="res://Assets/Icons/icons8-mute-48.png" id="12_8y5f2"]
-[ext_resource type="Texture2D" uid="uid://d0yv3q5w8hryn" path="res://Assets/Spritesheet/icons8-full-screen-50.png" id="13_3kuws"]
-[ext_resource type="Texture2D" uid="uid://dgt567w5taond" path="res://Assets/Spritesheet/icons8-keyboard-48.png" id="14_3kuws"]
+[ext_resource type="Texture2D" uid="uid://dvwl0ifppdwwf" path="res://Assets/Icons/icons8-mute-48.png" id="12_8y5f2"]
+[ext_resource type="Texture2D" uid="uid://06e7nmu0eb0r" path="res://Assets/Spritesheet/icons8-full-screen-50.png" id="13_3kuws"]
+[ext_resource type="Texture2D" uid="uid://bnb10m5sfvi3w" path="res://Assets/Spritesheet/icons8-keyboard-48.png" id="14_3kuws"]
+
+[sub_resource type="Shortcut" id="Shortcut_en02p"]
 
 [node name="UserInterface" type="CanvasLayer"]
 
@@ -55,7 +58,6 @@ offset_bottom = 67.0
 theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_kuy43")
 theme_override_font_sizes/font_size = 24
 text = "x 3"
 
@@ -69,21 +71,19 @@ offset_bottom = 66.0
 theme_override_colors/font_color = Color(0.909804, 0.247059, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_kuy43")
 theme_override_font_sizes/font_size = 24
 text = "x 3"
 
 [node name="FireLabel" type="Label" parent="GameUI/Score"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 615.0
-offset_top = 15.0
-offset_right = 698.0
-offset_bottom = 66.0
+offset_left = 627.0
+offset_top = 16.0
+offset_right = 693.0
+offset_bottom = 67.0
 theme_override_colors/font_color = Color(0.909804, 0.247059, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_kuy43")
 theme_override_font_sizes/font_size = 24
 text = "x 3"
 
@@ -97,7 +97,6 @@ offset_bottom = 66.0
 theme_override_colors/font_color = Color(0.909804, 0.247059, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_kuy43")
 theme_override_font_sizes/font_size = 24
 text = "x 3"
 
@@ -111,7 +110,6 @@ offset_bottom = 66.0
 theme_override_colors/font_color = Color(0.180392, 0.117647, 0.780392, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_kuy43")
 theme_override_font_sizes/font_size = 24
 text = "x 3"
 
@@ -121,7 +119,7 @@ scale = Vector2(1.29688, 1.46875)
 texture = ExtResource("4_kuy43")
 
 [node name="Fire" type="Sprite2D" parent="GameUI/Score"]
-position = Vector2(586.5, 34.5)
+position = Vector2(604, 36)
 scale = Vector2(0.979167, 1.22917)
 texture = ExtResource("5_8y5f2")
 
@@ -129,14 +127,6 @@ texture = ExtResource("5_8y5f2")
 position = Vector2(42, 37)
 scale = Vector2(1.07813, 0.992188)
 texture = ExtResource("6_waw7t")
-
-[node name="poly8" type="Polygon2D" parent="GameUI/Score"]
-position = Vector2(200, 45)
-scale = Vector2(1.60856, 1.50766)
-offset = Vector2(-144, -252)
-texture = ExtResource("8_6jcpp")
-polygon = PackedVector2Array(132.163, 228.923, 158.462, 228.484, 156.27, 257.851, 131.286, 257.851)
-uv = PackedVector2Array(132.163, 228.923, 158.462, 228.484, 156.27, 257.851, 131.286, 257.851)
 
 [node name="SmokeLabel2" type="Label" parent="GameUI/Score"]
 unique_name_in_owner = true
@@ -152,9 +142,43 @@ theme_override_font_sizes/font_size = 14
 text = "PM2.5"
 
 [node name="Icons8-water-48" type="Sprite2D" parent="GameUI/Score"]
-position = Vector2(204, 36)
-scale = Vector2(0.46875, 0.5)
+position = Vector2(192, 35)
+scale = Vector2(1.04687, 0.854167)
 texture = ExtResource("8_0dfm7")
+
+[node name="Level" type="Sprite2D" parent="GameUI/Score"]
+position = Vector2(39, 84)
+scale = Vector2(0.405172, 0.39899)
+texture = ExtResource("8_lvsre")
+
+[node name="LabelLv" type="Label" parent="GameUI/Score"]
+layout_mode = 0
+offset_left = 70.125
+offset_top = 64.5
+offset_right = 153.125
+offset_bottom = 115.5
+theme_override_colors/font_color = Color(0.180392, 0.117647, 0.780392, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "x 3"
+
+[node name="Xp" type="Sprite2D" parent="GameUI/Score"]
+position = Vector2(191, 86)
+scale = Vector2(0.371739, 0.4)
+texture = ExtResource("9_xdupk")
+
+[node name="LabelXp" type="Label" parent="GameUI/Score"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 61.0
+offset_right = 306.0
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(0.180392, 0.117647, 0.780392, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "x 3"
 
 [node name="Inventory" type="Control" parent="."]
 layout_mode = 3
@@ -172,6 +196,7 @@ offset_top = -27.0
 offset_right = 75.0
 offset_bottom = 5.0
 focus_mode = 0
+shortcut = SubResource("Shortcut_en02p")
 
 [node name="mask01" type="Polygon2D" parent="Inventory/Button1"]
 position = Vector2(26, 23)
@@ -265,19 +290,17 @@ focus_mode = 0
 action_mode = 0
 
 [node name="Label" type="Label" parent="Inventory/Button5"]
+z_index = 3
 layout_mode = 0
 offset_left = 40.0
 offset_right = 57.0
 offset_bottom = 23.0
 text = "0"
 
-[node name="poly8" type="Polygon2D" parent="Inventory/Button5"]
-position = Vector2(17, 26)
-scale = Vector2(1.351, 1.24344)
-offset = Vector2(-144, -252)
-texture = ExtResource("8_6jcpp")
-polygon = PackedVector2Array(132.163, 228.923, 158.462, 228.484, 156.27, 257.851, 131.286, 257.851)
-uv = PackedVector2Array(132.163, 228.923, 158.462, 228.484, 156.27, 257.851, 131.286, 257.851)
+[node name="Icons8-water-48" type="Sprite2D" parent="Inventory/Button5"]
+position = Vector2(13, 17)
+scale = Vector2(0.835938, 0.697916)
+texture = ExtResource("8_0dfm7")
 
 [node name="Button6" type="Button" parent="Inventory"]
 layout_mode = 0
@@ -302,6 +325,27 @@ offset = Vector2(-17.4869, -107.982)
 texture = ExtResource("7_0giir")
 polygon = PackedVector2Array(22.1698, 97.7633, 26.8114, 81.2601, 25.2642, 66.8198, 16.4969, 54.9582, 6.69814, 51.3481, 6.69814, 60.1154, 10.8239, 70.4299, 10.3082, 98.7947, 6.69814, 101.373, 9.27675, 110.141, 12.3711, 120.971, 25.2642, 126.128, 24.7485, 115.298, 29.9057, 109.109)
 uv = PackedVector2Array(22.1698, 97.7633, 26.8114, 81.2601, 25.2642, 66.8198, 16.4969, 54.9582, 6.69814, 51.3481, 6.69814, 60.1154, 10.8239, 70.4299, 10.3082, 98.7947, 6.69814, 101.373, 9.27675, 110.141, 12.3711, 120.971, 25.2642, 126.128, 24.7485, 115.298, 29.9057, 109.109)
+
+[node name="Button7" type="Button" parent="Inventory"]
+layout_mode = 0
+offset_left = 436.0
+offset_top = -27.0
+offset_right = 506.0
+offset_bottom = 5.0
+focus_mode = 0
+action_mode = 0
+
+[node name="PotionHeal" type="Sprite2D" parent="Inventory/Button7"]
+position = Vector2(18, 16)
+scale = Vector2(0.53125, 0.5)
+texture = ExtResource("11_lvsre")
+
+[node name="Label" type="Label" parent="Inventory/Button7"]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 57.0
+offset_bottom = 23.0
+text = "0"
 
 [node name="MaskTimeLabel" type="Label" parent="Inventory"]
 layout_mode = 0
@@ -441,13 +485,10 @@ theme_override_font_sizes/font_size = 40
 action_mode = 0
 text = "X"
 
-[node name="poly8" type="Polygon2D" parent="Control/Keyboards/XButton"]
-position = Vector2(15, 40.8333)
-scale = Vector2(1.03069, 1.02408)
-offset = Vector2(-144, -252)
-texture = ExtResource("8_6jcpp")
-polygon = PackedVector2Array(132.163, 228.923, 158.462, 228.484, 156.27, 257.851, 131.286, 257.851)
-uv = PackedVector2Array(132.163, 228.923, 158.462, 228.484, 156.27, 257.851, 131.286, 257.851)
+[node name="Icons8-water-48" type="Sprite2D" parent="Control/Keyboards/XButton"]
+position = Vector2(17.5, 32.5)
+scale = Vector2(0.749132, 0.618055)
+texture = ExtResource("8_0dfm7")
 
 [node name="CButton" type="Button" parent="Control/Keyboards"]
 offset_left = -317.0
@@ -485,6 +526,7 @@ text = "Space"
 [connection signal="pressed" from="Inventory/Button4" to="GameUI" method="_on_button_4_pressed"]
 [connection signal="pressed" from="Inventory/Button5" to="GameUI" method="_on_button_5_pressed"]
 [connection signal="pressed" from="Inventory/Button6" to="GameUI" method="_on_button_6_pressed"]
+[connection signal="pressed" from="Inventory/Button7" to="GameUI" method="_on_button_7_pressed"]
 [connection signal="pressed" from="Control/MusicButton" to="GameUI" method="_on_music_button_pressed"]
 [connection signal="pressed" from="Control/FullscreenButton" to="GameUI" method="_on_fullscreen_button_pressed"]
 [connection signal="pressed" from="Control/KeyboardButton" to="GameUI" method="_on_keyboard_button_pressed"]

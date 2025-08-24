@@ -16,7 +16,7 @@ var jump_count : int = 2
 var is_grounded : bool = false
 var is_flip = false
 
-@onready var player_sprite = $AnimatedSprite2D
+
 @onready var spawn_point = %SpawnPoint
 @onready var particle_trails = $ParticleTrails
 @onready var death_particles = $DeathParticles
@@ -97,7 +97,6 @@ func movement(_delta):
 			b.canpick = false
 			b.position = position + Vector2(0,-30)
 			b.speed = Vector2(direction*400,-200)
-			AudioManager.water.play()
 			GameManager.add_water(-1)
 			GameManager.add_smoke(-1)
 			get_parent().add_child(b)	
@@ -165,12 +164,14 @@ func death_tween():
 	respawn_tween()
 
 # Animation เมื่อถูกโจมตี
-func damage():
+func damage(from=Vector2.ZERO):
 	death_particles.emitting = true
-	var d = -1
-	if is_flip:d=1
-	velocity.x = clamp(velocity.x+d*1000,-2000,2000)
-	velocity.y -= 600
+	var d = randi_range(-1,1)
+	if from.x!=0:
+		if position.x > from.x: d=1
+		else: d=-1
+	velocity.x = clamp(velocity.x+d*1000,-1500,1500)
+	velocity.y = clamp(velocity.y-randf_range(300,600),-1500,1500)
 
 func respawn_tween():
 	var tween = create_tween()

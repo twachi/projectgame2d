@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://brfh8jn0jxafl"]
+[gd_scene load_steps=8 format=3 uid="uid://brfh8jn0jxafl"]
 
 [ext_resource type="PackedScene" uid="uid://cg4lt28lfpdd2" path="res://Scenes/Props/tree1.tscn" id="1_jlc4l"]
 [ext_resource type="Texture2D" uid="uid://dnmn4ukr1moq4" path="res://Assets/Spritesheet/gbfire1.png" id="2_8gyre"]
 [ext_resource type="Texture2D" uid="uid://bfci8t61e2x4b" path="res://Assets/Spritesheet/TX Village Props.png" id="3_gkxa8"]
 [ext_resource type="PackedScene" uid="uid://bm3bmj5cqbjrs" path="res://Scenes/Prefabs/Monster.tscn" id="4_8rd6i"]
 [ext_resource type="PackedScene" uid="uid://c54kslsvpaq1d" path="res://Scenes/Monsters/ghost_kasu_rig.tscn" id="5_b6g14"]
+[ext_resource type="Texture2D" uid="uid://i7pop1uisxle" path="res://Assets/Hd/thai_houses.png" id="6_b6g14"]
+[ext_resource type="Texture2D" uid="uid://b3jseknij8o7e" path="res://Assets/Hd/junks.png" id="7_knom7"]
 
 [node name="vprops" type="Node2D"]
 
@@ -212,3 +214,15 @@ offset_right = 1074.0
 offset_bottom = 48.0
 text = "Bิoss
 "
+
+[node name="ThaiHouses" type="Sprite2D" parent="."]
+position = Vector2(146, -438)
+texture = ExtResource("6_b6g14")
+hframes = 4
+vframes = 4
+
+[node name="Junks" type="Sprite2D" parent="."]
+position = Vector2(-257, 263)
+texture = ExtResource("7_knom7")
+hframes = 3
+frame = 2
