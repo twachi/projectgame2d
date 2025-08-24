@@ -5,6 +5,7 @@ var speed = Vector2(-1,0)
 @onready var rig: Node2D = $CanvasLayer/Control/Rig
 var x1=150
 var x2=1000
+@onready var button_continue: Button = $CanvasLayer/Control/ButtonContinue
 
 func _on_button_pressed() -> void:
 	AudioManager.music.stop()
@@ -17,6 +18,7 @@ func _ready() -> void:
 	pos = rig.position
 	x2 = pos.x
 	rig.scale = Vector2(1,1)
+	button_continue.visible = GameManager.current_level != ""
 
 func _process(delta: float) -> void:
 	pos += speed
@@ -28,3 +30,7 @@ func _process(delta: float) -> void:
 		rig.scale.x=1
 	rig.position = pos
 	
+
+
+func _on_button_continue_pressed() -> void:
+	get_tree().change_scene_to_file(GameManager.current_level)

@@ -297,7 +297,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_pay8t")]
 z_index = 1
-position = Vector2(110, 393)
+position = Vector2(200, 389)
 
 [node name="Coins" type="Node2D" parent="."]
 
@@ -408,7 +408,8 @@ position = Vector2(174, 383)
 
 [node name="Gbfire1" parent="Level/Fires" instance=ExtResource("10_1bssr")]
 z_index = 2
-position = Vector2(580, 446)
+position = Vector2(569, 444)
+metadata/_edit_lock_ = true
 
 [node name="poly6" type="Polygon2D" parent="Level/Fires/Gbfire1"]
 show_behind_parent = true
@@ -624,6 +625,21 @@ text = "ตำนานเล่าว่า เมื่อมลพิษป�
 และมันจะกักขังดวงวิญญาณของผู้คนไว้ตลอดกาล"
 horizontal_alignment = 1
 
+[node name="Label" type="Label" parent="TutorialText"]
+z_index = 11
+offset_left = 4.0
+offset_top = 154.0
+offset_right = 256.0
+offset_bottom = 315.0
+theme = ExtResource("13_07uvp")
+theme_override_colors/font_color = Color(1, 0.85098, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 60
+text = "ด่านที่ 1
+"
+horizontal_alignment = 1
+
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("4_vgfkr")
 
@@ -639,6 +655,7 @@ position = Vector2(0, 438)
 
 [node name="Well2" parent="." instance=ExtResource("18_s0ca6")]
 position = Vector2(3379, 163)
+metadata/_edit_lock_ = true
 
 [node name="Monster" type="Node2D" parent="."]
 
@@ -670,7 +687,7 @@ title = "ผีสาว"
 
 [node name="Monster3" parent="Monster" instance=ExtResource("20_07uvp")]
 modulate = Color(1, 0.054902, 0.0392157, 1)
-position = Vector2(5354, -77)
+position = Vector2(4547, -46)
 scale = Vector2(1.2, 1.2)
 speed = 150
 hp = 400
@@ -680,7 +697,7 @@ title = "เจ้าพ่อผีควัน"
 visible_range = 800
 
 [node name="Monster2" parent="Monster" instance=ExtResource("20_07uvp")]
-position = Vector2(1907, 295)
+position = Vector2(934, 427)
 scale = Vector2(0.5, 0.5)
 speed = 50
 maxhp = 50
@@ -959,3 +976,4 @@ texture = ExtResource("6_lg4gj")
 use_parent_material = true
 position = Vector2(734, 324)
 texture = ExtResource("6_lg4gj")
+metadata/_edit_lock_ = true

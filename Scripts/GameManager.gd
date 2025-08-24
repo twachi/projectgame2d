@@ -31,7 +31,26 @@ var player_atk = 10
 var drop_items : Array[PackedScene] =[]
 var player_scene = null
 
+var current_level: String = ""  # ค่าเริ่มต้น (ด่านแรก)
+var save_path := "user://save_game.save"
+
+func save_game():
+	current_level = get_tree().current_scene.scene_file_path
+	var file = FileAccess.open(save_path, FileAccess.WRITE)
+	if file:
+		file.store_var(current_level)   # เก็บ path ของ scene ที่เล่นอยู่
+		file.close()
+		print("Saved level:", current_level)
+
+func load_game():
+	if FileAccess.file_exists(save_path):
+		var file = FileAccess.open(save_path, FileAccess.READ)
+		current_level = file.get_var()
+		file.close()
+		print("Loaded level:", current_level)
+
 func _ready() -> void:
+	GameManager.load_game()
 	drop_items.push_back( preload("res://Scenes/Prefabs/wing.tscn"))
 	drop_items.push_back( preload("res://Scenes/Prefabs/mask.tscn"))
 	drop_items.push_back( preload("res://Scenes/Prefabs/sword.tscn"))

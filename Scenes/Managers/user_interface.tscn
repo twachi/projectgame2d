@@ -585,6 +585,7 @@ theme_override_font_sizes/font_size = 20
 text = "EXP = "
 
 [node name="LvLabel" type="Label" parent="PanelInfo"]
+layout_mode = 0
 offset_left = 215.0
 offset_top = 160.0
 offset_right = 397.0
@@ -593,6 +594,7 @@ theme_override_font_sizes/font_size = 20
 text = "Level = "
 
 [node name="HPLabel" type="Label" parent="PanelInfo"]
+layout_mode = 0
 offset_left = 214.0
 offset_top = 72.0
 offset_right = 396.0
@@ -601,6 +603,7 @@ theme_override_font_sizes/font_size = 20
 text = "HP = "
 
 [node name="RateLabel" type="Label" parent="PanelInfo"]
+layout_mode = 0
 offset_left = 213.0
 offset_top = 118.0
 offset_right = 395.0
