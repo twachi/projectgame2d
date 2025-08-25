@@ -33,6 +33,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if hp<=0 :
 			GameManager.add_xp(xp)
 			GameManager.add_smoke(-5)
+			GameManager.mark_dead(self)
 			queue_free()
 			GameManager.drop_item(self)
 

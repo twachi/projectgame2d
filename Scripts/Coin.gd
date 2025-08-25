@@ -28,4 +28,5 @@ func _on_body_entered(body):
 		var tween = create_tween()
 		tween.tween_property(self, "scale", Vector2.ZERO, 0.1)
 		await tween.finished
+		GameManager.mark_dead(self)
 		queue_free()

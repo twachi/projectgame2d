@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b6tca06ks0ys7"]
+[gd_scene load_steps=20 format=3 uid="uid://b6tca06ks0ys7"]
 
 [ext_resource type="Script" uid="uid://c1j1k04ax722v" path="res://Scripts/GameUI.gd" id="1_sjcjl"]
 [ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="2_kuy43"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dvwl0ifppdwwf" path="res://Assets/Icons/icons8-mute-48.png" id="12_8y5f2"]
 [ext_resource type="Texture2D" uid="uid://06e7nmu0eb0r" path="res://Assets/Spritesheet/icons8-full-screen-50.png" id="13_3kuws"]
 [ext_resource type="Texture2D" uid="uid://bnb10m5sfvi3w" path="res://Assets/Spritesheet/icons8-keyboard-48.png" id="14_3kuws"]
+[ext_resource type="Texture2D" uid="uid://bqabkiqj6dlk3" path="res://Assets/Icons/icons8-save-50.png" id="18_lvsre"]
 
 [sub_resource type="Shortcut" id="Shortcut_en02p"]
 
@@ -131,15 +132,13 @@ texture = ExtResource("6_waw7t")
 [node name="SmokeLabel2" type="Label" parent="GameUI/Score"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 702.0
-offset_top = 31.0
-offset_right = 751.0
-offset_bottom = 55.0
-theme_override_colors/font_color = Color(0.909804, 0.247059, 0, 1)
-theme_override_colors/font_outline_color = Color(0.152941, 0.14902, 0.14902, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 14
-text = "PM2.5"
+offset_left = 704.0
+offset_top = 25.0
+offset_right = 753.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "ฝุ่นผี"
 
 [node name="Icons8-water-48" type="Sprite2D" parent="GameUI/Score"]
 position = Vector2(192, 35)
@@ -611,6 +610,56 @@ offset_bottom = 146.0
 theme_override_font_sizes/font_size = 20
 text = "Recovery = "
 
+[node name="EscButton" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -138.0
+offset_top = 9.0
+offset_right = -79.0
+offset_bottom = 51.0
+grow_horizontal = 0
+scale = Vector2(1.2, 1.2)
+focus_mode = 0
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+text = "ESC"
+
+[node name="SaveButton" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -63.0
+offset_top = 9.0
+offset_right = -21.0
+offset_bottom = 51.0
+grow_horizontal = 0
+scale = Vector2(1.2, 1.2)
+focus_mode = 0
+theme_override_font_sizes/font_size = 24
+action_mode = 0
+icon = ExtResource("18_lvsre")
+expand_icon = true
+
+[node name="AlertLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_0dfm7")
+theme_override_colors/font_color = Color(0.901961, 0.333333, 0.243137, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 60
+text = "Alert Message"
+
 [connection signal="pressed" from="Inventory/Button1" to="GameUI" method="_on_button_1_pressed"]
 [connection signal="pressed" from="Inventory/Button2" to="GameUI" method="_on_button_2_pressed"]
 [connection signal="pressed" from="Inventory/Button3" to="GameUI" method="_on_button_3_pressed"]
@@ -634,3 +683,5 @@ text = "Recovery = "
 [connection signal="pressed" from="Control/Keyboards/CButton" to="GameUI" method="_on_c_button_pressed"]
 [connection signal="pressed" from="Control/Keyboards/SPButton" to="GameUI" method="_on_left_button_5_pressed"]
 [connection signal="pressed" from="PanelInfo/InfoCloseBtn" to="GameUI" method="_on_info_close_btn_pressed"]
+[connection signal="pressed" from="EscButton" to="GameUI" method="_on_esc_button_pressed"]
+[connection signal="pressed" from="SaveButton" to="GameUI" method="_on_save_button_pressed"]

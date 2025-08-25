@@ -14,6 +14,8 @@ func _on_body_entered(body):
 		AudioManager.level_complete_sfx.play()
 		GameManager.player_hp = GameManager.player_maxhp
 		SceneTransition.load_scene(next_scene)
+		GameManager.death_log = {}
+		GameManager.save_game()
 
 func _process(delta: float) -> void:
 	if GameManager.smoke_level>0:

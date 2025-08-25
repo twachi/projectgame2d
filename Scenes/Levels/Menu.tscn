@@ -121,7 +121,7 @@ scale = Vector2(1, 1)
 scale = Vector2(1, 1)
 
 [node name="ArmL2" parent="CanvasLayer/PlayerHDRig/Skeleton2D/Hip/Chest/ArmL" index="1"]
-scale = Vector2(0.999995, 0.999995)
+scale = Vector2(0.999994, 0.999994)
 
 [connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/ButtonContinue" to="." method="_on_button_continue_pressed"]

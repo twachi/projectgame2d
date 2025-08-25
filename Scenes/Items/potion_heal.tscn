@@ -17,7 +17,7 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.05
 scale_max = 0.1
 
-[node name="PotionHeal" type="Area2D"]
+[node name="PotionHeal" type="Area2D" groups=["heal", "saveable"]]
 script = ExtResource("1_kj6s1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

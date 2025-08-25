@@ -24,6 +24,7 @@ var showkey = false
 
 func _ready() -> void:
 	update_audio()
+	alert_label.visible = false 
 	$"../Control/Keyboards".visible = showkey
 	$"../PanelInfo".visible = false
 	
@@ -39,19 +40,24 @@ func _process(_delta):
 	hp_label.text  = "%.2f %%" % GameManager.player_hp
 	water_label.text = "x %d" % GameManager.water
 	fire_label.text = "x %d" % GameManager.fire_count
-	m1label.text = str(GameManager.masks[1])
-	m2label.text = str(GameManager.masks[2])
-	m3label.text = str(GameManager.masks[3])
-	m4label.text = str(GameManager.player_wing)
-	m5label.text = str(GameManager.water)
-	m6label.text = str(GameManager.player_sword)
-	label_lv.text = str(GameManager.player_level)
-	label_xp.text = str(GameManager.player_xp)
-	label_potionhp.text = str(GameManager.potion_heal)
+	m1label.text = "%d"%(GameManager.masks[1])
+	m2label.text = "%d"%(GameManager.masks[2])
+	m3label.text = "%d"%(GameManager.masks[3])
+	m4label.text = "%d"%(GameManager.player_wing)
+	m5label.text = "%d"%(GameManager.water)
+	m6label.text = "%d"%(GameManager.player_sword)
+	label_lv.text = "%d"%(GameManager.player_level)
+	label_xp.text = "%d"%(GameManager.player_xp)
+	label_potionhp.text = "%d"%(GameManager.potion_heal)
 	if $"../PanelInfo".visible:
 		print_info()
 	if Input.is_action_just_pressed("info"):
 		toggle_info()	
+	if Input.is_action_just_pressed("exit"):
+		get_tree().change_scene_to_file("res://Scenes/Levels/Menu.tscn")	
+	if Input.is_action_just_pressed("save"):
+		GameManager.save_game()
+		alert("Game is saved")
 
 func _on_button_1_pressed() -> void:
 	GameManager.set_mask(1)
@@ -154,6 +160,7 @@ func toggle_info():
 @onready var lv_label: Label = $"../PanelInfo/LvLabel"
 @onready var ihp_label: Label = $"../PanelInfo/HPLabel"
 @onready var rate_label: Label = $"../PanelInfo/RateLabel"
+@onready var alert_label: Label = $"../AlertLabel"
 
 func print_info():
 	atk_label.text = "ATK: %d" % GameManager.player_atk
@@ -164,6 +171,23 @@ func print_info():
 	rate_label.text = "Heal Rate:%.2f" % GameManager.player_hp_rate
 	
 
-
 func _on_i_button_pressed() -> void:
 	toggle_info()
+
+
+func _on_esc_button_pressed() -> void:
+	Input.action_press("exit")
+	Input.action_release("exit")
+
+func alert(text):
+	alert_label.text = text
+	alert_label.visible = true
+	alert_label.scale = Vector2.ZERO
+	var tween = create_tween()
+	tween.tween_property(alert_label, "scale", Vector2(1,1), 0.3)
+	await get_tree().create_timer(2).timeout
+	alert_label.visible = false 
+
+func _on_save_button_pressed() -> void:
+	GameManager.save_game()
+	alert("Game is saved")

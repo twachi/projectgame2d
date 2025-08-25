@@ -52,7 +52,7 @@ _data = {
 &"idle": SubResource("Animation_u63wj")
 }
 
-[node name="sword" type="StaticBody2D" groups=["sword"]]
+[node name="sword" type="StaticBody2D" groups=["saveable", "sword"]]
 script = ExtResource("1_dcr2m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

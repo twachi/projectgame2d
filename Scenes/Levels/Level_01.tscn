@@ -40,8 +40,16 @@ z_index = -100
 
 [node name="Layer1" type="Parallax2D" parent="Background"]
 scroll_scale = Vector2(0.7, 0.8)
-repeat_size = Vector2(982, 0)
-repeat_times = 3
+repeat_size = Vector2(900, 0)
+repeat_times = 4
+
+[node name="Polygon2D2" type="Polygon2D" parent="Background/Layer1"]
+position = Vector2(420, 677)
+scale = Vector2(11.78, 4)
+offset = Vector2(-251, -151)
+texture = ExtResource("14_rqrja")
+polygon = PackedVector2Array(209.356, 107.741, 290.604, 110.063, 289.443, 185.507, 211.677, 185.507)
+uv = PackedVector2Array(209.356, 107.741, 290.604, 110.063, 289.443, 185.507, 211.677, 185.507)
 
 [node name="Polygon2D" type="Polygon2D" parent="Background/Layer1"]
 position = Vector2(-514, 352)
@@ -63,8 +71,8 @@ texture = ExtResource("2_ailna")
 
 [node name="Layer2" type="Parallax2D" parent="Background"]
 scroll_scale = Vector2(0.8, 0.8)
-repeat_size = Vector2(982, 0)
-repeat_times = 3
+repeat_size = Vector2(900, 0)
+repeat_times = 4
 
 [node name="M2Tree2" type="Sprite2D" parent="Background/Layer2"]
 modulate = Color(0.77084, 0.770839, 0.770839, 1)
@@ -796,7 +804,7 @@ title = "ผีกระสือ"
 pitch = 2.0
 
 [node name="sword" parent="." instance=ExtResource("20_3dt7p")]
-position = Vector2(-229, 365)
+position = Vector2(275, 370)
 amount = 3
 
 [node name="SmokeText" type="Label" parent="sword"]
@@ -971,6 +979,7 @@ metadata/_edit_lock_ = true
 use_parent_material = true
 position = Vector2(-190, 331)
 texture = ExtResource("6_lg4gj")
+metadata/_edit_lock_ = true
 
 [node name="M3Tree3" type="Sprite2D" parent="FgObjects"]
 use_parent_material = true

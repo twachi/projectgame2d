@@ -12,7 +12,7 @@ point_count = 3
 offsets = PackedFloat32Array(0.625, 1)
 colors = PackedColorArray(0.914063, 0.734375, 0, 1, 1, 1, 1, 0)
 
-[node name="Coin" type="Area2D"]
+[node name="Coin" type="Area2D" groups=["coin", "saveable"]]
 script = ExtResource("1_hh4vd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

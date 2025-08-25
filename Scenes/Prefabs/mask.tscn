@@ -12,7 +12,7 @@ point_count = 3
 offsets = PackedFloat32Array(0.625, 1)
 colors = PackedColorArray(0.914063, 0.734375, 0, 1, 1, 1, 1, 0)
 
-[node name="Mask" type="Area2D"]
+[node name="Mask" type="Area2D" groups=["saveable"]]
 script = ExtResource("1_8tdhx")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

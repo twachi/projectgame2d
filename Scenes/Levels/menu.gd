@@ -10,15 +10,17 @@ var x2=1000
 func _on_button_pressed() -> void:
 	AudioManager.music.stop()
 	AudioManager.horror_music.play()
+	GameManager.restart_game()
 	get_tree().change_scene_to_file("res://Scenes/Levels/Level_01.tscn")
 
 func _ready() -> void:
 	AudioManager.music.play(0)
+	AudioManager.horror_music.stop()
 	rig.get_node("AnimationPlayer").play("walk")
 	pos = rig.position
 	x2 = pos.x
 	rig.scale = Vector2(1,1)
-	button_continue.visible = GameManager.current_level != ""
+	button_continue.visible = GameManager.has_save()
 
 func _process(delta: float) -> void:
 	pos += speed
@@ -29,8 +31,6 @@ func _process(delta: float) -> void:
 		speed.x = -1
 		rig.scale.x=1
 	rig.position = pos
-	
-
 
 func _on_button_continue_pressed() -> void:
-	get_tree().change_scene_to_file(GameManager.current_level)
+	GameManager.load_game()

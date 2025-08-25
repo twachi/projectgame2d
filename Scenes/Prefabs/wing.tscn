@@ -75,7 +75,7 @@ point_count = 3
 offsets = PackedFloat32Array(0.625, 1)
 colors = PackedColorArray(0.914063, 0.734375, 0, 1, 1, 1, 1, 0)
 
-[node name="wing" type="StaticBody2D" groups=["wing"]]
+[node name="wing" type="StaticBody2D" groups=["saveable", "wing"]]
 script = ExtResource("1_u63wj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

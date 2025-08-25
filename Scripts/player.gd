@@ -192,11 +192,13 @@ func _on_collision_body_entered(_body):
 	if  _body.is_in_group("wing"):
 		GameManager.player_wing += _body.amount 
 		AudioManager.coin_pickup_sfx.play()
+		GameManager.mark_dead(_body)
 		_body.queue_free()
 		
 	if  _body.is_in_group("sword"):
 		GameManager.player_sword += _body.amount  
 		AudioManager.coin_pickup_sfx.play()
+		GameManager.mark_dead(_body)
 		_body.queue_free()
 		
 	if _body.is_in_group("Traps"):

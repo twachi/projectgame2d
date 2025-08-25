@@ -27,12 +27,19 @@
 * Version 1.0 https://twachi.github.io/projectgame2d/index.html
 
 ## Screenshots
+* Version 1.2
+![Ghost Dust City SS 1.2](https://twachi.github.io/projectgame2d/Screenshot20250825.png)
+
+* Version 1.0
 ![Ghost Dust City SS 1](https://twachi.github.io/projectgame2d/Screenshot%202025-08-17%20001125.png)
 ![Ghost Dust City SS 2](https://twachi.github.io/projectgame2d/screen02_wing.png)
 
 ## ส่วนประกอบตัวละคร Body Parts
+![Player2](https://github.com/twachi/projectgame2d/blob/main/Assets/Hd/player_hd.png?raw=true)
+Player2 HD
+
 ![Player](https://twachi.github.io/projectgame2d/player-part.png)
-Player
+Player1 Pixel Art
 
 ![ผีกระสือ](https://github.com/twachi/projectgame2d/blob/main/Assets/Spritesheet/ghost_kasu.png?raw=true)
 ผีกระสือ

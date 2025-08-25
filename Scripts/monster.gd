@@ -109,19 +109,22 @@ func damage(atk):
 		GameManager.add_xp(xp)
 		GameManager.add_smoke(-5)
 		GameManager.drop_item(self)
+		GameManager.mark_dead(self)
 		queue_free()
 		GameManager.fire_count -=1
 		#AudioManager.pain.pitch_scale = 1.0
 
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	onscreen = true
-	$PointLight2D.visible = true
-	rig.effect.emitting = true
+	if rig!=null:
+		onscreen = true
+		$PointLight2D.visible = true
+		rig.effect.emitting = true
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	onscreen = false
-	rig.effect.emitting = false
-	$PointLight2D.visible = false
+	if rig!=null:
+		onscreen = false
+		rig.effect.emitting = false
+		$PointLight2D.visible = false
 	

@@ -142,7 +142,7 @@ position = Vector2(-88.25, -34.75)
 shape = SubResource("RectangleShape2D_hqflh")
 
 [node name="help" type="Label" parent="."]
-z_index = 4
+z_index = 10
 offset_left = -56.0
 offset_top = -168.0
 offset_right = 55.0

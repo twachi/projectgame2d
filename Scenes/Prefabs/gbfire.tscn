@@ -120,7 +120,7 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="Gbfire1" type="Node2D"]
+[node name="Gbfire1" type="Node2D" groups=["fire", "saveable"]]
 z_index = -2
 scale = Vector2(0.813725, 0.813725)
 script = ExtResource("1_yxeb3")

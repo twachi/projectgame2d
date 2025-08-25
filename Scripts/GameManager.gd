@@ -32,25 +32,93 @@ var drop_items : Array[PackedScene] =[]
 var player_scene = null
 
 var current_level: String = ""  # ค่าเริ่มต้น (ด่านแรก)
-var save_path := "user://save_game.save"
+var save_path := "user://game.save"
+var save_player_position = Vector2.ZERO
+var death_log: Dictionary = {}
 
+func restart_game():
+	player_level = 1
+	player_xp = 0
+	player_levelxp = 100
+	player_atk  = 10
+	player_def	= 1
+	player_hp = 100
+	player_maxhp = 100
+	player_sword = 0
+	player_wing = 0
+	potion_heal = 0
+	score = 0
+	masks = [0,1,1,1]
+	water = 0
+	death_log = {}
+	smoke_level = 0
+	
 func save_game():
 	current_level = get_tree().current_scene.scene_file_path
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	if file:
-		file.store_var(current_level)   # เก็บ path ของ scene ที่เล่นอยู่
+		var pos = Vector2(player_scene.position)
+		var payload: Dictionary = {
+			"current_level" : current_level,
+			"player" : [pos.x, pos.y],
+			"deadlog": death_log,   
+			"music" : AudioManager.music_on,
+			"sound" : AudioManager.sound_on,
+			"player_level": player_level,
+			"player_xp": player_xp,
+			"player_levelxp": player_levelxp,
+			"player_atk": player_atk,
+			"player_def": player_def,
+			"player_hp": player_hp,
+			"player_maxhp": player_maxhp,
+			"player_sword": player_sword,
+			"player_wing": player_wing,
+			"potion_heal": potion_heal,
+			"smoke_level": smoke_level,
+			"score": score,
+			"masks": masks,
+			"water" : water
+		}
+		var json_text = JSON.stringify(payload, "  ")
+		file.store_pascal_string(json_text)
 		file.close()
 		print("Saved level:", current_level)
 
+func has_save():
+	return FileAccess.file_exists(save_path)
+
+
 func load_game():
+	restart_game()
 	if FileAccess.file_exists(save_path):
 		var file = FileAccess.open(save_path, FileAccess.READ)
-		current_level = file.get_var()
+		var text = file.get_pascal_string()
+		var data = JSON.parse_string(text)        		
 		file.close()
-		print("Loaded level:", current_level)
+		current_level = data.get("current_level", current_level)
+		player_level = data.get("player_level", player_level)
+		player_xp = data.get("player_xp", player_xp)
+		player_levelxp = data.get("player_levelxp", player_levelxp)
+		player_atk = data.get("player_atk", player_atk)
+		player_def = data.get("player_def", player_def)
+		player_hp = data.get("player_hp", player_hp)
+		player_maxhp = data.get("player_maxhp", player_maxhp)
+		player_sword = data.get("player_sword", player_sword)
+		player_wing = data.get("player_wing", player_wing)
+		potion_heal = data.get("potion_heal", potion_heal)
+		smoke_level = data.get("smoke_level", smoke_level)
+		score = data.get("score", score)
+		water = data.get("water",0)
+		death_log = data.get("deadlog",{})
+		var pos = data.get("player",Vector2.ZERO)
+		save_player_position = Vector2(pos[0],pos[1])
+		AudioManager.music_on = data.get("music",true)
+		AudioManager.sound_on = data.get("sound",true)
+		AudioManager.set_music(AudioManager.music_on)
+		AudioManager.set_sound(AudioManager.sound_on)
+		get_tree().change_scene_to_file(GameManager.current_level)
 
 func _ready() -> void:
-	GameManager.load_game()
 	drop_items.push_back( preload("res://Scenes/Prefabs/wing.tscn"))
 	drop_items.push_back( preload("res://Scenes/Prefabs/mask.tscn"))
 	drop_items.push_back( preload("res://Scenes/Prefabs/sword.tscn"))
@@ -155,3 +223,17 @@ func use_healpotion():
 		
 func add_healpotion(amount):
 	potion_heal = clamp(potion_heal+amount,0,100)
+
+func mark_dead(node:Node2D):
+	var id = str(node.get_path())
+	death_log[id] = true
+	
+func restore_deadlog():
+	if player_scene!=null and save_player_position.x != 0:
+		player_scene.position = save_player_position
+
+	var scene = get_tree().current_scene
+	for node in scene.get_tree().get_nodes_in_group("saveable"):
+		var monster_id = str(node.get_path())
+		if death_log.get(monster_id,false):
+			node.queue_free()
