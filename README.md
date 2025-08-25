@@ -39,6 +39,10 @@
 ![Player2](https://github.com/twachi/projectgame2d/blob/main/Assets/Hd/player_hd.png?raw=true)
 Player2 HD
 
+![ghost_girl](https://github.com/twachi/projectgame2d/blob/main/Assets/Hd/ghost_girl.png?raw=true) ผีสาว 
+
+![ghost_boy](https://github.com/twachi/projectgame2d/blob/main/Assets/Hd/ghost_boy.png?raw=true) ผีเด็ก
+
 ![Player](https://twachi.github.io/projectgame2d/player-part.png)
 Player1 Pixel Art
 
@@ -58,6 +62,9 @@ https://github.com/AdilDevStuff/2D-Platformer-Starter-Kit/
 
 **2D Assets** 
 www.Kenney.nl
+
+** PNG trees 
+https://meye.dk/
 
 **Music**
 [Sugarbee - Chris Haugen](https://www.youtube.com/watch?v=nTfCZy5ZKuc) 
